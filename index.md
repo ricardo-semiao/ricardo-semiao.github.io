@@ -11,6 +11,7 @@ feature_text: |
 
 
 <h4 align="center">Contacts/networks:</h4>
+
 <p align="center">
     <a href="https://github.com/ricardo-semiao"><i class="fab fa-github"></i> Github</a> |
     <a href="mailto:ricardo.semiao@outlook.com"><i class="fas fa-envelope"></i> Email</a> |
@@ -19,20 +20,17 @@ feature_text: |
     <a href="https://twitter.com/ricardo_semiao"><i class="fab fa-twitter"></i> Twitter</a>
 </p>
 
+
 <h4 align="center">My projects:</h4>
+
 <div align="center">
-  <div style="display: flex; justify-content: center">
+  <div style="display: flex; justify-content: center; column-gap: 20px;">
     <div>
       <p>Academic articles/tasks:</p>
       <ul>
         <li><a href="https://github.com/ricardo-semiao/article-covid-svardiff">article-covid-svardiff</a></li>
         <li><a href="https://github.com/ricardo-semiao/article-econometrics1">article-econometrics1</a></li>
         <li><a href="https://github.com/ricardo-semiao/task-econometrics2">task-econometrics2</a></li>
-      </ul>
-      <p>Freelance projects:</p>
-      <ul>
-        <li><a href="https://github.com/mevaldt/diversified_crypto">diversified_crypto</a></li>
-        <li><a href="https://github.com/ricardo-semiao/genero-itamaraty">genero-itamaraty</a></li>
       </ul>
     </div>
     <div>
@@ -41,6 +39,24 @@ feature_text: |
         <li><a href="https://github.com/ricardo-semiao/course-r">course-r</a></li>
         <li><a href="https://github.com/ricardo-semiao/course-python">course-python</a></li>
       </ul>
+    </div>
+    <div>
+      <p>Code packages:</p>
+      <ul>
+        <li><a href="https://github.com/ricardo-semiao/varutils">varutils</a></li>
+        <li><a href="https://github.com/ricardo-semiao/vardiff">vardiff</a></li>
+      </ul>
+    </div>
+  </div>
+    <div style="display: flex; justify-content: center; column-gap: 20px;">
+    <div>
+      <p>Freelance projects:</p>
+      <ul>
+        <li><a href="https://github.com/mevaldt/diversified_crypto">diversified_crypto</a></li>
+        <li><a href="https://github.com/ricardo-semiao/genero-itamaraty">genero-itamaraty</a></li>
+      </ul>
+    </div>
+    <div>
       <p>Challenges and miscellaneous:</p>
       <ul>
         <li><a href="https://github.com/ricardo-semiao/challenge-constdev">challenge-constdev</a></li>
@@ -49,11 +65,6 @@ feature_text: |
       </ul>
     </div>
     <div>
-      <p>Code packages:</p>
-      <ul>
-        <li><a href="https://github.com/ricardo-semiao/varutils">varutils</a></li>
-        <li><a href="https://github.com/ricardo-semiao/vardiff">vardiff</a></li>
-      </ul>
       <p>Personal:</p>
       <ul>
         <li><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/">personal website</a></li>
