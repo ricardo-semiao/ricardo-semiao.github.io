@@ -1,4 +1,4 @@
-# # Curriculum Vitae
+# Curriculum Vitae
 
 Welcome! This is the repository for my personal homepage.
 

@@ -36,6 +36,8 @@ paginate_path: blog/page:num
 navigation_header:
 - title: Home
   url: /
+- title: CV
+  url: /ricardo-semiao-cv/
 #- title: About
 #  url: /about/
 #- title: Blog
