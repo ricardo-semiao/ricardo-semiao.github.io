@@ -5,6 +5,11 @@ feature_text: |
   ## Ricardo Semião e Castro
 ---
 
+<style>
+  h4 {
+      margin-bottom: 20px; /* Adjust as needed */
+  }
+</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 <p align="center">I'm a master's student in economics at FGV-EESP, with wide interests in statistics, data science, and programming.</p>
@@ -13,11 +18,11 @@ feature_text: |
 <section>
   <h4 align="center">Contacts/networks:</h4>
   <p align="center">
-      <a href="https://github.com/ricardo-semiao"><i class="fab fa-github"></i> Github</a> |
-      <a href="mailto:ricardo.semiao@outlook.com"><i class="fas fa-envelope"></i> Email</a> |
-      <a href="https://linkedin.com/in/ricardo-semiao"><i class="fab fa-linkedin"></i> Linkedin</a> |
-      <a href="https://stackoverflow.com/users/13048728"><i class="fab fa-stack-overflow"></i> Stack Overflow</a> |
-      <a href="https://twitter.com/ricardo_semiao"><i class="fab fa-twitter"></i> Twitter</a>
+    <a href="https://github.com/ricardo-semiao"><i class="fab fa-github"></i> Github</a> |
+    <a href="mailto:ricardo.semiao@outlook.com"><i class="fas fa-envelope"></i> Email</a> |
+    <a href="https://linkedin.com/in/ricardo-semiao"><i class="fab fa-linkedin"></i> Linkedin</a> |
+    <a href="https://stackoverflow.com/users/13048728"><i class="fab fa-stack-overflow"></i> Stack Overflow</a> |
+    <a href="https://twitter.com/ricardo_semiao"><i class="fab fa-twitter"></i> Twitter</a>
   </p>
 </section>
 
