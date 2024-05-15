@@ -1,5 +1,5 @@
-# # Curriculum Vitae
+# Curriculum Vitae
 
 Welcome! This is the repository for my personal homepage.
 
-The page is built with GitHub Pages/Jekyll, using the [Alembic theme](https://alembic.darn.es/).
+This project was also a challenge, a first project in web development, so i tried to use the most out of bare html and css.
