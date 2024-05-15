@@ -21,12 +21,12 @@ plugins:
 - jekyll-remote-theme
 
 # Site settings
-url: 'https://ricardo-semiao.github.io/'
+url: 'https://mydomain.com'
 baseurl: ''
-title: 'Ricardo Semião's Homepage'
-#description: 'This is my new website'
+title: 'My website'
+description: 'This is my new website'
 permalink: pretty
-logo: "https://i.imgur.com/mU5uS5t.png"
+logo: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c?s=52"
 
 # Pagination
 paginate: 5
@@ -36,37 +36,37 @@ paginate_path: blog/page:num
 navigation_header:
 - title: Home
   url: /
-#- title: About
-#  url: /about/
-#- title: Blog
-#  url: /blog/
+- title: About
+  url: /about/
+- title: Blog
+  url: /blog/
 
 # Footer nav
-#navigation_footer:
-#- title: Back to top
-#  url: "#top"
+navigation_footer:
+- title: Back to top
+  url: "#top"
 
 # Collections
-#collections:
-#  posts:
-#    title: Posts
-#    output: true
-#    description: "My thoughts and ideas"
-#    feature_text: |
-#      Welcome to my blog
-#    feature_image: "https://picsum.photos/2560/600?image=866"
-#
-## Collection settings
-#defaults:
-#  -
-#    scope:
-#      path: ""
-#      type: "posts"
-#    values:
-#      layout: post # Set the default layout for posts
-#  -
-#    scope:
-#      path: ""
-#      type: "pages"
-#    values:
-#      layout: page # Set the default layout for pages
+collections:
+  posts:
+    title: Posts
+    output: true
+    description: "My thoughts and ideas"
+    feature_text: |
+      Welcome to my blog
+    feature_image: "https://picsum.photos/2560/600?image=866"
+
+# Collection settings
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post # Set the default layout for posts
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page # Set the default layout for pages
