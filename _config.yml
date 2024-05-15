@@ -23,10 +23,10 @@ plugins:
 # Site settings
 url: 'https://mydomain.com'
 baseurl: ''
-title: 'Ricardo Semião'
-description: 'Ricardo Semião's homepage'
+title: 'My website'
+description: 'This is my new website'
 permalink: pretty
-logo: "https://i.imgur.com/mU5uS5t.png"
+logo: "https://i.imgur.com/mU5uS5t"
 
 # Pagination
 paginate: 5
