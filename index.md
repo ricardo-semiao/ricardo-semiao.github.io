@@ -10,21 +10,21 @@ feature_text: |
 <p align="center">I'm a master's student in economics at FGV-EESP, with wide interests in statistics, data science, and programming.</p>
 
 
-<h4 align="center">Contacts/networks:</h4>
+<section>
+  <h4 align="center">Contacts/networks:</h4>
+  <p align="center">
+      <a href="https://github.com/ricardo-semiao"><i class="fab fa-github"></i> Github</a> |
+      <a href="mailto:ricardo.semiao@outlook.com"><i class="fas fa-envelope"></i> Email</a> |
+      <a href="https://linkedin.com/in/ricardo-semiao"><i class="fab fa-linkedin"></i> Linkedin</a> |
+      <a href="https://stackoverflow.com/users/13048728"><i class="fab fa-stack-overflow"></i> Stack Overflow</a> |
+      <a href="https://twitter.com/ricardo_semiao"><i class="fab fa-twitter"></i> Twitter</a>
+  </p>
+</section>
 
-<p align="center">
-    <a href="https://github.com/ricardo-semiao"><i class="fab fa-github"></i> Github</a> |
-    <a href="mailto:ricardo.semiao@outlook.com"><i class="fas fa-envelope"></i> Email</a> |
-    <a href="https://linkedin.com/in/ricardo-semiao"><i class="fab fa-linkedin"></i> Linkedin</a> |
-    <a href="https://stackoverflow.com/users/13048728"><i class="fab fa-stack-overflow"></i> Stack Overflow</a> |
-    <a href="https://twitter.com/ricardo_semiao"><i class="fab fa-twitter"></i> Twitter</a>
-</p>
 
-
-<h4 align="center">My projects:</h4>
-
-<div align="center">
-  <div style="display: flex; justify-content: center; column-gap: 20px;">
+<section>
+  <h4 align="center">My projects:</h4>
+  <div style="display: flex; justify-content: center; column-gap: 50px;">
     <div>
       <p>Academic articles/tasks:</p>
       <ul>
@@ -48,7 +48,7 @@ feature_text: |
       </ul>
     </div>
   </div>
-    <div style="display: flex; justify-content: center; column-gap: 20px;">
+    <div style="display: flex; justify-content: center; column-gap: 50px;">
     <div>
       <p>Freelance projects:</p>
       <ul>
@@ -73,4 +73,4 @@ feature_text: |
       </ul>
     </div>
   </div>
-</div>
+</section>
