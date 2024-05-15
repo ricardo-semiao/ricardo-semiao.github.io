@@ -40,13 +40,9 @@ section {
 }
 .footer {
     background-color: #09392b;
-    padding: 10px 0 10px 0;
+    padding: 15px 0 10px 0;
 }
-.footer div {
-    width: 65%;
-    margin: auto;
-    text-align: right;
-}
+
 
 /* Intro */
 .intro .multicolumn {
