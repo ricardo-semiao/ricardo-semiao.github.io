@@ -7,7 +7,7 @@ feature_text: |
 
 <style>
   h4 {
-      margin-bottom: 20px; /* Adjust as needed */
+      margin-bottom: 40px;
   }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -16,7 +16,7 @@ feature_text: |
 
 
 <section>
-  <h4 align="center">Contacts/networks:</h4>
+  <h4 align="center">Socials:</h4>
   <p align="center">
     <a href="https://github.com/ricardo-semiao"><i class="fab fa-github"></i> Github</a> |
     <a href="mailto:ricardo.semiao@outlook.com"><i class="fas fa-envelope"></i> Email</a> |
