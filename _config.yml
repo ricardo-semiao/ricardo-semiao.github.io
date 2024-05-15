@@ -23,8 +23,8 @@ plugins:
 # Site settings
 url: 'https://ricardo-semiao.github.io/'
 baseurl: ''
-title: 'Ricardo Semião'
-description: "Ricardo Semião's Homepage"
+title: 'Ricardo Semião's Homepage'
+#description: 'This is my new website'
 permalink: pretty
 logo: "https://i.imgur.com/mU5uS5t.png"
 
@@ -41,32 +41,32 @@ navigation_header:
 #- title: Blog
 #  url: /blog/
 
- Footer nav
-navigation_footer:
-- title: Back to top
-  url: "#top"
+# Footer nav
+#navigation_footer:
+#- title: Back to top
+#  url: "#top"
 
- Collections
-collections:
-  posts:
-    title: Posts
-    output: true
-    description: "My thoughts and ideas"
-    feature_text: |
-      Welcome to my blog
-    feature_image: "https://picsum.photos/2560/600?image=866"
-
-# Collection settings
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: post # Set the default layout for posts
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: page # Set the default layout for pages
+# Collections
+#collections:
+#  posts:
+#    title: Posts
+#    output: true
+#    description: "My thoughts and ideas"
+#    feature_text: |
+#      Welcome to my blog
+#    feature_image: "https://picsum.photos/2560/600?image=866"
+#
+## Collection settings
+#defaults:
+#  -
+#    scope:
+#      path: ""
+#      type: "posts"
+#    values:
+#      layout: post # Set the default layout for posts
+#  -
+#    scope:
+#      path: ""
+#      type: "pages"
+#    values:
+#      layout: page # Set the default layout for pages
