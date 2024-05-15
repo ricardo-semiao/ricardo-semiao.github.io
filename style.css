@@ -1,0 +1,127 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Navbar */
+div.navbar {
+    width: 65%;
+    margin: auto;
+}
+nav li {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: larger;
+}
+.current-page {
+    font-weight: bold;
+}
+nav ul {
+    padding: 0;
+}
+
+/* Header */
+.titlecard {
+    background-color: hsl(26, 98%, 45%);
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sections */
+main {
+    width: 65%;
+    margin: auto
+}
+section {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0 25px 0;
+}
+.footer {
+    background-color: #09392b;
+    padding: 10px 0 10px 0;
+}
+.footer div {
+    width: 65%;
+    margin: auto;
+    text-align: right;
+}
+
+/* Intro */
+.intro .multicolumn {
+    column-count: 2;
+    align-items: center;
+}
+
+/* Socials */
+.socials ul {
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px 0 10px 0;
+    width: 80%;
+    margin: auto;
+}
+.socials li {
+    display: inline-block;
+    margin-right: 10px;
+}
+.socials li::after {
+    content: "|";
+    margin: 0 0 0 12px;
+}
+.socials li:last-child::after {
+    content: "";
+    margin: 0;
+}
+
+/* Projects */
+.projects .multicolumn {
+    column-count: 3;
+    padding: 0 60px 0 60px;
+    align-items: flex-start;
+}
+.projects .multicolumn div {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 15px 20px 15px 12px;
+}
+.projects .multicolumn div p {
+    margin: 0 0 5px 0;
+}
+.projects .multicolumn div ul {
+    margin: 0;
+}
+
+/* Basic */
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #1B9E77;
+}
+a:visited {
+    color: #1B9E77;
+}
+nav a {
+    text-decoration: none;
+}
+.socials a {
+    text-decoration: none;
+}
+
+/* Multicolumn */
+.multicolumn {
+    display: flex;
+    justify-content: space-between;
+}
+.multicolumn div {
+    margin: 25px;
+}

@@ -1,41 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ricardo Semião</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        document.getElementById('lastUpdated').onclick = function() {
+            alert('This page was last updated on ' + document.lastModified);
+            return false; // Prevent the default action
+        };
+    </script>
+    <script>
+        var navLinks = document.getElementsByClassName('nav-link');
+        for (var i = 0; i < navLinks.length; i++) {
+            if (navLinks[i].href == document.URL) {
+                navLinks[i].classList.add('current-page');
+            }
+        }
+    </script>
 </head>
+
+
 <body>
+
 <header>
-    <nav>
-        <ul>
-            <li><a href="https://ricardo-semiao.github.io/">Home</a></li>
-            <li><a href="https://ricardo-semiao.github.io/ricardo-semiao-cv/">CV</a></li>
-        </ul>
-    </nav>
-    <div>
-        <h1 align="center">Ricardo Semião e Castro</h1>
+
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="https://ricardo-semiao.github.io/">Home</a></li>
+                <li><a href="https://ricardo-semiao.github.io/ricardo-semiao-cv/">CV</a></li>
+            </ul>
+        </nav>
     </div>
+    <div class="titlecard">
+        <h1>Ricardo Semião e Castro</h1>
+    </div>
+
 </header>
+
 <main>
-    <section class="intro"></section>
-        <p align="center">I'm a master's student in economics at FGV-EESP, with wide interests in statistics, data science, and programming.</p>
+
+    <section class="intro">
+        <div class="multicolumn">
+            <div>
+                <p>Welcome! I'm a master's student in economics at FGV-EESP, with wide interests in statistics, data science, and programming. Check some of my projects below!</p>
+            </div>
+            <div>
+                <img src="assets/profile.jpg" alt="Profile Picture" width="200px">
+            </div>
+        </div>
     </section>
-    <section class="contacts">
-    <h2 align="center">Socials:</h2>
-    <p align="center">
-      <a href="https://github.com/ricardo-semiao"><i class="fab fa-github"></i> Github</a> |
-      <a href="mailto:ricardo.semiao@outlook.com"><i class="fas fa-envelope"></i> Email</a> |
-      <a href="https://linkedin.com/in/ricardo-semiao"><i class="fab fa-linkedin"></i> Linkedin</a> |
-      <a href="https://stackoverflow.com/users/13048728"><i class="fab fa-stack-overflow"></i> Stack Overflow</a> |
-      <a href="https://twitter.com/ricardo_semiao"><i class="fab fa-twitter"></i> Twitter</a>
-    </p>
+
+    <section class="socials">
+        <h2>Socials</h2>
+        <ul>
+            <li><a href="https://github.com/ricardo-semiao"><i class="fab fa-github"></i> Github</a></li>
+            <li><a href="mailto:ricardo.semiao@outlook.com"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="https://linkedin.com/in/ricardo-semiao"><i class="fab fa-linkedin"></i> Linkedin</a></li>
+            <li><a href="https://stackoverflow.com/users/13048728"><i class="fab fa-stack-overflow"></i> Stack Overflow</a></li>
+            <li><a href="https://twitter.com/ricardo_semiao"><i class="fab fa-twitter"></i> Twitter</a></li>
+        </ul>
     </section>
-    <section>
-        <h2 align="center">My projects:</h2>
-        <div style="display: flex; justify-content: center; column-gap: 50px;">
+
+    <section class="projects">
+        <h2>My projects</h2>
+        <div class="multicolumn">
             <div>
             <p>Academic articles/tasks:</p>
             <ul>
@@ -59,7 +93,7 @@
             </ul>
             </div>
         </div>
-            <div style="display: flex; justify-content: center; column-gap: 50px;">
+            <div class="multicolumn">
             <div>
             <p>Freelance projects:</p>
             <ul>
@@ -84,6 +118,18 @@
             </div>
         </div>
         </section>
+
 </main>
+
+<footer>
+    <div class="footer">
+        <div>
+            <a href="#" id="lastUpdated"><i class="fas fa-info-circle"></i></a>
+        </div>
+    </div>
+</footer>
+
 </body>
+
+
 </html>
