@@ -41,7 +41,8 @@ h2 {
 /* Projects */
 .projects .multicolumn {
     column-count: 3;
-    padding: 0 60px 0 60px;
+    padding: 0 5% 0 5%;
+    flex-wrap: wrap;
     align-items: flex-start;
 }
 .projects .multicolumn div {
