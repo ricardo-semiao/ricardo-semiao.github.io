@@ -2,9 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+/* Content width */
+:root {
+    --main-width: 65%;
+}
+@media (max-width: 720px) {
+    :root {
+        --main-width: 95%;
+    }
+}
+
 /* Navbar */
 div.navbar {
-    width: 65%;
+    width: var(--main-width);
     margin: auto;
 }
 nav li {
@@ -26,7 +36,7 @@ nav ul {
     padding: 15px 0 10px 0;
 }
 footer p {
-    width: 65%;
+    width: var(--main-width);
     margin: auto;
     text-align: right;
 }
@@ -43,7 +53,7 @@ footer a {
     justify-content: center;
 }
 main {
-    width: 65%;
+    width: var(--main-width);
     margin: auto
 }
 section {
