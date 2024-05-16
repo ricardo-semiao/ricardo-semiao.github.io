@@ -20,6 +20,20 @@ nav ul {
     padding: 0;
 }
 
+/* Footer */
+.footer {
+    background-color: #09392b;
+    padding: 15px 0 10px 0;
+}
+footer p {
+    width: 65%;
+    margin: auto;
+    text-align: right;
+}
+footer a {
+    text-decoration: none;
+}
+
 /* Sections */
 .titlecard {
     background-color: hsl(26, 98%, 45%);
@@ -32,9 +46,9 @@ main {
     width: 65%;
     margin: auto
 }
-.footer {
-    background-color: #09392b;
-    padding: 15px 0 10px 0;
+section {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0 25px 0;
 }
 
 /* Multicolumn */
