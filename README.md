@@ -1,5 +1,5 @@
-# Curriculum Vitae
+# Ricardo Semião's Homepage
 
 Welcome! This is the repository for my personal homepage.
 
-This project was also a challenge, a first project in web development, so i tried to use the most out of bare html and css.
+This project was a first true contact with web development, and I challenged myself to do it in bare html/css, without using templates. I hope you like it!
