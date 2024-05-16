@@ -42,9 +42,6 @@ main {
     display: flex;
     justify-content: space-between;
 }
-.multicolumn div {
-    margin: 25px;
-}
 
 /* Basic */
 body {

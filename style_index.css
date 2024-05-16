@@ -9,6 +9,9 @@ section {
     column-count: 2;
     align-items: center;
 }
+.multicolumn div {
+    margin: 25px;
+}
 
 /* Socials */
 .socials ul {
