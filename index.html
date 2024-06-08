@@ -6,35 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ricardo Semião</title>
-    <link rel="stylesheet" href="style_site.css">
-    <link rel="stylesheet" href="style_index.css">
+    <link rel="stylesheet" href="site_structure.css">
+    <link rel="stylesheet" href="site_style.css">
+    <link rel="stylesheet" href="home_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 
 <body>
 
-<header>
+<div id="site-header-container"></div>
 
-    <div class="navbar">
-        <nav>
-            <ul>
-                <li><a class="nav-link" href="https://ricardo-semiao.github.io/">Home</a></li>
-                <li><a class="nav-link" href="cv/">CV</a></li>
-                <li><a class="nav-link" href="rfcd/">RFCD</a></li>
-                <li><a class="nav-link" href="varutils/">Varutils</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="titlecard">
-        <h1>Ricardo Semião e Castro</h1>
-    </div>
+<div id="titlecard">
+    <h1>Ricardo Semião e Castro</h1>
+</div>
 
-</header>
+<main id="home">
 
-<main>
-
-    <section class="intro">
+    <section class="home-section" id="intro">
         <div class="multicolumn">
             <div>
                 <h2>Welcome!</h2>
@@ -47,7 +36,7 @@
         </div>
     </section>
 
-    <section class="socials">
+    <section class="home-section" id="socials">
         <h2 class="homepage-section">Socials</h2>
         <ul>
             <li><a href="https://github.com/ricardo-semiao"><i class="fab fa-github"></i> Github</a></li>
@@ -58,7 +47,7 @@
         </ul>
     </section>
 
-    <section class="projects">
+    <section class="home-section" id="projects">
         <h2 class="homepage-section">My projects</h2>
         <div class="multicolumn">
             <div>
@@ -110,13 +99,9 @@
 
 </main>
 
-<footer>
-    <div class="footer">
-        <p><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><i class="fab fa-github"></i> See source-code</a></p>
-    </div>
-</footer>
+<div id="site-footer-container"></div>
 
-<script src="scripts.js"></script>
+<script src="site_structure.js"></script>
 
 </body>
 

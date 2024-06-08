@@ -1,0 +1,66 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Content width */
+:root {
+    --main-width: 65%;
+    --orange: hsl(26, 98%, 45%);
+    --green: #1B9E77;
+    --darkgreen: #09392b;
+    --gray: #f2f2f2;
+    --darkgray: #ccc;
+}
+@media (max-width: 720px) {
+    :root {
+        --main-width: 95%;
+    }
+}
+
+/* Basic */
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+a {
+    color: var(--green);
+}
+a:visited {
+    color: var(--green);
+}
+
+/* Titlecard, main, and sections */
+#titlecard {
+    background-color: var(--orange);
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main#home, main#cv {
+    width: var(--main-width);
+    margin: auto;
+    padding: 0;
+}
+
+#home, #cv section {
+    border-bottom: 1px solid var(--darkgray);
+    padding: 15px 0 25px 0;
+}
+
+/* Multicolumn */
+#home .multicolumn, #cv .multicolumn {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#socials a {
+    text-decoration: none;
+}
