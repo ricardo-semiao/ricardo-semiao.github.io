@@ -1,46 +1,42 @@
 /* Sections */
-.home-section {
-    border-bottom: 1px solid var(--darkgray);
-    padding: 32px 0 32px 0;
-}
-.home-section h2 {
+#home section h2 {
     text-align: center;
-    margin: 0 0 16px 0;
 }
 .multicolumn div {
-    margin: 5%;
+    margin: 0 16px 16px 16px;
 }
 
 /* Intro */
-#intro .multicolumn {
-    align-items: center;
-}
-#intro .multicolumn div {
+#intro-flextext {
+    margin-right: 0 16px 0 0;
     max-width: 500px;
 }
-#intro .fleximg {
-    width: 100%;
+#intro-fleximg {
     min-width: 50px;
     max-width: 200px;
     height: auto;
+    margin: 0;
+}
+#intro .multicolumn div p {
+    margin: 0 0 8px 0;
 }
 
 /* Socials */
 #socials ul {
     text-align: center;
     background-color: var(--gray);
-    border-radius: 5px;
-    padding: 10px 0 10px 0;
+    border-radius: 4px;
+    padding: 16px;
     width: 80%;
     margin: auto;
 }
 #socials li {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 14px;
 }
 #socials li::after {
     content: "|";
-    margin: 0 0 0 12px;
+    margin: 0 0 0 16px;
 }
 #socials li:last-child::after {
     content: "";
@@ -49,16 +45,16 @@
 
 /* Projects */
 #projects .multicolumn {
-    padding: 0; /*0 5% 0 5%;*/
+    padding: 0;
     align-items: flex-start;
 }
 #projects .multicolumn div {
     background-color: var(--gray);
-    border-radius: 5px;
-    padding: 15px 20px 15px 12px;
+    border-radius: 4px;
+    padding: 16px 20px 16px 16px;
 }
 #projects .multicolumn div p {
-    margin: 0 0 5px 0;
+    margin: 0 0 4px 0;
 }
 #projects .multicolumn div ul {
     margin: 0;

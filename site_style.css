@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Content width */
+/* Variables */
 :root {
     --main-width: 65%;
     --orange: hsl(26, 98%, 45%);
@@ -34,10 +34,10 @@ a:visited {
     color: var(--green);
 }
 
-/* Titlecard, main, and sections */
+/* Home and CV */
 #titlecard {
     background-color: var(--orange);
-    height: 150px;
+    height: 124px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,12 +49,15 @@ main#home, main#cv {
     padding: 0;
 }
 
-#home, #cv section {
+#home section, #cv section {
     border-bottom: 1px solid var(--darkgray);
-    padding: 15px 0 25px 0;
+    padding: 32px 0 32px 0;
+    margin: 0 0 16px 0;
+}
+#home section:last-of-type, #cv section:last-of-type {
+    border-bottom: none;
 }
 
-/* Multicolumn */
 #home .multicolumn, #cv .multicolumn {
     display: flex;
     justify-content: space-between;
