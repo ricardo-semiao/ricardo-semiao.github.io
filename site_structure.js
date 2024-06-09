@@ -13,7 +13,9 @@ fetch('site_structure.html')
 
 var navLinks = document.getElementsByClassName('nav-link');
 for (var i = 0; i < navLinks.length; i++) {
-    if (navLinks[i].href == document.URL) {
+    var linkUrl = new URL(navLinks[i].href);
+    var currentUrl = new URL(document.URL);
+    if (linkUrl.pathname == currentUrl.pathname) {
         navLinks[i].classList.add('current-page');
     }
 }
