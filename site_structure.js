@@ -11,9 +11,11 @@ fetch('site_structure.html')
         document.querySelector('#site-footer-container').innerHTML = footerHTML;
     });
 
-var navLinks = document.getElementsByClassName('site-nav-link');
-for (var i = 0; i < navLinks.length; i++) {
-    if (navLinks[i].href == document.URL) {
-        navLinks[i].classList.add('current-page');
+document.addEventListener('DOMContentLoaded', function() {
+    var navLinks = document.getElementsByClassName('site-nav-link');
+    for (var i = 0; i < navLinks.length; i++) {
+        if (navLinks[i].href == document.URL) {
+            navLinks[i].classList.add('current-page');
+        }
     }
-}
+});
