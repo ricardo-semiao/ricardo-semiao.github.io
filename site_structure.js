@@ -1,4 +1,4 @@
-fetch('https://raw.githubusercontent.com/ricardo-semiao/ricardo-semiao.github.io/main/site_structure.html')
+fetch('site_structure.html')
     .then(response => response.text())
     .then(data => {
         const parser = new DOMParser();
