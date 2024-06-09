@@ -15,6 +15,8 @@ var navLinks = document.getElementsByClassName('nav-link');
 for (var i = 0; i < navLinks.length; i++) {
     var linkUrl = new URL(navLinks[i].href);
     var currentUrl = new URL(document.URL);
+    console.log('Link URL:', linkUrl.pathname);
+    console.log('Current URL:', currentUrl.pathname);
     if (linkUrl.pathname == currentUrl.pathname) {
         navLinks[i].classList.add('current-page');
     }
