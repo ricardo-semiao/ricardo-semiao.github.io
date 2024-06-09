@@ -17,6 +17,7 @@
 /* Basic */
 body {
     font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
 }
 h1 {
     text-align: center;

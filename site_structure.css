@@ -6,11 +6,11 @@ nav a {
     text-decoration: none;
 }
 div#site-header-container {
-    margin: 8px 0 0 0;
+    margin: 16px 0 0 0;
 }
 #site-header nav {
     width: var(--main-width);
-    margin: 0 auto 8px auto;
+    margin: 0 auto 16px auto;
 }
 #site-header nav li {
     display: inline-block;
