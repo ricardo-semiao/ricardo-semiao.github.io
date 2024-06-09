@@ -7,15 +7,13 @@ fetch('site_structure.html')
         const headerHTML = doc.querySelector('#site-header').outerHTML;
         const footerHTML = doc.querySelector('#site-footer').outerHTML;
 
+        var navLinks = headerHTML.getElementsByClassName('site-nav-link');
+        for (var i = 0; i < navLinks.length; i++) {
+            if (navLinks[i].href == document.URL) {
+                navLinks[i].classList.add('current-page');
+            }
+        }
+
         document.querySelector('#site-header-container').innerHTML = headerHTML;
         document.querySelector('#site-footer-container').innerHTML = footerHTML;
     });
-
-document.addEventListener('DOMContentLoaded', function() {
-    var navLinks = document.getElementsByClassName('site-nav-link');
-    for (var i = 0; i < navLinks.length; i++) {
-        if (navLinks[i].href == document.URL) {
-            navLinks[i].classList.add('current-page');
-        }
-    }
-});
