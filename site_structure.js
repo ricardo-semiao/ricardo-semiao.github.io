@@ -11,13 +11,9 @@ fetch('site_structure.html')
         document.querySelector('#site-footer-container').innerHTML = footerHTML;
     });
 
-var navLinks = document.getElementsByClassName('nav-link');
+var navLinks = document.getElementsByClassName('site-nav-link');
 for (var i = 0; i < navLinks.length; i++) {
-    var linkUrl = new URL(navLinks[i].href);
-    var currentUrl = new URL(document.URL);
-    console.log('Link URL:', linkUrl.pathname);
-    console.log('Current URL:', currentUrl.pathname);
-    if (linkUrl.pathname == currentUrl.pathname) {
+    if (navLinks[i].href == document.URL) {
         navLinks[i].classList.add('current-page');
     }
 }
