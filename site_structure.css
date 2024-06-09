@@ -39,7 +39,12 @@ div#site-header-container {
     width: var(--main-width);
     margin: auto;
     text-align: right;
+    color: var(--darkgray);
 }
 #site-footer a {
+    color: var(--darkgray);
     text-decoration: none;
+}
+#site-footer a:hover {
+    color: var(--gray);
 }
