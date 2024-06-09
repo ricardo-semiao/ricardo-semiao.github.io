@@ -11,11 +11,8 @@
     --gray: #f2f2f2;
     --darkgray: #ccc;
 }
-@media (max-width: 720px) {
-    :root {
-        --main-width: 95%;
-    }
-}
+@media (max-width: 920px) { :root {--main-width: 80%;} }
+@media (max-width: 740px) { :root {--main-width: 95%;} }
 
 /* Basic */
 body {
@@ -62,6 +59,8 @@ main#home, main#cv {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 0;
+    align-items: flex-start;
 }
 
 #socials a {

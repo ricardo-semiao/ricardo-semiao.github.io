@@ -8,8 +8,9 @@
 
 /* Intro */
 #intro-flextext {
-    margin-right: 0 16px 0 0;
-    max-width: 500px;
+    margin: 0 16px 16px 0;
+    min-width: 350px;
+    max-width: calc(100% - 200px - 16px);
 }
 #intro-fleximg {
     min-width: 50px;
@@ -45,7 +46,6 @@
 
 /* Projects */
 #projects .multicolumn {
-    padding: 0;
     align-items: flex-start;
 }
 #projects .multicolumn div {
