@@ -4,8 +4,8 @@ fetch('site_structure.html')
         const parser = new DOMParser();
         const doc = parser.parseFromString(data, 'text/html');
 
-        const headerHTML = doc.querySelector('#site-header').outerHTML;
-        const footerHTML = doc.querySelector('#site-footer').outerHTML;
+        const headerHTML = doc.querySelector('#site-header');
+        const footerHTML = doc.querySelector('#site-footer');
 
         var navLinks = headerHTML.getElementsByClassName('site-nav-link');
         for (var i = 0; i < navLinks.length; i++) {
@@ -14,6 +14,6 @@ fetch('site_structure.html')
             }
         }
 
-        document.querySelector('#site-header-container').innerHTML = headerHTML;
-        document.querySelector('#site-footer-container').innerHTML = footerHTML;
+        document.querySelector('#site-header-container').innerHTML = headerHTML.outerHTML;
+        document.querySelector('#site-footer-container').innerHTML = footerHTML.outerHTML;
     });
