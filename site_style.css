@@ -15,6 +15,10 @@
 @media (max-width: 740px) { :root {--main-width: 95%;} }
 
 /* Basic */
+html {
+    font-size: 16px;
+    font-weight: 400;
+}
 body {
     font-family: 'Nunito Sans', sans-serif;
     margin: 0;

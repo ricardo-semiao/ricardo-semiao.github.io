@@ -7,6 +7,7 @@ nav a {
 }
 div#site-header-container {
     margin: 16px 0 0 0;
+    line-height: 1;
 }
 #site-header nav {
     width: var(--main-width);
@@ -15,7 +16,7 @@ div#site-header-container {
 #site-header nav li {
     display: inline-block;
     margin-right: 16px;
-    font-size: larger;
+    font-size: 1.3rem;
 }
 #site-header .current-page {
     font-weight: bold;
