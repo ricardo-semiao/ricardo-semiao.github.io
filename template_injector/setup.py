@@ -7,10 +7,7 @@ setup(
     author_email='ricardo.semiao@outlook.com',  # Your email or your organization's email
     packages=find_packages(),  # Automatically find and include all packages
     install_requires=[
-        sys,
-        os,
-        re,
-        bs4
-    ],
+    'beautifulsoup4>=4.9.0'
+],
     python_requires='>=3.6',  # Minimum version requirement of the Python interpreter
 )
