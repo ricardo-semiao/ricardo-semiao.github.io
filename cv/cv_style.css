@@ -1,0 +1,52 @@
+/* Education */
+#education table {
+    padding: 0 0 0 32px;
+}
+#education td {
+    padding: 0 16px 16px 0;
+}
+#education ul {
+    padding: 0 16px;
+}
+
+/* Experience */
+#experience ul {
+    padding: 0 0 0 32px;
+    margin: 0;
+}
+.job {
+    list-style-type: none; 
+    margin: 0 0 32px 0;
+}
+.job > h3 {
+    margin: 0 0 16px 0;
+}
+.job > p {
+    margin: 0 0 4px 0;
+}
+.job:last-child {
+    margin-bottom: 0;
+}
+.employer {
+    display: flex;
+    align-items: center;
+}
+.employer h4, p {
+    font-weight: normal;
+    margin: 0 64px 4px 0;
+}
+
+/* Projects */
+#projects ul {
+    list-style-position: inside;
+    margin: 0 0 16px 0;
+}
+#projects ul li p {
+    margin: 4px 0 8px 0;
+}
+
+/* Others */
+#others {
+    list-style-position: inside;
+    margin: 0 0 16px 0;
+}

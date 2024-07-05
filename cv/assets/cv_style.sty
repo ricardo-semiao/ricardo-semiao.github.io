@@ -1,0 +1,168 @@
+% ------------------------------------ %
+% 			   Overall 			       %
+% ------------------------------------ %
+
+% -------------------
+% Basic Packages
+% -------------------
+\usepackage{
+	enumitem,			% Custom Item Bullets
+	fontawesome,		% CV Title Symbols
+	mathabx,			% Sideways Black Triangles 
+	multicol,			% Use Multi-columns
+	multirow			% Use Multi-rows
+}
+
+\usepackage[dvipsnames]{xcolor}
+
+
+% -------------------
+% Fonts
+% -------------------
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+
+
+% -------------------
+% Colors
+% -------------------
+\definecolor{univColorOne}{RGB}{212,69,0} 			% Orange
+\definecolor{univColorTwo}{RGB}{62,61,60} 			% Dark Gray
+\definecolor{univColorThree}{RGB}{111,119,125}		% Light Gray
+\definecolor{univColorFour}{RGB}{173,179,184}		% Lighter Gray
+\definecolor{univColorFour}{RGB}{232,234,235}		% Lightest Gray
+
+
+
+% -------------------
+% Special Enumerates & 'Dots'
+% -------------------
+
+% Enumerates
+\newlist{enumDot}{enumerate}{3}
+\setlist[enumDot]{label=$\bullet$,before=\raggedright}
+
+\newlist{enumSDot}{enumerate}{3}
+\setlist[enumSDot]{label=\raisebox{0.35ex}{{\tiny$\bullet$}},before=\raggedright}
+
+\newlist{enumDiamond}{enumerate}{3}
+\setlist[enumDiamond]{label=$\diamond$,before=\raggedright}
+
+\newlist{enumTriangle}{enumerate}{3}
+\setlist[enumTriangle]{label=\raisebox{-0.35ex}{{\huge$\blacktriangleright$}},before=\raggedright}
+
+\newlist{enumSTriangle}{enumerate}{3}
+\setlist[enumSTriangle]{label={$\blacktriangleright$},before=\raggedright}
+
+
+% Dots
+\newcommand{\normalDot}{\noindent$\bullet$ }
+\newcommand{\smallDot}{\noindent\raisebox{0.35ex}{{\tiny$\bullet$ }}}
+\newcommand{\normalDiamong}{\noindent$\diamond$ }
+\newcommand{\Triangle}{\noindent\raisebox{-0.35ex}{{\huge$\blacktriangleright$ }}}
+\newcommand{\smallTriangle}{\noindent{$\blacktriangleright$ }}
+
+
+
+% -------------------
+% Other Commands
+% -------------------
+\newcommand{\twomedskip}{\medskip\medskip}
+
+
+
+% -------------------
+% Spacing Definitions
+% -------------------
+\newlength{\titlesep}
+\setlength{\titlesep}{0.3cm}
+\newlength{\infosep}
+\setlength{\infosep}{0.1cm}
+\newcommand{\sep}{\hspace{\infosep}}
+
+\renewcommand{\hrulefill}{%
+  \leavevmode\leaders\hrule height 0.2ex\hfill\kern\z@}
+
+
+% -------------------
+% Colors
+% -------------------
+\newcommand{\ruleColor}{black}
+\newcommand{\sectionColor}{black}
+\newcommand{\subsectionColor}{black}
+
+
+% -------------------
+% Title
+% -------------------
+\newcommand{\name}[2]{%
+    	\noindent\begin{minipage}[c]{\textwidth} \centering
+	{ \bfseries\huge\textcolor{#2}{#1}}
+    	\end{minipage} \par\vspace{\titlesep}
+}
+
+
+% -------------------
+% Section/Entry Definitions
+% -------------------
+
+% Section
+\newcommand{\cvsection}[1]{%
+	{%
+	\vspace{0.8cm}
+\raggedright\strut{\Large\bfseries\textcolor{\sectionColor}{#1}}\par\raisebox{2ex}{\textcolor{\ruleColor}{\rule{\textwidth}{0.2ex}}}\par\vspace{-3.8ex}\textcolor{\ruleColor}{\rule{0.25\textwidth}{1.1ex}}\par\nobreak\addvspace{1ex}%
+\vspace{0.2cm}
+	}
+}
+% Subsection
+\newcommand{\cvsubsection}[1]{%
+	{%
+\raggedright\strut{\large\bfseries\textcolor{\subsectionColor}{#1}}\hspace{2pt}\textcolor{\ruleColor}{\hrulefill}\hspace{0.5\textwidth}\phantom{x}\par\nobreak\addvspace{0.3cm}%
+	}
+}
+
+% Line Entry
+\newcommand{\lineentry}[2]{%
+\noindent\begin{minipage}[t]{0.72\textwidth}
+{#1}
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.18\textwidth}
+\begin{flushright} {\itshape #2 } \end{flushright}
+\end{minipage}
+}
+
+% Triangle Entry
+\newcommand{\triangleEntry}[1]{\Triangle{\bfseries\large #1} \par}
+
+
+% Education Entries
+\newcommand{\ed}[1]{%
+\begin{minipage}[t]{0.94\textwidth}
+{#1}
+\end{minipage}
+}
+
+% Research Entries
+\newcommand{\research}[2]{%
+\begin{minipage}[t]{0.94\textwidth}
+{\bfseries #1} \par
+{#2}
+\end{minipage}
+}
+
+% Teaching Entries
+\newcommand{\teachingEntry}[2]{\noindent\hspace{0.3cm}\smallDot {#1}, \enskip{\itshape #2} \par}
+
+% Talk Entries
+\newcommand{\talk}[3]{%
+\noindent\begin{minipage}[t]{0.78\textwidth}
+{\itshape #1} \par
+{\footnotesize #3}
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.16\textwidth}
+\begin{flushright} {\itshape #2 } \end{flushright}
+\end{minipage}
+}
+
+% Service Entry 
+\newcommand{\serviceEntry}[2]{\noindent\hspace{0.3cm}\smallDot {#1}, \enskip{\itshape #2} \par}
