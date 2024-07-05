@@ -5,13 +5,9 @@ nav li {
 nav a {
     text-decoration: none;
 }
-div#site-header-container {
-    margin: 16px 0 0 0;
-    line-height: 1;
-}
 #site-header nav {
     width: var(--main-width);
-    margin: 0 auto 16px auto;
+    margin: 16px auto 16px auto;
 }
 #site-header nav li {
     display: inline-block;

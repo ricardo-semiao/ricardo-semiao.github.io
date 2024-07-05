@@ -11,7 +11,7 @@ def components_html_to_dict(components_path):
     components_soup = BeautifulSoup(components_raw, 'html.parser')
     divs = components_soup.find_all('div', attrs={'data-component-name': True})
 
-    return {div['data-component-name']: '\n'.join(str(child) for child in div.children) for div in divs}
+    return {div['data-component-name']: ''.join(str(child) for child in div.children) for div in divs}
 
 
 def inject_components(template, components):
