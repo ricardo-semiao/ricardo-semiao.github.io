@@ -1,4 +1,4 @@
-fetch('site_structure.html')
+fetch('/site_structure.html')
     .then(response => response.text())
     .then(data => {
         const parser = new DOMParser();
