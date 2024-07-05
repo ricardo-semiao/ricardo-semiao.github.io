@@ -1,4 +1,4 @@
-fetch('/site_structure.html')
+fetch('/site_assets/site_structure.html')
     .then(response => response.text())
     .then(data => {
         const parser = new DOMParser();
@@ -9,7 +9,7 @@ fetch('/site_structure.html')
 
         var navLinks = headerHTML.getElementsByClassName('site-nav-link');
         for (var i = 0; i < navLinks.length; i++) {
-            if (navLinks[i].href == document.URL) {
+            if (new URL(navLinks[i].href).pathname == new URL(document.URL).pathname) {
                 navLinks[i].classList.add('current-page');
             }
         }
