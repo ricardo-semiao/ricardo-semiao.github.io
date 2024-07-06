@@ -40,7 +40,7 @@ main#home, main#cv {
 
 #home section, #cv section {
     border-bottom: 1px solid var(--darkgray);
-    padding: 16px 0 16px 0;
+    padding: 32px 0 32px 0;
     margin: 0;
 }
 

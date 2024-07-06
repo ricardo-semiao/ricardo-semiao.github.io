@@ -47,7 +47,7 @@
 #socials ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 8px;
     background-color: var(--gray);
     border-radius: 4px;
