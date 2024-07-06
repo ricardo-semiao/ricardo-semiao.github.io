@@ -27,7 +27,7 @@ def build(template_path, components_path, output_path):
         template = file.read()
 
     output = inject_components(template, components)
-    output_pretty = indent(output, indentation = '    ', indent_text = True)
+    output_pretty = indent(output, indentation = '    ', newline = '\n')
 
     with open(output_path, 'w', encoding='utf-8') as file:
         file.write(output_pretty)

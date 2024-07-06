@@ -58,11 +58,9 @@
     margin-right: 14px;
 }
 #socials li::after {
-    content: "|";
     margin: 0 0 0 16px;
 }
 #socials li:last-child::after {
-    content: "";
     margin: 0;
 }
 

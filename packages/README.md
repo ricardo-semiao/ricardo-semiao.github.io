@@ -1,13 +1,3 @@
-Metadata-Version: 2.1
-Name: template_injector
-Version: 0.1.0
-Summary: a simple HTML template engine built in Python.
-Author: Ricardo Semião e Castro
-Author-email: ricardo.semiao@outlook.com
-Requires-Python: >=3.6
-Requires-Dist: beautifulsoup4>=4.9.0
-Requires-Dist: yattag>=1.14.0
-
 # template_injector
 
 This is a simple HTML template engine built in Python.
