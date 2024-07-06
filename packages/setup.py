@@ -7,7 +7,8 @@ setup(
     author_email='ricardo.semiao@outlook.com',
     packages=find_packages(),
     install_requires=[
-        'beautifulsoup4>=4.9.0'
+        'beautifulsoup4>=4.9.0',
+        'yattag>=1.14.0'
     ],
     python_requires='>=3.6',
 )
