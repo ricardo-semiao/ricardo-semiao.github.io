@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 
 def components_html_to_dict(components_path):
-    with open(components_path, 'r') as file:
+    with open(components_path, 'r', encoding='utf-8') as file:
         components_raw = file.read()
 
     components_soup = BeautifulSoup(components_raw, 'html.parser')
@@ -24,7 +24,7 @@ def inject_components(template, components):
 def build(template_path, components_path):
     components = components_html_to_dict(components_path)
 
-    with open(template_path, 'r') as file:
+    with open(template_path, 'r', encoding='utf-8') as file:
         template = file.read()
 
     output = inject_components(template, components)
