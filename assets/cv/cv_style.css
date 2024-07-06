@@ -1,3 +1,11 @@
+/* Row-hfill */
+.row-hfill {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 4px 0;
+}
+
+/* Variables */
 :root {
     --sec-pad: 32px;
 }
@@ -25,16 +33,10 @@
 .job > h3 {
     margin: 0 0 8px 0;
 }
-.employer {
-    display: flex;
-    align-items: center;
-    margin: 0 0 4px 0;
+.job .employer, .job .duration {
+    margin: 0;
 }
-.employer h4, p {
-    font-weight: normal;
-    margin: 0 auto 0 0;
-}
-.employer p {
+.job > p {
     margin: 0;
 }
 
@@ -69,4 +71,5 @@
 
 #cv-download {
     padding: 16px 0 16px 0;
+    margin: 0;
 }
