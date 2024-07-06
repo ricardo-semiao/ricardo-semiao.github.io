@@ -1,52 +1,72 @@
+:root {
+    --sec-pad: 32px;
+}
+@media (max-width: 620px) { :root {--sec-pad: 8px} }
+
 /* Education */
 #education table {
-    padding: 0 0 0 32px;
+    padding: 0 0 0 var(--sec-pad);
+    border-spacing: 10px
 }
-#education td {
-    padding: 0 16px 16px 0;
-}
-#education ul {
-    padding: 0 16px;
-}
+
 
 /* Experience */
 #experience ul {
-    padding: 0 0 0 32px;
+    padding: 0 0 0 var(--sec-pad);
     margin: 0;
-}
-.job {
-    list-style-type: none; 
-    margin: 0 0 32px 0;
-}
-.job > h3 {
-    margin: 0 0 16px 0;
-}
-.job > p {
-    margin: 0 0 4px 0;
 }
 .job:last-child {
     margin-bottom: 0;
 }
+.job {
+    list-style-type: none; 
+    margin: 0 0 16px 0;
+}
+.job > h3 {
+    margin: 0 0 8px 0;
+}
 .employer {
     display: flex;
     align-items: center;
+    margin: 0 0 4px 0;
 }
 .employer h4, p {
     font-weight: normal;
-    margin: 0 64px 4px 0;
+    margin: 0 auto 0 0;
+}
+.employer p {
+    margin: 0;
 }
 
 /* Projects */
 #projects ul {
     list-style-position: inside;
-    margin: 0 0 16px 0;
+    margin: 0;
+    padding: 0 0 0 var(--sec-pad);
+}
+#projects ul li {
+    margin: 0 0 8px 0;
+}
+#projects ul li:last-child {
+    margin: 0 0 0 0;
 }
 #projects ul li p {
-    margin: 4px 0 8px 0;
+    margin: 4px 0 0 var(--sec-pad);
 }
 
 /* Others */
-#others {
+#others ul {
+    padding: 0 0 0 var(--sec-pad);
     list-style-position: inside;
-    margin: 0 0 16px 0;
+    margin: 0;
+}
+#others ul li {
+    margin: 0 0 8px 0;
+}
+#others ul li:last-child {
+    margin: 0 0 0 0;
+}
+
+#cv-download {
+    padding: 16px 0 16px 0;
 }

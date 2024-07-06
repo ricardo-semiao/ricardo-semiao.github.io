@@ -3,11 +3,18 @@ nav li {
     font-family: 'Montserrat', sans-serif;
 }
 nav a {
+    color: var(--green);
     text-decoration: none;
+}
+#site-header {
+    padding: 16px 0 16px 0;
+    border-bottom: 4px solid var(--orange);
+    margin: 0 0 4px 0;
+    min-width: var(--min-width);
 }
 #site-header nav {
     width: var(--main-width);
-    margin: 16px auto 16px auto;
+    margin: 0 auto 0 auto;
 }
 #site-header nav li {
     display: inline-block;
@@ -21,16 +28,12 @@ nav a {
     padding: 0;
     margin: 0;
 }
-#site-header hr {
-    margin: 0 0 4px 0;;
-    border: 0;
-    border-top: 4px solid var(--orange);
-}
 
 /* Footer */
 #site-footer {
     background-color: var(--darkgreen);
     padding: 16px 0 8px 0;
+    min-width: var(--min-width);
 }
 #site-footer p {
     width: var(--main-width);
@@ -44,4 +47,18 @@ nav a {
 }
 #site-footer a:hover {
     color: var(--gray);
+}
+
+/* Titlecard */
+#titlecard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--orange);
+    min-height: 124px;
+    min-width: var(--min-width);
+}
+#titlecard h1 {
+    margin: 0;
+    text-align: center;
 }
