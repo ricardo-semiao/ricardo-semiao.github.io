@@ -1,4 +1,7 @@
 from template_injector import build
 
-build('index_template.html', 'template_injector/components.html')
-build('cv/index_template.html', 'template_injector/components.html')
+# Install with:
+#pip install git+https://github.com/ricardo-semiao/ricardo-semiao.github.io.git@feature/injector#subdirectory=template_injector
+
+build('index_template.html', 'site_assets/components.html')
+build('cv/index_template.html', 'site_assets/components.html')
