@@ -45,23 +45,19 @@
     text-decoration: none;
 }
 #socials ul {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
     background-color: var(--gray);
     border-radius: 4px;
     padding: 16px;
     width: 80%;
     margin: auto;
-    min-width: calc(var(--min-width) - 16px);
+    min-width: calc(var(--min-width) - 16px*2);
 }
 #socials li {
     display: inline-block;
-    margin-right: 14px;
-}
-#socials li::after {
-    margin: 0 0 0 16px;
-}
-#socials li:last-child::after {
-    margin: 0;
 }
 
 /* Projects */
