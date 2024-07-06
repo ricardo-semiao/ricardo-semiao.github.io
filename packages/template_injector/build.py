@@ -21,7 +21,7 @@ def inject_components(template, components):
     return template
 
 
-def build(template_path, components_path):
+def build(template_path, components_path, output_path):
     components = components_html_to_dict(components_path)
 
     with open(template_path, 'r', encoding='utf-8') as file:
@@ -29,10 +29,7 @@ def build(template_path, components_path):
 
     output = inject_components(template, components)
 
-    output_name = re.sub(r'_template.html$', '.html', path.basename(template_path))
-    output_path = path.join(path.dirname(template_path), output_name)
-
-    with open(output_path, 'w') as file:
+    with open(output_path, 'w', encoding='utf-8') as file:
         file.write(output)
 
     print(f'Injected components into {output_path}')
