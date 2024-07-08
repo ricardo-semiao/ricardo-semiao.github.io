@@ -3,14 +3,22 @@ from bs4 import BeautifulSoup
 from yattag import indent
 
 
-def components_html_to_dict(components_path):
-    with open(components_path, 'r', encoding='utf-8') as file:
-        components_raw = file.read()
+def components_html_to_dict(components_paths):
+    divs = []
 
-    components_soup = BeautifulSoup(components_raw, 'html.parser')
-    divs = components_soup.find_all('div', attrs={'data-component-name': True})
+    for path in components_paths:
+        with open(path, 'r', encoding='utf-8') as file:
+            components_raw = file.read()
 
-    return {div['data-component-name']: ''.join(str(child) for child in div.children) for div in divs}
+        components_soup = BeautifulSoup(components_raw, 'html.parser')
+        divs += components_soup.find_all('div', attrs={'data-component-name': True})
+
+    components = {
+        div['data-component-name']: ''.join(str(child) for child in div.children)
+        for div in divs
+    }
+
+    return components
 
 
 def inject_components(template, components):
@@ -20,16 +28,18 @@ def inject_components(template, components):
     return template
 
 
-def build(template_path, components_path, output_path):
-    components = components_html_to_dict(components_path)
+def build(template_path, components_paths, output_path, prettify = False):
+    components = components_html_to_dict(components_paths)
 
     with open(template_path, 'r', encoding='utf-8') as file:
         template = file.read()
 
     output = inject_components(template, components)
-    output_pretty = indent(output, indentation = '    ', newline = '\n')
+
+    if prettify:
+        output = indent(output, indentation = '    ', newline = '\n')
 
     with open(output_path, 'w', encoding='utf-8') as file:
-        file.write(output_pretty)
+        file.write(output)
 
     print(f'Injected components into {output_path}')

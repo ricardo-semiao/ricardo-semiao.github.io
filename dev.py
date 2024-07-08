@@ -12,12 +12,14 @@ with open("site_assets/palette.css", 'wb') as file:
 # Building the templates:
 build(
     'assets/home/home_template.html',
-    'site_assets/components.html',
-    'index.html'
+    ['site_assets/components.html'],
+    'index.html',
+    prettify = True
 )
 
 build(
     'assets/cv/cv_template.html', 
-    'site_assets/components.html',
-    'cv.html'
+    ['site_assets/components.html'],
+    'cv.html',
+    prettify = True
 )
