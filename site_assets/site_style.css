@@ -37,7 +37,7 @@ a:hover {
 
 /* Home and CV */
 main#home, main#cv {
-    width: var(--main-width);
+    width: calc(var(--main-width) + 4%);
     margin: auto;
     padding: 0;
     min-width: var(--min-width);
@@ -45,7 +45,7 @@ main#home, main#cv {
 
 #home section, #cv section {
     border-bottom: 1px solid var(--darkgray);
-    padding: 32px 0 32px 0;
+    padding: 32px 2% 32px 2%;
     margin: 0;
 }
 

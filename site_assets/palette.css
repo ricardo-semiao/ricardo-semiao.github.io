@@ -4,6 +4,7 @@
   --lightgray: hsl(0, 0%, 97.5%);
   --aquagray: hsl(0, 0%, 98.5%);
   --blackgray: hsl(0, 0%, 40%);
+  --fontblack: hsl(210, 11%, 15%);
   --red: hsl(350, 100%, 40%);
   --darkred: hsl(350, 100%, 30%);
   --lightred: hsl(350, 70%, 60%);
@@ -27,3 +28,4 @@
 }
 
 /* Compile with: sass "palette/palette.scss" "palette/palette.css" --no-source-map */
+/* Update site's palette with: Copy-Item -Path "palette/palette.css" -Destination "C:\Users\ricar\OneDrive\A-Trabalho\Prog\Personal\ricardo-semiao.github.io\site_assets" */

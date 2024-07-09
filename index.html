@@ -77,40 +77,52 @@
                 <div class="column-card">
                     <p>Academic articles/tasks:</p>
                     <ul>
-                        <li><a href="https://github.com/ricardo-semiao/article-covid-svardiff">article-covid-svardiff</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/article-econometrics1">article-econometrics1</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/task-econometrics2">task-econometrics2</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/article-covid-svardiff" data-explanation="My graduation thesis. Its goal was to estimate the effect of the Brazilian vaccination policy, by comparing Structural VAR models before and after the start of its implementation.">article-covid-svardiff</a><span></li>
+                        <li><a href="https://github.com/ricardo-semiao/article-econometrics1" data-explanation="A empirical work for my Masters' Econometrics I course. Entailed the replication of Becker and Lewis (1973) with IPUMS data of Puerto Rico.">article-econometrics1</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/task-econometrics2" data-explanation="A series of taks for my Masters' Econometrics II course. All related to time series, with mathematical derivations, model building and testing, and simulations to check asymptotic properties.">task-econometrics2</a></li>
                     </ul>
                 </div>
                 <div class="column-card">
                     <p>Educational materials:</p>
                     <ul>
-                        <li><a href="https://ricardo-semiao.github.io/rfcd/">rfcd</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/course-python">course-python</a></li>
+                        <li><a href="https://ricardo-semiao.github.io/rfcd/" data-explanation="An educational book on the R language. Authorial, but inspired by existing literature. It is in construction and available in the navbar above.">rfcd</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/course-python" data-explanation="Self study Python notes, much less organized than the R book, but one day I might lead it in similar ways.">course-python</a></li>
                     </ul>
                 </div>
                 <div class="column-card">
                     <p>Code packages:</p>
                     <ul>
-                        <li><a href="https://github.com/ricardo-semiao/varutils">varutils</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/tree/main/packages">template_injector</a></li>
+                        <li><a href="https://ricardo-semiao.github.io/varutils" data-explanation="A R package for commonly needed ggplot graphs and utility functions on Vector Auto-Regressive analysis.">varutils</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/tree/main/packages" data-explanation="A simple, custom build, HTML template engine built in Python. It was built to power this site.">template_injector</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/morphdown" data-explanation="A R package to programmatically change the structure of R Markdown files. Built to convert my RFCD book into course-friendly slide presentations.">morphdown</a></li>
                     </ul>
                 </div>
                 <div class="column-card">
                     <p>Freelance and challenges:</p>
                     <ul>
-                        <li><a href="https://github.com/mevaldt/diversified_crypto">diversified_crypto</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/challenge-constdev">challenge-constdev</a></li>
+                        <li><a href="https://github.com/mevaldt/diversified_crypto" data-explanation="A R Shiny app for crypto portfolio optimization and analysis. Built in a project for Ripple.">diversified_crypto</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/challenge-constdev" data-explanation="A ML model to predict the investment flow at BOVESPA, for the 2022 Constellation A.M. Dev Challenge.">challenge-constdev</a></li>
+                    </ul>
+                </div>
+                <div class="column-card">
+                    <p>Personal projects:</p>
+                    <ul>
+                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/" data-explanation="My personal site. It includes the Home and CV tabs, and the common templates used in other published projects.">This site</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/" data-explanation="A GitHub repository for storing my personal tools, such as my custom palette.">Personal themes/tools</a></li>
                     </ul>
                 </div>
                 <div class="column-card">
                     <p>Miscellaneous:</p>
                     <ul>
-                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/">This site</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/misc-allocator-ga">misc-allocator-ga</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/misc-general">misc-general</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/misc-allocator-ga" data-explanation="An optimization routine in R for a preference-based allocation problem, using generic algorithms.">misc-allocator-ga</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/misc-general" data-explanation="Miscellaneous projects, most for fun or for learning, with questionable quality.">misc-general</a></li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="explanation-card" style="display: none;">
+                <p id="explanation-title"></p>
+                <p id="explanation-text"></p>
             </div>
         </section>
 
@@ -123,6 +135,8 @@
             </p>
         </div>
     </footer>
+
+    <script src="/assets/home/home_script.js"></script>
 
     <script src="/site_assets/site_structure.js"></script>
 </body>

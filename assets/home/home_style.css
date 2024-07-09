@@ -76,9 +76,43 @@
     border-radius: 4px;
 }
 #projects .column-card > p {
-    margin: 0 0 4px 0;
+    margin: 0 0 0.5rem 0;
 }
 #projects .column-card > ul {
     margin: 0;
     padding: 0 0 0 32px;
+}
+#projects .column-card > ul > li {
+    margin-bottom: 0.25rem;
+}
+#projects .column-card > ul > li:last-child {
+    margin-bottom: 0;
+}
+
+
+#projects .column-card li a::after {
+    content: " 🛈";
+    text-decoration: none;
+    color: var(--fontblack);
+}
+.explanation-card {
+    position: absolute;
+    background-color: var(--lightgray);
+    border: 1px solid var(--darktgray);
+    padding: 16px;
+    z-index: 100;
+    width: 250px; /* Adjust as needed */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.explanation-card #explanation-title {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 1.1em;
+    border-bottom: 1px solid var(--darkgray);
+    margin: 0 4rem 0 0 ;
+    padding-bottom: 8px;
+}
+.explanation-card #explanation-text {
+    margin: 16px 0 0 0;
+    font-size: 0.9em;
 }
