@@ -6,27 +6,37 @@ nav a {
     color: var(--green);
     text-decoration: none;
 }
+
 #site-header {
-    padding: 16px 0 16px 0;
+    padding: 16px 32px 16px 32px;
     border-bottom: 4px solid var(--orange);
     margin: 0 0 4px 0;
     min-width: var(--min-width);
+    line-height: 1;
+    display: flex;
+    gap: 32px
+}
+#site-header .header-block {
+    background-color: var(--orange);
+    width: calc((100% - var(--main-width)) / 2 - 64px);
 }
 #site-header nav {
     width: var(--main-width);
-    margin: 0 auto 0 auto;
+    margin: 0 auto 0 0;
 }
-#site-header nav li {
+#site-header nav ul {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+#site-header nav ul li {
     display: inline-block;
     margin-right: 16px;
     font-size: 1.3rem;
 }
 #site-header .current-page {
     font-weight: bold;
-}
-#site-header nav ul {
-    padding: 0;
-    margin: 0;
 }
 
 /* Footer */
@@ -57,6 +67,7 @@ nav a {
     background-color: var(--orange);
     min-height: 124px;
     min-width: var(--min-width);
+    color: black;
 }
 #titlecard h1 {
     margin: 0;

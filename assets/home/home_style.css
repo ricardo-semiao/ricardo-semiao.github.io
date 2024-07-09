@@ -17,11 +17,16 @@
 /* Intro */
 #intro .multicolumn {
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: nowrap;
     flex-direction: row;
 }
-@media (max-width: 630px) { #intro .multicolumn { flex-direction: column } }
+@media (max-width: 630px) {
+    #intro .multicolumn {
+        flex-direction: column;
+        justify-content: center;
+    } 
+}
 #intro .column-text {
     max-width: 600px;
     min-width: var(--min-width);
