@@ -55,7 +55,7 @@ main#home, main#cv {
     min-width: var(--min-width);
 }
 main#home > section, main#cv > section {
-    border-bottom: 1px solid var(--orange);
+    border-bottom: 1px solid var(--darkgray);
     padding: 2rem var(--border-overflow) 2rem var(--border-overflow);
 }
 main#home section h2, main#cv section h2 {
