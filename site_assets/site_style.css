@@ -1,10 +1,10 @@
-/* Fonts */
+/* Imports */
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-/* Variables */
 @import url('/site_assets/palette.css');
 
+
+/* Basic */
 :root {
     --main-width: 65%;
     --min-width: 250px;
@@ -12,14 +12,16 @@
 @media (max-width: 920px) { :root {--main-width: 80%} }
 @media (max-width: 740px) { :root {--main-width: 95%} }
 
-/* Basic */
 html, body {
+    font-size: 16px;
     height: 100%;
     margin: 0;
     min-width: var(--min-width);
 }
+
+
+/* Fonts */
 body {
-    font-size: 16px;
     font-weight: 400;
     font-family: 'Nunito Sans', sans-serif;
     color: var(--fontblack);
@@ -27,28 +29,35 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
 }
-a {
+nav li, nav li a {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Links */
+a, nav a {
+    color: var(--green);
+    text-decoration: none;
+}
+a:visited, nav a:visited {
     color: var(--green);
 }
-a:hover {
-    color: var(--green);
+a:hover, nav a:hover {
+    text-decoration: underline;
 }
 
 
 /* Home and CV */
 main#home, main#cv {
-    width: calc(var(--main-width) + 4%);
+    --border-overflow: calc(0.5rem + 1.5%);
+    width: calc(var(--main-width) + 2 * var(--border-overflow));
     margin: auto;
-    padding: 0;
     min-width: var(--min-width);
 }
-
-#home section, #cv section {
+main#home > section, main#cv > section {
     border-bottom: 1px solid var(--darkgray);
-    padding: 32px 2% 32px 2%;
-    margin: 0;
+    padding: 2rem var(--border-overflow) 2rem var(--border-overflow);
 }
-
-#home section h2, #cv section  h2 {
-    margin: 0 0 16px 0;
+main#home section h2, main#cv section h2 {
+    margin: 0 0 1.5rem 0;
 }

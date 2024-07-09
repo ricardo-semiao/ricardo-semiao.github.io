@@ -2,25 +2,25 @@
 .row-hfill {
     display: flex;
     justify-content: space-between;
-    margin: 0 0 4px 0;
 }
 
 /* Variables */
-:root {
-    --sec-pad: 32px;
+main {
+    --cv-pad: 32px;
 }
-@media (max-width: 620px) { :root {--sec-pad: 8px} }
+@media (max-width: 620px) { main {--cv-pad: 8px} }
+
 
 /* Education */
 #education table {
-    padding: 0 0 0 var(--sec-pad);
+    padding: 0 0 0 var(--cv-pad);
     border-spacing: 10px
 }
 
 
 /* Experience */
 #experience ul {
-    padding: 0 0 0 var(--sec-pad);
+    padding: 0 0 0 var(--cv-pad);
     margin: 0;
 }
 .job:last-child {
@@ -28,48 +28,50 @@
 }
 .job {
     list-style-type: none; 
-    margin: 0 0 16px 0;
+    margin: 0 0 1rem 0;
 }
-.job > h3 {
-    margin: 0 0 8px 0;
+.job h3 {
+    margin: 0 0 0.5rem 0;
 }
-.job .employer, .job .duration {
+.job .row-hfill {
+    margin: 0 0 0.25rem 0;
+}
+.job .row-hfill > * {
     margin: 0;
 }
 .job > p {
     margin: 0;
 }
 
+
 /* Projects */
 #projects ul {
-    list-style-position: inside;
     margin: 0;
-    padding: 0 0 0 var(--sec-pad);
+    padding: 0 0 0 var(--cv-pad);
 }
-#projects ul li {
-    margin: 0 0 8px 0;
+.project {
+    margin: 0 0 0.5rem 1em;
 }
-#projects ul li:last-child {
-    margin: 0 0 0 0;
+.project:last-child {
+    margin-bottom: 0;
 }
-#projects ul li p {
-    margin: 4px 0 0 var(--sec-pad);
+.project > p {
+    margin: 0.25rem 0 0 0;
 }
 
 /* Others */
 #others ul {
-    padding: 0 0 0 var(--sec-pad);
-    list-style-position: inside;
-    margin: 0;
+    padding: 0 0 0 var(--cv-pad);
+    margin: 0 0 0 1rem;
 }
-#others ul li {
-    margin: 0 0 8px 0;
+.other {
+    margin: 0 0 0.5rem 0;
 }
-#others ul li:last-child {
+.other:last-child {
     margin: 0 0 0 0;
 }
 
 #cv-download {
-    padding: 16px 0 16px 0;
+    padding: 1rem var(--border-overflow) 1rem var(--border-overflow);
     margin: 0;
 }

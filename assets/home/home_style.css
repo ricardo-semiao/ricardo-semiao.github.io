@@ -3,16 +3,18 @@
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    gap: 16px;
+    gap: 1rem;
 }
 
+
 /* Sections */
-#home section h2 {
+main section h2 {
     text-align: center;
 }
-#home section:last-of-type {
+main section:last-of-type {
     border-bottom: none;
 }
+
 
 /* Intro */
 #intro .multicolumn {
@@ -38,7 +40,7 @@
     max-height: 200px; 
 }
 #intro .column-text > p {
-    margin: 0 0 8px 0;
+    margin: 0 0 0.5rem 0;
 }
 #intro .column-text p:last-child {
     margin: 0 0 0 0;
@@ -46,24 +48,23 @@
 
 
 /* Socials */
-#socials a {
-    text-decoration: none;
-}
 #socials ul {
+    --socials-padding: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 8px;
+    gap: 0.5rem;
     background-color: var(--gray);
     border-radius: 4px;
-    padding: 16px;
+    padding: var(--socials-padding);
     width: 80%;
     margin: auto;
-    min-width: calc(var(--min-width) - 16px*2);
+    min-width: calc(var(--min-width) - 2 * var(--socials-padding));
 }
 #socials li {
     display: inline-block;
 }
+
 
 /* Projects */
 #projects .multicolumn {
@@ -71,7 +72,7 @@
     justify-content: space-evenly;
 }
 #projects .column-card {
-    padding: 16px 20px 16px 16px;
+    padding: 1rem calc(1rem + 4px) 1rem 1rem;
     background-color: var(--gray);
     border-radius: 4px;
 }
@@ -80,39 +81,37 @@
 }
 #projects .column-card > ul {
     margin: 0;
-    padding: 0 0 0 32px;
+    padding: 0 0 0 2rem;
 }
-#projects .column-card > ul > li {
+#projects .column-card > ul li {
     margin-bottom: 0.25rem;
 }
-#projects .column-card > ul > li:last-child {
+#projects .column-card > ul li:last-child {
     margin-bottom: 0;
 }
 
-
 #projects .column-card li a::after {
     content: " 🛈";
-    text-decoration: none;
     color: var(--fontblack);
 }
 .explanation-card {
     position: absolute;
-    background-color: var(--lightgray);
-    border: 1px solid var(--darktgray);
-    padding: 16px;
+    background-color: hsla(0, 0%, 97.5%, 0.9); /* Hard coded color! */
+    padding: 1rem;
     z-index: 100;
-    width: 250px; /* Adjust as needed */
+    width: 250px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-.explanation-card #explanation-title {
+.explanation-card h4 {
     color: var(--green);
     font-weight: bold;
     font-size: 1.1em;
     border-bottom: 1px solid var(--darkgray);
-    margin: 0 4rem 0 0 ;
-    padding-bottom: 8px;
+    margin: 0 0.25rem 0 0;
+    padding-bottom: 0.5rem;
+    font-family: inherit;
 }
-.explanation-card #explanation-text {
-    margin: 16px 0 0 0;
+.explanation-card p {
+    margin: 1rem 0 0 0;
     font-size: 0.9em;
 }
