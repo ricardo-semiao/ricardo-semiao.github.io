@@ -4,7 +4,7 @@
     padding: 1rem var(--blocks-padding) 1rem var(--blocks-padding);
     border-bottom: 4px solid var(--orange);
     margin: 0 0 4px 0;
-    min-width: var(--min-width);
+    min-width: calc(var(--min-width) - 2 * var(--blocks-padding));
     line-height: 1;
     display: flex;
     gap: var(--blocks-padding)
@@ -22,11 +22,18 @@
     padding: 0;
     margin: 0;
     line-height: 1;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 #site-header nav li {
     display: inline-block;
-    margin-right: 1rem;
     font-size: 1.3rem;
+    padding-left: 0.5em;
+}
+#site-header nav li:first-child {
+    padding-left: 0;
+    border-bottom: 1px solid var(--gray);
 }
 #site-header nav .current-page {
     font-weight: bold;

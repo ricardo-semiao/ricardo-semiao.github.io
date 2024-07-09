@@ -8,9 +8,20 @@
 :root {
     --main-width: 65%;
     --min-width: 250px;
+    --border-overflow: calc(0.5rem + 1.5%);
 }
-@media (max-width: 920px) { :root {--main-width: 80%} }
-@media (max-width: 740px) { :root {--main-width: 95%} }
+@media (max-width: 920px) {
+    :root {
+        --main-width: 80%;
+        --border-overflow: calc(1.5%);
+    }
+}
+@media (max-width: 740px) {
+    :root {
+        --main-width: 95%;
+        --border-overflow: calc(1%);
+    }
+}
 
 html, body {
     font-size: 16px;
@@ -49,7 +60,6 @@ a:hover, nav a:hover {
 
 /* Home and CV */
 main#home, main#cv {
-    --border-overflow: calc(0.5rem + 1.5%);
     width: calc(var(--main-width) + 2 * var(--border-overflow));
     margin: auto;
     min-width: var(--min-width);
