@@ -1,18 +1,29 @@
 :root {
   --gray: hsl(0, 0%, 95%);
+  --darkgray: hsl(0, 0%, 80%);
+  --lightgray: hsl(0, 0%, 97.5%);
+  --aquagray: hsl(0, 0%, 98.5%);
+  --blackgray: hsl(0, 0%, 40%);
   --red: hsl(350, 100%, 40%);
+  --darkred: hsl(350, 100%, 30%);
+  --lightred: hsl(350, 70%, 60%);
+  --aquared: hsl(350, 75%, 85%);
   --orange: hsl(25, 100%, 40%);
+  --darkorange: hsl(25, 100%, 25%);
+  --lightorange: hsl(25, 70%, 60%);
+  --aquaorange: hsl(25, 80%, 85%);
   --yellow: hsl(47, 100%, 45%);
-  --green: hsl(163, 100%, 30%);
+  --darkyellow: hsl(47, 100%, 30%);
+  --lightyellow: hsl(47, 90%, 70%);
+  --aquayellow: hsl(47, 85%, 85%);
+  --green: hsl(163, 100%, 25%);
+  --darkgreen: hsl(163, 100%, 15%);
+  --lightgreen: hsl(163, 70%, 45%);
+  --aquagreen: hsl(163, 75%, 80%);
   --blue: hsl(185, 100%, 30%);
-  --darkgray: hsl(0, 0%, 76%);
-  --darkred: hsl(350, 100%, 28%);
-  --darkorange: hsl(25, 100%, 28%);
-  --darkyellow: hsl(47, 100%, 27%);
-  --darkgreen: hsl(163, 100%, 13.5%);
   --darkblue: hsl(185, 100%, 15%);
+  --lightblue: hsl(185, 60%, 50%);
+  --aquablue: hsl(185, 75%, 80%);
 }
 
-/* Compile with: sass "palette/palette.scss" "palette/palette.css" */
-
-/*# sourceMappingURL=palette.css.map */
+/* Compile with: sass "palette/palette.scss" "palette/palette.css" --no-source-map */
