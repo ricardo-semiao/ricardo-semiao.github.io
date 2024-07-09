@@ -23,7 +23,16 @@ def components_html_to_dict(components_paths):
 
 def inject_components(template, components):
     for key, value in components.items():
-        template = re.sub(f'@@{key}@@', value, template)
+        pattern = re.compile(r'\n([ \t]+)@@' + re.escape(key) + '@@')
+        match = re.search(pattern, template)
+
+        if match:
+            cur_indent = match.group(1)
+        else:
+            continue
+
+        value_pretty = indent(value, indentation = '    ', newline = f'\n{cur_indent}')
+        template = re.sub(f'@@{key}@@', value_pretty, template)
 
     return template
 

@@ -14,12 +14,12 @@ build(
     'assets/home/home_template.html',
     ['site_assets/components.html'],
     'index.html',
-    prettify = True
+    prettify = False
 )
 
 build(
     'assets/cv/cv_template.html', 
     ['site_assets/components.html'],
     'cv.html',
-    prettify = True
+    prettify = False
 )
