@@ -1,157 +1,132 @@
-\documentclass[11pt,letterpaper]{article}
-\usepackage[lmargin=2cm, rmargin=1.75cm, tmargin=2.5cm, bmargin=1.75cm]{geometry}
+% Setup:
+\documentclass[10pt,letterpaper]{article}
+\usepackage{cv_style}
 
-\usepackage{cv_style} %layout
-\usepackage{fontawesome} %fonts
+\usepackage[lmargin=2.5cm, rmargin=2.5cm, tmargin=2.5cm, bmargin=2.5cm]{geometry}
 
-\usepackage{ragged2e} %text alignment options
-\pagenumbering{gobble} %stop page numbering
+% Colors:
+\input{palette.tex}
 
+% Fonts:
+\usepackage{fontawesome}
 
-\usepackage{enumitem} %lists
+% Lists:
+\usepackage{enumitem} 
 \setlist[itemize]{topsep=-0.1cm, left=0cm, itemsep=1pt}
 \setlist[2]{noitemsep}
 
-%\usepackage[normalem]{ulem} % pra q q serve?
-
-\usepackage{graphicx}
-
-\usepackage{url} %urls
+% Links:
 \usepackage{hyperref} %ref's
 \hypersetup{
     colorlinks=true,
-    urlcolor=Gray}
+    urlcolor=green
+}
 
-\usepackage[explicit]{titlesec}
-\usepackage{xhfill}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries}{}{0em}{#1~\xrfill[0.3ex]{0.1ex}}
+% Others:
+\pagenumbering{gobble} %stop page numbering
+
 
 
 \begin{document}
+
 \name{Ricardo Semião e Castro}{black}
 
-\noindent\begin{minipage}[c]{\textwidth} \centering
+\noindent
+\begin{minipage}[c]{\textwidth} \centering
     \begin{tabular}{rcl}
         \href{https://ricardo-semiao.github.io/}{ricardo-semiao.github.io} $\;$ \faGlobe & \textbullet & \faEnvelopeO\ $\;$ \href{mailto:ricardo.semiao@outlook.com}{ricardo.semiao@outlook.com}\\
         \href{https://api.whatsapp.com/send?phone=5511999073297}{(11) 99907-3297} $\;$ \faWhatsapp & \textbullet & \faGithub $\;$ \href{https://github.com/ricardo-semiao}{github.com/ricardo-semiao}\\
         \href{https://linkedin.com/in/ricardo-semiao}{linkedin.com/in/ricardo-semiao} $\;$ \faLinkedin & \textbullet & \faStackOverflow $\;$ \href{https://stackoverflow.com/users/13048728}{stackoverflow.com/users/13048728}
     \end{tabular}
-\end{minipage} \par\vspace{0.5cm}
+\end{minipage}
 
 
-\vspace{-0.5cm}
-\cvsection{Educação e habilidades}
+\section{Educação e habilidades}
 \begin{tabular}{rl}
-Educação & Graduação em Economia --- FGV-EESP (2019 -- 2023)\\[0.3cm]
- & Mestrado Acadêmico em Economia --- FGV-EESP (2024 -- em andamento)\\[0.3cm]
-Idiomas & Inglês fluente --- Certificado Cambridge English: Advanced (C1)\\[0.3cm]
-Softwares & R | Python | LaTeX | HTML/CSS | Stata | Pacote Office %| Octave/Dynare
+    Educação & Graduação em Economia --- FGV-EESP (2019 -- 2023)\\[0.3cm]
+    & Mestrado Acadêmico em Economia --- FGV-EESP (2024 -- em andamento)\\[0.3cm]
+    Idiomas & Inglês fluente --- Certificado Cambridge English: Advanced (C1)\\[0.3cm]
+    Softwares & R | Python | LaTeX | HTML/CSS | Stata | Pacote Office
 \end{tabular}
 
-%%%%%%%%%%%%%%%%%%%%%%%
-\cvsection{Experiência}
-%\subsection*{Projetos realizados \small(disponíveis no Github)}\normalsize
+
+\section{Experiência}
 \hspace{-0.6cm}
 \begin{minipage}[t]{.47\textwidth}
-\begin{itemize}
-\item FGV-EESP \& Ripple - Pesquisador assistente
-\begin{itemize}
-    \item Elaboração de \href{https://github.com/mevaldt/diversified_crypto}{aplicativo em R-Shiny} sobre otimização e análise de portfólio crypto
-\end{itemize}
+    \begin{itemize}
+        \item FGV-EESP \& Ripple - Pesquisador assistente
+        \begin{itemize}
+            \item Elaboração de \href{https://github.com/mevaldt/diversified_crypto}{aplicativo em R-Shiny} sobre otimização e análise de portfólio crypto
+        \end{itemize}
 
-\item FGV-EESP - Monitor de Econometria I
-\begin{itemize}
-    \item Aplicação de exercícios, aulas teóricas, e de R 
-\end{itemize}
-\item Professor particular de estatística, R e Python
-\end{itemize}
+        \item FGV-EESP - Monitor de Econometria I
+        \begin{itemize}
+            \item Aplicação de exercícios, aulas teóricas, e de R 
+        \end{itemize}
+
+        \item Professor particular de estatística, R e Python
+    \end{itemize}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{.47\textwidth}
-\begin{itemize}
-\item GVCode (liga de programação na FGV)
-\begin{itemize}
-    \item Coordenação de toda a atividade da liga como vice-presidente, e diretor de RH
-    \item Realização de projetos relacionados à programação e ciência de dados
-\end{itemize}
-\item StackOverflow - $\!\sim$260 respostas, em mais de 125 \textit{tags}; top 5\% na comunidade R
-\end{itemize}
+    \begin{itemize}
+        \item GVCode (liga de programação na FGV)
+        \begin{itemize}
+            \item Coordenação de toda a atividade da liga como vice-presidente, e diretor de RH
+            \item Realização de projetos relacionados à programação e ciência de dados
+        \end{itemize}
+
+        \item StackOverflow - $\!\sim$260 respostas, em mais de 125 \textit{tags}; top 5\% na comunidade R
+    \end{itemize}
 \end{minipage}
 
-%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection*{Projetos e premiações \small(\href{https://github.com/ricardo-semiao}{vide github \textmd{\faGithub}})\normalsize }
 \begin{minipage}[t]{.47\textwidth}
-\begin{itemize}
-    \item \href{https://github.com/ricardo-semiao/challenge-constdev}{Modelo de previsão} do fluxo de investimento na B³ com rede neural\newline
-    \small \faTrophy$\;$ 2$^{\circ}$ no Dev Challenge (2022, Constellation A. M.)\normalsize
+    \begin{itemize}
+        \item \href{https://github.com/ricardo-semiao/challenge-constdev}{Modelo de previsão} do fluxo de investimento na B³ com rede neural\newline
+        \small \faTrophy$\;$ 2$^{\circ}$ no Dev Challenge (2022, Constellation A. M.)\normalsize
 
-    \item Análise com regressão \textit{Ridge} e \textit{Lasso} sobre os determinantes do salário\newline
-    \small \faTrophy$\;$ 1$^{\circ}$ na categoria (2020, pela EESP)\normalsize
+        \item Análise com regressão \textit{Ridge} e \textit{Lasso} sobre os determinantes do salário\newline
+        \small \faTrophy$\;$ 1$^{\circ}$ na categoria (2020, pela EESP)\normalsize
 
-    \item Criação do pacote \href{https://ricardo-semiao.github.io/varutils/}{varutils} com funções para modelos de séries de tempo\newline
-    \small \textbf{--} Em desenvolvimento \normalsize %\href{https://ricardo-semiao.github.io/vardiff/}{vardiff} 
-\end{itemize}
+        \item Criação do pacote \href{https://ricardo-semiao.github.io/varutils/}{varutils} com funções para modelos de séries de tempo\newline
+        \small \textbf{--} Em desenvolvimento \normalsize
+    \end{itemize}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{.47\textwidth}
-\begin{itemize}
-    \item \href{https://github.com/ricardo-semiao/article-covid-svardiff}{Tese de graduação} sobre modelos SVAR aplicados à epidemiologia.
+    \begin{itemize}
+        \item \href{https://github.com/ricardo-semiao/article-covid-svardiff}{Tese de graduação} sobre modelos SVAR aplicados à epidemiologia.
 
-    \item Elaboração de \href{https://ricardo-semiao.github.io/course-r/}{material educativo} sobre R\newline
-    \small \textbf{--} Em desenvolvimento \normalsize
+        \item Elaboração de \href{https://ricardo-semiao.github.io/course-r/}{material educativo} sobre R\newline
+        \small \textbf{--} Em desenvolvimento \normalsize
 
-    \item \faTrophy$\;$ 10$^{\circ}$ na prova ANPEC 2024 (sem E.B.)\newline
-    \small \textbf{--} Prova de colocação para mestrado em economia\normalsize
+        \item \faTrophy$\;$ 10$^{\circ}$ na prova ANPEC 2024 (sem E.B.)\newline
+        \small \textbf{--} Prova de colocação para mestrado em economia\normalsize
 
-    \item Agrupamento de países por \textit{K-means} e \textit{hierarchical clustering} com dados da OMC\newline
-    \small \faTrophy$\;$ 2$^{\circ}$ na categoria (2021, pela EESP)\normalsize
-
-    %\item Mais projetos em \href{https://github.com/ricardo-semiao}{github.com/ricardo-semiao}
-\end{itemize}
+        \item Agrupamento de países por \textit{K-means} e \textit{hierarchical clustering} com dados da OMC\newline
+        \small \faTrophy$\;$ 2$^{\circ}$ na categoria (2021, pela EESP)\normalsize
+    \end{itemize}
 \end{minipage}
 
-%%%%%%%%%%%%%%%%%%%%%%%
-\cvsection{Outras atividades}
+
+\section{Outras atividades}
 \hspace{-0.6cm}
 \begin{minipage}[t]{.47\textwidth}
-\begin{itemize}[itemsep = 0.1cm]
-\item Trabalho voluntário durante o ensino médio\\
-\small \indent Atuação em creches, asilos e hospitais\normalsize
-\item Professor voluntário no projeto EESP Ensina\\
-\small \indent Aulas de economia para ensino médio\normalsize
-\end{itemize}
+    \begin{itemize}[itemsep = 0.1cm]
+        \item Trabalho voluntário durante o ensino médio\\
+        \small \indent Atuação em creches, asilos e hospitais\normalsize
+        \item Professor voluntário no projeto EESP Ensina\\
+        \small \indent Aulas de economia para ensino médio\normalsize
+    \end{itemize}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{.47\textwidth}
-\begin{itemize}[listparindent=\parindent]
-\item Membro do movimento escoteiro 2010-2021\\
-\small  Desenvolvimento de atividades de cunho socioambiental
-\end{itemize}
+    \begin{itemize}[listparindent=\parindent]
+        \item Membro do movimento escoteiro 2010-2021\\
+        \small  Desenvolvimento de atividades de cunho socioambiental
+    \end{itemize}
 \end{minipage}
 
 \end{document}
-
-
-
-
-
-% Rascunhos:
-
-\subsection*{Projetos realizados \small(disponíveis no Github)}\normalsize 
-\begin{minipage}[t]{.47\textwidth}
-\begin{itemize}
-\item Análise com regressão e métodos de seleção \textit{Ridge} e \textit{Lasso} sobre os determinantes do salário, com dados da PNADc\newline
-\small \faTrophy$\;$ Melhor trabalho de 2020 em sua categoria, pela FGV-EESP\normalsize
-\item Agrupamento de países por \textit{K-means} e \textit{hierarchical clustering} com dados da OMC\newline
-\small \faTrophy$\;$ Segundo melhor trabalho de 2021 em sua categoria, pela FGV-EESP\normalsize
-\end{itemize}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{.47\textwidth}
-\begin{itemize}
-\item Análise com regressão sobre criação empresarial, inclui a formatação e união de 40 datasets diferentes
-\item Análise com regressão sobre diferenças de gênero, inclui a obtenção de dados em 4 API's de repositórios acadêmicos
-\item Criação de pacote no R com funções econométricas
-\end{itemize}
-\end{minipage}
