@@ -1,9 +1,0 @@
-README.md
-setup.py
-template_injector/__init__.py
-template_injector/build.py
-template_injector.egg-info/PKG-INFO
-template_injector.egg-info/SOURCES.txt
-template_injector.egg-info/dependency_links.txt
-template_injector.egg-info/requires.txt
-template_injector.egg-info/top_level.txt
