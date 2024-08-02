@@ -73,9 +73,10 @@ body {
     opacity: 0.98;
     max-height: 500px;
 }
-#site-header .nav-drop-li {
+#site-header .nav-drop .nav-li {
     list-style: none;
     font-size: 1.1rem;
+    padding-left: 0;
 }
 
 #site-header .nav-drop button {
@@ -102,7 +103,7 @@ body {
 
 /* Site footer */
 #site-footer {
-    margin-top: 2rem;
+    margin: 0;
     background-color: var(--darkgreen);
     padding: 1rem 0 0.5rem 0;
     min-width: var(--min-width);
