@@ -1,21 +1,32 @@
-/* Navbar */
-#site-header {
+/* Site main */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+#site-main {
+    flex: 1;
+}
+
+
+/* Site navbar */
+#site-header { /* should be the same as body > header*/
     --blocks-padding: 2rem;
-    padding: 1rem var(--blocks-padding) 1rem var(--blocks-padding);
+    padding: 1rem 0 1rem 0;
     border-bottom: 4px solid var(--orange);
     margin: 0 0 4px 0;
     min-width: calc(var(--min-width) - 2 * var(--blocks-padding));
     line-height: 1;
     display: flex;
-    gap: var(--blocks-padding)
 }
 #site-header .header-block {
+    margin: 0 var(--blocks-padding);
     background-color: var(--orange);
+    height: 25px;
     width: calc((100% - var(--main-width)) / 2 - 2 * var(--blocks-padding));
 }
 #site-header nav {
     width: var(--main-width);
-    margin: 0 auto 0 0;
 }
 
 #site-header nav ul {
@@ -23,22 +34,20 @@
     margin: 0;
     line-height: 1;
 }
-#site-header nav li {
+#site-header .nav-li, .nav-drop {
     font-size: 1.3rem;
-}
-#site-header nav > ul > li {
     display: inline-block;
     padding-left: 1em;
 }
-#site-header nav > ul > li:first-child {
+#site-header .nav-li:first-child {
     padding-left: 0;
 }
 
-#site-header nav .current-page {
+#site-header .current-page {
     font-weight: bold;
 }
 
-#site-header .site-nav-drop ul {
+#site-header .nav-drop ul {
     /* Style: */
     display: flex;
     flex-direction: column;
@@ -54,7 +63,7 @@
     max-height: 0;
     overflow: hidden;
 }
-#site-header .site-nav-drop:hover ul {
+#site-header .nav-drop:hover ul {
     /* Style: */
     padding: 1rem;
     border: 1px solid var(--orange);
@@ -64,12 +73,12 @@
     opacity: 0.98;
     max-height: 500px;
 }
-#site-header .site-nav-drop ul li {
+#site-header .nav-drop-li {
     list-style: none;
     font-size: 1.1rem;
 }
 
-#site-header .site-nav-drop button {
+#site-header .nav-drop button {
     background: none;
     border: none;
     font-size: 1.3rem;
@@ -77,12 +86,9 @@
     width: 28px;
     height: 25px;
 }
-#site-header .site-nav-drop button::before {
-    color: var(--green);
+#site-header .nav-drop button::before {
     border: 1px solid var(--orange);
     border-radius: 4px;
-}
-#site-header .site-nav-drop button::before {
     content: "";
     display: inline-block;
     width: 90%; /* Adjust width as needed */
@@ -94,8 +100,9 @@
 }
 
 
-/* Footer */
+/* Site footer */
 #site-footer {
+    margin-top: 2rem;
     background-color: var(--darkgreen);
     padding: 1rem 0 0.5rem 0;
     min-width: var(--min-width);
@@ -112,20 +119,4 @@
 }
 #site-footer a:hover {
     color: var(--gray);
-}
-
-
-/* Titlecard */
-#titlecard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--orange);
-    min-height: calc(8rem - 4px);
-    min-width: var(--min-width);
-    color: black;
-}
-#titlecard h1 {
-    margin: 0;
-    text-align: center;
 }

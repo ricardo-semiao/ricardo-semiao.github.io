@@ -58,16 +58,32 @@ a:hover, nav a:hover {
 }
 
 
-/* Home and CV */
-main#home, main#cv {
-    width: calc(var(--main-width) + 2 * var(--border-overflow));
-    margin: auto;
+/* Only for Home and CV: */
+#site-main.personal > section {
+    width: var(--main-width);
+    margin: 0 auto;
     min-width: var(--min-width);
-}
-main#home > section, main#cv > section {
     border-bottom: 1px solid var(--darkgray);
-    padding: 2rem var(--border-overflow) 2rem var(--border-overflow);
+    padding: 2rem var(--border-overflow);
 }
-main#home section h2, main#cv section h2 {
+#site-main.personal > section h2 {
     margin: 0 0 1.5rem 0;
+}
+#site-main.personal > section:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#site-main.personal > #titlecard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--orange);
+    min-height: calc(8rem - 4px);
+    min-width: var(--min-width);
+    color: black;
+}
+#site-main.personal > #titlecard h1 {
+    margin: 0;
+    text-align: center;
 }

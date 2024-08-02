@@ -1,10 +1,11 @@
-/* Row-hfill */
+/* Assets: */
 .row-hfill {
     display: flex;
     justify-content: space-between;
 }
 
-/* Variables */
+
+/* Main: */
 main {
     --cv-pad: 32px;
 }
@@ -59,19 +60,21 @@ main {
     margin: 0.25rem 0 0 0;
 }
 
+
 /* Others */
 #others ul {
     padding: 0 0 0 var(--cv-pad);
     margin: 0 0 0 1rem;
 }
-.other {
+#others li {
     margin: 0 0 0.5rem 0;
 }
-.other:last-child {
+#others li:last-child {
     margin: 0 0 0 0;
 }
 
-#cv-download {
-    padding: 1rem var(--border-overflow) 1rem var(--border-overflow);
+
+/* CV Download */
+#cv-download > p {
     margin: 0;
 }
