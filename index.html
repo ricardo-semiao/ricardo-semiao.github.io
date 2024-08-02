@@ -30,14 +30,19 @@
                 <li>
                     <a class="site-nav-link" href="/cv.html">CV</a>
                 </li>
-                <li>
-                    <a class="site-nav-link" href="/rfcd/">RFCD</a>
-                </li>
-                <li>
-                    <a class="site-nav-link" href="/varutils/">Varutils</a>
-                </li>
-                <li>
-                    <a class="site-nav-link" href="/morphdown/">Morphdown</a>
+                <li class="site-nav-drop">
+                    <button></button>
+                    <ul>
+                        <li>
+                            <a class="site-nav-link" href="/rfcd/">RFCD</a>
+                        </li>
+                        <li>
+                            <a class="site-nav-link" href="/varr/">Varr</a>
+                        </li>
+                        <li>
+                            <a class="site-nav-link" href="/morphdown/">Morphdown</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
@@ -55,7 +60,7 @@
                 <div class="column-text">
                     <h2>Welcome!</h2>
                     <p>I'm a master's student in economics at FGV-EESP, with wide interests in statistics, data science, and programming. Check my info below!</p>
-                    <p>In the navbar, you can find my CV (in portuguese), and the pages for some of my projects: an educational R book, and a R package for VAR models.</p>
+                    <p>In the navbar, you can find my CV, and the pages for some of my projects. Hover the projects below for a brief explanation of each.</p>
                 </div>
                 <div class="column-img">
                     <img src="site_assets/img/profile_picture.jpg" alt="Profile Picture" style="width: 100%;">
@@ -88,16 +93,16 @@
                 <div class="column-card">
                     <p>Educational materials:</p>
                     <ul>
-                        <li><a href="https://ricardo-semiao.github.io/rfcd/" data-explanation="An educational book on the R language. Authorial, but inspired by existing literature. It is in construction and available in the navbar above.">rfcd</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/course-python" data-explanation="Self study Python notes, much less organized than the R book, but one day I might lead it in similar ways.">course-python</a></li>
+                        <li><a href="https://ricardo-semiao.github.io/rfcd" data-explanation="An educational book on the R language. Authorial, but inspired by existing literature. It is in construction and available in the navbar above.">rfcd</a></li>
+                        <li><a href="https://github.com/gvcode/trainee" data-explanation="A Python course for the trainees of GVCode, a programming study group from FGV. Written with a team of colleagues, originally lead by me.">gvcode/trainee</a></li>
                     </ul>
                 </div>
                 <div class="column-card">
                     <p>Code packages:</p>
                     <ul>
-                        <li><a href="https://ricardo-semiao.github.io/varutils" data-explanation="A R package for commonly needed ggplot graphs and utility functions on Vector Auto-Regressive analysis.">varutils</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/tree/main/packages" data-explanation="A simple, custom build, HTML template engine built in Python. It was built to power this site.">template_injector</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/morphdown" data-explanation="A R package to programmatically change the structure of R Markdown files. Built to convert my RFCD book into course-friendly slide presentations.">morphdown</a></li>
+                        <li><a href="https://ricardo-semiao.github.io/varr" data-explanation="A R package for commonly needed ggplot graphs and utility functions on Vector Auto-Regressive analysis.">varr</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/packages/template_injector" data-explanation="A simple, custom build, HTML template engine built in Python. It was built to power this site.">template_injector</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/morphdown" data-explanation="A R package to programmatically change the structure of R Markdown files. Built to convert my book 'RFCD' into course-friendly slide presentations.">morphdown</a></li>
                     </ul>
                 </div>
                 <div class="column-card">
@@ -111,13 +116,13 @@
                     <p>Personal projects:</p>
                     <ul>
                         <li><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/" data-explanation="My personal site. It includes the Home and CV tabs, and the common templates used in other published projects.">This site</a></li>
-                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/" data-explanation="A GitHub repository for storing my personal tools, such as my custom palette.">Personal themes/tools</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/" data-explanation="A GitHub repository for storing my personal palette, file templates, etc.">Personal themes/tools</a></li>
                     </ul>
                 </div>
                 <div class="column-card">
                     <p>Miscellaneous:</p>
                     <ul>
-                        <li><a href="https://github.com/ricardo-semiao/misc-allocator-ga" data-explanation="An optimization routine in R for a preference-based allocation problem, using generic algorithms.">misc-allocator-ga</a></li>
+                        <li><a href="https://github.com/ricardo-semiao/misc-allocator-ga" data-explanation="An optimization routine in R for a preference-based allocation problem, using generic algorithms. Not polished.">misc-allocator-ga</a></li>
                         <li><a href="https://github.com/ricardo-semiao/misc-general" data-explanation="Miscellaneous projects, most for fun or for learning, with questionable quality.">misc-general</a></li>
                     </ul>
                 </div>

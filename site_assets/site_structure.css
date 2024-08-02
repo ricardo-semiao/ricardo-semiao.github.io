@@ -22,21 +22,75 @@
     padding: 0;
     margin: 0;
     line-height: 1;
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
 }
 #site-header nav li {
-    display: inline-block;
     font-size: 1.3rem;
-    padding-left: 0.5em;
 }
-#site-header nav li:first-child {
+#site-header nav > ul > li {
+    display: inline-block;
+    padding-left: 1em;
+}
+#site-header nav > ul > li:first-child {
     padding-left: 0;
-    border-bottom: 1px solid var(--gray);
 }
+
 #site-header nav .current-page {
     font-weight: bold;
+}
+
+#site-header .site-nav-drop ul {
+    /* Style: */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 4px;
+    background-color: white;
+    position: absolute;
+    /* Dynamic: */
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+    transition: max-height 1s ease, opacity 0.1s ease-out;;
+    max-height: 0;
+    overflow: hidden;
+}
+#site-header .site-nav-drop:hover ul {
+    /* Style: */
+    padding: 1rem;
+    border: 1px solid var(--orange);
+    /* Dynamic: */
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 0.98;
+    max-height: 500px;
+}
+#site-header .site-nav-drop ul li {
+    list-style: none;
+    font-size: 1.1rem;
+}
+
+#site-header .site-nav-drop button {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    padding: 0;
+    width: 28px;
+    height: 25px;
+}
+#site-header .site-nav-drop button::before {
+    color: var(--green);
+    border: 1px solid var(--orange);
+    border-radius: 4px;
+}
+#site-header .site-nav-drop button::before {
+    content: "";
+    display: inline-block;
+    width: 90%; /* Adjust width as needed */
+    height: 90%; /* Adjust height as needed */
+    background-image: url('data:image/svg+xml;utf8,<svg width="800px" height="800px" viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg"><g id="line"><line x1="16" x2="62" y1="19" y2="19" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="16" x2="62" y1="36" y2="36" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="16" x2="62" y1="53" y2="53" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/></g></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: top;
 }
 
 
