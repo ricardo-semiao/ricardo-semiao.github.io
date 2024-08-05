@@ -1,0 +1,226 @@
+/* Rules */
+.double-hrule {
+  border-top: 2.5px solid var(--orange);
+  border-bottom: 2.5px solid var(--orange);
+  height: 6px;
+  margin: 2em 0 0 0;
+}
+.single-hrule {
+  border-top: 1px solid var(--orange);
+  width: 90%;
+}
+
+
+/* Navbars */
+@media (min-width: 1200px) {
+  .sidebar {
+      max-width: 17rem;
+  }
+}
+.chapter-nav {
+  margin-bottom: 0.5rem;
+}
+
+.book-part.collapsed::after {
+  content: " ►";
+  color: var(--darkgreen);
+}
+.book-part:not(.collapsed)::after {
+  content: " ▼";
+  color: var(--darkgreen);
+}
+
+#main-nav li a[href^="intro"]::before {
+  content: "‒ ";
+  color: var(--darkgray);
+}
+#main-nav li a[href^="introduction"]::before {
+  content: none;
+}
+#main-nav li a[href^="recap"]::before {
+  content: "⤷ ";
+  color: var(--darkgray);
+}
+.header-section-number {
+  color: var(--blackgray);
+}
+
+
+/* Code */
+pre {
+  margin-left: 0;
+  margin-right: 0;
+}
+.btn.btn-copy {
+  background-color: var(--lightgray);
+  right: 0;
+  padding: 2px 3px 2px 3px;
+  margin: 4px 4px 0 0;
+}
+div.sourceCode > button {
+  filter: opacity(80%);
+}
+
+
+/* Figures and Captions */
+p.caption {
+  color: var(--blackgray);
+}
+caption {
+  padding: 0;
+  margin-top: 1em;
+  color: var(--blackgray);
+}
+.inline-figure {
+  border: none;
+  text-align: center;
+}
+.figure {
+  border-top: none;
+  border-bottom: none;
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+.section .figure:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Lists */
+li > p:not(:last-child) {
+  margin-bottom: 0;
+}
+main ol, main ul {
+  margin-bottom: 1em;
+}
+ol ol, ul ul {
+  margin-bottom: 0;
+}
+p + ol, p + ul {
+  margin-top: -0.5em;
+}
+ol p + ol, ul p + ul {
+  margin-top: 0;
+}
+ol + ul li:first-child, ul + ol li:first-child {
+  margin-top: 0;
+}
+
+
+/* Tables */
+.table {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9em;
+}
+[id^="complemento"] .table {
+  width: 100%;
+}
+[id^="complemento"] .table tr td:nth-child(1) {
+  white-space: nowrap;
+}
+table tr:nth-child(2n) {
+  background-color: var(--lightgray);
+}
+table tr:nth-child(2n-1) {
+  background-color: var(--gray);
+}
+table th {
+  background-color: var(--darkgray);
+}
+
+
+/* Custom items */
+.obs, .extra {
+  margin: 0 0 1rem 0;
+  padding: 0 0 0 25px;
+}
+.obs p, .extra p {
+  display: inline;
+  font-size: 90%;
+}
+.obs::before {
+  content: "💬 Observação: ";
+  font-size: 90%;
+  font-style: italic;
+}
+.extra::before {
+  content: "🔍 Extra: ";
+  font-size: 90%;
+  font-style: italic;
+}
+
+.lesser {
+  margin: 0 0 1rem 0;
+}
+.lesser p {
+  display: block;
+  font-size: 90%;
+  position: relative;
+  margin-left: 25px;
+}
+.lesser::before {
+  content: "➔";
+  font-size: 90%;
+  position: absolute;
+  left: 1;
+  top: 1;
+}
+
+
+/* Custom blocks */
+.result, .ex, .warn {
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  margin: 0 0 1rem 0;
+}
+.result p, .ex p, .warn p {
+  display: inline;
+}
+.result pre, .ex pre, .warn pre {
+  border: none;
+}
+.result pre:last-child, .ex pre:last-child, .warn pre:last-child {
+  margin-bottom: 0;
+}
+.result a, .ex a, .warn a {
+  color: var(--darkgreen);
+}
+
+.result {
+  background-color: var(--lightgreen);
+}
+.result::before {
+  content: "📝 Resultado - ";
+  font-weight: bold;
+}
+.result code, .result pre {
+  background-color: var(--aquagreen);
+}
+
+.ex {
+  background-image: none;
+  background-color: var(--lightyellow);
+}
+.ex::before {
+  content: "✏️ Exemplo: ";
+  display: inline;
+  font-weight: bold;
+}
+.ex code, .ex pre {
+  background-image: none;
+  background-color: var(--aquayellow);
+}
+
+.warn {
+  background-color: var(--lightorange);
+}
+.warn::before {
+  content: "⚠️ Aviso: ";
+  font-weight: bold;
+}
+.warn code, .warn pre {
+  background-image: none;
+  background-color: var(--aquaorange);
+}

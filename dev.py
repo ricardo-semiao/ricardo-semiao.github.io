@@ -5,16 +5,16 @@ from template_injector import build
 
 # Building the templates:
 build(
-    'assets/home/home_template.html',
-    ['site_assets/components.html'],
-    'index.html',
+    'templates/home_template.html',
+    ['templates/components.html'],
+    'docs/index.html',
     prettify = False
 )
 
 build(
-    'assets/cv/cv_template.html', 
-    ['site_assets/components.html'],
-    'cv.html',
+    'templates/cv_template.html', 
+    ['templates/components.html'],
+    'docs/cv/index.html',
     prettify = False
 )
 

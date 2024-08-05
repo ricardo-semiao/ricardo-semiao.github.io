@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Meta --><meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Ricardo Semião e Castro" name="Author">
+<link href="/site_assets/img/icon.png" rel="icon" type="image/png">
+<link href="/site_assets/img/icon.png" rel="shortcut icon" type="image/png">
+<title>3 Tipos de Valores e Atributos | R: Fundamentos e Ciência de Dados</title>
+<meta name="description" content="3.1 Introdução Como vimos no capítulo passado, tudo que existe no R é um objeto. Eles são compostos de valores/dados e (potencialmente) atributos/metadados. Haverão dois aprendizados principais:...">
+<meta name="generator" content="bookdown 0.39 with bs4_book()">
+<meta property="og:title" content="3 Tipos de Valores e Atributos | R: Fundamentos e Ciência de Dados">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://ricardo-semiao.github.io/rfcd/data-attrs.html">
+<meta property="og:description" content="3.1 Introdução Como vimos no capítulo passado, tudo que existe no R é um objeto. Eles são compostos de valores/dados e (potencialmente) atributos/metadados. Haverão dois aprendizados principais:...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3 Tipos de Valores e Atributos | R: Fundamentos e Ciência de Dados">
+<meta name="twitter:site" content="@ricardo_semiao">
+<meta name="twitter:description" content="3.1 Introdução Como vimos no capítulo passado, tudo que existe no R é um objeto. Eles são compostos de valores/dados e (potencialmente) atributos/metadados. Haverão dois aprendizados principais:...">
+<!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.32/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script><script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script><script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script><script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script><!-- CSS --><style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<!-- Custom Assets --><link href="/site_assets/site_structure.css" rel="stylesheet">
+<link href="/site_assets/site_style.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/rfcd_style.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">-->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<!--Header -->
+    <header id="site-header"><div class="header-block"></div>
+        <nav><ul>
+<li class="nav-li">
+                    <a href="/">Home</a>
+                </li>
+                <li class="nav-li">
+                    <a href="/cv.html">CV</a>
+                </li>
+                <li class="nav-drop">
+                    <button></button>
+                    <ul>
+<li class="nav-li">
+                            <a href="/rfcd/">RFCD</a>
+                        </li>
+                        <li class="nav-li">
+                            <a href="/varr/">Varr</a>
+                        </li>
+                        <li class="nav-li">
+                            <a href="/morphdown/">Morphdown</a>
+                        </li>
+                    </ul>
+</li>
+            </ul></nav><div class="header-block"></div>
+    </header><div id="site-main">
+
+    <div class="container-fluid">
+        <div class="row">
+            <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+                <div class="d-flex align-items-start justify-content-between">
+                    <h1>
+<a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+          </h1>
+                    <button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+                        <i class="fas fa-bars"></i>
+                        <span class="sr-only">Show table of contents</span>
+                    </button>
+                </div>
+                <div class="collapse-lg" id="main-nav">
+                    <form role="search">
+                        <input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search">
+</form>
+                    <nav aria-label="Table of contents"><h2>Índice</h2>
+                        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bem Vindo!</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
+<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li><a class="" href="intro1.html">Introdução</a></li>
+<li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
+<li><a class="active" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="" href="subset.html"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
+<li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
+<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
+<li><a class="" href="recap1.html">Recapitulando</a></li>
+<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li><a class="" href="intro2.html">Introdução</a></li>
+<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
+<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
+<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
+<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
+<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
+<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
+<li><a class="" href="recap2.html">Recapitulando</a></li>
+<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="intro3.html">Introdução</a></li>
+<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
+<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
+<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
+<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
+<li><a class="" href="recap3.html">Recapitulando</a></li>
+<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
+<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
+<li><a class="" href="intro4.html">Introdução</a></li>
+<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
+<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
+<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
+<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li class="book-part">Apêndice</li>
+<li><a class="" href="dict.html">Dicionário de funções</a></li>
+<li><a class="" href="refs.html">Referências</a></li>
+</ul>
+                        <!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+                    </nav>
+</div>
+            </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-attrs" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Tipos de Valores e Atributos<a class="anchor" aria-label="anchor" href="#data-attrs"><i class="fas fa-link"></i></a>
+</h1>
+<div id="introdução-2" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Introdução<a class="anchor" aria-label="anchor" href="#introdu%C3%A7%C3%A3o-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Como vimos no capítulo passado, tudo que existe no R é um objeto. Eles são compostos de <em>valores/dados</em> e (potencialmente) <em>atributos/metadados</em>.</p>
+<p>Haverão dois aprendizados principais: <strong>(i)</strong> temos duas famílias de <em>tipos</em>, todos os valores “do dia-a-dia” são vetores, e a outra contém os poucos tipos internos do R; <strong>(ii)</strong> a diferença entre vetores atômicos e genéricos; <strong>(iii)</strong> atributos são metadados, que alteram a interação dos objetos com funções, mas não suas características básicas. Especialmente o último ponto é muito útil para não precisar decorar funções para cada classe.</p>
+<p>Aprenderemos também tópicos mais concretos: <strong>(i)</strong> quais são os tipos de vetores atômicos; <strong>(ii)</strong> valores NA; <strong>(iii)</strong> coerção de tipos; <strong>(iv)</strong> como criar e combinar vetores; <strong>(v)</strong> o básico dos atributos nome e dimensão, bem como das classes mais comuns no R.</p>
+</div>
+<div id="famílias-de-valores" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Famílias de Valores<a class="anchor" aria-label="anchor" href="#fam%C3%ADlias-de-valores"><i class="fas fa-link"></i></a>
+</h2>
+<p>Na descrição dos tipos de valores, o R também apresenta uma simplicidade muito interessante! Existem duas famílias de tipos de valores: os <strong>vetores</strong>, e os <strong>nodes</strong>.</p>
+<p>Os <strong>nodes</strong> são os tipos internos do R. Os principais estão abaixo, e não existem muitos outros:</p>
+<ul>
+<li>Funções (closures), ambientes, promessas – a serem estudadas no capítulo <a href="funs-envs.html#funs-envs">6</a>.</li>
+<li>Expressões, símbolos, e chamadas de funções – a serem estudadas no capítulo <a href="paradigms.html#paradigms">7</a>.</li>
+<li>
+<code>NULL</code>, o objeto que denota a ausência de valor – a ser explicado neste capítulo.</li>
+</ul>
+<p>Os vetores são os tipos de valores que estamos mais acostumados a lidar. Eles são divididos em dois: temos seis tipos de <strong>vetores atômicos</strong>, e um tipo de <strong>vetores genéricos</strong> (mais conhecidos como <strong>listas</strong>). Cada um será explicado em sua própria seção.</p>
+</div>
+<div id="vetores-atômicos" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Vetores Atômicos<a class="anchor" aria-label="anchor" href="#vetores-at%C3%B4micos"><i class="fas fa-link"></i></a>
+</h2>
+<div id="tipos-de-vetores-atômicos" class="section level3" number="3.3.1">
+<h3>
+<span class="header-section-number">3.3.1</span> Tipos de Vetores Atômicos<a class="anchor" aria-label="anchor" href="#tipos-de-vetores-at%C3%B4micos"><i class="fas fa-link"></i></a>
+</h3>
+<div class="result">
+<p>Os vetores atômicos são a unidade básica de dados no R. Eles podem ser de seis tipos, mas quatro são os principais:</p>
+<ul>
+<li>
+<em>Logical</em> são os dados booleanos, podem ser <code>TRUE</code> ou <code>FALSE</code>. Podem ser abreviados para <code>T</code> e <code>F</code> <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Mas as estas não são palavras reservadas, podem ser sobrescritas. Evite.&lt;/p&gt;"><sup>43</sup></a>.</li>
+<li>
+<em>Characters</em> são os dados de texto (strings).</li>
+<li>
+<em>Integers</em> são números inteiros, e são escritos com um “L” no fim: <code>12L</code>.</li>
+<li>
+<em>Doubles</em> são os números decimais, podem ser escritos na forma decimal <code>1.245</code>, científica <code>1.23e4</code>, ou hexadecimal <code>0xadfe</code>.
+<ul>
+<li>Valores especiais: <code>Inf</code>, <code>-Inf</code>, e <code>NaN</code> (“not a number”, usado em indefinições matemáticas).</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="lesser">
+<p>Adicionalmente, existe <em>raw</em>, para dados em binário; e <em>complex</em>, para números complexos. Por fim, existe <code>NULL</code> que, como dito, não é um vetor, mas pode ser entendido como a “ausência de dado”/“vetor de tamanho zero”.</p>
+</div>
+</div>
+<div id="definição-vetores-atômicos-e-escalares" class="section level3" number="3.3.2">
+<h3>
+<span class="header-section-number">3.3.2</span> Definição: Vetores Atômicos e Escalares<a class="anchor" aria-label="anchor" href="#defini%C3%A7%C3%A3o-vetores-at%C3%B4micos-e-escalares"><i class="fas fa-link"></i></a>
+</h3>
+<p>Podemos criar coleções como <code>(1, 2, 3, 4, 5)</code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Sintaxe ilustrativa.&lt;/p&gt;"><sup>44</sup></a> de várias formas, mas note o resultado abaixo.</p>
+<div class="result">
+<p><strong>Vetores Atômicos e Escalares</strong><br></p>
+<ul>
+<li>Um valor “sozinho”, ex: <code>3</code>, é chamado de <strong>escalar</strong>.</li>
+<li>Um <strong>vetor atômico</strong> é uma coleção de escalares de um mesmo tipo.</li>
+<li>Um escalar é uma “coleção de tamanho um”, e portanto, todo escalar é um vetor atômico, não existe diferenciação real entre os dois.</li>
+</ul>
+</div>
+<div class="obs">
+<p>os componentes de uma coleção são chamados de “elementos”.</p>
+</div>
+</div>
+<div id="combinando-vetores" class="section level3" number="3.3.3">
+<h3>
+<span class="header-section-number">3.3.3</span> Combinando Vetores<a class="anchor" aria-label="anchor" href="#combinando-vetores"><i class="fas fa-link"></i></a>
+</h3>
+<p>A função <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> combina (daí o nome) vetores em um mais longo. Ela serve com atômicos ou genéricos, mas por enquanto, vamos usá-la com atômicos: <code class="sourceCode r"><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</code>, <code class="sourceCode r"><span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">3.5</span>, <span class="fl">1.23e4</span>)</code>.</p>
+<div class="warn">
+<p>Quando usada com vetores atômicos, <code class="sourceCode r"><span class="fu">c</span>()</code> coage os inputs a escalares do mesmo tipo, resultando em um outro atomic vector.<br>
+Existe uma ordem de prioridade: se houver um <em>character</em>, tudo vira <em>character</em>, fora isso, tudo vira <em>double</em>, depois, <em>integer</em>, e por fim, <em>logical</em>. Veja o exemplo abaixo.<br>
+Funções que pedem argumentos de um mesmo tipo normalmente os coagem caso eles sejam diferentes, e isso é causa comum de erros.</p>
+</div>
+<div class="ex">
+<p>Note as duas coerções diferentes abaixo:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span> <span class="co">#&gt; c("1" "2" "a" "b")</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; c(1, 2, 3, 4)</span></span></code></pre></div>
+</div>
+</div>
+<div id="funções-úteis" class="section level3" number="3.3.4">
+<h3>
+<span class="header-section-number">3.3.4</span> Funções Úteis<a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%B5es-%C3%BAteis"><i class="fas fa-link"></i></a>
+</h3>
+<p>A palavra “tipo” (de um vetor) não é só no sentido intuitivo, é esse o termo utilizado na documentação do R. Podemos utilizar a função <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code> para descobrir o tipo de um objeto.</p>
+<p>Para testar se um objeto é de um tipo específico, existem as funções <code><a href="https://rdrr.io/r/base/logical.html">is.logical()</a></code>, <code><a href="https://rdrr.io/r/base/integer.html">is.integer()</a></code>, <code><a href="https://rdrr.io/r/base/double.html">is.double()</a></code>, e <code><a href="https://rdrr.io/r/base/character.html">is.character()</a></code>. Existem também <code><a href="https://rdrr.io/r/base/vector.html">is.vector()</a></code>, <code><a href="https://rdrr.io/r/base/is.recursive.html">is.atomic()</a></code>, e <code><a href="https://rdrr.io/r/base/numeric.html">is.numeric()</a></code>, mas são imprevisíveis.</p>
+<p>Na seção de atributos, vamos ver como podemos criar <em>classes</em> em cima dos tipos básicos. Essa complexidade torna os testes de tipo menos confiáveis em alguns contextos, por isso, recomendo usar as variações <code><a href="https://rlang.r-lib.org/reference/type-predicates.html">rlang::is_logical()</a></code> e cia. do pacote <a href="https://rlang.r-lib.org/">rlang</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;No futuro explicarei o que são pacotes, e como utilizá-los. A sintaxe &lt;code&gt;nome::funcao()&lt;/code&gt; indica que a função &lt;code&gt;funcao()&lt;/code&gt; está no pacote &lt;code&gt;nome&lt;/code&gt;. Ela também será explicada no futuro.&lt;/p&gt;"><sup>45</sup></a>, que tem uma relação mais confiável de 1-pra-1 com <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code>.</p>
+<p>Podemos transformar o tipo de um vetor com <code><a href="https://rdrr.io/r/base/logical.html">as.logical()</a></code>, <code><a href="https://rdrr.io/r/base/integer.html">as.integer()</a></code>, <code><a href="https://rdrr.io/r/base/double.html">as.double()</a></code>, ou <code><a href="https://rdrr.io/r/base/character.html">as.character()</a></code>.</p>
+<p>A função <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> retorna o tamanho, o número de elementos, de um vetor. Ela tem algumas peculiaridades, mas por enquanto, vamos deixar isso de lado.</p>
+</div>
+<div id="valores-na" class="section level3" number="3.3.5">
+<h3>
+<span class="header-section-number">3.3.5</span> Valores NA<a class="anchor" aria-label="anchor" href="#valores-na"><i class="fas fa-link"></i></a>
+</h3>
+<p>Todos os tipos explicados assumem um valor especial, o “valor desconhecido”: <code>NA</code>, “non aplicable”.</p>
+<p>Operações que dependam de um valor desconhecido, intuitivamente, também retonram um valor que não se conhece: <code class="sourceCode r"><span class="dv">1</span> <span class="sc">+</span> <span class="cn">NA</span> <span class="co">#&gt; NA</span></code>; <code class="sourceCode r"><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span> <span class="co">#&gt; NA</span></code>. Para checar se um valor é NA, use <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>.</p>
+<div class="lesser">
+<p>Por trás dos panos, existe um <code>NA</code> diferente para cada tipo de vetor atômico (<code>NA_integer_</code>, etc.). Isso acontece por conta das leis de coerção. Um valor desconhecido numérico pode ser coagido para um valor desconhecido de texto.</p>
+</div>
+</div>
+</div>
+<div id="listas" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Listas<a class="anchor" aria-label="anchor" href="#listas"><i class="fas fa-link"></i></a>
+</h2>
+<div id="definição-listas" class="section level3" number="3.4.1">
+<h3>
+<span class="header-section-number">3.4.1</span> Definição: Listas<a class="anchor" aria-label="anchor" href="#defini%C3%A7%C3%A3o-listas"><i class="fas fa-link"></i></a>
+</h3>
+<p>Vimos que vetores atômicos não aceitam elementos de tipos diferentes, nem elementos não-escalares, de <em>length</em> maior que 1. Porém, o R permite coleções diferentes, como <code class="sourceCode r">(<span class="dv">1</span>, <span class="st">"a"</span>, (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="cn">TRUE</span>, <span class="dv">1</span>)</code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Sintaxe ilustrativa.&lt;/p&gt;"><sup>46</sup></a>.</p>
+<div class="result">
+<p><strong>Listas</strong><br></p>
+<ul>
+<li>Uma <strong>lista</strong> é uma coleção de vetores.
+<ul>
+<li>Note a definição mais flexível que a de vetor atômico, por isso, listas também são chamadas de <strong>vetores genéricos</strong>.</li>
+</ul>
+</li>
+<li>Uma lista também faz parte da <em>família</em> vetor, portanto listas podem conter outras listas</li>
+<li>Listas tem seu próprio tipo, <em>list</em>.</li>
+</ul>
+</div>
+<p>Para criar uma lista, usamos a função <code><a href="https://rdrr.io/r/base/list.html">list()</a></code>.</p>
+<p>Note que a lista <code class="sourceCode r"><span class="fu">list</span>(<span class="dv">1</span>)</code> não é um escalar, mas sim uma lista que contém um escalar. Esta é uma diferença importante, e será relevante no capítulo <a href="subset.html#subset">4</a>.</p>
+<div class="lesser">
+<p>No tema de “Gerenciamento de memória” falaremos sobre como, por trás dos panos, listas são apenas referências aos objetos, de modo que <code class="sourceCode r"><span class="fu">list</span>(x, x)</code> ocupa bem menos que o dobro do espaço de <code class="sourceCode r"><span class="fu">list</span>(x)</code></p>
+</div>
+</div>
+<div id="combinando-listas" class="section level3" number="3.4.2">
+<h3>
+<span class="header-section-number">3.4.2</span> Combinando Listas<a class="anchor" aria-label="anchor" href="#combinando-listas"><i class="fas fa-link"></i></a>
+</h3>
+<p>Como listas podem conter outros vetores de tamanhos variados, inclusive outras listas, podem ter formatos súper complexos.</p>
+<p>Adicionalmente, há diferentes maneiras de combiná-las. A função <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> cria uma lista envolta dos inputs, enquanto a função <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> (quando usada com alguma lista), concatena listas. Vejamos alguns exemplos.</p>
+<div class="ex">
+<p>Veja o código e a representação visual de cada vetor ao lado.</p>
+<div class="columns" style="display: flex">
+<div class="column" style="width:40%;">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">v3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">v4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">v5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">v6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="column" style="width:2%;">
+
+</div>
+<div class="column" style="width:58%;">
+<div class="inline-figure"><img src="assets/img/lists_examples.png" width="211" height="300px"></div>
+</div>
+</div>
+</div>
+<p>Outra manipulação de listas comum é a “diminuição de complexidade/hierarquia”, como por exemplo:</p>
+<ol style="list-style-type: decimal">
+<li>Transformar <code class="sourceCode r"><span class="fu">list</span>(<span class="dv">1</span>, <span class="fu">list</span>(<span class="dv">2</span>, <span class="dv">3</span>))</code> em <code class="sourceCode r"><span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code>.</li>
+<li>Transformar <code class="sourceCode r"><span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code> em <code class="sourceCode r"><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code>.</li>
+<li>Ou, os dois ao mesmo tempo: <code class="sourceCode r"><span class="fu">list</span>(<span class="dv">1</span>, <span class="fu">list</span>(<span class="dv">2</span>, <span class="dv">3</span>))</code> em <code class="sourceCode r"><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code>.</li>
+</ol>
+<p>Para isso, podemos usar a função <code><a href="https://rdrr.io/r/base/unlist.html">unlist()</a></code>, que por padrão, remove todas as camadas de hierarquia de uma lista (caso 3). Para o caso 1, podemos usar o argumento <code class="sourceCode r">recursive <span class="ot">=</span> <span class="cn">FALSE</span></code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Isto é, &lt;code class="sourceCode r"&gt;&lt;span class="fu"&gt;unlist&lt;/span&gt;(&lt;span class="fu"&gt;list&lt;/span&gt;(&lt;span class="dv"&gt;1&lt;/span&gt;, &lt;span class="fu"&gt;list&lt;/span&gt;(&lt;span class="dv"&gt;2&lt;/span&gt;, &lt;span class="dv"&gt;3&lt;/span&gt;)), &lt;span class="at"&gt;recursive =&lt;/span&gt; &lt;span class="cn"&gt;FALSE&lt;/span&gt;)&lt;/code&gt;. Aprenderemos formalmente o que são argumentosno capítulo &lt;a href="funs-envs.html#funs-envs"&gt;6&lt;/a&gt;. Por enquanto entenda que são os inputs que passamos para as funções: tanto os insumos (dados), quanto opções que regem seu funcionamento.&lt;/p&gt;'><sup>47</sup></a>. As funções <code><a href="https://purrr.tidyverse.org/reference/list_flatten.html">purrr::list_flatten()</a></code> e <code><a href="https://purrr.tidyverse.org/reference/list_c.html">purrr::list_c()</a></code> são opções mais consistentes, com menos resultados inesperados. A primeira funciona para o caso 1, e a segunda, para o caso 2.</p>
+<div class="lesser">
+<p>A função <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> pode ser utilizada para, ao mesmo tempo que combina, simplificar a complexidade de listas, via o argumento <code class="sourceCode r">recursive <span class="ot">=</span> <span class="cn">FALSE</span></code>. Esse comportamento pode ser útil, mas é confuso e inesperado, prefira ser explícito com primeiro combinar, e depois simplificar.</p>
+</div>
+</div>
+</div>
+<div id="atributos" class="section level2" number="3.5">
+<h2>
+<span class="header-section-number">3.5</span> Atributos<a class="anchor" aria-label="anchor" href="#atributos"><i class="fas fa-link"></i></a>
+</h2>
+<p>Os vetores podem carregar mais informações do que apenas os valores de seus elementos, eles podem carregar <strong>metadados</strong>/<strong>atributos</strong>, dados sobre o vetor e seus elementos em si.</p>
+<ul>
+<li>Praticamente todos os objetos no R podem carregar atributos, mas é raro isso ser útil. Vamos focar em vetores.</li>
+</ul>
+<p>Pode-se criar atributos livremente, mas alguns são mais comunmente encontrados na natureza:</p>
+<ul>
+<li>
+<strong>names</strong>, um vetor character, que nomeia cada elemento de um vetor.</li>
+<li>
+<strong>dim</strong> (diminutivo de dimensions), um vetor de inteiros, que reorganiza vetores em <em>matrizes</em> e <em>arrays</em> (em termos simplistas, “matrizes multidimensionais”).</li>
+<li>
+<strong>class</strong>, um vetor character, que indica a <strong>classe</strong> de um vetor, um outro sistema de “tipagem” de objetos, construído em cima dos <em>tipos</em>.</li>
+</ul>
+<p>Atributos não afetam a “essência” de um vetor, seu dado ou seu tipo, mas podem afetar como ele interage com funções. Abaixo, vamos estudar cada um dos atributos acima.</p>
+<div id="nomes" class="section level3" number="3.5.1">
+<h3>
+<span class="header-section-number">3.5.1</span> Nomes<a class="anchor" aria-label="anchor" href="#nomes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Nomear um vetor o torna mais compreensível. Adicionalmente, fica mais fácil de fazer referências à seus elementos, veremos isso no capítulo <a href="subset.html#subset">4</a>.</p>
+<p>Podemos nomear um vetor de várias formas:</p>
+<ul>
+<li>
+<code class="sourceCode r">x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>, <span class="at">c =</span> <span class="dv">3</span>)</code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;A sintaxe pode ser, equivalentemente, &lt;code class="sourceCode r"&gt;&lt;span class="fu"&gt;c&lt;/span&gt;(&lt;span class="st"&gt;"a"&lt;/span&gt; &lt;span class="ot"&gt;=&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;, &lt;span class="st"&gt;""&lt;/span&gt;b&lt;span class="st"&gt;" = 2, "&lt;/span&gt;c&lt;span class="st"&gt;" = 3)&lt;/span&gt;&lt;/code&gt; e &lt;code class="sourceCode r"&gt;&lt;span class="fu"&gt;c&lt;/span&gt;(&lt;span class="st"&gt;`&lt;/span&gt;&lt;span class="at"&gt;a&lt;/span&gt;&lt;span class="st"&gt;`&lt;/span&gt; &lt;span class="ot"&gt;=&lt;/span&gt; &lt;span class="dv"&gt;1&lt;/span&gt;, &lt;span class="st"&gt;`&lt;/span&gt;&lt;span class="at"&gt;b&lt;/span&gt;&lt;span class="st"&gt;`&lt;/span&gt; &lt;span class="ot"&gt;=&lt;/span&gt; &lt;span class="dv"&gt;2&lt;/span&gt;, &lt;span class="st"&gt;`&lt;/span&gt;&lt;span class="at"&gt;c&lt;/span&gt;&lt;span class="st"&gt;`&lt;/span&gt; &lt;span class="ot"&gt;=&lt;/span&gt; &lt;span class="dv"&gt;3&lt;/span&gt;)&lt;/code&gt;.&lt;/p&gt;'><sup>48</sup></a>.</li>
+<li>
+<code class="sourceCode r"><span class="fu">names</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</code>.</li>
+<li>
+<code class="sourceCode r">x <span class="ot">&lt;-</span> <span class="fu">setNames</span>(x, <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</code>. Considere também a função <code><a href="https://rlang.r-lib.org/reference/set_names.html">purrr::set_names()</a></code>.</li>
+</ul>
+<p>Podemos remover nomes com:</p>
+<ul>
+<li>
+<code class="sourceCode r"><span class="fu">names</span>(x) <span class="ot">&lt;-</span> <span class="cn">NULL</span></code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A lógica é: colocar o &lt;em&gt;vazio&lt;/em&gt; no lugar de algo é virtualmente igual a remover esse algo.&lt;/p&gt;"><sup>49</sup></a>.</li>
+<li>
+<code class="sourceCode r">x <span class="ot">&lt;-</span> <span class="fu">setNames</span>(x, <span class="cn">NULL</span>)</code>.</li>
+<li>
+<code class="sourceCode r">x <span class="ot">&lt;-</span> <span class="fu">unname</span>(x)</code>.</li>
+</ul>
+<p>É fácil ver como a estrutura básica fica inalterada. Tente transpor essa ideia para os outros atributos mais complexos a seguir.</p>
+</div>
+<div id="dimensões" class="section level3" number="3.5.2">
+<h3>
+<span class="header-section-number">3.5.2</span> Dimensões<a class="anchor" aria-label="anchor" href="#dimens%C3%B5es"><i class="fas fa-link"></i></a>
+</h3>
+<p>Muitas vezes, nossos dados tem uma lógica de organização como a de uma matriz, com linhas e colunas. Algumas vezes, precisamos até de matrizes multi-dimensionais.</p>
+<div id="criação-de-matrizes-e-arrays" class="section level4" number="3.5.2.1">
+<h4>
+<span class="header-section-number">3.5.2.1</span> Criação de Matrizes e Arrays<a class="anchor" aria-label="anchor" href="#cria%C3%A7%C3%A3o-de-matrizes-e-arrays"><i class="fas fa-link"></i></a>
+</h4>
+<div class="ex">
+<p>Um vetor com o atributo dimensão é um vetor que deve ser interpretado como matriz:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">m1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">m1</span></span>
+<span></span>
+<span><span class="co">#&gt;       [,1] [,2]  [,3]</span></span>
+<span><span class="co">#&gt; [1,]  TRUE TRUE FALSE</span></span>
+<span><span class="co">#&gt; [2,] FALSE TRUE  TRUE</span></span></code></pre></div>
+<p>Ou como array:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">a1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">a1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">a1</span></span>
+<span></span>
+<span><span class="co">#&gt; , , 1</span></span>
+<span><span class="co">#&gt;</span></span>
+<span><span class="co">#&gt;      [,1] [,2]</span></span>
+<span><span class="co">#&gt; [1,]    1    3</span></span>
+<span><span class="co">#&gt; [2,]    2    4</span></span>
+<span><span class="co">#&gt;</span></span>
+<span><span class="co">#&gt; , , 2</span></span>
+<span><span class="co">#&gt;</span></span>
+<span><span class="co">#&gt;      [,1] [,2]</span></span>
+<span><span class="co">#&gt; [1,]    5    7</span></span>
+<span><span class="co">#&gt; [2,]    6    8</span></span></code></pre></div>
+</div>
+<p>Ambos podem ser criados diretamente, com as funções <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code> – <code class="sourceCode r"><span class="fu">matrix</span>(m1, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</code> – e <code><a href="https://rdrr.io/r/base/array.html">array()</a></code> – <code class="sourceCode r"><span class="fu">array</span>(a1, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>))</code>.</p>
+<p>Note que utilizei vetores atômicos nos exemplos, mas listas também podem ter dimensões. Iremos explorar isso nos exercícios</p>
+<p>Note que podemos ter matrizes com apenas uma linha ou uma coluna, ou arrays com apenas uma dimensão<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Um comentário técnico e provavelmente pouco importante: um vetor sem atributo &lt;em&gt;dim&lt;/em&gt; não é 1-dimensional, mas &lt;em&gt;NULL&lt;/em&gt;-dimensional.&lt;/p&gt;"><sup>50</sup></a>. Eles são diferentes de vetores, e vão interagir diferentemente com funções (ex: matemática de matrizes). A função <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> retorna uma descrição mais detalhada de um objeto, abuse-a.</p>
+</div>
+<div id="funções-úteis-1" class="section level4" number="3.5.2.2">
+<h4>
+<span class="header-section-number">3.5.2.2</span> Funções Úteis<a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%B5es-%C3%BAteis-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Como atributos não alteram a estrutura básica, as funções para vetores tem generalizações para matrizes e arrays:</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:matrix-funs">Tabela 3.1: </span> Funções para Vetores, Matrizes e Arrays.</caption>
+<thead><tr class="header">
+<th align="left">Vector</th>
+<th align="left">Matrix</th>
+<th align="left">Array</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code><a href="https://rdrr.io/r/base/names.html">names()</a></code></td>
+<td align="left">
+<code><a href="https://rdrr.io/r/base/colnames.html">rownames()</a></code>, <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code>
+</td>
+<td align="left"><code><a href="https://rdrr.io/r/base/dimnames.html">dimnames()</a></code></td>
+</tr>
+<tr class="even">
+<td align="left"><code><a href="https://rdrr.io/r/base/length.html">length()</a></code></td>
+<td align="left">
+<code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code>, <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code>
+</td>
+<td align="left"><code><a href="https://rdrr.io/r/base/dim.html">dim()</a></code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code><a href="https://rdrr.io/r/base/c.html">c()</a></code></td>
+<td align="left">
+<code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code>, <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code>
+</td>
+<td align="left"><code><a href="https://rdrr.io/pkg/abind/man/abind.html">abind::abind()</a></code></td>
+</tr>
+<tr class="even">
+<td align="left">—</td>
+<td align="left"><code><a href="https://rdrr.io/r/base/t.html">t()</a></code></td>
+<td align="left"><code><a href="https://rdrr.io/r/base/aperm.html">aperm()</a></code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code><a href="https://rdrr.io/r/base/vector.html">is.vector()</a></code></td>
+<td align="left"><code><a href="https://rdrr.io/r/base/matrix.html">is.matrix()</a></code></td>
+<td align="left"><code><a href="https://rdrr.io/r/base/array.html">is.array()</a></code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Note que adicionar dimensões gerou algumas possibilidades:</p>
+<ul>
+<li>Um tamanho e um atributo de nome para cada dimensão.</li>
+<li>Maneiras diferentes de combinar vetores: por linhas, por colunas, ou por outras dimensões.</li>
+<li>Operação de transposição: com <code><a href="https://rdrr.io/r/base/t.html">t()</a></code> e <code><a href="https://rdrr.io/r/base/aperm.html">aperm()</a></code>.</li>
+<li>Mais diferenças surgirão no capítulo <a href="subset.html#subset">4</a>, onde veremos como acessar elementos de vetores com e sem dimensões.</li>
+</ul>
+<p>Entender que matrizes e arrays são, em sua base, vetores atômicos, será muito útil para prever como funções vão agir sobre eles.</p>
+</div>
+</div>
+<div id="classes" class="section level3" number="3.5.3">
+<h3>
+<span class="header-section-number">3.5.3</span> Classes<a class="anchor" aria-label="anchor" href="#classes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Outro atributo importante é <strong>class</strong>, que permite a criação de vetores diferenciados, criados em cima dos tipos básicos. Esse atributo empodera o sistema de programação orientada ao objeto S3. Nele, funções agem diferentemente a depender da classe do argumento que estão recebendo.</p>
+<p>Classes podem ser criadas livremente. Abaixo vão algumas muito presentes no R:</p>
+<ul>
+<li>
+<strong>factor</strong> são utilizados para dados que podem assumir categorias pré definidas. São construídos em cima de <em>integers</em>.</li>
+<li>
+<strong>Date</strong>, <strong>POSIXct</strong>, e <strong>difftime</strong> são para datas. São construídos em cima de <em>doubles</em>.</li>
+<li>
+<strong>data.frame</strong> e <strong>tibble</strong> são para tabelas de dados. São construídos em cima de <em>lists</em>.</li>
+</ul>
+<p>Novamente, entender que classes são construídas em cima dos <em>tipos</em> será muito útil para prever como funções vão agir sobre eles.</p>
+<div id="factors" class="section level4" number="3.5.3.1">
+<h4>
+<span class="header-section-number">3.5.3.1</span> Factors<a class="anchor" aria-label="anchor" href="#factors"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Factors</strong> tem o atributo class como <code class="sourceCode r"><span class="st">"factor"</span></code>, e um atributo <em>levels</em> que define os valores/categorias possíveis.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"m"</span>, <span class="st">"f"</span>, <span class="st">"f"</span>, <span class="st">"m"</span><span class="op">)</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"m"</span>, <span class="st">"f"</span>, <span class="st">"o"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] m f f m</span></span>
+<span><span class="co">#&gt; Levels: m f o</span></span></code></pre></div>
+<div class="warn">
+<p>Cuidado, factors comumente geram erros: parecem strings, mas não são. Aplicar manipulações de texto à eles costuma dar errado. Deve-se manipular seus níveis, ou transformar o factor em texto antes. Adicionalmente, vide também <a href="https://notstatschat.tumblr.com/post/124987394001/stringsasfactors-sigh">stringsAsFactors = sigh</a>.</p>
+</div>
+<div class="lesser">
+<p>Também existem os <strong>ordered factors</strong>, onde indicamos uma ordem para os <em>levels</em>, e costumam ser usados em funções de modelagem e visualização. Vide <code><a href="https://rdrr.io/r/base/factor.html">ordered()</a></code>.</p>
+</div>
+</div>
+<div id="datas" class="section level4" number="3.5.3.2">
+<h4>
+<span class="header-section-number">3.5.3.2</span> Datas<a class="anchor" aria-label="anchor" href="#datas"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Dates:</strong> são um <em>double</em> com o atributo class <code class="sourceCode r"><span class="st">"Date"</span></code>. Por trás dos panos são o número de dias entre 01/01/1970 e a data em questão. Para criar, use a função <code><a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a></code>.</p>
+<p><strong>Date-times:</strong> são um <em>double</em> com o atributo class <code class="sourceCode r"><span class="st">"POSIXct"</span></code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Também existe “POSIXlt”, vide este &lt;a href="https://ianmadd.github.io/pages/POSIXct_and_POSIXlt.html"&gt;blog post&lt;/a&gt;.&lt;/p&gt;'><sup>51</sup></a>. Por trás dos panos são o número de segundos entre 01/01/1970 e a hora em questão. Para criar, use a função <code><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct()</a></code>.</p>
+<p><strong>Durations:</strong> são um <em>double</em> com o atributo class <code class="sourceCode r"><span class="st">"difftime"</span></code>, que conta a distância entre duas datas. Têm o atributo <code class="sourceCode r"><span class="st">"units"</span></code> que indica como o valor deve ser interpretado. Para criar, use a função <code><a href="https://rdrr.io/r/base/difftime.html">as.difftime()</a></code>.</p>
+<p>Esses tipos de vetores são bem complexos, existem muitas complexidades como fusos horários, conversão de formatos, e operações matemáticas. Vou deixar para explicar como manipular esse tipo de dado no capítulo <a href="time-series.html#time-series">14</a>.</p>
+</div>
+<div id="data-frames" class="section level4" number="3.5.3.3">
+<h4>
+<span class="header-section-number">3.5.3.3</span> Data Frames<a class="anchor" aria-label="anchor" href="#data-frames"><i class="fas fa-link"></i></a>
+</h4>
+<p>Um <em>dataframe</em> é uma representação de uma tabela de dados. Basicamente, uma é uma lista nomeada de vetores, normalmente atômicos, todos de mesmo tamanho. Isto é, similar a:</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  coluna1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>  coluna2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"c"</span>, <span class="st">"b"</span>, <span class="st">"d"</span><span class="op">)</span>,</span>
+<span>  coluna3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>Como sempre, ter isso em mente ajudará muito a transpor o conhecimento sobre listas para dataframes.</p>
+<p>Data frames são criados com a função <code class="sourceCode r"><span class="fu">data.frame</span>()</code>. Eles tem os atributos <em>names</em> (nomes das “colunas”), <em>row.names</em> (nomes das “linhas”), e a <em>class</em> <code class="sourceCode r"><span class="st">"data.frame"</span></code>.</p>
+<p>Um data frame tem <code class="sourceCode r"><span class="fu">nrow</span>()</code> linhas, e <code class="sourceCode r"><span class="fu">ncol</span>()</code>/<code class="sourceCode r"><span class="fu">length</span>()</code> colunas. Também existem as funções <code><a href="https://rdrr.io/r/base/as.data.frame.html">is.data.frame()</a></code> e <code><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame()</a></code>.</p>
+<div class="lesser">
+<p>Uma coluna de um data frame pode também ser uma matriz/array (se o número de linhas coincidir), ou uma lista (se o número de elementos coincidir)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Veremos mais sobre nos exercícios. Para criar, dataframes com essas características use a função &lt;code&gt;I()&lt;/code&gt;: &lt;code class="sourceCode r"&gt;&lt;span class="fu"&gt;data.frame&lt;/span&gt;(&lt;span class="at"&gt;x =&lt;/span&gt; &lt;span class="fu"&gt;I&lt;/span&gt;(&lt;span class="fu"&gt;list&lt;/span&gt;(&lt;span class="dv"&gt;1&lt;/span&gt;, &lt;span class="dv"&gt;2&lt;/span&gt;, &lt;span class="dv"&gt;3&lt;/span&gt;)))&lt;/code&gt;.&lt;/p&gt;'><sup>52</sup></a>. O uso disso é raro.</p>
+</div>
+</div>
+<div id="tibbles" class="section level4" number="3.5.3.4">
+<h4>
+<span class="header-section-number">3.5.3.4</span> Tibbles<a class="anchor" aria-label="anchor" href="#tibbles"><i class="fas fa-link"></i></a>
+</h4>
+<p>Um <strong>Tibble</strong> é um sucessor do dataframe, trazido pelo pacote <a href="https://tibble.tidyverse.org/">tibble</a>.</p>
+<p>Tibbles tem a classe <code class="sourceCode r"><span class="fu">c</span>(<span class="st">"data.frame"</span>, <span class="st">"tbl_df"</span>)</code>. São “preguiçosos e grosseiros: fazem menos e reclamam mais”:</p>
+<ul>
+<li>Não geram vetores maiores a partir de vetores menores (<code class="sourceCode r"><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</code>).</li>
+<li>Não mudam nomes não sintáticos.</li>
+<li>Não aceitam <em>rownames</em>, vindo da filosofia que “metadata is data”.</li>
+<li>Um subset de um tibble sempre é um tibble. Mais sobre isso no capítulo <a href="subset.html#subset">4</a>.</li>
+<li>Não tem matching parcial nos nomes de colunas<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Veja a opção “warnPartialMatchDollar”, na função &lt;code&gt;options()&lt;/code&gt;.&lt;/p&gt;"><sup>53</sup></a>.</li>
+<li>Permitem referenciar colunas na hora da criação – <code class="sourceCode r"><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">2</span><span class="sc">*</span>x)</code>.</li>
+<li>Tem uma melhor visualização no console.</li>
+</ul>
+</div>
+<div id="matrices-and-arrays" class="section level4" number="3.5.3.5">
+<h4>
+<span class="header-section-number">3.5.3.5</span> Matrices and Arrays<a class="anchor" aria-label="anchor" href="#matrices-and-arrays"><i class="fas fa-link"></i></a>
+</h4>
+<p>Lembre-se, são as classes que fazem os objetos interagirem diferentemente com funções. Apenas ter um atributo de dimensão não faria com que, por exemplo, matrizes fossem representadas diferentemente por <code><a href="https://rdrr.io/r/base/print.html">print()</a></code>. Com isso em mente, faz sentido que matrizes e arrays tenham suas próprias classes, <code class="sourceCode r"><span class="st">"matrix"</span></code> e <code class="sourceCode r"><span class="st">"array"</span></code>.</p>
+</div>
+</div>
+<div id="funções-úteis-2" class="section level3" number="3.5.4">
+<h3>
+<span class="header-section-number">3.5.4</span> Funções Úteis<a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%B5es-%C3%BAteis-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Algumas funções relacionadas à atributos:</p>
+<ul>
+<li>
+<code>atributes()</code> retorna uma lista com os atributos de <code class="sourceCode r">x</code>.</li>
+<li>
+<code class="sourceCode r"><span class="fu">attr</span>(x, <span class="st">"attr"</span>)</code> retorna o valor do atributo <code class="sourceCode r"><span class="st">"attr"</span></code>. Pode ser utilizada para alterar atributos também.
+<ul>
+<li>Atributos importantes têm funções próprias (<code class="sourceCode r"><span class="fu">names</span>()</code>, <code class="sourceCode r"><span class="fu">dim</span>()</code>, <code class="sourceCode r"><span class="fu">class</span>()</code>).</li>
+<li>
+<code class="sourceCode r"><span class="fu">unclass</span>()</code> remove a classe de <code class="sourceCode r">x</code>, retornando-o ao tipo base.</li>
+</ul>
+</li>
+<li>
+<code class="sourceCode r"><span class="fu">structure</span>(x, <span class="st">"attr"</span> <span class="ot">=</span> <span class="st">"algo"</span>)</code> adiciona o atributo <code class="sourceCode r"><span class="st">"attr"</span></code> em <code class="sourceCode r">x</code>
+</li>
+<li>
+<code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> retorna uma visualização da estrutura de <code class="sourceCode r">x</code>.</li>
+</ul>
+<hr class="double-hrule">
+</div>
+</div>
+<div id="complemento-1" class="section level2 unlisted unnumbered">
+<h2>Complemento<a class="anchor" aria-label="anchor" href="#complemento-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="recapitulando-1" class="section level3 unnumbered">
+<h3>Recapitulando<a class="anchor" aria-label="anchor" href="#recapitulando-1"><i class="fas fa-link"></i></a>
+</h3>
+<div id="tipos-de-valores" class="section level4 unnumbered">
+<h4>Tipos de Valores<a class="anchor" aria-label="anchor" href="#tipos-de-valores"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Existem duas <strong>famílias</strong> de <strong>tipos</strong>, os <strong>vetores</strong> e os <strong>nodes</strong>. Veja a figura <a href="data-attrs.html#fig:vals">3.1</a>.
+<ul>
+<li>Todos os valores “do dia-a-dia” são vetores. Nodes são os tipos internos do R, e serão estudados no futuro.</li>
+</ul>
+</li>
+<li>
+<strong>Vetores atômicos</strong> são coleções de <strong>escalares</strong> de um mesmo tipo. <strong>Listas</strong> (<strong>vetores genéricos</strong>) são coleções de vetores.</li>
+<li>Existem seis tipos básicos, especialmente: <em>logical</em>, <em>character</em>, <em>integer</em> e <em>double</em>. Listas tem tipo <em>list</em>.</li>
+<li>Valores especiais: <code>NA</code>, <code>Inf</code>, <code>-Inf</code>, e <code>NaN</code>. <code>NULL</code> é um objeto especial, que indica a ausência de valor.</li>
+</ul>
+<div class="figure">
+<span style="display:block;" id="fig:vals"></span>
+<img src="assets/img/value_types.png" alt="Descrição dos tipos de dados." width="100%"><p class="caption">
+Figura 3.1: Descrição dos tipos de dados.
+</p>
+</div>
+</div>
+<div id="manipulações-básicas" class="section level4 unnumbered">
+<h4>Manipulações Básicas<a class="anchor" aria-label="anchor" href="#manipula%C3%A7%C3%B5es-b%C3%A1sicas"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Combinamos qualquer vetor com <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>. Para listas, temos também <code><a href="https://rdrr.io/r/base/list.html">list()</a></code>. <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> coage os inputs para um mesmo tipo.</li>
+<li>Vimos as funções <code>is.*</code> (e <code>rlang::is_*</code>) e <code>as.*</code> para testar e coagir tipos.</li>
+<li>Vimos a diminuição de complexidade de listas com <code><a href="https://rdrr.io/r/base/unlist.html">unlist()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/list_flatten.html">purrr::list_flatten()</a></code>, e <code><a href="https://purrr.tidyverse.org/reference/list_c.html">purrr::list_c()</a></code>.</li>
+</ul>
+</div>
+<div id="atributos-1" class="section level4 unnumbered">
+<h4>Atributos<a class="anchor" aria-label="anchor" href="#atributos-1"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Atributos são metadados, que alteram a interação dos objetos com funções, mas não suas características básicas.</li>
+<li>Atributos comuns são <em>names</em>, <em>dim</em>, e <em>class</em>.</li>
+<li>Classes criam um segundo sistema de <em>tipagem</em>, em cima dos tipos básicos. Classes comuns são <em>factor</em>, <em>Date</em>, <em>POSIXct</em>, <em>data.frame</em>, e <em>tibble</em>.</li>
+<li>Vimos como visualizar e alterar os atributos de um objeto.</li>
+</ul>
+<hr class="single-hrule">
+</div>
+</div>
+<div id="dicionário-de-funções-1" class="section level3 unnumbered">
+<h3>Dicionário de Funções<a class="anchor" aria-label="anchor" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Abaixo segue a lista de funções vistas neste capítulo.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:left;">
+Categoria
+</th>
+<th style="text-align:left;">
+Função
+</th>
+<th style="text-align:left;">
+Descrição
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+objetos
+</td>
+<td style="text-align:left;">
+<code>is.*()</code>, <code>rlang::is_*()</code>, <code>as.*()</code>, <code>rlang::as_*()</code>
+</td>
+<td style="text-align:left;">
+testes e conversões de tipos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+objetos
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code>
+</td>
+<td style="text-align:left;">
+tipo de um objeto
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+objetos
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/length.html">length()</a></code>
+</td>
+<td style="text-align:left;">
+tamanho de um objeto
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+atributos
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/structure.html">structure()</a></code>, <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code>
+</td>
+<td style="text-align:left;">
+criar e ver a estrutura de um objeto
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+atributos
+</td>
+<td style="text-align:left;">
+<code>atributes()</code>, <code><a href="https://rdrr.io/r/base/attr.html">attr()</a></code>
+</td>
+<td style="text-align:left;">
+atributos de um objeto
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attrs - name
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/names.html">names()</a></code>, <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code>, <code><a href="https://rdrr.io/r/base/colnames.html">rownames()</a></code>, <code><a href="https://rdrr.io/r/base/dimnames.html">dimnames()</a></code>
+</td>
+<td style="text-align:left;">
+nomes por dimensão
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attrs - name
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/stats/setNames.html">setNames()</a></code>, <code><a href="https://rlang.r-lib.org/reference/set_names.html">purrr::set_names()</a></code>, <code><a href="https://rdrr.io/r/base/unname.html">unname()</a></code>
+</td>
+<td style="text-align:left;">
+criar nomes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attrs - dim
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/dim.html">dim()</a></code>, <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code>, <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code>
+</td>
+<td style="text-align:left;">
+dimensões
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attrs - dim
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/t.html">t()</a></code>, <code><a href="https://rdrr.io/r/base/aperm.html">aperm()</a></code>
+</td>
+<td style="text-align:left;">
+transpor dimensões
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attrs - class
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/class.html">class()</a></code>, <code><a href="https://rdrr.io/r/base/class.html">unclass()</a></code>
+</td>
+<td style="text-align:left;">
+criar e remover classes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attrs - class
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code>, <code><a href="https://rdrr.io/r/base/array.html">array()</a></code>
+</td>
+<td style="text-align:left;">
+criaração de objetos S3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attrs - class
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code>, <code><a href="https://rdrr.io/r/base/factor.html">ordered()</a></code>
+</td>
+<td style="text-align:left;">
+criaração de objetos S4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attrs - class
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code>, <code>tibble()</code>
+</td>
+<td style="text-align:left;">
+criaração de objetos S5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+outros
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/AsIs.html">I()</a></code>
+</td>
+<td style="text-align:left;">
+tratar expressões “as is” em data.frame e formulas
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vetores
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/c.html">c()</a></code>, <code><a href="https://rdrr.io/r/base/list.html">list()</a></code>
+</td>
+<td style="text-align:left;">
+criar e combinar vetores
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vetores
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code>, <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code>, <code><a href="https://rdrr.io/pkg/abind/man/abind.html">abind::abind()</a></code>
+</td>
+<td style="text-align:left;">
+combinar vetores por dimensão
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vetores
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/unlist.html">unlist()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/list_c.html">purrr::list_c()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/list_flatten.html">purrr::list_flatten()</a></code>
+</td>
+<td style="text-align:left;">
+manipular hierarquia de listas
+</td>
+</tr>
+</tbody>
+</table></div>
+<hr class="single-hrule">
+</div>
+<div id="referências-1" class="section level3 unnumbered">
+<h3>Referências<a class="anchor" aria-label="anchor" href="#refer%C3%AAncias-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>As referências principais deste capítulo são:</p>
+<ul>
+<li>“Advanced R” capítulo <a href="https://adv-r.hadley.nz/vectors-chap.html">“3 - Vectors”</a>.</li>
+<li>“R Language” seções <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Vector-objects">“2.1.1 - Vectors”</a>, <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#List-objects">“2.1.2 - Lists”</a>, <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#NULL-object">“2.1.6 - NULL”</a>, <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Attributes">“2.2 - Attributes”</a>, e <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Special-compound-objects">“2.3 - Special compound objects”</a>.</li>
+<li>“R Introduction” capítulos <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro">“2 a 6”</a>.</li>
+<li>“R Internals” seção <a href="https://cran.r-project.org/doc/manuals/r-release/R-ints.html#Attributes">“1.3 - Attributes”</a>.</li>
+<li>“R Help” os documentos de ajuda das funções aqui expostas.</li>
+</ul>
+<hr class="single-hrule">
+</div>
+<div id="exercícios-1" class="section level3 unnumbered">
+<h3>Exercícios<a class="anchor" aria-label="anchor" href="#exerc%C3%ADcios-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="warn">
+<p>Em construção.</p>
+</div>
+
+</div>
+</div>
+</div>
+
+            <div class="chapter-nav">
+<div class="prev"><a href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></div>
+<div class="next"><a href="subset.html"><span class="header-section-number">4</span> Subsetting</a></div>
+</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+            <nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
+                <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-attrs"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="nav-link" href="#introdu%C3%A7%C3%A3o-2"><span class="header-section-number">3.1</span> Introdução</a></li>
+<li><a class="nav-link" href="#fam%C3%ADlias-de-valores"><span class="header-section-number">3.2</span> Famílias de Valores</a></li>
+<li>
+<a class="nav-link" href="#vetores-at%C3%B4micos"><span class="header-section-number">3.3</span> Vetores Atômicos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#tipos-de-vetores-at%C3%B4micos"><span class="header-section-number">3.3.1</span> Tipos de Vetores Atômicos</a></li>
+<li><a class="nav-link" href="#defini%C3%A7%C3%A3o-vetores-at%C3%B4micos-e-escalares"><span class="header-section-number">3.3.2</span> Definição: Vetores Atômicos e Escalares</a></li>
+<li><a class="nav-link" href="#combinando-vetores"><span class="header-section-number">3.3.3</span> Combinando Vetores</a></li>
+<li><a class="nav-link" href="#fun%C3%A7%C3%B5es-%C3%BAteis"><span class="header-section-number">3.3.4</span> Funções Úteis</a></li>
+<li><a class="nav-link" href="#valores-na"><span class="header-section-number">3.3.5</span> Valores NA</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#listas"><span class="header-section-number">3.4</span> Listas</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#defini%C3%A7%C3%A3o-listas"><span class="header-section-number">3.4.1</span> Definição: Listas</a></li>
+<li><a class="nav-link" href="#combinando-listas"><span class="header-section-number">3.4.2</span> Combinando Listas</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#atributos"><span class="header-section-number">3.5</span> Atributos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#nomes"><span class="header-section-number">3.5.1</span> Nomes</a></li>
+<li><a class="nav-link" href="#dimens%C3%B5es"><span class="header-section-number">3.5.2</span> Dimensões</a></li>
+<li><a class="nav-link" href="#classes"><span class="header-section-number">3.5.3</span> Classes</a></li>
+<li><a class="nav-link" href="#fun%C3%A7%C3%B5es-%C3%BAteis-2"><span class="header-section-number">3.5.4</span> Funções Úteis</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#complemento-1">Complemento</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#recapitulando-1">Recapitulando</a></li>
+<li><a class="nav-link" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-1">Dicionário de Funções</a></li>
+<li><a class="nav-link" href="#refer%C3%AAncias-1">Referências</a></li>
+<li><a class="nav-link" href="#exerc%C3%ADcios-1">Exercícios</a></li>
+</ul>
+</li>
+</ul>
+                <!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+            </nav>
+</div>
+        </div>
+    </div> <!-- .container -->
+
+    </div>
+
+<!-- Footer -->
+    <footer id="site-footer"><div>
+            <p>Este livro foi feito no R, com <a href="https://bookdown.org">bookdown</a>.</p>
+        </div>
+    </footer><!-- Scripts --><script src="/site_assets/site_structure.js"></script><script src="assets/rfcd_script.js"></script>
+</body>
+</html>
