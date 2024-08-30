@@ -1,7 +1,7 @@
 /* Imports */
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('/site_assets/palette.css');
+@import url('palette.css');
 
 
 /* Basic */
@@ -50,10 +50,10 @@ a, nav a {
     color: var(--green);
     text-decoration: none;
 }
-a:visited, nav a:visited {
+a:link, a:visited, a:hover, a:active a:focus {
     color: var(--green);
 }
-a:hover, nav a:hover {
+a:hover, a:active, a:focus {
     text-decoration: underline;
 }
 
