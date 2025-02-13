@@ -1,7 +1,7 @@
 from template_injector import build
 
 # Install with:
-#pip install git+https://github.com/ricardo-semiao/ricardo-semiao.github.io.git#subdirectory=template_injector
+#pip install git+https://github.com/ricardo-semiao/ricardo-semiao.git#subdirectory=packages/template_injector
 
 # Building the templates:
 build(
