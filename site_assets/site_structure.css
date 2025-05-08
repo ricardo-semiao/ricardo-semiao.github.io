@@ -37,7 +37,7 @@ body {
 #site-header .nav-li, .nav-drop {
     font-size: 1.3rem;
     display: inline-block;
-    padding-left: 1em;
+    margin-left: 1em;
 }
 #site-header .nav-li:first-child {
     padding-left: 0;
@@ -45,6 +45,16 @@ body {
 
 #site-header .current-page {
     font-weight: bold;
+}
+
+#site-header .nav-drop {
+    border: 1px solid var(--orange);
+    border-radius: 4px;
+}
+
+#site-header .nav-drop p {
+    display: inline-block;
+    margin: 0 0 0 4px;
 }
 
 #site-header .nav-drop ul {
@@ -88,8 +98,6 @@ body {
     height: 25px;
 }
 #site-header .nav-drop button::before {
-    border: 1px solid var(--orange);
-    border-radius: 4px;
     content: "";
     display: inline-block;
     width: 90%; /* Adjust width as needed */
