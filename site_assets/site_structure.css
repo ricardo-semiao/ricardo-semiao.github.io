@@ -55,6 +55,7 @@ body {
 #site-header .nav-drop p {
     display: inline-block;
     margin: 0 0 0 4px;
+    color: var(--green);
 }
 
 #site-header .nav-drop ul {
