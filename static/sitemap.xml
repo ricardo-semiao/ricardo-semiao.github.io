@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+      <loc>https://ricardo-semiao.github.io/</loc>
+      <lastmod>2025-10-26T12:29:11-03:00</lastmod>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://ricardo-semiao.github.io/cv\</loc>
+      <lastmod>2025-10-26T12:29:11-03:00</lastmod>
+      <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://ricardo-semiao.github.io/library\\rfcd/</loc>
+      <lastmod>2025-10-26T12:29:11-03:00</lastmod>
+    </url>
+    <url>
+      <loc>https://ricardo-semiao.github.io/tools\\mtsdesc/</loc>
+      <lastmod>2025-10-26T12:29:11-03:00</lastmod>
+    </url>
+    <url>
+      <loc>https://ricardo-semiao.github.io/tools\\phyopt/</loc>
+      <lastmod>2025-10-26T12:29:11-03:00</lastmod>
+    </url>
+  </urlset>
+  <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+      <loc>https://ricardo-semiao.github.iolibrary\\rfcd/sitemap.xml</loc>
+      <lastmod>2025-10-26T12:29:11-03:00</lastmod>
+    </sitemap>
+    <sitemap>
+      <loc>https://ricardo-semiao.github.iotools\\phyopt/sitemap.xml</loc>
+      <lastmod>2025-10-26T12:29:11-03:00</lastmod>
+    </sitemap>
+    <sitemap>
+      <loc>https://ricardo-semiao.github.iotools\\mtsdesc/sitemap.xml</loc>
+      <lastmod>2025-10-26T12:29:11-03:00</lastmod>
+    </sitemap>
+  </sitemapindex>
+</root>

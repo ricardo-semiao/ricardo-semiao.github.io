@@ -1,0 +1,17 @@
+[project]
+name = "ricardo-semiao-github-io"
+version = "0.1.0"
+description = "Ricardo Semião's website"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "dotenv>=0.9.9",
+    "python-frontmatter>=1.1.0",
+    "pyyaml>=6.0.3",
+    "requests>=2.32.5",
+    "template-injector",
+    "typing>=3.10.0.0",
+]
+
+[tool.uv.sources]
+template-injector = { path = "../ricardo-semiao/packages/template_injector", editable = true }

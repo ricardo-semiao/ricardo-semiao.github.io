@@ -1,0 +1,32 @@
+rfcd:
+  remote:
+    repo: ricardo-semiao/course-rfcd
+    branch: main
+    folder: docs
+  local: PATH_LOCAL_RFCD
+  target: _dist/library/rfcd
+  update_required: true
+
+phyopt:
+  remote:
+    repo: ricardo-semiao/phyopt
+    branch: main
+    folder: docs
+  local: PATH_LOCAL_PHYOPT
+  target: _dist/tools/phyopt
+  update_required: true
+
+mtsdesc:
+  remote:
+    repo: ricardo-semiao/mtsdesc
+    branch: main
+    folder: docs
+  local: PATH_LOCAL_MTSDESC
+  target: _dist/tools/mtsdesc
+  update_required: true
+
+palette:
+  remote: https://raw.githubusercontent.com/ricardo-semiao/ricardo-semiao/refs/heads/main/themes/palette/palette.css
+  local: PATH_LOCAL_PALETTE
+  target: src/global/palette.css
+  update_required: false

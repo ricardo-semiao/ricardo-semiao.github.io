@@ -1,4 +1,4 @@
-# Ricardo Semião's Homepage
+# Ricardo Semião's Website
 
 Welcome! This is the repository for my personal homepage. It is currently undergoing major redesign.
 

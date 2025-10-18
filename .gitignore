@@ -1,4 +1,10 @@
-ricardo-semiao.github.io.code-workspace
-personal/
-.vscode/
-assets/cv/cv_pdf/latex_build/
+# Personal files:
+/ricardo-semiao.github.io.code-workspace
+/personal/
+/.env
+
+# Local Python files:
+__pycache__/
+
+# Build folders:
+/_dist/

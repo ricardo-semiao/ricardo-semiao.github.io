@@ -1,0 +1,18 @@
+# Inject components into external projects' files
+# - The step has variable length arguments, one for each component to inject
+# - Each `arg`'s key is a component name, and the values are dictionaries with:
+#   - position: "before" | "after" (relative to the selector)
+#   - selector: a CSS selector to identify where to inject the component
+inject_project:
+  rsbookdown: {
+    components: {
+      site-header: {position: "before", selector: "body > div.container-fluid"},
+      site-scripts: {position: "after", selector: "#site-footer"}
+    }
+  }
+  rspkgdown: {
+    components: {
+      site-header: {position: "before", selector: "#site-main"},
+      site-scripts: {position: "after", selector: "#site-footer"}
+    }
+  }
