@@ -1,3 +1,34 @@
 project:
   type: website
   output-dir: ../../_dist/blog
+
+website:
+  page-navigation: true
+  back-to-top-navigation: true
+
+format:
+  html:
+    quarto-required: 1.*
+    toc: true
+    number-sections: true
+    number-depth: 2
+    code-fold: show
+    code-link: true
+    include-in-header:
+      text: |
+        <link rel="icon" href="/assets/img/icon.png" type="image/png">
+        <link rel="shortcut icon" href="/assets/img/icon.png" type="image/png">
+        <link rel="stylesheet" href="/assets/global.css">
+    include-after-body:
+      text: |
+        <footer id="site-footer">
+            <div>
+                <p>Blog created via <a href="https://quarto.org/docs/books/">Quarto</a> | <a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><i class="fab fa-github"></i> View source-code</a></p>
+            </div>
+        </footer>
+        <script src="/assets/global.js"></script>
+
+lang: en
+
+execute:
+  freeze: true

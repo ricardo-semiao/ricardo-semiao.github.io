@@ -1,16 +1,22 @@
 
 # Setup ------------------------------------------------------------------------
 
-import os
-import re
-import yaml
+# File operations:
+#import os
+from pathlib import Path
+from yaml import safe_load as yaml_load
 
-from template_injector import build
+# HTML and XML parsing:
 from bs4 import BeautifulSoup
 from xml.etree import ElementTree as ET
 from xml.dom import minidom
 
-from utils import join_path, run, move_contents, glob_re, iter_dir, get_lastmod
+# Others:
+import re
+from template_injector import build
+
+# Local modules:
+from utils import run, move_contents, glob_re, get_lastmod
 from fetch import get_components
 
 
@@ -69,81 +75,104 @@ def build_navbar(steps: dict, update: bool = True) -> None:
     return None
 
 
-def build_sitemap(steps: dict) -> None:
-    print("Job == Building sitemap ...")
-
+def build_sitemap_index(steps: dict) -> ET.Element:
     # Getting configurations:
-    with open("config/deployment.yaml", "r", encoding = "utf-8") as file:
-        root_url = yaml.safe_load(file)["url"]
+    with open(Path("config/deployment.yaml"), "r", encoding = "utf-8") as file:
+        root_url = yaml_load(file)["url"]
 
     key, args = list(steps.items())[0]
 
-    # Creating XML objects:
-    urlset = ET.Element(
-        "urlset",
-        xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9",
-    )
     sitemapindex = ET.Element(
         "sitemapindex",
         xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9",
     )
 
-    # Getting HTML pages to include:
-    html_pages = [
-        re.sub(r"_dist(/|\\)?", "/", page)
-        for page in glob_re("_dist", r".*\.html", recursive = True)
-        if not re.search(args["exclude"], page)
-            and not re.search(r"|".join(args["external"]), page)
-    ]
-
     for external in args["external"]:
-        external_path = external.replace("_dist/", "/")
+        external_path = Path(external.replace("_dist/", "/"))
+
         sitemap_el = ET.SubElement(sitemapindex, "sitemap")
         ET.SubElement(sitemap_el, "loc").text = (
-            root_url + external_path + "/sitemap.xml"
+            str(Path(root_url, external_path, "sitemap.xml"))
         )
         ET.SubElement(sitemap_el, "lastmod").text = get_lastmod(
-            external_path + "/index.html"
+            Path("_dist", external_path, "index.html")
         )
+    
+    return sitemapindex
 
-        html_pages.append(f"/{external_path}/index.html")
+def build_sitemap_urlset(steps: dict, sep_external: bool = False) -> ET.Element:
+    # Getting configurations:
+    with open(Path("config/deployment.yaml"), "r", encoding = "utf-8") as file:
+        root_url = yaml_load(file)["url"]
 
-    html_pages.sort(key = lambda page: (page.count("/") + page.count("\\"), page))
+    key, args = list(steps.items())[0]
+
+    urlset = ET.Element(
+        "urlset",
+        xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9",
+    )
+
+    # Getting HTML pages to include:
+    html_pages = [
+        Path(*page.parts[1:])
+        for page in glob_re(Path("_dist"), r".*\.html", recursive = True)
+        if not re.search(args["exclude"], str(page))
+    ]
+    if sep_external:
+        exclude_pat = "|".join([re.escape(str(Path(path))) for path in args["external"]])
+        html_pages = [
+            page for page in html_pages
+            if not re.search(exclude_pat, str(page))
+        ]
+        for external in args["external"]:
+            external_path = Path(external.parts[1:])
+            html_pages.append(Path(external_path, "index.html"))
 
     for page in html_pages:
-        url = root_url + page
-        if url.endswith("index.html"):
-            url = url[:-len("index.html")]
+        url = Path(root_url, page)
+        if url.name == "index.html":
+            url = Path(*url.parts[:-1])
 
-        # Build url element.
+        # Build url element
         url_el = ET.SubElement(urlset, "url")
-        ET.SubElement(url_el, "loc").text = url
-        ET.SubElement(url_el, "lastmod").text = get_lastmod(page)
+        ET.SubElement(url_el, "loc").text = str(url)
+        ET.SubElement(url_el, "lastmod").text = get_lastmod(Path("_dist", page))
 
-        # Add optional hints from args with sensible defaults.
-        changefreq = args["changefreq"].get(page)
+        # Add optional hints from args with sensible defaults
+        changefreq = {Path(k): v for k, v in args["changefreq"].items()}.get(page)
         if changefreq:
             ET.SubElement(url_el, "changefreq").text = changefreq
 
-        priority = args["priority"].get(page)
-        if priority is not None:
+        priority = {Path(k): v for k, v in args["priority"].items()}.get(page)
+        if priority:
             ET.SubElement(url_el, "priority").text = str(priority)
+    
+    return urlset
 
-        # Combine urlset and sitemapindex into a single XML structure
+
+def build_sitemap(steps: dict) -> None:
+    print("Job == Building sitemap ...")
+
+    key, args = list(steps.items())[0]
+
+    if args.get("sep_external", False):
         combined_root = ET.Element("root")
-        combined_root.append(urlset)
-        combined_root.append(sitemapindex)
+        combined_root.append(build_sitemap_index(steps))
+        combined_root.append(build_sitemap_urlset(steps, True))
+    else:
+        combined_root = build_sitemap_urlset(steps, False)
 
-        raw_xml = ET.tostring(combined_root, encoding = "utf-8")
-        pretty = minidom.parseString(raw_xml).toprettyxml(
-            indent = "  ", encoding = "utf-8"
-        )
+    raw_xml = ET.tostring(combined_root, encoding = "utf-8")
+    pretty = minidom.parseString(raw_xml).toprettyxml(
+        indent = "  ", encoding = "utf-8"
+    )
 
     with open(args["target"], "wb") as file:
         file.write(pretty)
 
     print("  ✔ Done.\n")
     return None
+
 
 
 
@@ -154,7 +183,7 @@ def build_sitemap(steps: dict) -> None:
 # - Variable length of components to inject. See `configs/steps_presets.yaml`
 def inject_project(steps: dict) -> None:
     print("Job == Injecting components into projects:")
-    components = get_components("src/global/components.html")
+    components = get_components(Path("src/global/components.html"))
     
     for key, args in steps.items():
         print(f"  - Injecting components into '{key[0]}' ...")
@@ -191,15 +220,15 @@ def inject_template(steps: dict) -> None:
     for key, args in steps.items():
         print(f"  - Injecting components into '{key[0]}' ...")
 
-        components_paths = ["src/global/components.html"]
-        local_component_path = join_path(args["source"], "components.html")
-        if os.path.exists(local_component_path):
+        components_paths = [Path("src/global/components.html")]
+        local_component_path = Path(args["source"], "components.html")
+        if local_component_path.is_file():
             components_paths.append(local_component_path)
 
         build(
-            join_path(args["source"], "template.html"),
+            Path(args["source"], "template.html"),
             components_paths,
-            join_path(args["target"], "index.html"),
+            Path(args["target"], "index.html"),
             prettify = False, quiet = True
         )
 
@@ -222,9 +251,9 @@ def assets_move(steps: dict) -> None:
 
         assets = [
             asset
-            for asset in iter_dir(args["source"])
-            if not re.search(args.get("exclude", ".^"), asset)
-                and re.search(args.get("include", ".*"), asset)
+            for asset in glob_re(args["source"])
+            if not re.search(args.get("exclude", ".^"), str(asset))
+                and re.search(args.get("include", ".*"), str(asset))
         ]
         
         move_contents(assets, args["target"])
@@ -244,7 +273,7 @@ def assets_remove(steps: dict) -> None:
 
         assets = glob_re(args["source"], args["include"])
         for asset in assets:
-            os.remove(asset)
+            asset.unlink()
     
     print("  ✔ Done.\n")
     return None
@@ -264,12 +293,12 @@ def assets_compile(steps: dict) -> None:
 
             for scss_file in glob_re(args["source"], r".*\.scss"):
 
-                target = join_path(
+                target = Path(
                     args["target"],
-                    re.split(r'/|\\', scss_file)[-1].replace(".scss", ".css")
+                    scss_file.name.replace(".scss", ".css")
                 )
 
-                run("sass", scss_file, target, "--no-source-map")
+                run("sass", str(scss_file), str(target), "--no-source-map")
 
         else:
             raise Exception(f"Compilation type '{args["type"]}' is not supported.")
@@ -287,12 +316,51 @@ def assets_merge(steps: dict) -> None:
         with open(args["target"], "w", encoding = "utf-8") as merged_file:
 
             for part_path in args["include"]:
-                part_path = join_path(args["source"], part_path)
+                part_path = Path(args["source"], part_path)
 
                 with open(part_path, "r", encoding = "utf-8") as part:
                     merged_file.write(part.read() + "\n")
 
-                os.remove(part_path)
+                part_path.unlink()
+
+    print("  ✔ Done.\n")
+    return None
+
+
+
+# Others -----------------------------------------------------------------------
+
+def quarto_blog(steps: dict) -> None:
+    print("Job == Building Quarto blog ...")
+
+    key, args = list(steps.items())[0]
+
+    run("quarto", "render", str(args["source"]))
+
+    print("  ✔ Done.\n")
+    return None
+
+
+def adjust_links(steps: dict) -> None:
+    print("Job == Adjusting links ...")
+
+    for key, args in steps.items():
+        print(f"  - Adjusting links of '{key[0]}' ...")
+
+        html_pages = glob_re(args["source"], r".*\.html", recursive = True)
+
+        for page in html_pages:
+            with open(page, "r+", encoding="utf-8") as file:
+                soup = BeautifulSoup(file, "html.parser")
+            
+            for pattern, replacement in args["replace"].items():
+                pattern = re.compile(pattern)
+                attr = args["attr"]
+                for link in soup.find_all(**{attr: pattern}):
+                    link[attr] = re.sub(pattern, replacement, link[attr])
+
+            with open(page, "w", encoding="utf-8") as file:
+                file.write(str(soup))
 
     print("  ✔ Done.\n")
     return None

@@ -1,145 +1,178 @@
 
 # Setup ------------------------------------------------------------------------
 
-import shutil
-import os
-import stat
+# File operations:
 from pathlib import Path
-from glob import glob
+from os import chdir
+from shutil import copytree, copy2, rmtree
+from stat import S_IWRITE
 
-import yaml
-import frontmatter
+# Reading yaml:
+from yaml import safe_load as yaml_load
 
+# Others:
 from contextlib import contextmanager
 from datetime import datetime
 import subprocess
 import re
 
+# Type hints:
 from typing import Generator, Callable, Any
 
 proj_root = Path(__file__).resolve().parent.parent
 
 
 
-# File helpers -----------------------------------------------------------------
+# Basic File helpers -----------------------------------------------------------
+
+# Glob with regex pattern
+def glob_re(
+    path: Path,
+    pattern: str = r".+",
+    recursive: bool = False
+) -> list[Path]:
+    if not path.is_dir():
+        raise Exception(f"Path {path} is not a directory.")
+    
+    dir_contents = [
+        file
+        for file in path.glob("**/*" if recursive else "*")
+        if re.search(pattern, str(file))
+    ]
+
+    return dir_contents
+
+# Move all contents from source_path to target_path
+def move_contents(
+    source: Path | list[Path],
+    target: Path,
+    flatten: bool = True
+) -> None:
+    if isinstance(source, Path):
+        items = glob_re(source)
+    elif isinstance(source, list):
+        items = source
+    else:
+        raise Exception("`source` must be `Path` or `list[Path]`.")
+
+    for item in items:
+        src = item
+        dest = target if flatten else Path(target, item)
+        if src.is_dir():
+            copytree(src, dest, dirs_exist_ok = True)
+        elif src.is_file():
+            copy2(src, dest)
+        else:
+            raise Exception(f"Path {src} is neither a file nor a directory.")
+
+    return None
+
+
+
+# Other File Helpers -----------------------------------------------------------
 
 # Safely change directory
 @contextmanager
-def chdir(path: str) -> Generator[str, None, None]:
-    old_cwd = os.getcwd()
-    os.chdir(path)
+def cd(path: Path) -> Generator[Path, None, None]:
+    old_cwd = Path.cwd()
+    chdir(path)
+
     try:
         yield old_cwd
     finally:
-        os.chdir(old_cwd)
+        chdir(old_cwd)
+
     return None
 
 # Remove read-only files with shutil.rmtree
 def remove_readonly(func: Callable[[str], Any], path: str, exc_info) -> None:
-    os.chmod(path, stat.S_IWRITE)
+    Path(path).chmod(S_IWRITE)
     func(path)
     return None
 
-# Move all contents from source_path to target_path
-def move_contents(
-    source_path: str | list,
-    target_path: str,
-    flatten: bool = True
-) -> None:
-    if isinstance(source_path, str):
-        items = [
-            join_path(source_path, item)
-            for item in os.listdir(source_path)
-        ]
-    else:
-        items = source_path
+# Read text docment yaml frontmatter
+def get_frontmatter(path: Path) -> dict:
+    if not path.is_file():
+        raise Exception(f"Path {path} is not a file.")
 
-    for item in items:
-        s = item
-        d = target_path if flatten else join_path(target_path, item)
-        if os.path.isdir(s):
-            shutil.copytree(s, d, dirs_exist_ok = True)
-        else:
-            shutil.copy2(s, d)
-    return None
+    with open(path, "r", encoding = "utf-8") as file:
+        header = file.read().split("---", 2)[1]
 
-
-def join_path(*parts: str) -> str:
-    parts_filtered = [p for p in parts if p is not None and p != ""]
-    if all(part == "" for part in parts_filtered):
-        return ""
-    if len(parts_filtered) == 1:
-        return parts_filtered[0]
-    else:
-        return os.path.join(*parts_filtered)
-    
-
-
-def glob_re(path: str, pattern: str, recursive: bool = False) -> list[str]:
-    res = [
-        file
-        for file in iter_dir(path, recursive = recursive)
-        if re.search(pattern, file)
-    ]
-    return res
-
-
-def iter_dir(path: str, recursive: bool = False) -> list[str]:
-    return glob(join_path(path, "**"), recursive = recursive)
+    return yaml_load(header)
 
 
 
 # General Helpers --------------------------------------------------------------
 
-log_path = join_path(str(proj_root), "dev", "run.log")
+log_path = Path(proj_root, "dev", "run.log")
 
+# Run a command
 def run(
-    cmd: str, *opts: str, log_path: str = log_path, **kwargs
+    cmd: str, *opts: str, log_path: Path = log_path, **kwargs
 ) -> subprocess.CompletedProcess[str]:
-    with open(log_path, "ab") as logf:
-        logf.write((
+    with open(log_path, "ab") as file_log:
+        file_log.write((
             f"{datetime.now().isoformat()} -- "
             f"Running command: {cmd} {' '.join(opts)}\n"
         ).encode("utf-8"))
 
         res = subprocess.run(
             [cmd, *opts],
-            stdout = logf, stderr = subprocess.STDOUT, check = True,
+            stdout = file_log, stderr = subprocess.STDOUT, check = True,
             **kwargs
         )
+
     return res
 
-
-def get_lastmod(path: str) -> str:
-    # External projects:
-    parent_dir = os.path.dirname(path)
-    for _ in range(path.count("/")):
-        for config_file in ["bookdown.yml", "pkgdown.yml"]:
-            if os.path.isfile(join_path(parent_dir, config_file)):
-                return yaml.safe_load(path)["last_built"]
-        parent_dir = os.path.dirname(parent_dir)
+# Get last modified time for a file
+def get_lastmod(path: Path) -> str:
+    if not path.is_file():
+        raise Exception(f"Path {path} is not a file.")
     
+    lastmod = None
+
+    # External projects:
+    for parent in path.parents:
+        for config_file in ["bookdown.yml", "pkgdown.yml"]:
+            config_path = Path(parent, config_file)
+            if config_path.is_file():
+                with open(config_path, "r", encoding="utf-8") as file:
+                    lastmod = yaml_load(file)["last_built"]
+    
+    if lastmod:
+        return lastmod
+
+    # Blog:
+    parts =  path.parts
+
+    if "blog" in parts and "index.html" not in parts:
+        post_file = Path("src", *parts[1:-1], path.stem + ".qmd")
+        lastmod = str(get_frontmatter(post_file)["last-edited"])
+
+    if lastmod:
+        return lastmod
+
     # Local projects:
     src_dir = {
-        "/index.html": "src/index",
-        "/cv/index.html": "src/cv",
-        "/blog/index.html": "src/blog"
-    }.get("path")
+        Path("/index.html"): Path("src/index"),
+        Path("/cv/index.html"): Path("src/cv"),
+        Path("/blog/index.html"): Path("src/blog")
+    }.get(path)
+
     if src_dir:
-        lastmod = run(
+        run_out = run(
             "git", "log", "-1", "--format='%aI'", f"-- {src_dir}",
             capture_output = True, text = True
         )
-        return lastmod.stdout.strip()
+        lastmod = run_out.stdout.strip() # Todo: format to iso
 
-    # Blog:
-    post_name = re.match(r"/blog/posts/(.+)\.html", path)
-    if post_name:
-        post_file = join_path("src/blog/posts", f"{post_name[1]}.qmd")
-        lastmod = frontmatter.load(post_file)["last-edited"]
+    if lastmod:
         return lastmod
+    
+    # Fallbadck - current time:
+    lastmod = datetime.now().astimezone().isoformat(timespec="seconds").replace("+00:00", "Z")
 
-    return datetime.now().astimezone().isoformat(timespec="seconds").replace("+00:00", "Z")
+    return lastmod
 
 
 
@@ -156,9 +189,17 @@ def get_steps(
         for step_name, args in job["steps"].items():
             if isinstance(args, str):
                 args = presets[step_name][args]
-            args["source"] = join_path(job["source"], args.get("subsource", ""))
-            args["target"] = join_path(job["target"], args.get("subtarget", ""))
-            steps[(job_name, step_name)] = args
+            
+            if isinstance(args, dict):
+                args_list = [args]
+            else:
+                args_list = args
+
+            for i, args in enumerate(args_list):
+                job_name = job_name + ("" if i == 0 else f" ({i + 1})")
+                args["source"] = Path(job["source"], args.get("subsource", ""))
+                args["target"] = Path(job["target"], args.get("subtarget", ""))
+                steps[(job_name, step_name)] = args
 
     return steps
 
@@ -167,19 +208,19 @@ def get_steps(
 def create_dist_folder(steps: dict) -> None:
     print("Setup == Creating site folder structure ...")
 
-    if os.path.exists("_dist/"):
-        shutil.rmtree("_dist/", onexc = remove_readonly)
-    os.makedirs("_dist/")
+    if Path("_dist/").is_dir():
+        rmtree(Path("_dist/"), onexc = remove_readonly)
+    Path("_dist/").mkdir(exist_ok = True)
 
     target_paths = [
         args["target"]
         for args in steps.values()
-        if re.match(r"^_dist", args["target"])
-            and not re.match(r".*\.\w+$", args["target"])
+        if "_dist" in Path(args["target"]).parts
+            and "." not in Path(args["target"]).name
     ]
 
     for path in target_paths:
-        os.makedirs(path, exist_ok = True)
+        Path(path).mkdir(exist_ok = True, parents = True)
 
     print("  ✔ Done.\n")
     return None

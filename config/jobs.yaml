@@ -12,20 +12,7 @@ sitemap:
   source: static/sitemap.xml
   target: static/sitemap.xml
   steps:
-    build_sitemap: {
-      exclude: "(404|LICENSE.*|authors)\\.html",
-      external: [library\rfcd, tools\phyopt, tools\mtsdesc],
-      priority: {
-        /index.html: 1.0,
-        /cv\index.html: 0.5,
-        /blog\index.html: 0.5,
-        /library\rfcd\index.html: 0.8,
-        /tools\phyopt\index.html: 0.8,
-        /tools\mtsdesc\index.html: 0.8,
-      },
-      changefreq: {}
-    }
-# changefreq options: always, hourly, daily, weekly, monthly, yearly and never
+    build_sitemap: sitemap
 
 # Index page:
 index:
@@ -49,14 +36,25 @@ cv:
     assets_move: {subsource: module, exclude: "\\.scss"}
 
 
+# Gallery:
+gallery:
+  source: src/gallery
+  target: _dist/gallery
+  steps:
+    build_navbar: {label: Gallery}
+    inject_template: {}
+    assets_compile: {subsource: module, type: "css", include: "\\.scss"}
+    assets_move: {subsource: module, exclude: "\\.scss"}
+
 # Blog:
 blog:
-  source: src/blog
+  source: ""
   target: ""
   steps:
-    build_navbar: {subtarget: _dist/blog, label: Blog}
-    inject_template: {subsource: module, subtarget: src/blog/module}
-    quarto_blog: {subtarget: _dist/blog}
+    build_navbar: {subsource: src/blog, subtarget: _dist/blog, label: Blog}
+    inject_project: quartoblog
+    quarto_blog: {subsource: src/blog}
+    adjust_links: {subsource: _dist/blog, attr: "href", replace: {"\\.\\.?/assets/": "/assets/"}}
     #assets_compile: {subsource: module, subtarget: _dist/blog, type: "css", include: "\\.scss"}
     #assets_move: {subsource: module, subtarget: _dist/blog, exclude: "\\.scss"}
 
@@ -68,21 +66,21 @@ rfcd:
   steps:
     build_navbar: {label: RFCD, drop_label: Library}
     inject_project: rsbookdown
-    assets_remove: {subsource: assets, include: "global\\.(js|css)"}
+    assets_remove: pkg-bookdown
 phyopt:
   source: _dist/tools/phyopt
   target: _dist/tools/phyopt
   steps:
     build_navbar: {label: phyopt, drop_label: Tools}
     inject_project: rspkgdown
-    assets_remove: {subsource: assets, include: "global\\.(js|css)"}
+    assets_remove: pkg-bookdown
 mtsdesc:
   source: _dist/tools/mtsdesc
   target: _dist/tools/mtsdesc
   steps:
     build_navbar: {label: mtsdesc}
     inject_project: rspkgdown
-    assets_remove: {subsource: assets, include: "global\\.(js|css)"}
+    assets_remove: pkg-bookdown
 
 # Assets:
 static_root:

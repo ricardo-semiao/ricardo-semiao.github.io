@@ -3,17 +3,514 @@ title: "Post With Code"
 description: "Post description"
 author: "Fizz McPhee"
 date: "5/22/2021"
+last-edited: "2025-10-17"
 categories:
   - news
   - code
   - analysis
 ---
 
-# sec1
+# Introduction
 
-asfas
+In this post, I’ll present a part-ecosystem description, part-sugestion of R packages, i.e. my current toolset for R.
 
-## sec231
+I’ve been learning R since 2020. I have used it a lot for general data manipulation and statistics/data science, although have not interacted with many different developer bubbles nor several more specific topics. I amassed some knowledge of the advanced concepts of R, and created some not-yet-published packages.
 
-safsgasml
+My latest endeavor was aimed at learning more about the R ecosystem, to familiarize myself with the R development space, but also to define a comprehensive toolset with the state-of-the-art packages. At the same time, the research was basic, and not too opinionated. Thus, the value of this work comes from organizing a little bit better the thousands of options out there, and defining a comprehensible set of what seem to be at the frontier and developed by established sources.
 
+Below I explain the motivation, sources, and methods for the endeavor, and also briefly summarize the ecosystem’s players. Jump to section “Current toolset” for the final conclusion, and “Package ecosystem” for the full research. I believe that the “Non-standard computing” subsection is specially useful.
+
+## The endeavor
+
+To do so, I’ve **diagonally** read package names → descriptions → readmes/sites → documentations, from the following sources:
+
+- All of R-lib packages.
+- All of rstudio/posit packages, excluding the very specific shiny ones.
+- The ~100 top pacakges in R-universe, both by stars and by their ‘score’ metric.
+- Packages from the biggest and better-produced-looking repositories/universes from R-universe (the best example being tidyverse).
+- Some packages in some specific CRAN views of my interest.
+- Some packages by some authors whose work I like.
+- Packages cited by https://github.com/rstudio/RStartHere?tab=readme-ov-file[https://github.com/rstudio/RStartHere](https://github.com/rstudio/RStartHere), [qinwf/aswesome-R](https://github.com/qinwf/awesome-R).
+
+Other lists include [this one](https://www.wvbauer.com/doku.php/rpkgsiuse) by Wolfgang Viechtbauer, [this one](https://medium.com/data-science/a-comprehensive-list-of-handy-r-packages-e85dad294b3d) by Gang Su, and [alearringo’s starts](https://github.com/alearrigo?language=r&amp;tab=stars).
+
+Note that there is many intersection between sources. Still, this is a big number of packages to consider, and again, the study was **very** diagonal. Many packages were ignored only given their name/description.
+
+The most important principle that I tried to follow when defining my toolkit was as below.
+
+>  
+> Prefer to use the established, user-friendly, filosophy-aligned, good-practices packages, mostly done by the oficial r-lib, rstudio/posit, tidyverse & friends groups.
+>  
+
+>  
+> When the matter is performance, often regress to base R or fastverse alternatives, even if at the cost of some of the above-mentioned characteristics.
+>  
+
+Importantly, I never dove deep enough to compare similar packages, as to which would be ‘faster’, ‘more general’, or ‘better implemented’. Although in cases where the general community or the authors themselves agreed in such a relation, I omitted the superseded ones.
+
+## Basics of the R ecosystem
+
+The “R Project for Statistical Computing” is maintained by the R Core Team, and supported by the R Foundation and R Consortium. Posit (formerly RStudio) develops RStudio and is a major supporter of the project.
+
+Anyone can create R packages, and make them available e.g. via GitHub. CRAN, the “Comprehensive R Archive Network" is the official repository of packages and enforces a basic level of quality and stability for packages submitted to it. The R Universe project is a great platform that helps exploring the existing R packages. The R Forge was a similar project that was essentially superseded by R Universe and GitHub. Other package infrastructure include the Bioconductor, specific for the biostatistics world.
+
+Many packages exist in groups or curated collections, being related to a specific topic, created by the same authors, and/or following a specific philosophy/syntax. Some of the most noteworthy are:
+
+- The ‘more official’ R developers: r-lib, rstudio, posit-dev
+- rOpenSci is a project about open and reproducible research, and vet/peer review packages
+- The famous tidyverse, and tidymodels (same philosophy but for modelling)
+- The fastverse, a curation of packages that use C/C++, parallelism, and other high-performance techniques
+- Other groups more outside my interests, such as Bioconductor, rOpenGov, and others
+
+# Current Toolset
+
+In general, prefer to use the established, user-friendly, filosophy-aligned, good-practices packages, mostly done by the oficial r-lib, rstudio/posit, tidyverse & friends groups. When the matter is performance, often regress to base R or fastverse alternatives, even if at the cost of some of these principles.
+
+- **Package dev and DevOps:**
+    - Package dev: Follow the framework described in “R Packages (2e)”, "rOpenSci Packages: Development, Maintenance, and Peer Review”, and in the devtools package. Try to create a dev.R file that reproduces most of the configuration of your package.
+        - Use renv and rig to control dependencies versions; use desc to manipulate the description file, yaml to manipulate yaml configurations.
+        - Test and reports wit revdepcheck, covr, spelling, lintr, styler, pak::pkg\_deps\_tree; pkg statistics with repometrics + pkgstats + codemetar.
+        - For functions: use checkmate for function argument checking; use inline R roxygen helpers; use lifecycle badges and warnings; use the profiling, CLI, and C/C++ tools described here.
+        - Use the other suggestions here, specially rlang and vctrs.
+    - DevOps: I personally don’t use any R tool for such, and have no recommendations.
+- **Infrastructure:**
+    - Projects: *here* for paths, *rig* and *revn* for reproducible instalation, *box* and *conflicted* (or a variant that supports box) for package loading. *pak* for package installing is optional.
+    - Becnhmarking and profiling: *bench* for benchmarks, *profvis* + *memtools* for profiling, *log4r* or lgr for logging, *lobstr* for object details.
+    - Cross langs: write C/C++ code when useful, prioritizing *cleancall* and *cpp11*. Consider using state-of-the-art implementations on other languages via *reticulate* and friends.
+    - Others: DX - *lintr* and *styler* for code style consistency. An automatic styler like *air* is optional; CLI - *cli* for writing pretty CL messages, *progress* for progress bars; Also consider sessioninfo and rstudioapi.
+- **Paradigms and testing:**
+    - OOP: focus on *S7*. Use *R6* when modify-in-place is needed.
+    - Tidyverse: use *rlang* metaprogramming and better general helpers, use *vctrs* ptypes concept.
+    - FP: *purrr*, *slider* (rolling window maps), and *rlist* (tidy manipulation of lists); Function operators - *memoise* for memoisation, *withr* for pure functions.
+    - Testing: *rlang* and *cli* for better exceptions, *checkmate* for its menu of tests, *typed* for type checking, *pointblank* for data testing (or an alternative that supports pre vs. post analysis), and *waldo* for comparing objects.
+- **Non-standard computing:**
+    - Parallelism: parallelly, future, and mirai are good options, not sure which is best, but I’ll focus on mirai. No opinion on batchers (but use autometric).
+    - GPU: gpuR and gpuRcuda can be useful but are highly unstable; use tensorflow and torch tensors for general tensor operations.
+    - Async: coro, later, and promises are for different use cases and possibly all useful.
+    - Generally fast packages: many in the fastverse; in the future I’ll create my own wrapper around those.
+- Data:
+    - Vectors: stringr for strings, forcats for factors, lubridate for date-times, and hms for ‘time-of-day’; bignum, sparsevctrs, bit, blob, fastmap for performance-related formats.
+    - Reading: readr and friends, vroom; apache arrow; r-dbi universe and dm for databases.
+    - Manipulation: tidyr and dplyr; fuzzyjoin and powerjoin.
+    - Faster alternatives: collapse + [**fastplyr](https://github.com/NicChr/fastplyr)/[timeplyr](https://github.com/NicChr/timeplyr),\*\* data.table + dtplyr, r-polars + tidypolars, multidplyr; dbplyr and duckdb + duckplyr; sparklyr for spark.
+    - Non tabular data: meltr, jsonlite, pdftools and tabulapdf. Store as list and manipulate with purrr and rlist.
+- **Tables, plots and documents, and apps:**
+    - Tables: gt and its extensions
+    - Document generation: quarto as a better rmarkdown; litedown and pander for conversion to markdown.
+    - Plots: ggplot2, its extensions, and patchwork for combining plots; ggvis and plotly for interactivity.
+    - Shiny and JS apps: many many shiny things; many html things htmltools, htmlwidgets, bslib; flexdashboard.
+    - Web and CLI apps: plumber2/ambiorix/fiery/beakr for some web frameworks; rwasm; requests with httpuv, routr, and reqres; CLI apps with Rapp.
+- **Specific topcis:**
+    - Traditional statistics: stats, glmnet, lme4/nlme, mgcv, not citing the utility packages like boot and lmtest.
+    - Learning: tidymodels vs mlr3 frameworks; torch vs tensorflow/keras3; sparklyr, h2o, and cloudml.
+    - Bayesian: ports with rstan, rjags, R2WinBUGS; mcmc and MCMCpack; brms and greta for swiss knife modelling.
+    - Time series: some frameworks with tidyverts, tsmodels, modeltime; can also use tidymodels/mlr3 and create learners; I enjoy using standard datasets for time series, custom EDA, and then use model-specific packages, until I create a more comprehensive framework.
+    - Finance: tidyquant; I don’t know any good one for portfolio optimization and simulation, did it by hand in the past.
+
+# Package ecosystem
+
+Explain organization
+
+## General Infrastructure
+
+### Package development and DevOps
+
+**Package development:**
+
+- Mainly, use the [devtools](https://github.com/r-lib/devtools/) framework and the tips from [R Packages (2e)](https://r-pkgs.org/) and [rOpenSci Packages](https://devguide.ropensci.org/). It includes the essencial, but not all, functionality of: pkgdown, usethis, pkgload, roxygen2, pkgbuild, rcmdcheck, remotes, [covr](https://github.com/r-lib/covr).
+- Other meta-helpers: [available](https://github.com/r-lib/available) for name-choosing, [desc](https://github.com/r-lib/desc) for the DESCRIPTION file, [pkgdepends](https://github.com/r-lib/pkgdepends) to visualize and ‘solve’ dependencies, [revdepcheck](https://github.com/r-lib/revdepcheck) for reverse dependecy checks.
+- Other content-helpers: [lifecycle](https://github.com/r-lib/lifecycle/) for function lifecycle, withr for interacting with the global state and [pkgconfig](https://github.com/r-lib/pkgconfig) for localized global options, [config](https://github.com/rstudio/config/) for environment-specific configuration, [downlint](https://github.com/r-lib/downlit) and [pillar](https://github.com/r-lib/pillar/) for syntax highlighting and code linking.
+- Less useful: [roxygen2md](https://github.com/r-lib/roxygen2md), [prefixer](https://github.com/dreamRs/prefixer/), and changer to adjust roxygen, namespace prefixes, and package name; [repometrics](https://github.com/ropensci-review-tools/repometrics/), [pkgstats](https://github.com/ropensci-review-tools/pkgstats), and [codemetar](https://github.com/ropensci/codemetar) for package metadata sharing and visualization.
+
+**DevOps:**
+
+- GitHub Actions: actions, turnstyle, repository-dispatch.
+- Git: gert, credentials, whoami.
+- GitHub API: gh and gitcreds, ghapps.
+- Others: data and model pipelines are described in the relevant sections.
+
+### Projects and developer experience
+
+**Projects:**
+
+- Projects: here for consistent project-based paths, renv for project-isolated package libraries.
+- Installation: rig for multiple R installations, pak for installing packages.
+- Loading: box for better namespacing and modularity, conflicted to check conflicts (lacks box support).
+
+**Becnhmarking and profiling:**
+
+- Benchmark: bench; devoid (for graph-related benchmarking).
+- Profiling: profvis (profiling), memtools (memory), lobstr (object details), log4r (logging), boomer (debugging); lgr might be an alternative to log4r with more features and less performance.
+
+**Cross language development:**
+
+- Writing C/C++ directly: base::.Call and cleancall (C), cpp11 and [rcpp-core](https://rcppcore.r-universe.dev/builds) (C++).
+- Transpilers: compiler for JIT’ing functions; quickr, inline, armacmp, nCompiler for transpiling R into C/C++.
+- Calling other languages: rextendr (Rust), reticulate (Python), and others.
+
+**Others:**
+
+- DX: lintr, styler; air (in development, from posit).
+- Cli: cli for CL messages and errors, progress for progressbars, prettycode for global code highlighting.
+- Others: sessioninfo and rstudioapi, diffviewer (view image diffs).
+- Learning: learnr, swirlstats, and packages that create animations, courses, homework checkers, etc.
+
+### Paradigms and testing
+
+**Paradigms:**
+
+- OOP: i’m generally favored to adopt S7 over S3/S4; R6 is still useful when modify-in-place is needed; Helper packages are generics, methods, and sloop (for diagnostics).
+- Tidyverse: rlang for the metraprogramming standard, and overall better helpers; vctrs for the ptypes concept and coercion.
+- FP and lists: purrr for the FP and list helpers, slider for the rolling window maps, and rlist for tidy-like manipulation of lists.
+- FP and operators: memoise for memoisation, withr for pure functions, amogst other useful operators defined in the wild (e.g. purrr::safely).
+- Interesting but not used by me: lambda.r (functional prog., nice pattern matching functions); zeallot (unpacking); iterators.
+
+**Testing:**
+
+- General: rlang and cli for better exceptions; assertthat and checkmate for menu of tests; charlatan for fake data.
+- Development testing: testthat for unit testing; vdiffr and ggcheck for images/ggplots.
+- Type checking: typed for runtime type checking framework; vctrs for the ‘ptype checking’ concept.
+- Data testing: pointblank. alternatives: validate (has pre vs. post analysis) and assertr
+- Comparing objects: waldo for a better base::all.equal.
+- Exception handling: base::try, base::tryCath, and base::withCallingHandlers.
+
+### Web/PC/Cloud interacting
+
+**Web interacting:**
+
+- Requests: focus on httr2, with curl being lower level
+- Format: focus on xml2, with xmlparsedata implementing xml as lists; rvest for html
+- Scraping and testing: rcrawler, RSelenium, and others; webfakes
+
+**Cloud interacting:**
+
+- Consider the universes [azure](https://azure.r-universe.dev/builds), [cloudyr](https://cloudyr.r-universe.dev/builds), and [paws](https://paws-r.r-universe.dev/builds)
+- Docker: rocker
+
+**PC interacting:**
+
+- Main: fs for file operations, watcher for watching, filelock for creating file locks.
+- Telemetry: otelsdk and otel.
+- Processes: processx starting, ps for querying, both can manipulate.
+- Locating and opening: xopen for opening ‘stuff’, rappdirs for locating log/temp/etc. directories, pingr for locating remotes.
+
+### Other general tasks
+
+- LLMs: [ellmer](https://github.com/tidyverse/ellmer/) for calling APIs, [vitals](https://github.com/tidyverse/vitals/) for model evaluation, [ragnar](https://github.com/tidyverse/ragnar) for RAG, [btw](https://github.com/posit-dev/btw/) for describing R objects for LLMs, [mcptools](https://github.com/posit-dev/mcptools/) for MCP servers; RStudio addins gptstudio and gpttools.
+- Compression and hashing (in order): zstdlite, digest; Serialization: base and qs for general objects; fst/fread/feathe for dataframes.
+- Serialization: base and qs for general objects; fst/fread/feathe for dataframes.
+- Secrets/encryption: keyring for secrets and oskeyring for lower level control; encryption with [sodium](https://github.com/r-lib/sodium) and [openssl](https://github.com/jeroen/openssl).
+
+### Ignored
+
+- Important and useful, but only needed for lower-level projects: nanonext, ragg, tree-sitter-r, pkgcache, crancache, gtable, decor, tinytex, WebR, RCurl
+- Good sources but rarely needed (by me):
+    - General: systemfonts, textshaping, asciicast, clisymbols, showimage, sloop, hugodown, backports, pipeR, rprojroot, workflowr, gtools, gargle, gmailr
+    - DX: debugme, ast2ast, pipecleaner, evaluate, datapasta, reprex
+    - RStudio addins: there are lots of good ones, e.g. esquisse
+- Good sources but have better alternatives in this post: clock, rematch2, brio, rex, ellipsis, objectable, forge, r2d3, dygraphs, commonmark, pakrat, cliapp, roll, proffer, git2r
+- Other implementations of the R language like vapour and fastr. Can be useful, but I generally ignore because of the inheriting stability and longevity issues.
+
+## Non-standard computing
+
+### Parallel computing
+
+Parallel computing allows the user to utilize several processing units at the same time. Parallelization can happen at the R level, running arbitrary R code, or at the C level beneath, calling C code that uses parallelism.
+
+The processing units can be cores in one or more CPUs, or streaming processors in one or more GPUs. Each is built for different types of tasks and have different ways to interact with.
+
+R-level parallelism can only be run in the CPU, as it envolves starting multiple R processes that get concurrent, generalized access to the CPU. There is no way to initiate ‘multiple concurrent GPU processes’, instead, specific, repetition-based operations can be done via sending specialized code to the GPU API (OpenCL or CUDA).
+
+At the end
+
+**R-level parallelism (via CPU):**
+
+Parallel packages in R often define a ‘type of worker’, a ‘type of orchestrator’, and its high level features and syntax. In many cases we can mix and match these. They often have some extension available too. All support local and remote workers.
+
+- Backends (’types of workers’):
+    - “psock”: based on new long-lived processes, uses TCP/IP Sockets for communication, high setup and communication overhead.
+    - “fork”: based on new long-lived forked processes, low setup and communication overhead, but only available in unix-based systems.
+    - “mirai”: also new long-lived processes, but uses NNG/IPC for communication, reducing overhead.
+    - “future.callr”: new short-lived processes, implies in a new setup cost for each task, but increases task isolation security.
+    - “sequential”: modern packages allow you to disable the parallel execution and use standard sequential execution.
+    - Also consider Rmpi and callr for direct MPI/processes APIs.
+- Orchestrators and syntaxes:
+    - parallel + parallelly: imlements “psock” and “fork”, supports “mirai”; uses lapply-like syntax; parallelly improves worker setup and quality; is on base R which can be beneficial for very simple tasks
+    - mirai + crew: implements “mirai”; uses map-like syntax; can use promises and async execution; crew improves complex workers and task manageament; can be better for many low-latency small tasks.
+    - futureverse: is an universal API, supporting (basically) all the backends and syntaxes; can use promises; the de-facto standard, but note the localized strenghts of the options above.
+    - Others: foreach has a similar “universal API” approach, but is arguably superseded by future; snow+snowfall+sfCluster is largely included in parallel; purrr 1.1.0 now has mirai support for its maps.
+- Applications: R-level parallelism is used more often in coarse-grained applications, the main ones being:
+    - Data: batched data manipulation.
+    - Modelling: cross-validation, grid search, and ensamble methods; optimization methods.
+    - Simulation: Monte Carlo simulations, bootstraping.
+    - The ecosystem for these will be described in their respective sections.
+
+Obs: be careful to not parallel-y call functions that invoke new parallel projects, as these nested calls add much overhead.
+
+**C-level parallelism (via CPU or GPU):**
+
+While arbitrary, coarse-grained tasks could be written in parallel C and run in R, it is not a common thing, and C-level parallelism is also implemented for more specific tasks.
+
+- Backends:
+    - CPU: write C/C++ code that spawn multiple threads/processes, and/or interact with multithreaded BLAS/LAPACK libraries; one helper is RcppParallel.
+    - GPU: write C/C++ code that interacts with OpenCL or CUDA; the main wrappers are gpuR and gpuRcuda packages, but are highly unstable
+    - Both: OpenCL R package, as OpenCL also works for CPU parallelism; using an R version compiled with a BLAS (the C-level matrix engine) variant that uses CPU or GPU parallelism, maybe via flexiblas.
+    - Matrix-specific: ViennaCL a OpenCL-based matrix library, rkeops a CUDA-based library for row/column wise operations, tensorflow and torch tensors for general tensor operations — these are much more stable that the other GPU related-packages.
+- Applications: C-level parallelism is used more often in smaller, more specific tasks, the main ones being:
+    - Data: file I/O; e.g. data.table::fread and vroom, the latter also lazy loading the data.
+    - Modelling: optimization algorithms.
+    - Simulation: random number generation. I’ve used rTRNG and dqrng (CPU-based) in the past. There exists clrng (gpuR-based). Note that parallel RNG can have issues, carefully inspect your results.
+    - And replacements for base functions for vectorized and matrix operations. Such as the ones in the fastverse packages kit, Rfast/Rfast2.
+
+**Batch schedulers and other utility:**
+
+Batch schedulers help orchestrating resources and jobs across a whole computing system with several machines, a concept that often interacts with parallelism.
+
+- batchtools (also in futureverse) and clustermq support schedulers like Slurm, SGE, OpenLava, PBS/Torque, LSF, Docker Swarm; rrq implements Redis-based queue
+- targets is a Make-like pipeline tool for statistics and data science, and is a high level coordinator.
+- See also the [model deployment](https://cran.r-project.org/web/views/ModelDeployment.html) CRAN view.
+
+More general utilities include: pingr (locate remotes), carrier (loosely execute in remotes), callr (spawn processes), autometric (monitor clusters).
+
+### Asynchronous computing
+
+Asynchrony is about efficiently using resources while waiting on long operations such as I/O requests.
+
+- Backends:
+    - The main implementation is with the later package which wraps the C event loop.
+    - Others: Mirai’s NNG, while used for parallelism, has at its core an asynchronous framework designed to manage I/O and task queues with extremely low overhead; rrq’s Redis queue is also asynchronous.
+- Applications:
+    - The promises package provides a high-level, standardized API to manage the result of an asynchronous operation, and is extensively used in shiny.
+    - The coro package enables writing asynchronous code that looks synchronous and sequential (using async/await patterns). It also implements iterators.
+
+### Cross language and generally fast packages
+
+I’ve talked about the fastverse in the introduction. I’ll present some packages for more general operations, but there are several other applications there. They achieve their performance by using lots of C/C++ and optional parallelism (mainly at the C-level).
+
+In the future, I intent to do a wrapper over the most useful functions with an unified syntax.
+
+**Fast packages:**
+
+- General functions: I’ve already cited the parallel enabled kit and Rfast/Rfast2; cheapr also have some options; more focused packages include fastmatch (matching), rrapply (rapply).
+- vctrs has its own item, as besides the consistent ptype concept, it also has great-performant combining and converting operations.
+- Matrix operations: Matrix expand base matrices to other subroutines including sparse-enable ones, rsparse and sparsevctrs implement sparse matrices and vectors (respectively), and matrixStats implement more vectorized apply’ies.
+- Statistics and else: MatrixTests (rowwise t tests), SLmetrics (performance metrics), parallelDist (distances), coop (covariances).
+- The RcppCore packages RcppArmadillo, RcppEigen, and RcppNT2 provide wrappers around important C++ libraries to help writing C++ code.
+
+## Common Tasks
+
+### Vectors and non-tabular data
+
+**Vector classes and their manipulation:**
+
+Every data object in R is an object, atomic or generic. [krlmlr/awesome-vctrs](https://github.com/krlmlr/awesome-vctrs) lists lots of existing vector classes, check it out for other applications such as: numbers with uncertainty, time-related classes, units, intervals, geospacial objects, etc.
+
+- Tidyverse: stringr for strings, forcats for factors, lubridate for date-times, and hms for ‘time-of-day’.
+- Big/high precision: bignum (big floats and integers), sparsevctrs (ALTREP sparce vectors), bit (big boolean vectors), blob (big raw vectors), utils::hashtab and fastmap (key-value stores).
+- Formatting values as strings: base::formatC, scales for labelling function factories, prettyunits for standardized human readable units.
+
+**Non-tabular data:**
+
+In many cases, this type of data can be translated into R lists and be manipulated with the “FP and lists” packages.
+
+- Ragged retangular data: meltr.
+- JSON: jsonlite and cereal (serializaton), jsonedit (visualization), jose (security), jsonvalidate (validation).
+- PDF: pdftools for PDF parsing, tabulapdf for table extraction; other languages might have better solutions.
+- Others: zip, archive, yaml, cachem for caches, [image and audio](https://ropensci.org/packages/image-processing/) universe; not too studied here; geospatial and networking data in the specific topics section.
+- To my knowledge, there isn’t a really big standard in batch/parallel-processing non-tabular data in R, often you just write your own R-level parallel code.
+
+### Tabular Data
+
+I truly think that dplyr and tidyr have one of the most consistent philosophy, syntax, and organization (with the verb-based separation of organizations). I’ve gave classes on dplyr, Python’s pandas and polars, and dplyr is the most intuitive and easy to grasp in its completion, requiring very little memorization of its user. It is also the most used framework in R. Because of that, I suggest sticking to it, and working with the other packages in the tidyverse.
+
+**Data reading:**
+
+- Tidyverse: readr and others (haven, etc.) for most formats; data.table::fread and vroom for fast, async reading.
+- Apache: arrow formats for language-agnostic colunar format, and working with other apache projects
+- Databases: [r-dbi](https://r-dbi.r-universe.dev/builds) universe, [awesome list](https://github.com/qinwf/awesome-R?tab=readme-ov-file#database-management), and the [databases](https://cran.r-project.org/web/views/Databases.html) CRAN view; others include liteq, pool, duckdb; dm for organizing several relational dataframes/tables.
+
+**Data manipulation:**
+
+- Tidyverse: tidyr and dplyr for the main data manipulation; tidyselect to add tidyselect support to other functions; fuzzyjoin and powerjoin for more complex joins than supported by dplyr.
+
+**Alternatives and non-standard computing:**
+
+The user-friendlyness of dplyr can come at a performance cost in some cases. While there are lots of different tabular-data pacakges focused on speed, I’d recommend starting by using their ports to dplyr, which usually are very similar to the package beneath, let you stick to the very well crafted tidyverse API. Each has different strengths and support for dplyr features.
+
+- Backends via alternative C and R code for dplyr:
+    - collapse + [**fastplyr](https://github.com/NicChr/fastplyr)/[timeplyr](https://github.com/NicChr/timeplyr);\*\* data.table + dtplyr often use C/C++ code and C-level parallelism.
+    - r-polars + tidypolars, similar to above but polars is written in Rust.
+    - multidplyr for parallelized dplyr code.
+- Backends via external databases and software:
+    - dbplyr for general DB connections; duckdb + duckplyr for powering dplyr via DuckDB.
+    - arrow and sparklyr for apache-based, naturally-distributed computing.
+- Other frameworks:
+    - For larger than memory: bigmemory, ff and bigstatsr; non-dplyr arrow/sparklyr code.
+    - For parallel code: R-level parallel and/or batch-processed code.
+
+### Tables, plots and documents
+
+**Tables:** gt seems to be the best, supported by posit, and is available for Python too; it has several extensions including generating tables for the results of statistical models.
+
+**Document generation:**
+
+- Quarto seems to be the new standard, with lots of Posit support, while R Markdown is still relevant. The underlying engines are also useful, knitr and pandoc, with whisker being a mustache-based alternative.
+- Conversions between document types: litedown, pander, ymlthis.
+- Latex equations and code blocks from code: equatiomatic, highr.
+
+**Plot:**
+
+- Main: ggplot2 for general plotting; I’ve been considering patchwork as the best package to combine multiple ggplots.
+- Interactive: ggvis and plotly are two alternatives, plotly seems more developed, but ggvis lives closer to ggplot2; rgl for 3d graphs; external software-based alternativs include GWalkR (with Tableau), echarts4r (with Echarts JS).
+- Rendering specific filetypes: svglite (SVG), marquee (markdown).
+- Specific graphs: rayshader and isoband for geometric and elevation data; mathart for math art; circlize for circular plots.
+- Ggplot extensions: there are many, some interesting ones are ggstatsplot, ggeffects, gganimate, and esquisse.
+
+### Exploratory (tabular) data analysis
+
+In EDA, and also modelling, the first step is to define what you need to visualize, how you could want to model, the problem in question. This will be different for every problem. Thus, your first worry should not be to find a “does-all-for-you” package, as this can incentivize you to not think enough about a problem.
+
+In general, not using and EDA package, and approaching every project with a blank slate, writing custom visualizations for it, is a viable decision. Specially because tidyr+dplyr and ggplot are some of the most efficient and easy-to-use tools out there for this kind of interactive use, and is why I use R for data analysis/exploration.
+
+Still, mindfully using packages, as tools to avoid code repetition, but not guides in the analysis itself, can be good to improve productivity, and I’ll list some of the main ones. A good approach is to create your own package, with the tools that you like to use and are useful for the specific types of problems you deal with.
+
+**Data cleaning:**
+
+- Many people like janitor for general cleaning, but I am yet to understand what exactly it builds on top of already existing dplyr tools.
+- vtreat seems to provide some good shortcuts for ML-oriented cleaning, like generating numeric columns, dealing with new categories in factors, etc.
+
+**Others:**
+
+- skimr seems to be the best package for quick-description of a dataset, i.e. a replacement for base::summary.
+- broom is not about cleaning data, but generating clean (tidy) data from model’s outputs, and is a standard in R.
+- naniar seems to have good visualizations to understand NA values in your data; the [CRAN view](https://www.notion.so/Rotina-e39b84cefc5b46e1b7d958eb5c7b9a95?pvs=21) might contain other good packages for that.
+
+**General EDA:**
+
+- There are many ggplot extensions for several different types of graphs and data.
+- Popular packages that aggregate visualizations: DataExplorer, visdat, ggquickeda, SmartEDA, amongts many others.
+- Use the R Universe package search to help you find others.
+
+**Other types of data:** time series, spacio-temporal, network data will be talked about in their specific sections.
+
+### Application development
+
+**Shiny:**
+
+- Main: shiny itself, shiny-server and other publication-related tools, shinytest and shinymeta for testing and app analisys.
+- Frameworks: golem, rhino, and leprechaun; these are frameworks to generate entire applications in Shiny, I won’t delve into their differences here.
+- Addons: there are many, some interesting ones are shinydashboard, shinychat, shinylive, querychat, bslib, and the RinteRface universe.
+
+**Webdev:**
+
+- Frameworks: plumber2 has very intuitive abstractions of R code, rwasm for R via WebAssmbly; other frameworks include ambiorix, fiery, beakr, and ROpenCPU.
+- APIs: httpuv for handling HTTP requests, routr for classes to wrap responses/requests, reqres to dispatch requests to R functions.
+- HTML/JS: there is a bunch of packages to generate HTML and small widgets from R, and they can be integrated in other contexts (documents, webapps, etc.); these include htmltools, [htmlwidgets](http://www.htmlwidgets.org/), flexdashboard, DT, bslib, askpass.
+
+**CLI:** Rapp for command line apps with R.
+
+# Specific Topics
+
+Tip: to start studying the ecosystem of a topic, and choosing the best package for something, pass the views to an LLM to help guide you.
+
+### Traditional frequentist statistics
+
+There are many packages for many different models. Often two packages provide control over different parts of the model. I’ve researched very little on this topic, and will just list what comes up as most popular in some areas. I recommend Wolfgang’s list for more options.
+
+- Linear models: the R core stats::lm().
+- Generalized linear models: stats::glm(); glmnet for GLM with regularization.
+- Non-linear least squares: stats::nls().
+- Generalized linear mixed models: lme4 and nlme, the former extending the latter, but nlme has some unique functionalities still.
+- Generalized non-linear mixed models: mgcv, which uses nlme under the hood for some estimations; gamm4 that uses lme4.
+- Others: survival for survival analysis, meta/metafor for meta analisys, for GLM with reg
+- Utility: boot (bootstrap), lmtest/multcomp (hypothesis testing), car; amongst many others.
+
+Lists: [https://cran.r-project.org/web/views/MixedModels.html](https://cran.r-project.org/web/views/MixedModels.html), [https://cran.r-project.org/web/views/Distributions.html](https://cran.r-project.org/web/views/Distributions.html), [https://cran.r-project.org/web/views/ExtremeValue.html](https://cran.r-project.org/web/views/ExtremeValue.html).
+
+### Machine/statistical learning
+
+Crossing the (very blurry and not that much necessary) line to machine/statistical learning, I again present some initial ideas. This ecosystem is more populated by big meta-frameworks, differently from the 1-model 1-package reality of the list above. As before, very little research was done on the specific models vendors.
+
+- Frameworks:
+    - tidymodels: the ‘official’ tidy approach with support from posit; it has a big focus on defining full preprocessing → modelling → diagnosing → tuning pipelines.
+    - mlr3: a similar framework, praised for having better performance, based on R6 and data.table.
+    - Both wrap existing packages (modelling backends), unifying their syntax to provide the models; both provide utilities to preprocess, diagnose, hyperparametrize, and run code in parallel/batch; my recommendation is to try both.
+- Specific models:
+    - Check the full list of currently supported learners from [mlr3](https://mlr-org.com/learners.html), and from [tidymodels](https://www.tidymodels.org/find/parsnip/).
+    - Deep learning: tensorflow/keras3, torch; in gerenal, torch is more used for prototyping, and tensorflow for production. These are actually full frameworks too.
+    - Spark’s MLlib via sparkly for distributed ML; h2o for h2o’s distributed ML; Google’s cloudML via cloudml
+    - All the more traditional models from the traditional statistics list, specially glmnet (regularized general linear models) and mgcv (generalized non-linear mixed models).
+    - Other traditional packages include ranger for random forest, nnet for neural networks, kernlab for kernel-based methods, rpart for recursive partitioning, xgboost for XGBoost; Also consider DALEX for diagnostics.
+- Model-serving: aside from the frameworks’ embedded methods, consider the already talked about packages targets and vetiver.
+
+Useful lists: [https://cran.r-project.org/web/views/Cluster.html](https://cran.r-project.org/web/views/Cluster.html), [https://cran.r-project.org/web/views/MachineLearning.html](https://cran.r-project.org/web/views/MachineLearning.html), [https://cran.r-project.org/web/views/ModelDeployment.html](https://cran.r-project.org/web/views/ModelDeployment.html), [https://bookdown.org/fede_gazzelloni/hmsidR/07-packages.html](https://bookdown.org/fede_gazzelloni/hmsidR/07-packages.html).
+
+### Causal inference and (micro-)econometrics
+
+Another topic that doesn’t evolves around big
+
+- Packages:
+    - Some repositories: [https://tlverse.r-universe.dev/builds](https://tlverse.r-universe.dev/builds), [https://r-causal.r-universe.dev/builds](https://r-causal.r-universe.dev/builds), [https://lrberge.r-universe.dev/fixest](https://lrberge.r-universe.dev/fixest), google universe
+    - panelview
+- Views: [https://cran.r-project.org/web/views/Econometrics.html](https://cran.r-project.org/web/views/Econometrics.html), [https://cran.r-project.org/web/views/CausalInference.html](https://cran.r-project.org/web/views/CausalInference.html), [https://cran.r-project.org/web/views/Robust.html](https://cran.r-project.org/web/views/Robust.html), [https://github.com/qinwf/awesome-R?tab=readme-ov-file#machine-learning](https://github.com/qinwf/awesome-R?tab=readme-ov-file#machine-learning)
+
+### Bayesian statistics
+
+There are ports for some of the estabilished statistics software out there, like Jags and Stan. Some models can also be run in the statistical learning frameworks.
+
+Packages:
+
+- Software ports: rstan, rjags, R2WinBUGS.
+- MCMC: [mcmc](http://cran.r-project.org/web/packages/mcmc/index.html), [MCMCpack](http://mcmcpack.berkeley.edu/).
+- brms seems to be the best high-level swiss-knife modelling package; greta seems good too.
+- More for utility: tidybayes, rvar, coda.
+- Pipelines: [jagstargets](https://community.r-multiverse.org/jagstargets), [stantargets](https://community.r-multiverse.org/stantargets).
+
+Lists: [https://cran.r-project.org/web/views/Bayesian.html](https://cran.r-project.org/web/views/Bayesian.html), [https://github.com/qinwf/awesome-R?tab=readme-ov-file#bayesian](https://github.com/qinwf/awesome-R?tab=readme-ov-file#bayesian).
+
+### Time Series
+
+- Strategy: …
+- Packages: … [https://tsmodels.r-universe.dev/builds](https://tsmodels.r-universe.dev/builds), [https://tidyverts.r-universe.dev/builds](https://tidyverts.r-universe.dev/builds), [https://r-multiverse.r-universe.dev/prophet](https://r-multiverse.r-universe.dev/prophet), x-13 stuff, xts (the best ts class pkg?)
+    - tidyverts, prophet
+- Views: [https://cran.r-project.org/web/views/TimeSeries.html](https://cran.r-project.org/web/views/TimeSeries.html)
+- [https://otexts.com/fpp3/index.html](https://otexts.com/fpp3/index.html)
+- [https://business-science.github.io/modeltime/](https://business-science.github.io/modeltime/)
+
+### Finance
+
+- Strategy: we should probably look for the best package to implement portfolio optimization, operations, and backtesting. Else, there is finance data loading, and general finance charting. Quantmod seems the unnoficial standard.
+- Packages: tidyquant
+- Views: [https://github.com/qinwf/awesome-R?tab=readme-ov-file#finance](https://github.com/qinwf/awesome-R?tab=readme-ov-file#finance), [https://cran.r-project.org/web/views/Finance.html](https://cran.r-project.org/web/views/Finance.html), [https://cran.r-project.org/web/views/ExtremeValue.html](https://cran.r-project.org/web/views/ExtremeValue.html)
+
+### Mathematical modelling/physics
+
+- Views:
+    - [https://cran.r-project.org/web/views/FunctionalData.html](https://cran.r-project.org/web/views/FunctionalData.html)
+    - [https://cran.r-project.org/web/views/NumericalMathematics.html](https://cran.r-project.org/web/views/NumericalMathematics.html)
+    - [https://cran.r-project.org/web/views/DifferentialEquations.html](https://cran.r-project.org/web/views/DifferentialEquations.html)
+
+### Optimization
+
+[https://cran.r-project.org/web/views/Optimization.html](https://cran.r-project.org/web/views/Optimization.html)
+
+[https://github.com/qinwf/awesome-R?tab=readme-ov-file#optimization](https://github.com/qinwf/awesome-R?tab=readme-ov-file#optimization)
+
+- Optimization: minqa, ROI, nloptr
+- [https://cran.r-project.org/web/packages/Rsolnp/index.html](https://cran.r-project.org/web/packages/Rsolnp/index.html)
+- [https://cran.r-project.org/web/packages/optimParallel/index.html](https://cran.r-project.org/web/packages/optimParallel/index.html)
+- [https://github.com/TillF/ppso/tree/master/R](https://github.com/TillF/ppso/tree/master/R)
+- [https://github.com/AnotherSamWilson/ParBayesianOptimization](https://github.com/AnotherSamWilson/ParBayesianOptimization)
+- [https://github.com/ArdiaD/DEoptim/tree/master/src](https://github.com/ArdiaD/DEoptim/tree/master/src)
+
+### Specific topics closer to us
+
+- Packages:
+    - Network/graph data: [https://statnet.r-universe.dev/builds](https://statnet.r-universe.dev/builds), [https://stocnet.r-universe.dev/builds](https://stocnet.r-universe.dev/builds), [https://r-multiverse.r-universe.dev/igraph](https://r-multiverse.r-universe.dev/igraph), [https://github.com/qinwf/awesome-R?tab=readme-ov-file#network-analysis](https://github.com/qinwf/awesome-R?tab=readme-ov-file#network-analysis), DiagrammeR, [https://cran.r-project.org/web/views/GraphicalModels.html](https://cran.r-project.org/web/views/GraphicalModels.html)
+    - Spacial data: [https://riatelab.r-universe.dev/builds](https://riatelab.r-universe.dev/builds), [https://r-spatial.r-universe.dev/builds](https://r-spatial.r-universe.dev/builds), [https://stscl.r-universe.dev/builds](https://stscl.r-universe.dev/builds), [https://spatstat.r-universe.dev/builds](https://spatstat.r-universe.dev/builds), [https://rspatial.r-universe.dev/builds](https://rspatial.r-universe.dev/builds), [https://r-tmap.r-universe.dev/tmap](https://r-tmap.r-universe.dev/tmap), [https://fastverse.r-universe.dev/terra](https://fastverse.r-universe.dev/terra), sf over sp, mapgl, [https://github.com/qinwf/awesome-R?tab=readme-ov-file#spatial](https://github.com/qinwf/awesome-R?tab=readme-ov-file#spatial), [https://github.com/fastverse/fastverse?tab=readme-ov-file#spatialhttps://ropensci.org/packages/geospatial/](https://github.com/fastverse/fastverse?tab=readme-ov-file#spatialhttps://ropensci.org/packages/geospatial/), rgee, [https://sedona.apache.org/latest/api/rdocs/](https://sedona.apache.org/latest/api/rdocs/)
+    - NLP: [https://cran.r-project.org/web/views/NaturalLanguageProcessing.html](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html), [https://github.com/qinwf/awesome-R?tab=readme-ov-file#natural-language-processing](https://github.com/qinwf/awesome-R?tab=readme-ov-file#natural-language-processing), [https://quanteda.r-universe.dev/builds](https://quanteda.r-universe.dev/builds), [https://github.com/qinwf/awesome-R?tab=readme-ov-file#natural-language-processing](https://github.com/qinwf/awesome-R?tab=readme-ov-file#natural-language-processing)
+- Views:
+    - [https://cran.r-project.org/web/views/MetaAnalysis.html](https://cran.r-project.org/web/views/MetaAnalysis.html)
+    - [https://cran.r-project.org/web/views/NetworkAnalysis.html](https://cran.r-project.org/web/views/NetworkAnalysis.html), [https://github.com/qinwf/awesome-R?tab=readme-ov-file#network-analysis](https://github.com/qinwf/awesome-R?tab=readme-ov-file#network-analysis)
+    - [https://cran.r-project.org/web/views/Spatial.html](https://cran.r-project.org/web/views/Spatial.html), [https://cran.r-project.org/web/views/SpatioTemporal.html](https://cran.r-project.org/web/views/SpatioTemporal.html), [https://cran.r-project.org/web/views/Tracking.html](https://cran.r-project.org/web/views/Tracking.html), [https://github.com/qinwf/awesome-R?tab=readme-ov-file#spatial](https://github.com/qinwf/awesome-R?tab=readme-ov-file#spatial)
+    - [https://cran.r-project.org/web/views/CompositionalData.html](https://cran.r-project.org/web/views/CompositionalData.html)
