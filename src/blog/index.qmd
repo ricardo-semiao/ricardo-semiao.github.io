@@ -1,6 +1,9 @@
 ---
-title: "myblog"
+title: "Blog"
+
 toc: false
+number-sections: false
+
 listing:
   contents: posts
   sort: "date desc"
@@ -8,9 +11,10 @@ listing:
   categories: true
 ---
 
-# hi
+Welcome to my blog! I post mostly about something that I made and how, or about something that I learned and didn't found an educational resource quite how I like.
 
-sgoangsnga
+The posts are divided by category and you can also filter with the search bar. This blog is built with [Quarto](https://quarto.org), plus the custom build process of the site as a whole.
 
-# List
+
+# Posts
 

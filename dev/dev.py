@@ -11,7 +11,7 @@ from fetch import fetch_external_sources
 from jobs import build_navbar, build_sitemap, quarto_blog, adjust_links
 from jobs import inject_project, inject_template
 from jobs import assets_compile, assets_move, assets_remove, assets_merge
-
+from gallery import build_gallery
 
 # Debug `os.chdir("..")`
 
@@ -52,14 +52,15 @@ def main():
     # Building components (navbar):
     build_navbar(filter_steps(steps, "build_navbar"), update = False)
     
-    # Blog:
-    #quarto_blog(filter_steps(steps, "quarto_blog"))
+    # Local projects (blog):
+    quarto_blog(filter_steps(steps, "quarto_blog"))
 
     # Injections:
-    #inject_project(filter_steps(steps, "inject_project"))
+    inject_project(filter_steps(steps, "inject_project"))
     inject_template(filter_steps(steps, "inject_template"))
 
-    # Sitemap:
+    # Further builds:
+    build_gallery(filter_steps(steps, "build_gallery"))
     build_sitemap(filter_steps(steps, "build_sitemap"))
 
     # Assets:
@@ -70,11 +71,11 @@ def main():
     adjust_links(filter_steps(steps, "adjust_links"))
 
 
-
     # Deployment to Site Branch ------------------------------------------------
 
+    # ...
 
 
-
+# Entry point:
 if __name__ == "__main__":
     main()

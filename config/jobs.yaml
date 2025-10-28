@@ -38,13 +38,14 @@ cv:
 
 # Gallery:
 gallery:
-  source: src/gallery
+  source: ""
   target: _dist/gallery
   steps:
-    build_navbar: {label: Gallery}
-    inject_template: {}
-    assets_compile: {subsource: module, type: "css", include: "\\.scss"}
-    assets_move: {subsource: module, exclude: "\\.scss"}
+    build_navbar: {subsource: src/gallery, label: Gallery}
+    inject_template: {subsource: src/gallery}
+    build_gallery: {subsource: _dist/gallery, ncols: 6, ndraws: 100}
+    assets_compile: {subsource: src/gallery/module, type: "css", include: "\\.scss"}
+    assets_move: {subsource: src/gallery/module, exclude: "\\.scss"}
 
 # Blog:
 blog:
@@ -55,8 +56,8 @@ blog:
     inject_project: quartoblog
     quarto_blog: {subsource: src/blog}
     adjust_links: {subsource: _dist/blog, attr: "href", replace: {"\\.\\.?/assets/": "/assets/"}}
-    #assets_compile: {subsource: module, subtarget: _dist/blog, type: "css", include: "\\.scss"}
-    #assets_move: {subsource: module, subtarget: _dist/blog, exclude: "\\.scss"}
+    assets_compile: {subsource: src/blog/module, subtarget: _dist/blog, type: "css", include: "\\.scss"}
+    assets_move: {subsource: src/blog/module, subtarget: _dist/blog, exclude: "\\.scss"}
 
 
 # External projects:
