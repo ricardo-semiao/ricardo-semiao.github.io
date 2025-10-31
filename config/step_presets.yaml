@@ -23,10 +23,11 @@ inject_project:
   quartoblog: {
     subsource: _dist/blog,
     components: {
-      site-main-quartoblog: {position: "wrap", selector: "#quarto-search-results"},
-      site-header: {position: "before", selector: "#rssite-main"},
-      #site-footer: {position: "after", selector: "#rssite-main"},
-      #site-scripts: {position: "after", selector: "#rssite-footer"}
+      rsquartoblog-meta: {position: "append", selector: "head"},
+      site-main-quartoblog: {position: "wrap", selector: "#quarto-content"},
+      site-header: {position: "before", selector: "#quarto-search-results"},
+      site-footer: {position: "after", selector: "#rssite-main"},
+      site-scripts: {position: "after", selector: "#rssite-footer"}
     }
   }
 

@@ -14,17 +14,6 @@ format:
     number-depth: 2
     code-fold: show
     code-link: true
-    include-in-header:
-      text: |
-        <link rel="icon" href="/assets/img/icon.png" type="image/png">
-        <link rel="shortcut icon" href="/assets/img/icon.png" type="image/png">
-        <link rel="stylesheet" href="/assets/global.css">
-    include-after-body:
-      text: |
-        <footer id="rssite-footer">
-          <p><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><i class="fab fa-github"></i> View source-code</a></p>
-        </footer>
-        <script src="/assets/global.js"></script>
 
 lang: en
 

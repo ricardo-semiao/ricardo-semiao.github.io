@@ -6,12 +6,12 @@ from dotenv import load_dotenv
 from yaml import safe_load as yaml_load
 
 # Local modules:
-from utils import get_steps, create_dist_folder, filter_steps
-from fetch import fetch_external_sources
-from jobs import build_navbar, build_sitemap, quarto_blog, adjust_links
-from jobs import inject_project, inject_template
-from jobs import assets_compile, assets_move, assets_remove, assets_merge
-from gallery import build_gallery
+from jobs.utils import get_steps, filter_steps
+from jobs.fetch import fetch_external_data
+from jobs.build import build_site_structure, build_sitemap, build_quarto_blog
+from jobs.gallery import build_gallery
+from jobs.inject import inject_project, inject_template
+from jobs.assets import assets_compile, assets_move, assets_remove, assets_merge
 
 # Debug `os.chdir("..")`
 
@@ -23,7 +23,7 @@ def main():
     # Initialization -----------------------------------------------------------
 
     # Reading configurations:
-    load_dotenv(".env")
+    load_dotenv("dev/.env")
 
     with open("config/jobs.yaml", "r", encoding = "utf-8") as file:
         jobs = yaml_load(file)
@@ -31,44 +31,33 @@ def main():
     with open("config/step_presets.yaml", "r", encoding = "utf-8") as file:
         presets = yaml_load(file)
 
-
     # Getting enriched steps:
     steps = get_steps(jobs, presets)
-
-    # Creating site folder structure:
-    create_dist_folder(steps)
-
-
-    # Fetching external resources:
-    with open("config/external_sources.yaml", "r", encoding="utf-8") as file:
-        sources = yaml_load(file)
-    
-    fetch_external_sources(sources, remote = False, update = False)
 
 
 
     # Jobs ---------------------------------------------------------------------
 
-    # Building components (navbar):
-    build_navbar(filter_steps(steps, "build_navbar"), update = False)
-    
-    # Local projects (blog):
-    quarto_blog(filter_steps(steps, "quarto_blog"))
+    # Building infrastructure and getting external data:
+    build_site_structure(filter_steps(steps, "build_site_structure", True), steps)
+    fetch_external_data(filter_steps(steps, "fetch_external_data", True))
+    build_sitemap(filter_steps(steps, "build_sitemap", True))
 
-    # Injections:
-    inject_project(filter_steps(steps, "inject_project"))
+    # Local projects:
     inject_template(filter_steps(steps, "inject_template"))
-
-    # Further builds:
-    build_gallery(filter_steps(steps, "build_gallery"))
-    build_sitemap(filter_steps(steps, "build_sitemap"))
+    build_gallery(filter_steps(steps, "build_gallery", True))
+    
+    # External projects:
+    build_quarto_blog(filter_steps(steps, "build_quarto_blog", True))
+    inject_project(filter_steps(steps, "inject_project"))
+    # inject_links(filter_steps(steps, "adjust_links")) # Unneded
 
     # Assets:
     assets_compile(filter_steps(steps, "assets_compile"))
     assets_move(filter_steps(steps, "assets_move"))
     assets_merge(filter_steps(steps, "assets_merge"))
     assets_remove(filter_steps(steps, "assets_remove"))
-    adjust_links(filter_steps(steps, "adjust_links"))
+
 
 
     # Deployment to Site Branch ------------------------------------------------

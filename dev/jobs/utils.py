@@ -4,7 +4,7 @@
 # File operations:
 from pathlib import Path
 from os import chdir
-from shutil import copytree, copy2, rmtree
+from shutil import copytree, copy2
 from stat import S_IWRITE
 
 # Reading yaml:
@@ -19,7 +19,12 @@ import re
 # Type hints:
 from typing import Generator, Callable, Any
 
-proj_root = Path(__file__).resolve().parent.parent
+
+# Project root path:
+proj_root = next(
+    p for p in Path(__file__).resolve().parents
+    if Path(p, "pyproject.toml").is_file()
+)
 
 
 
@@ -186,6 +191,8 @@ def get_steps(
     steps = {}
 
     for job_name, job in jobs.items():
+        if job_name in jobs["site_structure"]["steps"]["build_site_structure"].get("cached", []):
+            continue
         for step_name, args in job["steps"].items():
             if isinstance(args, str):
                 args = presets[step_name][args]
@@ -204,33 +211,13 @@ def get_steps(
     return steps
 
 
-# Create site structure following steps' target paths
-def create_dist_folder(steps: dict) -> None:
-    print("Setup == Creating site folder structure ...")
-
-    if Path("_dist/").is_dir():
-        rmtree(Path("_dist/"), onexc = remove_readonly)
-    Path("_dist/").mkdir(exist_ok = True)
-
-    target_paths = [
-        args["target"]
-        for args in steps.values()
-        if "_dist" in Path(args["target"]).parts
-            and "." not in Path(args["target"]).name
-    ]
-
-    for path in target_paths:
-        Path(path).mkdir(exist_ok = True, parents = True)
-
-    print("  ✔ Done.\n")
-    return None
-
-
 # Filter steps by step name
-def filter_steps(steps, step_name) -> dict:
+def filter_steps(steps: dict, step_name: str, expect_one: bool = False) -> dict:
     steps_filtered = {
         key: args
         for key, args in steps.items()
         if key[1] == step_name
     }
+    if expect_one and len(steps_filtered) == 0:
+        raise Exception(f"No steps found for step name '{step_name}'.")
     return steps_filtered

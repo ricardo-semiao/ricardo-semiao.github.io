@@ -1,11 +1,34 @@
-# Build jobs configuration
+# Notes --------------------
 
 # Each top-level element is a 'job', with three sections:
-# - fetch: a string with a path relative to the project root
+# - source: a string with a path relative to the project root
+# - target: with the navbar text (if applicable) and target path. These will be combined with the subsource and subtarget parameters
 # - build: a dictionary with each build 'step' and its parameters
 #   - See the functions in dev/jobs.py for available steps and parameters
 #   - Parameters not specified imply default values
-# - deploy: with the navbar text (if applicable) and target path relative to site root (_dist/)
+
+
+
+# Fetching External Data --------------------
+
+fetch_data:
+  source: config/external_sources.yaml
+  target: ""
+  steps:
+    fetch_external_data: {remote: false, update: false}
+
+
+
+# Independent Build Jobs --------------------
+
+# Site structure (_dist folder):
+site_structure:
+  source: config/jobs.yaml # The targets information on this file
+  target: _dist
+  steps:
+    build_site_structure: {
+      #cached: [blog, rfcd]
+    }
 
 # Sitemap:
 sitemap:
@@ -14,34 +37,35 @@ sitemap:
   steps:
     build_sitemap: sitemap
 
+# Note that the navbar component might need updating. Commit 092a29a04e1da135d1fbd7d0782bd3907076b82b
+# has the `build_navbar()` function, but I currently prefer to manually update it
+
+
+# Content Jobs --------------------
+
 # Index page:
 index:
   source: src/index
   target: _dist
   steps:
-    build_navbar: {label: Home}
     inject_template: {}
     assets_compile: {subsource: module, subtarget: index, type: "css", include: "\\.scss"}
     assets_move: {subsource: module, subtarget: index, exclude: "\\.scss"}
-
 
 # CV:
 cv:
   source: src/cv
   target: _dist/cv
   steps:
-    build_navbar: {label: CV}
     inject_template: {}
     assets_compile: {subsource: module, type: "css", include: "\\.scss"}
     assets_move: {subsource: module, exclude: "\\.scss"}
-
 
 # Gallery:
 gallery:
   source: ""
   target: _dist/gallery
   steps:
-    build_navbar: {subsource: src/gallery, label: Gallery}
     inject_template: {subsource: src/gallery}
     build_gallery: {subsource: _dist/gallery, ncols: 6, ndraws: 100}
     assets_compile: {subsource: src/gallery/module, type: "css", include: "\\.scss"}
@@ -52,36 +76,35 @@ blog:
   source: ""
   target: ""
   steps:
-    build_navbar: {subsource: src/blog, subtarget: _dist/blog, label: Blog}
     inject_project: quartoblog
-    quarto_blog: {subsource: src/blog}
-    adjust_links: {subsource: _dist/blog, attr: "href", replace: {"\\.\\.?/assets/": "/assets/"}}
+    build_quarto_blog: {subsource: src/blog}
     assets_compile: {subsource: src/blog/module, subtarget: _dist/blog, type: "css", include: "\\.scss"}
     assets_move: {subsource: src/blog/module, subtarget: _dist/blog, exclude: "\\.scss"}
-
+    #inject_links: {subsource: _dist/blog, attr: "href", replace: {"\\.\\.?/assets/": "/assets/"}} # Unneded
 
 # External projects:
 rfcd:
   source: _dist/library/rfcd
   target: _dist/library/rfcd
   steps:
-    build_navbar: {label: RFCD, drop_label: Library}
     inject_project: rsbookdown
     assets_remove: pkg-bookdown
 phyopt:
   source: _dist/tools/phyopt
   target: _dist/tools/phyopt
   steps:
-    build_navbar: {label: phyopt, drop_label: Tools}
     inject_project: rspkgdown
     assets_remove: pkg-bookdown
 mtsdesc:
   source: _dist/tools/mtsdesc
   target: _dist/tools/mtsdesc
   steps:
-    build_navbar: {label: mtsdesc}
     inject_project: rspkgdown
     assets_remove: pkg-bookdown
+
+
+
+# Assets Jobs --------------------
 
 # Assets:
 static_root:

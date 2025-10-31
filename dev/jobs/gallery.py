@@ -1,15 +1,17 @@
 
 # Setup ------------------------------------------------------------------------
 
+# File handling:
+from pathlib import Path
+
+# HTML parsing:
+from bs4 import BeautifulSoup
+
 # Numpy and operations:
 import numpy as np
 import numpy.random as rd
 from numpy.typing import NDArray
 from operator import eq, lt, gt
-
-# File handling:
-from pathlib import Path
-from bs4 import BeautifulSoup
 
 
 
@@ -71,8 +73,8 @@ def best_pack_draw(
 ) -> dict[str, NDArray]:
     if verbose >= 1:
         print((
-            f"- Packing {rectangles.shape[0]} rectangles into "
-            f"{ncols} columns over {ndraws} draws.\n"
+            f"  - Packing {rectangles.shape[0]} rectangles into "
+            f"{ncols} columns over {ndraws} draws."
         ))
 
     orders = np.zeros((rectangles.shape[0], ndraws), dtype = np.int8)
@@ -133,3 +135,6 @@ def build_gallery(steps) -> None:
 
     with open(path, "w", encoding = "utf-8") as file:
         file.write(str(soup))
+
+    print("  ✔ Done.\n")
+    return None
