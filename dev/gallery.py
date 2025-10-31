@@ -72,7 +72,7 @@ def best_pack_draw(
     if verbose >= 1:
         print((
             f"- Packing {rectangles.shape[0]} rectangles into "
-            f"{ncols} columns over {ndraws} draws."
+            f"{ncols} columns over {ndraws} draws.\n"
         ))
 
     orders = np.zeros((rectangles.shape[0], ndraws), dtype = np.int8)

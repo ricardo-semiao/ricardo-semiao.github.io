@@ -21,10 +21,8 @@ format:
         <link rel="stylesheet" href="/assets/global.css">
     include-after-body:
       text: |
-        <footer id="site-footer">
-            <div>
-                <p>Blog created via <a href="https://quarto.org/docs/books/">Quarto</a> | <a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><i class="fab fa-github"></i> View source-code</a></p>
-            </div>
+        <footer id="rssite-footer">
+          <p><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><i class="fab fa-github"></i> View source-code</a></p>
         </footer>
         <script src="/assets/global.js"></script>
 

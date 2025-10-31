@@ -17,8 +17,10 @@
 <body>
     @@site-header@@
 
-    <div id="site-main" class="personal">
-        @@titlecard@@
+    <main id="rssite-main" class="rssite-local">
+        <div id="titlecard">
+            <h1>Ricardo Semião e Castro</h1>
+        </div>
 
         <section id="intro">
             <div class="multicolumn">
@@ -88,17 +90,15 @@
                 </div>
             </div>
 
-            <div class="explanation-card" style="visibility: hidden;">
-                <h4></h4>
+            <div id="projects-tooltip" role="tooltip" aria-hidden="true" style="visibility: hidden;">
+                <h3></h3>
                 <p></p>
             </div>
         </section>
-    </div>
+    </main>
 
     @@site-footer@@
-
     <script src="./index/module.js"></script>
-
     @@site-scripts@@
 </body>
 

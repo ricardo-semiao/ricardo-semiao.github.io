@@ -98,7 +98,7 @@ main > section h2 {
     background-repeat: no-repeat;
 }
 
-.explanation-card {
+#projects-tooltip {
     position: absolute;
     background-color: var(--lightgray);
     filter: opacity(90%);
@@ -107,7 +107,7 @@ main > section h2 {
     width: 250px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-.explanation-card h4 {
+#projects-tooltip h4 {
     color: var(--green);
     font-weight: bold;
     font-size: 1.1em;
@@ -116,7 +116,7 @@ main > section h2 {
     padding-bottom: 0.5rem;
     font-family: inherit;
 }
-.explanation-card p {
+#projects-tooltip p {
     margin: 1rem 0 0 0;
     font-size: 0.9em;
 }

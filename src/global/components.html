@@ -15,43 +15,43 @@
 </div>
 
 <div data-component-name="site-header">
-    <header id="site-header">
-        <div class="header-block"></div>
-        <nav>
-            <ul class="nav-ul">
+    <header id="rssite-header">
+        <nav aria-label="Main site navigation">
+            <ul>
                 <li class="nav-li"><a href="/">Home</a></li>
+                <li class="nav-li"><a href="/blog">Blog</a></li>
                 <li class="nav-drop">
-                    <p>Personal</p><button></button>
-                    <ul>
+                    <button aria-controls="menu-projects" aria-expanded="false">About</button>
+                    <ul id="menu-personal">
                         <li class="nav-li"><a href="/cv">CV</a></li>
-                        <li class="nav-li"><a href="/blog">Blog</a></li>
                         <li class="nav-li"><a href="/gallery">Gallery</a></li>
                     </ul>
                 </li>
                 <li class="nav-drop">
-                    <p>Projects</p><button></button>
-                    <ul>
+                    <button aria-controls="menu-projects" aria-expanded="false">Projects</button>
+                    <ul id="menu-projects">
                         <li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
                         <li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+                        <li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
-        <div class="header-block"></div>
     </header>
 </div>
 
-<div data-component-name="site-footer">
-    <footer id="site-footer">
-        <div>
-            <p><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><i class="fab fa-github"></i> View source-code</a></p>
-        </div>
-    </footer>
+<div data-component-name="site-main-rspkgdown">
+    <main id="rssite-main" class="rssite-rspkgdown"></main>
+</div>
+<div data-component-name="site-main-rsbookdown">
+    <main id="rssite-main" class="rssite-rsbookdown"></main>
+</div>
+<div data-component-name="site-main-quartoblog">
+    <main id="rssite-main" class="rssite-quartoblog"></main>
 </div>
 
-<!-- Only for Home and CV: -->
-<div data-component-name="titlecard">
-    <div id="titlecard">
-        <h1>Ricardo Semião e Castro</h1>
-    </div>
+<div data-component-name="site-footer">
+    <footer id="rssite-footer">
+        <p><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><i class="fab fa-github"></i> View source-code</a></p>
+    </footer>
 </div>

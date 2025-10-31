@@ -6,22 +6,27 @@
 inject_project:
   rsbookdown: {
     components: {
-      site-header: {position: "before", selector: "body > div.container-fluid"},
-      site-scripts: {position: "after", selector: "#site-footer"}
+      site-main-rsbookdown: {position: "wrap", selector: "body > div.container-fluid"},
+      site-header: {position: "before", selector: "#rssite-main"},
+      site-footer: {position: "after", selector: "#rssite-main"},
+      site-scripts: {position: "after", selector: "#rssite-footer"}
     }
   }
   rspkgdown: {
     components: {
-      site-header: {position: "before", selector: "#site-main"},
-      site-scripts: {position: "after", selector: "#site-footer"}
+      site-main-rspkgdown: {position: "wrap", selector: "#site-main"},
+      site-header: {position: "before", selector: "#rssite-main"}, 
+      site-footer: {position: "after", selector: "#rssite-main"},
+      site-scripts: {position: "after", selector: "#rssite-footer"}
     }
   }
   quartoblog: {
     subsource: _dist/blog,
     components: {
-      site-header: {position: "before", selector: "#quarto-search-results"},
-      #site-footer: {position: "after", selector: "#quarto-content"},
-      #site-scripts: {position: "after", selector: "#site-footer"}
+      site-main-quartoblog: {position: "wrap", selector: "#quarto-search-results"},
+      site-header: {position: "before", selector: "#rssite-main"},
+      #site-footer: {position: "after", selector: "#rssite-main"},
+      #site-scripts: {position: "after", selector: "#rssite-footer"}
     }
   }
 

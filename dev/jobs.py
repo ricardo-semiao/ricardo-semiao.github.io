@@ -181,8 +181,15 @@ def build_sitemap(steps: dict) -> None:
 # Inject components into external projects
 # step_args:
 # - Variable length of components to inject. See `configs/steps_presets.yaml`
+manipulators = {
+    "before": lambda el, comp: el.insert_before(comp),
+    "after": lambda el, comp: el.insert_after(comp),
+    "wrap": lambda el, comp: el.wrap(comp)
+}
+
 def inject_project(steps: dict) -> None:
     print("Job == Injecting components into projects:")
+
     components = get_components(Path("src/global/components.html"))
     
     for key, args in steps.items():
@@ -191,19 +198,17 @@ def inject_project(steps: dict) -> None:
         html_pages = glob_re(args["source"], r".*\.html", recursive = True)
 
         for page in html_pages:
-            with open(page, "r+", encoding="utf-8") as file:
+
+            with open(page, "r", encoding="utf-8") as file:
                 soup = BeautifulSoup(file, "html.parser")
-            
-            if not soup.body:
-                continue # Skip non-content pages
+                if not soup.body:
+                    continue # Skip non-content pages
 
             for comp_name, comp_args in args["components"].items():
+                manipulate = manipulators[comp_args["position"]]
                 for item in components[comp_name]:
-                    reference = soup.select_one(comp_args["selector"])
-                    if comp_args["position"] == "before":
-                        reference.insert_before(item)
-                    else:
-                        reference.insert_after(item)
+                    element = soup.select_one(comp_args["selector"])
+                    manipulate(element, item)
 
             with open(page, "w", encoding="utf-8") as file:
                 file.write(str(soup))

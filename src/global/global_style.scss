@@ -1,36 +1,59 @@
-/* Imports */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+// Notes --------------------
+
+// - Note that many `margin: 0` and `padding: 0` are used for robustness,
+// i.e. ensure that the third party css do not interfere with the layout.
+// - Note that the variables can be also defined in other scss documents,
+// update everywhere if changed.
 
 
-/* Basic */
+
+// Variables --------------------
+$media-width-lg: 920px;
+$media-width-md: 740px;
+
+
+
+// Imports --------------------
+
+// Fonts:
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+// Palette:
 :root {
-    --main-width: 65%;
-    --min-width: 250px;
-    --border-overflow: calc(0.5rem + 1.5%);
-}
-@media (max-width: 920px) {
-    :root {
-        --main-width: 80%;
-        --border-overflow: calc(1.5%);
-    }
-}
-@media (max-width: 740px) {
-    :root {
-        --main-width: 95%;
-        --border-overflow: calc(1%);
-    }
+    --gray: hsl(0, 0%, 95%);
+    --darkgray: hsl(0, 0%, 80%);
+    --lightgray: hsl(0, 0%, 97.5%);
+    --aquagray: hsl(0, 0%, 98.5%);
+    --blackgray: hsl(0, 0%, 40%);
+    --fontblack: hsl(210, 11%, 15%);
+    --red: hsl(350, 100%, 40%);
+    --darkred: hsl(350, 100%, 30%);
+    --lightred: hsl(350, 70%, 60%);
+    --aquared: hsl(350, 75%, 85%);
+    --orange: hsl(25, 100%, 40%);
+    --darkorange: hsl(25, 100%, 25%);
+    --lightorange: hsl(25, 70%, 60%);
+    --aquaorange: hsl(25, 80%, 85%);
+    --yellow: hsl(47, 100%, 45%);
+    --darkyellow: hsl(47, 100%, 30%);
+    --lightyellow: hsl(47, 90%, 70%);
+    --aquayellow: hsl(47, 85%, 85%);
+    --green: hsl(163, 100%, 25%);
+    --darkgreen: hsl(163, 100%, 15%);
+    --lightgreen: hsl(163, 70%, 45%);
+    --aquagreen: hsl(163, 75%, 80%);
+    --blue: hsl(185, 100%, 30%);
+    --darkblue: hsl(185, 100%, 15%);
+    --lightblue: hsl(185, 60%, 50%);
+    --aquablue: hsl(185, 75%, 80%);
 }
 
-html, body {
-    font-size: 16px;
-    height: 100%;
-    margin: 0;
-    min-width: var(--min-width);
-}
 
 
-/* Fonts */
+// Text styling --------------------
+
+// Fonts:
 body {
     font-weight: 400;
     font-family: 'Nunito Sans', sans-serif;
@@ -39,13 +62,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
 }
-nav li, nav li a {
-    font-family: 'Montserrat', sans-serif;
-}
 
-
-/* Links */
-a, nav a {
+// Links:
+a {
     color: var(--green);
     text-decoration: none;
 }
@@ -57,33 +76,37 @@ a:hover, a:active, a:focus {
 }
 
 
-/* Only for Home and CV: */
-#site-main.personal > section {
-    width: var(--main-width);
-    margin: 0 auto;
-    min-width: var(--min-width);
-    border-bottom: 1px solid var(--darkgray);
-    padding: 2rem var(--border-overflow);
-}
-#site-main.personal > section h2 {
-    margin: 0 0 1.5rem 0;
-}
-#site-main.personal > section:last-of-type {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 2rem;
-}
 
-#site-main.personal > #titlecard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--orange);
-    min-height: calc(8rem - 4px);
-    min-width: var(--min-width);
-    color: black;
-}
-#site-main.personal > #titlecard h1 {
-    margin: 0;
-    text-align: center;
+// Components of local modules --------------------
+
+#rssite-main.rssite-local {
+    // Sections:
+    & > section {
+        width: var(--main-width);
+        margin: 0 auto;
+        padding: 2rem;
+        box-sizing: border-box;
+        @media (max-width: $media-width-md) {
+            padding: 0.5rem;
+        }
+    }
+    & > section + section {
+        border-bottom: 1px solid var(--darkgray);
+    }
+    & > section h2 {
+        margin: 0 0 2rem 0;
+    }
+
+    // Titlecard:
+    & > #titlecard {
+        margin-top: 4px;
+        padding: 3rem 0;
+        background-color: var(--orange);
+        color: black;
+    }
+    & > #titlecard h1 {
+        width: var(--main-width);
+        margin: 0 auto;
+        text-align: center;
+    }
 }
