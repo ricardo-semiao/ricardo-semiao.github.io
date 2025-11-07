@@ -1,436 +1,0 @@
-2025-10-26T18:34:03.304263 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T18:34:28.342622 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T18:34:28.994355 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T18:34:29.147415 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T18:34:29.297688 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T18:35:38.363673 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T18:35:38.542124 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T18:35:38.703552 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T18:35:38.850537 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T22:47:28.699091 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T22:47:29.638366 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T22:47:29.772281 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T22:47:29.922023 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T22:51:40.274131 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T22:51:40.484278 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T22:51:40.685256 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T22:51:40.894756 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T22:56:39.826222 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T22:56:39.975842 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T22:56:40.135186 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T22:56:40.283261 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T23:33:53.782870 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T23:33:54.014827 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T23:33:54.167289 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T23:33:54.320416 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T23:34:18.493059 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T23:34:18.654598 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T23:34:18.805445 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T23:34:18.961866 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T23:34:43.313895 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T23:34:43.496610 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T23:34:43.671441 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T23:34:43.818819 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T23:45:32.157047 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T23:45:32.335193 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T23:45:32.488968 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T23:45:32.649753 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T23:47:20.221699 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T23:47:20.435314 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T23:47:20.602277 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T23:47:20.769301 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T23:47:44.856172 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T23:47:45.465060 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T23:47:45.638635 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T23:47:45.791212 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-26T23:51:16.421121 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-26T23:51:16.577682 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-26T23:51:16.715840 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-26T23:51:16.865872 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-27T09:03:17.540724 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T09:03:18.087008 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T09:03:18.242445 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T09:03:18.381846 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-27T09:09:44.760078 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T09:09:45.064671 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T09:09:45.217345 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T09:09:45.377650 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-27T09:11:52.216787 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T09:11:52.369813 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T09:11:52.514805 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T09:11:52.661916 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-ERROR: The specified directory ('.') is not a Quarto project.
-(If you have not specified a path, quarto will attempt to render the entire current directory as a project.)
-
-Stack trace:
-(If you have not specified a path, quarto will attempt to render the entire current directory as a project.)
-    at render (file:///C:/ProgramData/chocolatey/lib/quarto/tools/bin/quarto.js:90495:19)
-    at async Command.actionHandler (file:///C:/ProgramData/chocolatey/lib/quarto/tools/bin/quarto.js:90654:32)
-    at async Command.execute (file:///C:/ProgramData/chocolatey/lib/quarto/tools/bin/quarto.js:8111:13)
-    at async Command.parseCommand (file:///C:/ProgramData/chocolatey/lib/quarto/tools/bin/quarto.js:8001:20)
-    at async quarto (file:///C:/ProgramData/chocolatey/lib/quarto/tools/bin/quarto.js:126627:9)
-    at async file:///C:/ProgramData/chocolatey/lib/quarto/tools/bin/quarto.js:126654:9
-    at async mainRunner (file:///C:/ProgramData/chocolatey/lib/quarto/tools/bin/quarto.js:126519:9)
-    at async file:///C:/ProgramData/chocolatey/lib/quarto/tools/bin/quarto.js:126645:5
-2025-10-27T10:27:41.340803 -- Running command: quarto render .
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T10:31:33.242943 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T10:33:10.337430 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T10:37:13.794073 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T10:38:31.408389 -- Running command: quarto render src\blog
-2025-10-27T10:38:40.284516 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T10:38:41.010018 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T10:38:41.171155 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T10:38:41.340456 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T10:51:12.525363 -- Running command: quarto render src\blog
-2025-10-27T10:51:22.050345 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T10:51:22.261728 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T10:51:22.440589 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T10:51:22.613488 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T10:52:44.821925 -- Running command: quarto render src\blog
-2025-10-27T10:53:00.927131 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T10:53:01.120947 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T10:53:01.303504 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T10:53:01.463533 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T10:57:00.953160 -- Running command: quarto render src\blog
-2025-10-27T10:57:10.451305 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T10:57:10.659804 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T10:57:10.815385 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T10:57:10.983391 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T10:58:15.165704 -- Running command: quarto render src\blog
-2025-10-27T10:58:31.010801 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T10:58:31.258217 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T10:58:31.439586 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T10:58:31.617564 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:01:07.063339 -- Running command: quarto render src\blog
-2025-10-27T11:01:18.300539 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:01:18.505677 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:01:18.673686 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:01:18.852343 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:02:02.092901 -- Running command: quarto render src\blog
-2025-10-27T11:02:17.582970 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:02:17.755832 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:02:17.926414 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:02:18.090899 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:05:33.944978 -- Running command: quarto render src\blog
-2025-10-27T11:05:49.059172 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:05:49.228950 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:05:49.396934 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:05:49.563994 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:14:10.435114 -- Running command: quarto render src\blog
-2025-10-27T11:14:27.344503 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:14:27.575095 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:14:27.784747 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:14:28.070573 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:17:37.057586 -- Running command: quarto render src\blog
-2025-10-27T11:17:52.870533 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:17:53.057431 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:17:53.253055 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:17:53.433373 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:19:07.179377 -- Running command: quarto render src\blog
-2025-10-27T11:19:22.197521 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:19:22.395644 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:19:22.561662 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:19:22.745913 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:20:48.960547 -- Running command: quarto render src\blog
-2025-10-27T11:20:57.935665 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:20:58.119807 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:20:58.326950 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:20:58.506809 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:30:21.322195 -- Running command: quarto render src\blog
-2025-10-27T11:30:32.354008 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:30:32.591806 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:30:32.765042 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:30:32.957919 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:33:25.454534 -- Running command: quarto render src\blog
-2025-10-27T11:33:38.078367 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:33:38.340651 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:33:38.581455 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:33:38.813970 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T11:34:20.357587 -- Running command: quarto render src\blog
-2025-10-27T11:34:32.931725 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T11:34:33.169144 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T11:34:33.383141 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T11:34:33.586501 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T12:35:27.162888 -- Running command: quarto render src\blog
-2025-10-27T12:35:37.195480 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T12:35:37.807523 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T12:35:37.964870 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-27T12:35:38.128326 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T12:35:38.284009 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-27T12:37:21.896586 -- Running command: quarto render src\blog
-2025-10-27T12:37:35.158511 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T12:37:35.367832 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T12:37:35.549072 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-27T12:37:35.728279 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T12:37:35.914400 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-27T12:38:57.541687 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T12:38:57.818295 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T12:38:58.186260 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-27T12:38:58.485916 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T12:38:58.755481 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-27T12:46:31.790002 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T12:46:32.018048 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T12:46:32.225336 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-27T12:46:32.511563 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T12:46:32.743926 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-27T22:35:00.687985 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T22:35:01.265961 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T22:35:01.460365 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-27T22:35:01.646906 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T22:35:01.802380 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-27T22:37:23.604637 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T22:37:24.123293 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T22:37:24.485904 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-27T22:37:24.718887 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T22:37:24.961417 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-2025-10-27T22:51:19.988967 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-27T22:51:20.288475 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-27T22:51:20.528943 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-27T22:51:20.740375 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-27T22:51:21.202937 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-28T13:45:14.589481 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-28T13:47:29.223404 -- Running command: quarto render src\blog
-2025-10-28T13:47:40.225420 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-28T13:47:40.867413 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-28T13:48:14.108967 -- Running command: quarto render src\blog
-2025-10-28T13:48:23.100789 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-28T13:48:23.269348 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-28T13:48:23.444249 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-28T13:48:52.156017 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-28T13:48:52.339298 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-28T13:48:52.503362 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-28T13:49:33.885048 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-28T13:49:34.052039 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-28T13:49:34.205161 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-28T13:49:34.369764 -- Running command: sass src\blog\module\module.scss _dist\blog\module.css --no-source-map
-2025-10-28T13:49:34.533535 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-28T13:49:34.689803 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-28T13:50:10.554650 -- Running command: quarto render src\blog
-2025-10-28T13:50:20.707058 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-28T13:50:20.877203 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-28T13:50:21.052393 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-28T13:50:21.230631 -- Running command: sass src\blog\module\module.scss _dist\blog\module.css --no-source-map
-2025-10-28T13:50:21.391245 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-28T13:50:21.546524 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-28T18:36:10.387525 -- Running command: quarto render src\blog
-2025-10-28T18:36:20.043369 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-28T18:36:20.615360 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-28T18:36:20.759186 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-28T18:36:20.922999 -- Running command: sass src\blog\module\module.scss _dist\blog\module.css --no-source-map
-2025-10-28T18:36:21.076905 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-28T18:36:21.263571 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T19:31:58.419746 -- Running command: quarto render src\blog
-2025-10-29T19:32:07.866254 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-29T19:32:08.470853 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-29T19:32:08.693943 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-29T19:32:08.897714 -- Running command: sass src\blog\module\module.scss _dist\blog\module.css --no-source-map
-2025-10-29T19:32:09.116392 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-29T19:32:09.363069 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T19:40:05.504236 -- Running command: quarto render src\blog
-2025-10-29T19:40:18.409503 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-29T19:40:18.674727 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-29T19:40:18.882678 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-29T19:40:19.084529 -- Running command: sass src\blog\module\module.scss _dist\blog\module.css --no-source-map
-2025-10-29T19:40:19.265796 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-29T19:40:19.487453 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T20:47:56.518656 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T20:55:15.347055 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T20:59:22.384138 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T21:01:14.455243 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T21:07:09.609993 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T21:09:52.415384 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T21:10:38.826718 -- Running command: quarto render src\blog
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T21:35:36.325427 -- Running command: quarto render src\blog
-2025-10-29T21:35:55.905184 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-29T21:35:56.581362 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-29T21:35:56.785003 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-29T21:35:56.985633 -- Running command: sass src\blog\module\module.scss _dist\blog\module.css --no-source-map
-2025-10-29T21:35:57.182433 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-29T21:35:57.393654 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map
-[1/2] index.qmd
-[2/2] posts\2025-10-17_post1.qmd
-
-Output created: ..\..\_dist\blog\index.html
-
-2025-10-29T21:37:20.312806 -- Running command: quarto render src\blog
-2025-10-29T21:37:51.239901 -- Running command: sass src\index\module\module.scss _dist\index\module.css --no-source-map
-2025-10-29T21:37:51.606605 -- Running command: sass src\cv\module\module.scss _dist\cv\module.css --no-source-map
-2025-10-29T21:37:51.936101 -- Running command: sass src\gallery\module\module.scss _dist\gallery\module.css --no-source-map
-2025-10-29T21:37:52.423293 -- Running command: sass src\blog\module\module.scss _dist\blog\module.css --no-source-map
-2025-10-29T21:37:52.716317 -- Running command: sass src\global\global_structure.scss _dist\assets\global_structure.css --no-source-map
-2025-10-29T21:37:53.069241 -- Running command: sass src\global\global_style.scss _dist\assets\global_style.css --no-source-map

@@ -1,3 +1,8 @@
+// Fonts:
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+// Palette:
 :root {
     --gray: hsl(0, 0%, 95%);
     --darkgray: hsl(0, 0%, 80%);
@@ -25,8 +30,4 @@
     --darkblue: hsl(185, 100%, 15%);
     --lightblue: hsl(185, 60%, 50%);
     --aquablue: hsl(185, 75%, 80%);
-  }
-  
-  /* Compile with: sass "palette/palette.scss" "palette/palette.css" --no-source-map */
-  /* Update site's palette with: Copy-Item -Path "palette/palette.css" -Destination "C:\Users\ricar\OneDrive\A-Trabalho\Prog\Personal\ricardo-semiao.github.io\site_assets" */
-  
+}

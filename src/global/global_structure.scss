@@ -1,69 +1,68 @@
-// Notes --------------------
 
-// - Note that many `margin: 0` and `padding: 0` are used for robustness,
-// i.e. ensure that the third party css do not interfere with the layout.
-// - Note that the variables can be also defined in other scss documents,
-// update everywhere if changed.
-
-
-
-// Variables --------------------
-
-$media-width-lg: 920px;
-$media-width-md: 740px;
+// Variables:
+@use "global/variables" as *;
 
 
 
 // General structure --------------------
 
 // Base sizes:
-:root {
-  font-size: 16px;
-}
 body {
-    --main-width: min(65%, 1200px);
+    --main-width: min(65%, 80rem);
     @media (max-width: $media-width-lg) {
         --main-width: 80%;
     }
     @media (max-width: $media-width-md) {
-        --main-width: 95%; // NOTE: Also consider max(95%, 16rem)
+        --main-width: min(95%, calc(100% - 1rem)); // NOTE: min-width passed directly to body
+    }
+
+    --body-min-width: 16rem;
+    min-width: var(--body-min-width);
+    
+    // Push footer to bottom:
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh; // NOTE: Also consider 100vh
+    #rssite-main {
+        flex-grow: 1;
+        min-width: var(--body-min-width);
     }
 }
 
-// Push footer to bottom:
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    min-width: 16rem;
+
+
+// Resets --------------------
+
+// These are already included in global_style.scss, but with 0 specificity
+// I increase it here as these components live also in external projects
+#rssite-header, #rssite-footer {
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        border:0;
+        outline:0;
+        box-sizing: content-box;
+        line-height: 1.5; // Also consider other values
+    }
+}
+#rssite-main {
     margin: 0;
     padding: 0;
+    border:0;
+    outline:0;
 }
-
-#rssite-main {
-  flex-grow: 1;
-  margin: 0;
-  padding: 0;
-}
-
 
 
 // Header --------------------
 
 #rssite-header {
-    // Variables:
-    --blocks-margin: 2rem;
-
-    // Structure and robustness:
+    min-width: var(--body-min-width);
     display: flex;
-    padding: 1rem 0 1rem 0;
-    margin: 0;
-
-    // Style:
+    padding: 1rem 0;
     align-items: center; // NOTE: Also consider stretch
     border-bottom: 4px solid var(--orange);
 
-    // Fonts and robustness:
+    // Text style:
     * {
         font-size: 1.3rem;
         line-height: 1;
@@ -71,14 +70,14 @@ body {
     }
 
     // Header children:
-    & > nav {
+    nav {
         flex: 0 0 var(--main-width);
     }
     &::before, &::after {
         content: "";
         flex: 1 1;
         height: 1em;
-        margin: 0 var(--blocks-margin);
+        margin: 0 2rem;
         background-color: var(--orange);
         @media (max-width: $media-width-lg) {
             flex: 0 0 2rem;
@@ -90,64 +89,61 @@ body {
         }
     }
 
-    // General lists and items:
-    & > nav > ul {
-        padding: 0;
-        margin: 0;
-    }
-    li {
-        display: inline-block;
-    }
-    & > nav > ul {
-        & > .nav-li, & > .nav-drop {
-            margin-left: 2rem;
+    // First level items:
+    nav > ul {
+        & > li {
+            display: inline-block;
         }
-        & > .nav-li:first-child, & > .nav-drop:first-child {
-            margin-left: 0;
+        & > li + li {
+            margin-left: 2rem;
         }
     }
 
-    // Nav dropdowns:
+    // Nav dropdowns (second level):
     .nav-drop {
         border: 1px solid var(--orange);
         border-radius: 4px;
+        position: relative; // To set min-width below
 
         ul {
-            display: flex; // Structure
-            flex-direction: column;
-            z-index: 100;
-            gap: 0.8rem; // Style
-            border-radius: 4px;
-            background-color: white;
             position: absolute;
-            padding: 0.8rem;
+            min-width: 100%;
+            box-sizing: border-box; // To include padding of .nav-drop
+            z-index: 100;
+            padding: 0.5rem;
+            list-style: none;
+            background-color: white;
             border: 1px solid var(--orange);
+            border-radius: 4px;
             visibility: hidden; // Animation
             opacity: 0;
             height: 0;
             transition: max-height 1s ease, opacity 0.1s ease-out;
             overflow: hidden;
         }
-        ul * {
+
+        li {
+            padding-left: 0.5rem;
+        }
+        li + li {
+            margin-top: 0.5rem;
+        }
+        a {
             font-size: 1.1rem;
         }
-        li {
-            padding-left: 0.4rem;
-        }
 
-        & > button {
+        button {
             display: flex;
-            padding: 0.2rem 0.4rem;
+            padding: 0.25rem 0.5rem;
             color: var(--green);
-            background: none;
-            border: none;
+            cursor: default; // Could be changed in some external projects
         }
-        & > button::after {
+        button::after {
             content: "";
             height: 1em;
             width: 1em;
-            margin-left: 0.1rem;
-            background-image: url('data:image/svg+xml;utf8,<svg width="800px" height="800px" viewBox="0 0 72 72" id="emoji" xmlns="http://www.w3.org/2000/svg"><g id="line"><line x1="18" x2="62" y1="19" y2="19" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="18" x2="62" y1="36" y2="36" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="18" x2="62" y1="53" y2="53" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/></g></svg>');
+            margin-left: 0.25rem;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><g><line x1="18" x2="62" y1="19" y2="19" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="18" x2="62" y1="36" y2="36" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="18" x2="62" y1="53" y2="53" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/></g></svg>');
             background-size: contain;
             background-repeat: no-repeat;
             vertical-align: top;
@@ -171,11 +167,9 @@ body {
 // Footer --------------------
 
 #rssite-footer {
-    // Main:
-    margin: 0;
     background-color: var(--darkgreen);
     padding: 1rem 0 0.5rem 0;
-    min-width: var(--min-width);
+    min-width: var(--body-min-width);
 
     p {
         width: var(--main-width);
@@ -184,7 +178,6 @@ body {
         color: var(--darkgray);
     }
 
-    // Links:
     a {
         color: var(--darkgray);
         text-decoration: none;

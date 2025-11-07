@@ -1,49 +1,70 @@
-const updateTooltip = function(link, tooltip, tooltipH4, tooltipP, remove) {
+"use strict";
+
+const updateTooltip = function(li, a, pt, remove) {
     if (remove) {
-        link.removeAttribute("aria-describedby")
-        tooltip.setAttribute("aria-hidden", "true");
-        tooltip.style.visibility = "hidden";
+        a.removeAttribute("aria-describedby")
+        pt.self.setAttribute("aria-hidden", "true");
     } else {
-        link.setAttribute("aria-describedby", "projects-tooltip");
+        a.setAttribute("aria-describedby", "projects-tooltip");
 
-        tooltipH4.textContent = link.textContent
-        tooltipP.textContent = link.getAttribute('data-explanation');
+        pt.title.textContent = a.textContent
+        pt.text.textContent = a.getAttribute('data-description');
 
-        tooltip.setAttribute("aria-hidden", "false");
-        tooltip.style.visibility = "visible";
-        tooltip.style.left = link.getBoundingClientRect().right + 6 + 'px';
-        tooltip.style.top = link.pageY - tooltip.offsetHeight/2 + 'px';
+        pt.self.setAttribute("aria-hidden", "false");
+
+        // Position calculation:
+        const aRect = a.getBoundingClientRect();
+        const viewportDims = {
+            "height": document.documentElement.clientHeight,
+            "width": document.documentElement.clientWidth
+        };
+        const tooltipDims = {"height": pt.self.offsetHeight, "width": pt.self.offsetWidth};
+
+        const mainWidth = parseFloat(getComputedStyle(document.querySelector("#rssite-header > nav")).width);
+        padding = (viewportDims.width - mainWidth) / 2;
+
+        const left = aRect.left + aRect.width / 2; // Also consider other centering options
+        const excessRight = Math.max(0, left + tooltipDims.width - viewportDims.width);
+        pt.self.style.left = Math.max(left - excessRight - padding, padding) + "px";
+
+        const excessTop = aRect.top - 4 - tooltipDims.height;
+        const top = excessTop > 0 ? excessTop : aRect.bottom + 4;
+        pt.self.style.top = top + window.scrollY + "px";
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const tooltip = document.querySelector('#projects-tooltip');
-    const tooltipH4 = tooltip.querySelector('h4');
-    const tooltipP = tooltip.querySelector('p');
+    const projects_tooltip = document.querySelector('#projects-tooltip');
+    const pt = {
+        self: projects_tooltip,
+        title: projects_tooltip.querySelector('.pt-title'),
+        text: projects_tooltip.querySelector('.pt-text')
+    };
 
     let isHovered = false;
     let isFocused = false;
 
-    const links = document.querySelectorAll('.column-card a');
-    links.forEach(link => {
-        link.addEventListener("focusin", () => {
+    const lis = document.querySelectorAll('.column-card li');
+    lis.forEach(li => {
+        const args = [li, li.querySelector('a'), pt];
+        li.addEventListener("focusin", () => {
             isFocused = true;
-            updateTooltip(link, tooltip, tooltipH4, tooltipP, remove = false);
+            updateTooltip(...args, remove = false);
         });
-        link.addEventListener("focusout", () => {
+        li.addEventListener("focusout", () => {
             isFocused = false;
             if (!isHovered) {
-                updateTooltip(link, tooltip, tooltipH4, tooltipP, remove = true);
+                updateTooltip(...args, remove = true);
             }
         });
-        link.addEventListener("mouseenter", () => {
+        li.addEventListener("mouseenter", () => {
             isHovered = true;
-            updateTooltip(link, tooltip, tooltipH4, tooltipP, remove = false);
+            updateTooltip(...args, remove = false);
         });
-        link.addEventListener("mouseleave", () => {
+        li.addEventListener("mouseleave", () => {
             isHovered = false;
             if (!isFocused) {
-                updateTooltip(link, tooltip, tooltipH4, tooltipP, remove = true);
+                updateTooltip(...args, remove = true);
             }
         });
     });

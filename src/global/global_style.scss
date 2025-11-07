@@ -1,53 +1,87 @@
-// Notes --------------------
 
-// - Note that many `margin: 0` and `padding: 0` are used for robustness,
-// i.e. ensure that the third party css do not interfere with the layout.
-// - Note that the variables can be also defined in other scss documents,
-// update everywhere if changed.
+// Variables and Layers:
+@use "global/variables" as *;
+@layer resets;
 
 
 
-// Variables --------------------
-$media-width-lg: 920px;
-$media-width-md: 740px;
+// Resets --------------------
 
+@layer resets {
+    // Viewport Adjustments:
+    html {
+        scroll-behavior: smooth; // Smooth scrolling for in-page links
+        overscroll-behavior: none; // Prevent scroll chaining and overscroll effects
+        //scrollbar-gutter: stable; // Reserve space for scrollbars to prevent layout shifts. Low older support. Using `--vw = document.documentElement.clientWidth / 100` instead
+        text-size-adjust: none; // No size increase on switches from landscape to portrait (mobile)
+        -webkit-text-size-adjust: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-font-smoothing: antialiased; // Or subpixel-antialiased
+        font-synthesis: none;
+        -moz-osx-font-smoothing: auto;
+    }
+    :root {
+        font-size: 100%;
+    }
 
+    // Box model:
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        border:0;
+        outline:0;
+        // box-sizing: border-box; // For a box model that includes padding and border in the width and height calculations
+        line-height: 1.5; // Also consider other values
+    }
 
-// Imports --------------------
+    // Typography:
+    p, li, a, h1, h2, h3, h4, h5, h6 {
+        overflow-wrap: break-word; // Also consider anywhere, that consider soft wrapping opportunities for min-content
+        //word-wrap: normal; // The default
+        text-wrap: pretty; // Consider `balance` for headings
+    }
 
-// Fonts:
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+    // Visual media:
+    canvas, img, picture, svg, video {
+        border: none;
+        display: block;
+        max-width: 100%;
+    }
 
-// Palette:
-:root {
-    --gray: hsl(0, 0%, 95%);
-    --darkgray: hsl(0, 0%, 80%);
-    --lightgray: hsl(0, 0%, 97.5%);
-    --aquagray: hsl(0, 0%, 98.5%);
-    --blackgray: hsl(0, 0%, 40%);
-    --fontblack: hsl(210, 11%, 15%);
-    --red: hsl(350, 100%, 40%);
-    --darkred: hsl(350, 100%, 30%);
-    --lightred: hsl(350, 70%, 60%);
-    --aquared: hsl(350, 75%, 85%);
-    --orange: hsl(25, 100%, 40%);
-    --darkorange: hsl(25, 100%, 25%);
-    --lightorange: hsl(25, 70%, 60%);
-    --aquaorange: hsl(25, 80%, 85%);
-    --yellow: hsl(47, 100%, 45%);
-    --darkyellow: hsl(47, 100%, 30%);
-    --lightyellow: hsl(47, 90%, 70%);
-    --aquayellow: hsl(47, 85%, 85%);
-    --green: hsl(163, 100%, 25%);
-    --darkgreen: hsl(163, 100%, 15%);
-    --lightgreen: hsl(163, 70%, 45%);
-    --aquagreen: hsl(163, 75%, 80%);
-    --blue: hsl(185, 100%, 30%);
-    --darkblue: hsl(185, 100%, 15%);
-    --lightblue: hsl(185, 60%, 50%);
-    --aquablue: hsl(185, 75%, 80%);
+    // Form elements:
+    input, button, textarea, select, progress {
+        background: none;
+        border: none;
+        //appearance: none; // Possibly too harsh
+        touch-action: manipulation;
+    }
 }
+
+
+// Animations:
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+// Some CSS resets considered:
+// - https://perishablepress.com/a-killer-collection-of-global-css-reset-styles/
+// - https://github.com/necolas/normalize.css/blob/master/normalize.css
+// - https://pawelgrzybek.com/the-css-reset-again/
+// - https://git.dbushell.com/dbushell/patchwork/src/branch/main/static/css/base/reset.css
+// - https://jakelazaroff.com/words/my-modern-css-reset/
+// - https://garden.bradwoods.io/notes/css/reset
+// - https://gist.github.com/Asjas/4b0736108d56197fce0ec9068145b421
+// - https://dbushell.com/2025/09/12/css-reset
 
 
 
@@ -84,14 +118,14 @@ a:hover, a:active, a:focus {
     & > section {
         width: var(--main-width);
         margin: 0 auto;
-        padding: 2rem;
+        padding: 2rem 2rem;
         box-sizing: border-box;
         @media (max-width: $media-width-md) {
-            padding: 0.5rem;
+            padding: 2rem 0.5rem;
         }
     }
     & > section + section {
-        border-bottom: 1px solid var(--darkgray);
+        border-top: 1px solid var(--darkgray);
     }
     & > section h2 {
         margin: 0 0 2rem 0;
@@ -99,7 +133,6 @@ a:hover, a:active, a:focus {
 
     // Titlecard:
     & > #titlecard {
-        margin-top: 4px;
         padding: 3rem 0;
         background-color: var(--orange);
         color: black;
@@ -108,5 +141,6 @@ a:hover, a:active, a:focus {
         width: var(--main-width);
         margin: 0 auto;
         text-align: center;
+        text-wrap: pretty;
     }
 }

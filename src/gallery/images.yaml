@@ -1,0 +1,56 @@
+araucaria:
+  src: ./araucaria.gif
+  size: [3, 2]
+  alt: An Araucaria tree
+  description: An Araucaria tree, native to southern Brazil. I like how different it is from other pine trees.
+  where: Caxias do Sul, RS, Brazil
+  when: Dec/2024
+
+galdi:
+  src: ./galdi.jpg
+  size: [3, 3]
+  alt: Mosaic art by Antoni Gaudí
+  description: I loved the Galdí architecture in Barcelona, the mosaics and nature-inspired forms. This one is in Parque Güell.
+  where: Barcelona, Spain
+  when: Nov/2023
+
+rio:
+  src: ./rio.jpg
+  size: [2, 4]
+  alt: Rio de Janeiro view
+  title: Rio de Janeiro view
+  description: Went to Rio and took no pictures, just this one already on the way back. Was invited there by the master in economics programs of FGV-RJ and PUC-Rio. Brazil lost to Argentina there, that day :(.
+  where: Rio de Janeiro, Brazil
+  when: Nov/2023
+
+cabana_praia:
+  src: ./cabana_praia.webp
+  size: [2, 2]
+  alt: Improvised beach cabin
+  description: Me and some friends went to the wrong Barra do Una beach, which had no shadow, thus the cabin. It wasn't enough, and my friend ended up with a bad sunburn.
+  where: Barra do Una, SP, Brazil
+  when: Dec/2018
+
+flores:
+  src: ./flores.jpg
+  size: [3, 2]
+  alt: A flower bouquet
+  description: A bouquet of flowers I made for a very special someone.
+  where: São Paulo, SP, Brazil
+  when: Mai/2025
+
+barco_nova_vida:
+  src: ./barco_nova_vida.jpg
+  size: [3, 4]
+  alt: Tropical island viewed from a boat called 'Nova Vida'
+  description: A boat trip around the decently preserved coastline of Paraty RJ, with lots of Mata Atlântica, one of my favorite biomes. The boat was called 'Nova Vida' (New Life).
+  where: Paraty, RJ, Brazil
+  when: Jan/2024
+
+serra_orgaos:
+  src: ./serra_orgaos.jpeg
+  size: [3, 4]
+  alt: Serra dos Órgãos mountains
+  description: Hiking in Serra dos Órgãos National Park, in Teresópolis RJ. The name comes from the organ-tube-like rock formations. Went running downhill on the back, very fun.
+  where: Teresópolis, RJ, Brazil
+  when: Feb/2024

@@ -1,80 +1,74 @@
-/* Assets: */
-.row-hfill {
-    display: flex;
-    justify-content: space-between;
-}
+
+// Variables:
+@use "global/variables" as *;
 
 
-/* Main: */
+// Main --------------------
+
 main {
-    --cv-pad: 32px;
-}
-@media (max-width: 620px) { main {--cv-pad: 8px} }
+    margin-top: 4px;
 
-
-/* Education */
-#education table {
-    padding: 0 0 0 var(--cv-pad);
-    border-spacing: 10px
-}
-
-
-/* Experience */
-#experience ul {
-    padding: 0 0 0 var(--cv-pad);
-    margin: 0;
-}
-.job:last-child {
-    margin-bottom: 0;
-}
-.job {
-    list-style-type: none; 
-    margin: 0 0 1rem 0;
-}
-.job h3 {
-    margin: 0 0 0.5rem 0;
-}
-.job .row-hfill {
-    margin: 0 0 0.25rem 0;
-}
-.job .row-hfill > * {
-    margin: 0;
-}
-.job > p {
-    margin: 0;
+    --cv-pad: 2rem;
+    @media (max-width: $media-width-lg) {
+        --cv-pad: 1rem;
+    }
+    @media (max-width: $media-width-md) {
+        --cv-pad: 0.5rem;
+    }
 }
 
 
-/* Projects */
-#projects ul {
-    margin: 0;
-    padding: 0 0 0 var(--cv-pad);
-}
-.project {
-    margin: 0 0 0.5rem 1em;
-}
-.project:last-child {
-    margin-bottom: 0;
-}
-.project > p {
-    margin: 0.25rem 0 0 0;
+// Education:
+#education {
+    table {
+        margin-left: var(--cv-pad);
+
+        tr:not(:first-child) td {
+            padding-top: 1rem;
+        }
+        td + td {
+            padding-left: 1rem;
+        }
+    }
 }
 
 
-/* Others */
-#others ul {
-    padding: 0 0 0 var(--cv-pad);
-    margin: 0 0 0 1rem;
-}
-#others li {
-    margin: 0 0 0.5rem 0;
-}
-#others li:last-child {
-    margin: 0 0 0 0;
+// Experience:
+#experience {
+    ul {
+        margin-left: var(--cv-pad);
+    }
+    .job {
+        list-style-type: none;
+        & + .job {
+            margin-top: 1rem;
+        }
+
+        .j-title {
+            margin-bottom: 0.5rem;
+        }
+        .j-wherewhen {
+            width: 100%;
+            display: inline-flex;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+        }
+    }
 }
 
 
-/* CV Download */
-#cv-download > p {
-    margin: 0;
+// Lists:
+#projects, #awards, #others {
+    ul {
+        margin-left: var(--cv-pad);
+    }
+    li {
+        margin-left: 1em;
+    }
+    li + li {
+        margin-top: 0.5rem;
+    }
+    .award {
+        margin-top: 0.25rem;
+    }
 }

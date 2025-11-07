@@ -1,71 +1,142 @@
+
+// Variables:
+@use "global/variables" as *;
+
+
+// Gallery Items --------------------
+
 // Grid container:
-#rssite-main {
+#rssite-main.gallery-grid {
+    margin: 2rem;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 20vh;
-    gap: clamp(5px, 2vw, 20px);
-    width: 90%;
-    margin: 20px auto;
+    grid-auto-rows: 8rem; // Also consider decreasing this, especially as the number of images grows
+    gap: clamp(0.5rem, 1vmax, 1rem);
 }
+// NOTE: grid-auto-rows could be 20vh, but that is zoom invariant
 
-
-// Unfocused items:
+// Unfocused state:
 .gallery-item {
-    position: relative;
-
     img {
-        width: 100%; // Structure
+        width: 100%;
         height: 100%;
         object-fit: cover; 
-        cursor: pointer; // Style
-        position: absolute; // Transition
-        left: 0;
-        transition: left 1s cubic-bezier(0.2, 0, 0.3, 1);
+        cursor: pointer;
+    }
+    background-color: var(--gray);
+    transition: opacity 0.3s ease-out; // Changes to 0 when overlay is active, via module.js
+}
+
+
+
+// Overlay --------------------
+.gallery-overlay {
+    --go-margin: 1rem;
+    --go-padding: 1rem;
+    --go-gap: clamp(0.5rem, 4vmax, 4rem);
+    @media (max-width: $media-width-md) {
+        --go-margin: 0.5rem;
+        --go-padding: 0.5rem;
     }
 
-    &:focus {
-        background-color: rgba(0, 0, 0, 0.05);
-        transition:
-        background-color 0.3s ease-out;
+    // Visibility:
+    visibility: hidden; 
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.2, 0, 0.3, 1);
+    &[aria-hidden="false"] {
+        visibility: visible;
+        opacity: 1;
     }
 
-    &:focus img {
-        position: fixed; // Structure
-        z-index: 1000; 
-        top: 50%;
-        left: 30%;
-        transform: translate(-50%, -50%) scale(0.8);
-        height: 80%;
-        width: auto;
-        cursor: default; // Style
+    // Structure:
+    position: fixed;
+    z-index: 1000;
+    padding: var(--go-padding);
+    margin: var(--go-margin);
+    width: max(calc(100 * var(--vw) - 2 * var(--go-margin)), 16rem);
+    height: calc(100dvh - 2 * var(--go-margin));
+    box-sizing: border-box;
+
+    // Style:
+    background: color-mix(in srgb, var(--darkorange) 80%, transparent);
+    box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.5);
+    @media (max-width: $media-width-md) {
+        font-size: 0.9em;
     }
 
-    &::before {
-        content: ""; // Structure
-        position: fixed;  
-        top: 50%;
-        left: 30%;
-        opacity: 0; // Style
-        transition: opacity 1s cubic-bezier(0.2, 0, 0.3, 1);
+    // Content structure:
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--go-gap);
+
+    flex-direction: row;
+    @media (max-width: $media-width-md) {
+        flex-direction: column;
     }
 
-    &:focus::before {
-        content: ""; // Structure
-        z-index: 999;
-        position: fixed;
-        top: calc(5% + 10px);
-        left: 2%;
-        width: 96%;
-        height: 90%;
-        margin: 20px auto;
-        background: rgba(74, 23, 0, 0.71); // Style
-        opacity: 1; 
-        transition: opacity 0.3s ease-out;
+    .go-img {
+        --go-prop: 60%;
+        object-fit: contain;
+        box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.5);
+        min-width: 8rem;
+        min-height: 8rem;
+    }
+    .go-info {
+        --go-prop: 40%;
+        padding: 1rem;
+        background-color: color-mix(in srgb, var(--gray) 75%, transparent);
+        box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.5);
+    }
+    .go-img, .go-info {
+        --go-inline-size: calc(var(--go-prop) - var(--go-gap) - var(--go-padding));
+        --go-block-size: calc(100% - var(--go-gap));
+        max-width: var(--go-inline-size);
+        max-height: var(--go-block-size);
+        @media (max-width: $media-width-md) {
+            max-width: var(--go-block-size);
+            max-height: var(--go-inline-size);
+        }
+    }
+
+    // Content text:
+    .go-title {
+        border-bottom: 1px solid var(--darkgray);
+    }
+    .go-text {
+        margin-top: 0.5rem;
+    }
+    .go-wherewhen {
+        margin-top: 0.25rem;
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-between;
+
+        * {
+            font-style: italic;
+            font-size: 0.9em;
+        }
+    }
+
+    // Button:
+    .go-closer {
+        position: absolute;
+        z-index: 1001;
+        top: var(--go-padding);
+        right: var(--go-padding);
+        cursor: pointer;
+
+        svg {
+            filter: drop-shadow(1.5px 3px 1.5px rgba(0, 0, 0, 0.65));
+            width: 30px;
+            height: 30px;
+            fill: var(--gray);
+        }
     }
 }
 
 
-// Item span classes:
+// Item Span Classes --------------------
 @for $i from 2 through 4 {
     .w-#{$i} {
         grid-column-end: span #{$i};

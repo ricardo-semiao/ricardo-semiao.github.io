@@ -1,9 +1,60 @@
-// Bootstrap uses important in its link colorings
-a:link, a:visited, a:hover, a:active a:focus {
-    color: var(--green) !important;
+
+// Variables:
+@use "global/variables" as *;
+
+
+// Structure:
+#rssite-main.rssite-quartoblog > #quarto-content {
+    min-height: 0 !important; // Set to too big in element style
+}
+#rssite-footer .rsqb-footer-div {
+    padding: 0 0.25rem;
+    &::before {
+        content: "|";
+    }
 }
 
-h5, .quarto-listing-category-title { // Two different selectors for the same thing
+// Idk why but else the .nav-drop border gets clipped at the edges
+#rssite-header .nav-drop button {
+    border-radius: 4px;
+}
+
+
+// Link coloring:
+.sidebar nav[role=doc-toc] ul>li {
+    & > a:hover, & > ul > li > a:hover {
+        color: var(--green) !important;
+    }
+    & > a.active, & > ul > li > a.active {
+    border-left: 1px solid var(--green);
+        color: var(--green) !important;
+    }
+}
+.quarto-title .quarto-categories .quarto-category {
+    opacity: 0.9;
+    a {
+        color: var(--green);
+    }
+}
+div.quarto-post .listing-title a {
+    color: var(--green);
+}
+#quarto-back-to-top {
+    color: var(--green);
+}
+
+
+// Orange highlights:
+blockquote {
+    border-left: .25rem solid var(--lightorange);
+}
+main.content .header-section-number { // main.content to not target sidebar
+    color: var(--orange);
+}
+
+
+// Others:
+.quarto-listing-category-title {
     font-size: 1.1rem;
     margin-top: 1rem;
 }
