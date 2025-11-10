@@ -90,14 +90,19 @@ def assets_compile(steps: dict) -> None:
 
         if (args["type"] == "css"):
 
-            for scss_file in glob_re(args["source"], r".*\.scss"):
+            for scss_file in glob_re(args["source"], args.get("include", r".*\.scss")):
+                if re.search(args.get("exclude", r"^$"), str(scss_file)):
+                    continue
 
                 target = Path(
                     args["target"],
                     scss_file.name.replace(".scss", ".css")
                 )
 
-                run("sass", str(scss_file), str(target), "--no-source-map")
+                run(
+                    "sass", str(scss_file), str(target),
+                    "--no-source-map", "--load-path=src"
+                )
 
         else:
             raise Exception(f"Compilation type '{args["type"]}' is not supported.")

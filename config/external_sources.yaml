@@ -25,8 +25,9 @@ mtsdesc:
   target: _dist/tools/mtsdesc
   update_required: true
 
-palette:
-  remote: https://raw.githubusercontent.com/ricardo-semiao/ricardo-semiao/refs/heads/main/themes/palette/palette.css
-  local: PATH_LOCAL_PALETTE
-  target: src/global/palette.css
-  update_required: false
+# Unused:
+# palette:
+#   remote: https://raw.githubusercontent.com/ricardo-semiao/ricardo-semiao/refs/heads/main/themes/palette/palette.css
+#   local: PATH_LOCAL_PALETTE
+#   target: src/global/palette.css
+#   update_required: false

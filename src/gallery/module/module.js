@@ -2,7 +2,7 @@
 
 const globals = window.RSSITE;
 
-const updateGo = function(item, img, go) {
+const updateGo = function(item, img, go, remove) {
     if (remove) {
         img.setAttribute("aria-describedby", "go-info");
         go.self.setAttribute("aria-hidden", "true");
@@ -23,6 +23,21 @@ const updateGo = function(item, img, go) {
     }
 }
 
+// const updateBackground = function(item, remove) {
+//     if (remove) {
+//         item.style.backgroundImage = "url('./costelas.png')";
+//         item.style.backgroundSize = "cover";
+//         item.style.backgroundPosition = "center";
+//         item.style.opacity = "0.75";
+//     } else {
+//         item.style.backgroundImage = "";
+//         item.style.backgroundSize = "";
+//         item.style.backgroundPosition = "";
+//         item.style.opacity = "";
+//     }
+// }
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.querySelector('#gallery-overlay');
     const go = {
@@ -37,15 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = document.querySelectorAll('.gallery-item');
 
     items.forEach(item => {
-        const args = [item, item.querySelector('img'), go];
+        const img = item.querySelector('img')
+        const args = [item, img, go];
         item.addEventListener("focusin", () => {
-            updateGo(...args, remove = false);
-            item.style.backgroundColor = "var(--gray);";
+            updateGo(...args, false);
+            img.style.opacity = "0";
+            item.classList.replace("gallery-item", "gallery-hole");
             history.replaceState(null, "", window.location.pathname + "#" + item.id);
         });
         item.addEventListener("focusout", () => {
-            updateGo(...args, remove = true);
-            item.style.backgroundColor = "";
+            updateGo(...args, true);
+            img.style.opacity = "";
+            item.classList.replace("gallery-hole", "gallery-item");
             history.replaceState(null, "", window.location.pathname);
         });
     });

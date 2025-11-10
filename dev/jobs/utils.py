@@ -15,6 +15,7 @@ from contextlib import contextmanager
 from datetime import datetime
 import subprocess
 import re
+from copy import copy
 
 # Type hints:
 from typing import Generator, Callable, Any
@@ -109,7 +110,7 @@ def get_frontmatter(path: Path) -> dict:
 
 # General Helpers --------------------------------------------------------------
 
-log_path = Path(proj_root, "dev", "run.log")
+log_path = Path(proj_root, "dev", "meta", "run.log")
 
 # Run a command
 def run(
@@ -117,7 +118,7 @@ def run(
 ) -> subprocess.CompletedProcess[str]:
     with open(log_path, "ab") as file_log:
         file_log.write((
-            f"{datetime.now().isoformat()} -- "
+            f"\n{datetime.now().isoformat()} -- "
             f"Running command: {cmd} {' '.join(opts)}\n"
         ).encode("utf-8"))
 
@@ -183,19 +184,33 @@ def get_lastmod(path: Path) -> str:
 
 # Main Functions ---------------------------------------------------------------
 
+def add_subpath(args: dict, job: dict, type: str) -> Path:
+    subpath = args.get("sub" + type, "")
+    
+    if subpath != "" and subpath[0] in ["/", "\\"]:
+        base = ""
+        sub = subpath[1:]
+    else:
+        base = job[type]
+        sub = subpath
+        
+    return Path(base, sub)
+
 # Flatten jobs into dict of steps, add presets and source/target arguments
 def get_steps(
     jobs: dict,
-    presets: dict
+    presets: dict,
+    skip_cached: bool = True
 ) -> dict[tuple[str, str], dict]:
     steps = {}
+    cached_jobs = jobs["site_structure"]["steps"]["cache"].get("jobs", {}).keys()
 
     for job_name, job in jobs.items():
-        if job_name in jobs["site_structure"]["steps"]["build_site_structure"].get("cached", []):
+        if skip_cached and job_name in cached_jobs:
             continue
         for step_name, args in job["steps"].items():
             if isinstance(args, str):
-                args = presets[step_name][args]
+                args = copy(presets[step_name][args])
             
             if isinstance(args, dict):
                 args_list = [args]
@@ -204,8 +219,10 @@ def get_steps(
 
             for i, args in enumerate(args_list):
                 job_name = job_name + ("" if i == 0 else f" ({i + 1})")
-                args["source"] = Path(job["source"], args.get("subsource", ""))
-                args["target"] = Path(job["target"], args.get("subtarget", ""))
+
+                args["source"] = add_subpath(args, job, "source")
+                args["target"] = add_subpath(args, job, "target")
+
                 steps[(job_name, step_name)] = args
 
     return steps
@@ -218,6 +235,8 @@ def filter_steps(steps: dict, step_name: str, expect_one: bool = False) -> dict:
         for key, args in steps.items()
         if key[1] == step_name
     }
-    if expect_one and len(steps_filtered) == 0:
-        raise Exception(f"No steps found for step name '{step_name}'.")
+
+    if expect_one and len(steps_filtered) > 1:
+        raise Exception(f"More than one step found in '{step_name}'.")
+    
     return steps_filtered

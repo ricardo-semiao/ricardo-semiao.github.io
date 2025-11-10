@@ -16,10 +16,10 @@
 
 // Main --------------------
 
-main {
+#rssite-main {
     margin-top: 4px;
 }
-main > section h2 {
+#rssite-main > section h2 {
     text-align: center;
 }
 
@@ -73,6 +73,17 @@ main > section h2 {
     li {
         display: inline-block;
     }
+    
+    a, svg {
+        display: inline-block;
+        vertical-align: top;
+    }
+    svg {
+        width: 1lh;
+        height: 1lh;
+        margin-right: 0.25rem;
+        fill: var(--green);
+    }
 }
 
 
@@ -104,15 +115,15 @@ main > section h2 {
     // }
     a, button.tooltip-controller {
         display: inline-block;
-        vertical-align: middle;
-        height: 1lh;
+        vertical-align: top;
+    }
+    button.tooltip-controller {
+        height: 1.5em; // Match a height
+        width: 0.8em; // Actual size
+        margin-left: 0.25rem;
     }
     a {
         overflow-wrap: anywhere;
-    }
-    button.tooltip-controller {
-        width: 0.6lh;
-        margin-left: 0.25rem;
     }
     button.tooltip-controller svg {
         height: 100%;

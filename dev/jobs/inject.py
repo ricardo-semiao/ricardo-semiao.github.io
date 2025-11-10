@@ -23,7 +23,7 @@ from jobs.fetch import get_components
 manipulators = {
     "before": lambda el, comp: el.insert_before(comp),
     "after": lambda el, comp: el.insert_after(comp),
-    "wrap": lambda el, comp: el.wrap(copy(comp)),
+    "wrap": lambda el, comp: el.wrap(comp),
     "append": lambda el, comp: el.append(comp)
 }
 
@@ -41,13 +41,13 @@ def inject_project(steps: dict) -> None:
 
             with open(page, "r", encoding="utf-8") as file:
                 soup = BeautifulSoup(file, "html.parser")
-                if not soup.body:
-                    continue # Skip non-content pages
+            if not soup.body:
+                continue # Skip non-content pages
 
             for comp_name, comp_args in args["components"].items():
                 manipulate = manipulators[comp_args["position"]]
                 for comp_item in components[comp_name]:
-                    manipulate(soup.select_one(comp_args["selector"]), comp_item)
+                    manipulate(soup.select_one(comp_args["selector"]), copy(comp_item))
 
             with open(page, "w", encoding="utf-8") as file:
                 file.write(str(soup))
@@ -64,17 +64,27 @@ def inject_template(steps: dict) -> None:
     for key, args in steps.items():
         print(f"  - Injecting components into '{key[0]}' ...")
 
-        components_paths = [Path("src/global/global_components.html")]
-        local_component_path = Path(args["source"], "global_components.html")
-        if local_component_path.is_file():
-            components_paths.append(local_component_path)
+        components_paths = [
+            *glob_re(Path("src/global"), r".*_components\.html", recursive = True),
+            *glob_re(Path(args["source"]), r".*_components\.html", recursive = True)
+        ]
 
-        build(
-            Path(args["source"], "template.html"),
-            components_paths,
-            Path(args["target"], "index.html"),
-            prettify = False, quiet = True
-        )
+        template_paths = glob_re(Path(args["source"]), r".*(?!_components)\.html", recursive = False)
+
+        for template_path in template_paths:
+            target_path = [
+                *Path(args["target"]).parts,
+                *template_path.parts[2:]
+            ]
+            target_path[-1] = re.sub(
+                r"^\.html$", "index.html",
+                re.sub(r"_?template", "", target_path[-1])
+            )
+            
+            build(
+                template_path, components_paths, Path(*target_path),
+                prettify = False, quiet = True
+            )
 
     print("  ✔ Done.\n")
     return None

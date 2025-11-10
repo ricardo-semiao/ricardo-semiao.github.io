@@ -9,6 +9,7 @@ from yaml import safe_load as yaml_load
 from jobs.utils import get_steps, filter_steps
 from jobs.fetch import fetch_external_data
 from jobs.build import build_site_structure, build_sitemap, build_quarto_blog
+from jobs.build import cache_store, cache_restore
 from jobs.gallery import build_gallery
 from jobs.inject import inject_project, inject_template
 from jobs.assets import assets_compile, assets_move, assets_remove, assets_merge
@@ -34,6 +35,9 @@ def main():
     # Getting enriched steps:
     steps = get_steps(jobs, presets)
 
+    # Setting aside cached folders:
+    cache_store(filter_steps(steps, "cache", True))
+
 
 
     # Jobs ---------------------------------------------------------------------
@@ -41,22 +45,24 @@ def main():
     # Building infrastructure and getting external data:
     build_site_structure(filter_steps(steps, "build_site_structure", True), steps)
     fetch_external_data(filter_steps(steps, "fetch_external_data", True))
-    build_sitemap(filter_steps(steps, "build_sitemap", True))
 
-    # Local projects:
-    inject_template(filter_steps(steps, "inject_template"))
+    # Projects:
     build_gallery(filter_steps(steps, "build_gallery", True))
-    
-    # External projects:
     build_quarto_blog(filter_steps(steps, "build_quarto_blog", True))
     inject_project(filter_steps(steps, "inject_project"))
-    # inject_links(filter_steps(steps, "adjust_links")) # Unneded
+    inject_template(filter_steps(steps, "inject_template"))
+
+    # Sitemap:
+    build_sitemap(filter_steps(steps, "build_sitemap", True))
 
     # Assets:
     assets_compile(filter_steps(steps, "assets_compile"))
     assets_move(filter_steps(steps, "assets_move"))
     assets_merge(filter_steps(steps, "assets_merge"))
     assets_remove(filter_steps(steps, "assets_remove"))
+
+    # Restoring cached folders:
+    cache_restore(filter_steps(steps, "cache", True))
 
 
 

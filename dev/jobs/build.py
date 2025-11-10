@@ -18,25 +18,40 @@ import re
 from jobs.utils import remove_readonly, glob_re, get_lastmod, run
 
 
+
+# Cahce ------------------------------------------------------------------------
+
+def cache_store(steps: dict) -> None:
+    key, args = list(steps.items())[0]
+    jobs = args.get("jobs", {})
+
+    if len(jobs) == 0:
+        print("Cached jobs: skipping '", "', '".join(jobs.keys()), "'.\n")
+
+    for job_name, job_path in jobs.items():
+        copytree(job_path, Path(".tmp", job_path), dirs_exist_ok = True)
+    
+    return None
+
+def cache_restore(steps: dict) -> None:
+    key, args = list(steps.items())[0]
+    jobs = args.get("jobs", {})
+
+    for job_name, job_path in jobs.items():
+        copytree(Path(".tmp", job_path), job_path, dirs_exist_ok = True)
+    
+    if Path(".tmp").is_dir():
+        rmtree(Path(".tmp"), onexc = remove_readonly)
+    
+    return None
+
+
+
 # Site structure ---------------------------------------------------------------
 
 def build_site_structure(steps: dict, steps_all: dict) -> None:
     print("Setup == Creating site folder structure ...")
 
-    # Saving cached contents:
-    cached_paths = [
-        args["target"]
-        for key, args in steps_all.items()
-        if key[0] in steps.get("cached", [])
-    ]
-
-    if Path(".tmp_dist").is_dir():
-        raise Exception(".tmp_dist/ folder already exists. Remove it before proceeding.")
-    
-    Path(".tmp_dist").mkdir(exist_ok = True)
-    for path in cached_paths:
-        Path(".tmp_dist", path).mkdir(parents = True)
-    
     # Rebuilding _dist/ folder:
     if Path("_dist/").is_dir():
         rmtree("_dist/", onexc = remove_readonly)
@@ -46,18 +61,11 @@ def build_site_structure(steps: dict, steps_all: dict) -> None:
         args["target"]
         for key, args in steps_all.items()
         if "_dist" in Path(args["target"]).parts
-            and "." not in Path(args["target"]).name
-            and key[0] not in steps.get("cached", [])
+            and "." not in Path(args["target"]).name # Exclude files
     ]
 
     for path in target_paths:
         Path(path).mkdir(exist_ok = True, parents = True)
-
-    # Saving cached contents:
-    for path in cached_paths:
-        copytree(Path(".tmp_dist", path), Path(path), dirs_exist_ok = True)
-    
-    rmtree(Path(".tmp_dist"), onexc = remove_readonly)
 
     print("  ✔ Done.\n")
     return None
@@ -83,7 +91,7 @@ def build_sitemap_index(steps: dict) -> ET.Element:
 
         sitemap_el = ET.SubElement(sitemapindex, "sitemap")
         ET.SubElement(sitemap_el, "loc").text = (
-            str(Path(root_url, external_path, "sitemap.xml"))
+            str(Path(root_url, external_path, "sitemap.xml").as_posix())
         )
         ET.SubElement(sitemap_el, "lastmod").text = get_lastmod(
             Path("_dist", external_path, "index.html")
@@ -127,7 +135,7 @@ def build_sitemap_urlset(steps: dict, sep_external: bool = False) -> ET.Element:
 
         # Build url element
         url_el = ET.SubElement(urlset, "url")
-        ET.SubElement(url_el, "loc").text = str(url)
+        ET.SubElement(url_el, "loc").text = str(url.as_posix())
         ET.SubElement(url_el, "lastmod").text = get_lastmod(Path("_dist", page))
 
         # Add optional hints from args with sensible defaults
@@ -172,6 +180,9 @@ def build_sitemap(steps: dict) -> None:
 def build_quarto_blog(steps: dict) -> None:
     print("Job == Building Quarto blog ...")
 
+    if len(steps) == 0:
+        print("  ✔ No steps to run.\n")
+        return None
     key, args = list(steps.items())[0]
 
     run("quarto", "render", str(args["source"]))

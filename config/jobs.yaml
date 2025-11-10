@@ -1,5 +1,7 @@
 # Notes --------------------
 
+# Falar q paths starting with / override the source/target base paths
+
 # Each top-level element is a 'job', with three sections:
 # - source: a string with a path relative to the project root
 # - target: with the navbar text (if applicable) and target path. These will be combined with the subsource and subtarget parameters
@@ -26,9 +28,13 @@ site_structure:
   source: config/jobs.yaml # The targets information on this file
   target: _dist
   steps:
-    build_site_structure: {
-      #cached: [blog, rfcd]
-    }
+    build_site_structure: {}
+    cache: {jobs: {
+      #blog: _dist/blog,
+      #rfcd: _dist/library/rfcd,
+      #phyopt: _dist/tools/phyopt,
+      #mtsdesc: _dist/tools/mtsdesc
+    }}
 
 # Sitemap:
 sitemap:
@@ -49,8 +55,8 @@ index:
   target: _dist
   steps:
     inject_template: {}
-    assets_compile: {subsource: module, subtarget: index, type: "css", include: "\\.scss"}
-    assets_move: {subsource: module, subtarget: index, exclude: "\\.scss"}
+    assets_compile: {subsource: module, subtarget: index, type: "css"}
+    assets_move: {subsource: module, subtarget: index, exclude: "\\.(scss|html)"}
 
 # CV:
 cv:
@@ -58,29 +64,29 @@ cv:
   target: _dist/cv
   steps:
     inject_template: {}
-    assets_compile: {subsource: module, type: "css", include: "\\.scss"}
-    assets_move: {subsource: module, exclude: "\\.scss"}
+    assets_compile: {subsource: module, type: "css"}
+    assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 
 # Gallery:
 gallery:
-  source: ""
+  source: "src/gallery"
   target: _dist/gallery
   steps:
-    inject_template: {subsource: src/gallery}
-    build_gallery: {subsource: _dist/gallery, ncols: 6, ndraws: 100}
-    assets_compile: {subsource: src/gallery/module, type: "css", include: "\\.scss"}
-    assets_move: {subsource: src/gallery/module, exclude: "\\.scss"}
+    inject_template: {}
+    build_gallery: {subsource: /_dist/gallery, ncols: 6, ndraws: 1000}
+    assets_compile: {subsource: module, type: "css"}
+    assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 
 # Blog:
 blog:
-  source: ""
-  target: ""
+  source: "src/blog"
+  target: "_dist/blog"
   steps:
     inject_project: quartoblog
-    build_quarto_blog: {subsource: src/blog}
-    assets_compile: {subsource: src/blog/module, subtarget: _dist/blog, type: "css", include: "\\.scss"}
-    assets_move: {subsource: src/blog/module, subtarget: _dist/blog, exclude: "\\.scss"}
-    #inject_links: {subsource: _dist/blog, attr: "href", replace: {"\\.\\.?/assets/": "/assets/"}} # Unneded
+    inject_template: {subsource: /_dist/blog}
+    build_quarto_blog: {}
+    assets_compile: {subsource: module, type: "css"}
+    assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 
 # External projects:
 rfcd:
@@ -95,6 +101,10 @@ phyopt:
   steps:
     inject_project: rspkgdown
     assets_remove: pkg-bookdown
+    assets_compile: {
+      subsource: /src/external, subtarget: /_dist/tools,
+      type: "css", include: "rspkgdown\\.scss"
+    } # Only needed once
 mtsdesc:
   source: _dist/tools/mtsdesc
   target: _dist/tools/mtsdesc
@@ -121,7 +131,7 @@ global:
   source: src/global
   target: _dist/assets
   steps:
-    assets_compile: {type: "css", include: "\\.scss"}
+    assets_compile: {type: "css", exclude: "variables\\.scss"}
     assets_move: {exclude: "\\.scss|components\\.html", flatten: True}
   deploy:
 global_site:
@@ -130,5 +140,5 @@ global_site:
   steps:
     assets_merge: {
       subtarget: global.css,
-      include: [palette.css, global_style.css, global_structure.css]
+      include: [global_imports.css, global_style.css, global_structure.css]
     }

@@ -57,10 +57,11 @@ body {
 
 #rssite-header {
     min-width: var(--body-min-width);
-    display: flex;
+    display: flex; // TODO: disallow wrapping
     padding: 1rem 0;
     align-items: center; // NOTE: Also consider stretch
     border-bottom: 4px solid var(--orange);
+    background-color: white;
 
     // Text style:
     * {
@@ -143,7 +144,7 @@ body {
             height: 1em;
             width: 1em;
             margin-left: 0.25rem;
-            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><g><line x1="18" x2="62" y1="19" y2="19" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="18" x2="62" y1="36" y2="36" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="18" x2="62" y1="53" y2="53" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/></g></svg>');
+            background-image: url("#icon-hamburger");
             background-size: contain;
             background-repeat: no-repeat;
             vertical-align: top;
@@ -160,6 +161,31 @@ body {
     .nav-li a[aria-current="page"], .nav-drop button[aria-current="page"]  {
         font-weight: bold;
     }
+    .nav-drop button[aria-current="page"] svg {
+        transform: scale(1.2);
+        fill: var(--darkgreen);
+    }
+
+
+    // Icon:
+    button svg {
+        display: none; // Hidden by default
+        fill: var(--green);
+    }
+    @media (max-width: $media-width-lg) {
+        ul > .nav-drop button {
+            // Hide the text:
+            color: transparent;
+            font-size: 0;
+
+            // Show the icon instead:
+            svg {
+                display: inline;
+                height: 1em;
+                width: 1em;
+            }
+        }
+    }        
 }
 
 
@@ -184,5 +210,16 @@ body {
     }
     a:hover {
         color: var(--gray);
+    }
+
+    a, a svg {
+        display: inline-block;
+        vertical-align: top;
+    }
+    a svg {
+        height: 1.5em; // Match a height
+        width: 1.2em; // Actual size
+        margin-left: 0.25rem;
+        fill: var(--darkgray);
     }
 }
