@@ -11,17 +11,7 @@
 
 
 
-# Fetching External Data --------------------
-
-fetch_data:
-  source: config/external_sources.yaml
-  target: ""
-  steps:
-    fetch_external_data: {remote: false, update: false}
-
-
-
-# Independent Build Jobs --------------------
+# Initialization --------------------
 
 # Site structure (_dist folder):
 site_structure:
@@ -29,22 +19,10 @@ site_structure:
   target: _dist
   steps:
     build_site_structure: {}
-    cache: {jobs: {
-      #blog: _dist/blog,
-      #rfcd: _dist/library/rfcd,
-      #phyopt: _dist/tools/phyopt,
-      #mtsdesc: _dist/tools/mtsdesc
-    }}
-
-# Sitemap:
-sitemap:
-  source: static/sitemap.xml
-  target: static/sitemap.xml
-  steps:
-    build_sitemap: sitemap
 
 # Note that the navbar component might need updating. Commit 092a29a04e1da135d1fbd7d0782bd3907076b82b
 # has the `build_navbar()` function, but I currently prefer to manually update it
+
 
 
 # Content Jobs --------------------
@@ -77,68 +55,78 @@ gallery:
     assets_compile: {subsource: module, type: "css"}
     assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 
-# Blog:
-blog:
-  source: "src/blog"
-  target: "_dist/blog"
-  steps:
-    inject_project: quartoblog
-    inject_template: {subsource: /_dist/blog}
-    build_quarto_blog: {}
-    assets_compile: {subsource: module, type: "css"}
-    assets_move: {subsource: module, exclude: "\\.(scss|html)"}
-
 # External projects:
 rfcd:
   source: _dist/library/rfcd
   target: _dist/library/rfcd
   steps:
+    fetch_external_data: rfcd
     inject_project: rsbookdown
-    assets_remove: pkg-bookdown
+    assets_remove: pkg/bookdown
 phyopt:
   source: _dist/tools/phyopt
   target: _dist/tools/phyopt
   steps:
+    fetch_external_data: phyopt
     inject_project: rspkgdown
-    assets_remove: pkg-bookdown
-    assets_compile: {
-      subsource: /src/external, subtarget: /_dist/tools,
-      type: "css", include: "rspkgdown\\.scss"
-    } # Only needed once
+    assets_remove: pkg/bookdown
 mtsdesc:
   source: _dist/tools/mtsdesc
   target: _dist/tools/mtsdesc
   steps:
+    fetch_external_data: mtsdesc
     inject_project: rspkgdown
-    assets_remove: pkg-bookdown
+    assets_remove: pkg/bookdown
+
+# Blog:
+blog:
+  source: "src/blog"
+  target: "_dist/blog"
+  steps:
+    build_quarto_blog: {}
+    inject_project: quartoblog
+    inject_template: {subsource: /_dist/blog}
+    assets_compile: {subsource: module, type: "css"}
+    assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 
 
 
 # Assets Jobs --------------------
 
 # Assets:
-static_root:
+static_assets:
   source: static
   target: _dist
   steps:
     assets_move: {include: "404\\.html|robots\\.txt|sitemap\\.xml"}
-static_assets:
-  source: static
-  target: _dist/assets/img
-  steps:
-    assets_move: {include: "img$"}
-global:
+    assets_move: {subtarget: "assets/img", include: "img$"}
+
+global_assets:
   source: src/global
   target: _dist/assets
   steps:
     assets_compile: {type: "css", exclude: "variables\\.scss"}
     assets_move: {exclude: "\\.scss|components\\.html", flatten: True}
-  deploy:
-global_site:
-  source: _dist/assets
-  target: _dist/assets
-  steps:
     assets_merge: {
-      subtarget: global.css,
+      subsource: /_dist/assets, subtarget: global.css,
       include: [global_imports.css, global_style.css, global_structure.css]
     }
+    
+# external_assets:
+#   source: src/external
+#   target: _dist
+#   steps:
+#     assets_compile: {subtarget: tools, type: "css", include: "rspkgdown\\.scss"}
+
+# Sitemap:
+sitemap:
+  source: static/sitemap.xml
+  target: static/sitemap.xml
+  steps:
+    build_sitemap: sitemap
+
+
+
+# Deplyment --------------------
+
+# TODO

@@ -1,7 +1,7 @@
 # Personal files:
 /ricardo-semiao.github.io.code-workspace
 /personal/
-/.env
+.env
 
 # Local Python files:
 __pycache__/

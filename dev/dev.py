@@ -2,17 +2,20 @@
 # Setup ------------------------------------------------------------------------
 
 # Data loading:
+from os import environ
 from dotenv import load_dotenv
 from yaml import safe_load as yaml_load
 
 # Local modules:
-from jobs.utils import get_steps, filter_steps
-from jobs.fetch import fetch_external_data
-from jobs.build import build_site_structure, build_sitemap, build_quarto_blog
-from jobs.build import cache_store, cache_restore
-from jobs.gallery import build_gallery
-from jobs.inject import inject_project, inject_template
-from jobs.assets import assets_compile, assets_move, assets_remove, assets_merge
+from jobs.utils import get_enriched_jobs, cache_store, cache_restore
+from importlib import import_module
+step_functions = {
+    **import_module("jobs.fetch").__dict__,
+    **import_module("jobs.build").__dict__,
+    **import_module("jobs.gallery").__dict__,
+    **import_module("jobs.inject").__dict__,
+    **import_module("jobs.assets").__dict__
+}
 
 # Debug `os.chdir("..")`
 
@@ -21,54 +24,36 @@ from jobs.assets import assets_compile, assets_move, assets_remove, assets_merge
 # Main -------------------------------------------------------------------------
 
 def main():
-    # Initialization -----------------------------------------------------------
-
-    # Reading configurations:
+    # Reading configurations and stashing cached jobs:
     load_dotenv("dev/.env")
-
-    with open("config/jobs.yaml", "r", encoding = "utf-8") as file:
-        jobs = yaml_load(file)
-
-    with open("config/step_presets.yaml", "r", encoding = "utf-8") as file:
-        presets = yaml_load(file)
-
-    # Getting enriched steps:
-    steps = get_steps(jobs, presets)
-
-    # Setting aside cached folders:
-    cache_store(filter_steps(steps, "cache", True))
+    cached_jobs = yaml_load(environ.get("CACHED_JOBS", "{}"))
+    cache_store(cached_jobs)
 
 
-
-    # Jobs ---------------------------------------------------------------------
-
-    # Building infrastructure and getting external data:
-    build_site_structure(filter_steps(steps, "build_site_structure", True), steps)
-    fetch_external_data(filter_steps(steps, "fetch_external_data", True))
-
-    # Projects:
-    build_gallery(filter_steps(steps, "build_gallery", True))
-    build_quarto_blog(filter_steps(steps, "build_quarto_blog", True))
-    inject_project(filter_steps(steps, "inject_project"))
-    inject_template(filter_steps(steps, "inject_template"))
-
-    # Sitemap:
-    build_sitemap(filter_steps(steps, "build_sitemap", True))
-
-    # Assets:
-    assets_compile(filter_steps(steps, "assets_compile"))
-    assets_move(filter_steps(steps, "assets_move"))
-    assets_merge(filter_steps(steps, "assets_merge"))
-    assets_remove(filter_steps(steps, "assets_remove"))
-
-    # Restoring cached folders:
-    cache_restore(filter_steps(steps, "cache", True))
+    # Getting enriched jobs:
+    with open("config/jobs.yaml", "r", encoding = "utf-8") as file_jobs,\
+         open("config/step_presets.yaml", "r", encoding = "utf-8") as file_presets:
+        jobs = get_enriched_jobs(
+            yaml_load(file_jobs), yaml_load(file_presets), cached_jobs
+        )
 
 
+    # Running Jobs and restoring cache on fail:
+    try:
+        for job_name, steps in jobs.items():
+            print(f"=> Building {job_name}")
+            for step_name, args in steps.items():
+                step_functions[step_name.split("-")[0]](args, jobs)
+            print("  ✔ Done.\n")
+    except Exception as e:
+        cache_restore(cached_jobs)
+        raise e
+    else:
+        cache_restore(cached_jobs)
 
-    # Deployment to Site Branch ------------------------------------------------
 
-    # ...
+    # Deployment:
+    # TODO
 
 
 # Entry point:

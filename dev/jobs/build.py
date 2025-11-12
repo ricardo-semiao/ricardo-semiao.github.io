@@ -3,83 +3,55 @@
 
 # File operations:
 from pathlib import Path
-from shutil import copytree, rmtree
+from shutil import rmtree   
 from yaml import safe_load as yaml_load
 
 # HTML and XML parsing:
-from bs4 import BeautifulSoup
 from xml.etree import ElementTree as ET
 from xml.dom import minidom
 
 # Others:
 import re
 
+# Type hints:
+from typing import Any
+
 # Local modules:
 from jobs.utils import remove_readonly, glob_re, get_lastmod, run
 
 
 
-# Cahce ------------------------------------------------------------------------
-
-def cache_store(steps: dict) -> None:
-    key, args = list(steps.items())[0]
-    jobs = args.get("jobs", {})
-
-    if len(jobs) == 0:
-        print("Cached jobs: skipping '", "', '".join(jobs.keys()), "'.\n")
-
-    for job_name, job_path in jobs.items():
-        copytree(job_path, Path(".tmp", job_path), dirs_exist_ok = True)
-    
-    return None
-
-def cache_restore(steps: dict) -> None:
-    key, args = list(steps.items())[0]
-    jobs = args.get("jobs", {})
-
-    for job_name, job_path in jobs.items():
-        copytree(Path(".tmp", job_path), job_path, dirs_exist_ok = True)
-    
-    if Path(".tmp").is_dir():
-        rmtree(Path(".tmp"), onexc = remove_readonly)
-    
-    return None
-
-
-
 # Site structure ---------------------------------------------------------------
 
-def build_site_structure(steps: dict, steps_all: dict) -> None:
-    print("Setup == Creating site folder structure ...")
+def build_site_structure(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
+    print(f"  - Creating _dist/ folder ...")
 
     # Rebuilding _dist/ folder:
     if Path("_dist/").is_dir():
         rmtree("_dist/", onexc = remove_readonly)
     Path("_dist/").mkdir()
 
-    target_paths = [
+    target_paths = {
         args["target"]
-        for key, args in steps_all.items()
+        for job_name, steps in jobs.items()
+        for step_name, args in steps.items()
         if "_dist" in Path(args["target"]).parts
             and "." not in Path(args["target"]).name # Exclude files
-    ]
+    }
 
     for path in target_paths:
         Path(path).mkdir(exist_ok = True, parents = True)
 
-    print("  ✔ Done.\n")
     return None
 
 
 
 # Sitemap ----------------------------------------------------------------------
 
-def build_sitemap_index(steps: dict) -> ET.Element:
+def build_sitemap_index(args: dict[str, Any]) -> ET.Element:
     # Getting configurations:
     with open(Path("config/deployment.yaml"), "r", encoding = "utf-8") as file:
         root_url = yaml_load(file)["url"]
-
-    key, args = list(steps.items())[0]
 
     sitemapindex = ET.Element(
         "sitemapindex",
@@ -100,12 +72,10 @@ def build_sitemap_index(steps: dict) -> ET.Element:
     return sitemapindex
 
 
-def build_sitemap_urlset(steps: dict, sep_external: bool = False) -> ET.Element:
+def build_sitemap_urlset(args: dict[str, Any], sep_external: bool = False) -> ET.Element:
     # Getting configurations:
     with open(Path("config/deployment.yaml"), "r", encoding = "utf-8") as file:
         root_url = yaml_load(file)["url"]
-
-    key, args = list(steps.items())[0]
 
     urlset = ET.Element(
         "urlset",
@@ -150,17 +120,15 @@ def build_sitemap_urlset(steps: dict, sep_external: bool = False) -> ET.Element:
     return urlset
 
 
-def build_sitemap(steps: dict) -> None:
-    print("Job == Building sitemap ...")
-
-    key, args = list(steps.items())[0]
+def build_sitemap(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
+    print(f"  - Updating static/sitemap.xml ...")
 
     if args.get("sep_external", False):
         combined_root = ET.Element("root")
-        combined_root.append(build_sitemap_index(steps))
-        combined_root.append(build_sitemap_urlset(steps, True))
+        combined_root.append(build_sitemap_index(args))
+        combined_root.append(build_sitemap_urlset(args, True))
     else:
-        combined_root = build_sitemap_urlset(steps, False)
+        combined_root = build_sitemap_urlset(args, False)
 
     raw_xml = ET.tostring(combined_root, encoding = "utf-8")
     pretty = minidom.parseString(raw_xml).toprettyxml(
@@ -170,22 +138,14 @@ def build_sitemap(steps: dict) -> None:
     with open(args["target"], "wb") as file:
         file.write(pretty)
 
-    print("  ✔ Done.\n")
     return None
 
 
 
 # Quarto -----------------------------------------------------------------------
 
-def build_quarto_blog(steps: dict) -> None:
-    print("Job == Building Quarto blog ...")
-
-    if len(steps) == 0:
-        print("  ✔ No steps to run.\n")
-        return None
-    key, args = list(steps.items())[0]
+def build_quarto_blog(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
+    print("  - Running `quarto render` ...")
 
     run("quarto", "render", str(args["source"]))
-
-    print("  ✔ Done.\n")
     return None

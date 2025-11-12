@@ -3,8 +3,8 @@
 
 # File operations:
 from pathlib import Path
-from os import chdir
-from shutil import copytree, copy2
+from os import chdir, environ
+from shutil import copytree, copy2, rmtree
 from stat import S_IWRITE
 
 # Reading yaml:
@@ -15,7 +15,7 @@ from contextlib import contextmanager
 from datetime import datetime
 import subprocess
 import re
-from copy import copy
+from copy import copy, deepcopy
 
 # Type hints:
 from typing import Generator, Callable, Any
@@ -182,7 +182,30 @@ def get_lastmod(path: Path) -> str:
 
 
 
-# Main Functions ---------------------------------------------------------------
+# Cahce ------------------------------------------------------------------------
+
+def cache_store(cached_jobs: dict[str, str] = {}) -> None:
+    if len(cached_jobs) > 0:
+        print("Skipping cached jobs: '", "', '".join(cached_jobs.keys()), "'.\n", sep = "")
+
+    for job_name, job_path in cached_jobs.items():
+        if Path(job_path).is_dir():
+            copytree(job_path, Path(".tmp", job_path), dirs_exist_ok = True)
+    
+    return None
+
+def cache_restore(cached_jobs: dict[str, str] = {}) -> None:
+    for job_name, job_path in cached_jobs.items():
+        copytree(Path(".tmp", job_path), job_path, dirs_exist_ok = True)
+    
+    if Path(".tmp").is_dir():
+        rmtree(Path(".tmp"), onexc = remove_readonly)
+    
+    return None
+
+
+
+# Get Enriched Jobs ------------------------------------------------------------
 
 def add_subpath(args: dict, job: dict, type: str) -> Path:
     subpath = args.get("sub" + type, "")
@@ -193,50 +216,33 @@ def add_subpath(args: dict, job: dict, type: str) -> Path:
     else:
         base = job[type]
         sub = subpath
-        
+
+    args.pop("sub" + type, None)
     return Path(base, sub)
 
 # Flatten jobs into dict of steps, add presets and source/target arguments
-def get_steps(
-    jobs: dict,
+def get_enriched_jobs(
+    jobs_raw: dict,
     presets: dict,
-    skip_cached: bool = True
-) -> dict[tuple[str, str], dict]:
-    steps = {}
-    cached_jobs = jobs["site_structure"]["steps"]["cache"].get("jobs", {}).keys()
+    cached_jobs: dict[str, str] = {},
+) -> dict[str, dict[str, Any]]:
+    jobs = {}
 
-    for job_name, job in jobs.items():
-        if skip_cached and job_name in cached_jobs:
+    for job_name, job in jobs_raw.items():
+        if job_name in cached_jobs.keys():
             continue
-        for step_name, args in job["steps"].items():
-            if isinstance(args, str):
-                args = copy(presets[step_name][args])
-            
-            if isinstance(args, dict):
-                args_list = [args]
-            else:
-                args_list = args
 
-            for i, args in enumerate(args_list):
-                job_name = job_name + ("" if i == 0 else f" ({i + 1})")
+        jobs[job_name] = {}
+        for step_name, args_raw in job["steps"].items():
+            if isinstance(args_raw, str):
+                args_raw = presets[step_name][args_raw]
+            args_raw = deepcopy([args_raw] if isinstance(args_raw, dict) else args_raw)
 
+            for i, args in enumerate(args_raw):
                 args["source"] = add_subpath(args, job, "source")
                 args["target"] = add_subpath(args, job, "target")
 
-                steps[(job_name, step_name)] = args
+                step_name = step_name + ("" if i == 0 else f"-{i + 1}")
+                jobs[job_name][step_name] = args
 
-    return steps
-
-
-# Filter steps by step name
-def filter_steps(steps: dict, step_name: str, expect_one: bool = False) -> dict:
-    steps_filtered = {
-        key: args
-        for key, args in steps.items()
-        if key[1] == step_name
-    }
-
-    if expect_one and len(steps_filtered) > 1:
-        raise Exception(f"More than one step found in '{step_name}'.")
-    
-    return steps_filtered
+    return jobs

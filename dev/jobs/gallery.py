@@ -8,6 +8,9 @@ from yaml import safe_load as yaml_load
 # HTML parsing:
 from bs4 import BeautifulSoup
 
+# Type hints:
+from typing import Any
+
 # Numpy and operations:
 import numpy as np
 import numpy.random as rd
@@ -93,7 +96,7 @@ def best_pack_draw(
     if verbose >= 1:
         print((
             f"  - Packing {nrects} rectangles into "
-            f"{ncols} columns over {ndraws} draws."
+            f"{ncols} columns over {ndraws} draws ..."
         ))
 
     ords = np.zeros((nrects, ndraws), dtype = np.int8)
@@ -143,14 +146,7 @@ def best_pack_draw(
 
 # Gallery Build ----------------------------------------------------------------
 
-def build_gallery(steps) -> None:
-    print("Job == Building gallery...")
-
-    if len(steps) == 0:
-        print("  ✔ No steps to run.\n")
-        return None
-    key, args = list(steps.items())[0]
-
+def build_gallery(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
     path = Path(args["target"], "index.html")
     with open(path, "r", encoding = "utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
@@ -203,5 +199,4 @@ def build_gallery(steps) -> None:
     with open(path, "w", encoding = "utf-8") as file:
         file.write(str(soup))
 
-    print("  ✔ Done.\n")
     return None

@@ -7,6 +7,9 @@ from pathlib import Path
 # Others:
 import re
 
+# Type hints:
+from typing import Any
+
 # Local modules:
 from jobs.utils import run, move_contents, glob_re
 
@@ -18,59 +21,47 @@ from jobs.utils import run, move_contents, glob_re
 # step_args:
 # - prefix: Optional prefix to add to target path (default: deploy target)
 # - exclude: Pattern to exclude files from moving
-def assets_move(steps: dict) -> None:
-    print("Job == Moving assets:")
+def assets_move(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
+    print("  - Moving assets ...")
 
-    for key, args in steps.items():
-        print(f"  - Moving assets of '{key[0]}' ...")
-
-        assets = [
-            asset
-            for asset in glob_re(args["source"])
-            if not re.search(args.get("exclude", ".^"), str(asset))
-                and re.search(args.get("include", ".*"), str(asset))
-        ]
-        
-        move_contents(assets, args["target"])
+    assets = [
+        asset
+        for asset in glob_re(args["source"])
+        if not re.search(args.get("exclude", ".^"), str(asset))
+            and re.search(args.get("include", ".*"), str(asset))
+    ]
     
-    print("  ✔ Done.\n")
+    move_contents(assets, args["target"])
+    
     return None
 
 
 # Remove assets from target folder
 # step_args:
 # - include: Pattern to include files for removing
-def assets_remove(steps: dict) -> None:
-    print("Job == Removing assets:")
+def assets_remove(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
+    print("  - Removing assets ...")
 
-    for key, args in steps.items():
-        print(f"  - Removing assets of '{key[0]}' ...")
+    assets = glob_re(args["source"], args["include"])
+    for asset in assets:
+        asset.unlink()
 
-        assets = glob_re(args["source"], args["include"])
-        for asset in assets:
-            asset.unlink()
-    
-    print("  ✔ Done.\n")
     return None
 
 
-def assets_merge(steps: dict) -> None:
-    print("Job == Merging assets:")
+def assets_merge(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
+    print("  - Merging assets ...")
 
-    for key, args in steps.items():
-        print(f"  - Compiling Merging of '{key[0]}' ...")
+    with open(args["target"], "w", encoding = "utf-8") as merged_file:
 
-        with open(args["target"], "w", encoding = "utf-8") as merged_file:
+        for part_path in args["include"]:
+            part_path = Path(args["source"], part_path)
 
-            for part_path in args["include"]:
-                part_path = Path(args["source"], part_path)
+            with open(part_path, "r", encoding = "utf-8") as part:
+                merged_file.write(part.read() + "\n")
 
-                with open(part_path, "r", encoding = "utf-8") as part:
-                    merged_file.write(part.read() + "\n")
+            part_path.unlink()
 
-                part_path.unlink()
-
-    print("  ✔ Done.\n")
     return None
 
 
@@ -82,30 +73,25 @@ def assets_merge(steps: dict) -> None:
 # step_args:
 # - prefix: Optional prefix to add to target path (default: deploy target)
 # - type: Type of asset to compile. Only "css" is supported currently.
-def assets_compile(steps: dict) -> None:
-    print("Job == Compiling assets:")
+def assets_compile(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
+    print("  - Compiling assets ...")
 
-    for key, args in steps.items():
-        print(f"  - Compiling assets of '{key[0]}' ...")
+    if (args["type"] == "css"):
+        for scss_file in glob_re(args["source"], args.get("include", r".*\.scss")):
+            if re.search(args.get("exclude", r"^$"), str(scss_file)):
+                continue
 
-        if (args["type"] == "css"):
+            target = Path(
+                args["target"],
+                scss_file.name.replace(".scss", ".css")
+            )
 
-            for scss_file in glob_re(args["source"], args.get("include", r".*\.scss")):
-                if re.search(args.get("exclude", r"^$"), str(scss_file)):
-                    continue
+            run(
+                "sass", str(scss_file), str(target),
+                "--no-source-map", "--load-path=src"
+            )
 
-                target = Path(
-                    args["target"],
-                    scss_file.name.replace(".scss", ".css")
-                )
+    else:
+        raise Exception(f"Compilation type '{args["type"]}' is not supported.")
 
-                run(
-                    "sass", str(scss_file), str(target),
-                    "--no-source-map", "--load-path=src"
-                )
-
-        else:
-            raise Exception(f"Compilation type '{args["type"]}' is not supported.")
-
-    print("  ✔ Done.\n")
     return None

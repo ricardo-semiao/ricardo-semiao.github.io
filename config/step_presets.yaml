@@ -4,26 +4,23 @@
 #   - position: "before" | "after" (relative to the selector)
 #   - selector: a CSS selector to identify where to inject the component
 inject_project:
-  rsbookdown: {
+  rsbookdown:
     components: {
-      rspkgdown-meta: {position: "append", selector: "head"},
-      rsbookdown-site-main: {position: "wrap", selector: "body > div.container-fluid"},
+      rsbookdown-site-main: {position: "wrap", selector: "#rsbookdown-main"},
       site-header: {position: "before", selector: "#rssite-main"},
-      #site-footer: {position: "after", selector: "#rssite-main"},
-      site-scripts: {position: "after", selector: "#rssite-main"}
+      site-scripts: {position: "after", selector: "#back-to-top"},
+      rssite-external: {position: "addclass", selector: "body"}
     }
-  }
-  rspkgdown: {
+  rspkgdown:
     components: {
-      rspkgdown-meta: {position: "append", selector: "head"},
-      rspkgdown-site-main: {position: "wrap", selector: "#site-main"},
-      site-header: {position: "before", selector: "#rssite-main"}, 
-      #site-footer: {position: "after", selector: "#rssite-main"},
-      site-scripts: {position: "after", selector: "#rssite-main"}
+      #rspkgdown-meta: {position: "append", selector: "head"},
+      rspkgdown-site-main: {position: "wrap", selector: "#rspkgdown-main"},
+      site-header: {position: "before", selector: "#rssite-main"},
+      site-scripts: {position: "after", selector: "#back-to-top"},
+      rssite-external: {position: "addclass", selector: "body"}
     }
-  }
-  quartoblog: {
-    subsource: /_dist/blog,
+  quartoblog:
+    subsource: /_dist/blog
     components: {
       rsquartoblog-meta: {position: "append", selector: "head"},
       quartoblog-site-main: {position: "wrap", selector: "#quarto-content"},
@@ -31,14 +28,41 @@ inject_project:
       rsquartoblog-footer: {position: "after", selector: "#rssite-main"},
       site-scripts: {position: "after", selector: "#rssite-footer"}
     }
-  }
 
-assets_remove: {
-  pkg-bookdown: [
+assets_remove:
+  pkg/bookdown: [
     {subsource: assets, include: "global\\.(js|css)"},
     {include: "sitemap\\.xml"}
   ]
-}
+
+fetch_external_data:
+  rfcd:
+    remote:
+      repo: ricardo-semiao/course-rfcd
+      branch: main
+      folder: docs
+    local: PATH_LOCAL_RFCD
+    target: _dist/library/rfcd
+    update_required: true
+    use_remote: false
+  phyopt:
+    remote:
+      repo: ricardo-semiao/phyopt
+      branch: main
+      folder: docs
+    local: PATH_LOCAL_PHYOPT
+    target: _dist/tools/phyopt
+    update_required: true
+    use_remote: false
+  mtsdesc:
+    remote:
+      repo: ricardo-semiao/mtsdesc
+      branch: main
+      folder: docs
+    local: PATH_LOCAL_MTSDESC
+    target: _dist/tools/mtsdesc
+    update_required: true
+    use_remote: false
 
 build_sitemap:
   sitemap: {
