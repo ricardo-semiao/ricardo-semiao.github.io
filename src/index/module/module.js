@@ -49,22 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const args = [li, li.querySelector('a'), pt];
         li.addEventListener("focusin", () => {
             isFocused = true;
-            updateTooltip(...args, remove = false);
+            updateTooltip(...args, false);
         });
         li.addEventListener("focusout", () => {
             isFocused = false;
             if (!isHovered) {
-                updateTooltip(...args, remove = true);
+                updateTooltip(...args, true);
             }
         });
         li.addEventListener("mouseenter", () => {
             isHovered = true;
-            updateTooltip(...args, remove = false);
+            updateTooltip(...args, false);
         });
         li.addEventListener("mouseleave", () => {
             isHovered = false;
             if (!isFocused) {
-                updateTooltip(...args, remove = true);
+                updateTooltip(...args, true);
             }
         });
     });

@@ -7,7 +7,7 @@
 #rssite-main.rssite-quartoblog > #quarto-content {
     min-height: 0 !important; // Set to too big in element style
 }
-#rssite-footer .rsqb-footer-div {
+#rssite-footer .footer-div {
     padding: 0 0.25rem;
     &::before {
         content: "|";
@@ -20,41 +20,55 @@
 }
 
 
-// Link coloring:
-.sidebar nav[role=doc-toc] ul>li {
-    & > a:hover, & > ul > li > a:hover {
-        color: var(--green) !important;
+#rssite-main.rssite-quartoblog {
+    // Link coloring:
+    .sidebar nav[role=doc-toc] ul>li {
+        & > a:hover, & > ul > li > a:hover {
+            color: var(--green) !important;
+        }
+        & > a.active, & > ul > li > a.active {
+        border-left: 1px solid var(--green);
+            color: var(--green) !important;
+        }
     }
-    & > a.active, & > ul > li > a.active {
-    border-left: 1px solid var(--green);
-        color: var(--green) !important;
+    .quarto-title .quarto-categories .quarto-category {
+        opacity: 0.9;
+        a {
+            color: var(--green);
+        }
     }
-}
-.quarto-title .quarto-categories .quarto-category {
-    opacity: 0.9;
-    a {
+    div.quarto-post .listing-title a {
         color: var(--green);
     }
-}
-div.quarto-post .listing-title a {
-    color: var(--green);
-}
-#quarto-back-to-top {
-    color: var(--green);
-}
+    #quarto-back-to-top {
+        color: var(--green);
+    }
 
 
-// Orange highlights:
-blockquote {
-    border-left: .25rem solid var(--lightorange);
-}
-main.content .header-section-number { // main.content to not target sidebar
-    color: var(--orange);
-}
+    // Orange highlights:
+    blockquote {
+        border-left: .25rem solid var(--lightorange);
+    }
+    main.content .header-section-number { // main.content to not target sidebar
+        color: var(--orange);
+    }
 
 
-// Others:
-.quarto-listing-category-title {
-    font-size: 1.1rem;
-    margin-top: 1rem;
+    // No thumbnails, thus no wrapping:
+    .quarto-listing .thumbnail {
+        display: none;
+    }
+    .quarto-listing .quarto-post {
+        flex-direction:row-reverse;
+        @media (max-width: $media-width-sm) {
+            flex-direction: column;
+        }
+    }
+    
+
+    // Others:
+    .quarto-listing-category-title {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
 }

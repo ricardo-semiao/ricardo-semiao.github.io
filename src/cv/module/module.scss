@@ -19,15 +19,22 @@
 
 
 // Education:
-#education {
-    table {
-        margin-left: var(--cv-pad);
+#education dl {
+    display: grid;
+    grid-template-columns: 15ch 1fr;
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
 
-        tr:not(:first-child) td {
-            padding-top: 1rem;
-        }
-        td + td {
-            padding-left: 1rem;
+    dt {
+        font-weight: bold;
+    }
+    dt:not(:first-child), dt:not(:first-child) + dd {
+        margin-top: 1rem;
+    }
+    @media (max-width: 600px) {
+        div, div + dd, dt:not(:first-child) + dd {
+            margin-top: 0;
         }
     }
 }
@@ -68,7 +75,17 @@
     li + li {
         margin-top: 0.5rem;
     }
+    
     .award {
         margin-top: 0.25rem;
+    }
+    .award, .award svg {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .award svg {
+        height: 1.5em;
+        width: 1.2em;
+        margin-left: 0.25rem;
     }
 }

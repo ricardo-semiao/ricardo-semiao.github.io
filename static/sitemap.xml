@@ -2,288 +2,279 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https:/ricardo-semiao.github.io</loc>
-    <lastmod>2025-11-10T09:57:12-03:00</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https:/ricardo-semiao.github.io/blog</loc>
-    <lastmod>2025-11-10T09:57:12-03:00</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https:/ricardo-semiao.github.io/cv</loc>
-    <lastmod>2025-11-10T09:57:12-03:00</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/gallery</loc>
-    <lastmod>2025-11-10T09:57:12-03:00</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/articles/example.html</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/articles</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/articles/theoretical_framework.html</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/news</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/reference/flow_logger.html</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/reference/flow_stopper.html</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/reference/get_metric.html</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/reference</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/reference/optimize_phy.html</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/reference/phyopt-package.html</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/phyopt/reference/phyopt.html</loc>
-    <lastmod>2025-10-26T00:01Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/news</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/get_gg_info.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_acf.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_ccf.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_dispersion.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_distribution.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_fevd.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_fit.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_history.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_irf.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_predict.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_select.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/ggvar_stability.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/mtsdesc-package.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/mtsdesc.html</loc>
-    <lastmod>2025-10-27T01:45Z</lastmod>
+    <lastmod>2025-11-12T03:18Z</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/appendix-apêndice.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/control-conds.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/data-attrs.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/dict.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/ds.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/funs-envs.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/ggplot.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/import-tidy.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/intro1.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/intro2.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/intro3.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/intro4.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/introduction.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/manipulate.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/ml.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/others1.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/others2.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/others4.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/paradigms.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/philosophy.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/purrr.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/recap1.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/recap2.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/recap3.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/recap4.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/refs.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/regression.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/stats-prob.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/stringr-forcats.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/subset.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/syntax-vars.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/tidyr-dplyr.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/time-series.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/unite.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/visualize.html</loc>
-    <lastmod>2025-10-26T23:16Z</lastmod>
-  </url>
-  <url>
-    <loc>https:/ricardo-semiao.github.io/blog/posts/2025-10-17_post1.html</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2025-11-12T09:18:13-03:00</lastmod>
   </url>
 </urlset>

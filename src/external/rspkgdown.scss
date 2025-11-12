@@ -1,6 +1,0 @@
-// Setting custom line-height breaks mathjax overscripts
-mjx-container {
-    *, *::before, *::after {
-        line-height: unset;
-    }
-}

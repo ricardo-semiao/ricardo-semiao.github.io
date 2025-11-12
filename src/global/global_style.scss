@@ -35,7 +35,7 @@
     }
 
     // Typography:
-    p, li, a, h1, h2, h3, h4, h5, h6 {
+    p, li, dd, a, h1, h2, h3, h4, h5, h6 {
         overflow-wrap: break-word; // Also consider anywhere, that consider soft wrapping opportunities for min-content
         //word-wrap: normal; // The default
         text-wrap: pretty; // Consider `balance` for headings
@@ -114,7 +114,7 @@ a:hover, a:active, a:focus {
 
 // Components of local modules --------------------
 
-#rssite-main.rssite-local {
+.rssite-local > #rssite-main {
     // Sections:
     & > section {
         width: var(--main-width);

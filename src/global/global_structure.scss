@@ -68,6 +68,15 @@ body {
         font-size: 1.3rem;
         line-height: 1;
         font-family: "Montserrat", sans-serif;
+        @media (max-width: $media-width-md) {
+            font-size: 1.2rem;
+        }
+        @media (max-width: $media-width-sm) {
+            font-size: 1.1rem;
+        }
+    }
+    a {
+        text-decoration: none; // Just for robustness
     }
 
     // Header children:
@@ -97,6 +106,9 @@ body {
         }
         & > li + li {
             margin-left: 2rem;
+            @media (max-width: $media-width-md) {
+                margin-left: 1rem;
+            }   
         }
     }
 
@@ -108,10 +120,10 @@ body {
 
         ul {
             position: absolute;
-            min-width: 100%;
+            min-width: 100%; // At least the width of .nav-drop
             box-sizing: border-box; // To include padding of .nav-drop
             z-index: 100;
-            padding: 0.5rem;
+            padding: 0.5rem; // Style
             list-style: none;
             background-color: white;
             border: 1px solid var(--orange);
@@ -141,10 +153,11 @@ body {
         }
         button::after {
             content: "";
-            height: 1em;
-            width: 1em;
+            height: 1.3rem; // Must be rem as font-size goes to zero to hide button text
+            width: 1.3rem;
             margin-left: 0.25rem;
-            background-image: url("#icon-hamburger");
+            // Adding image: unfortunately url("//assets/img/icons.svg#icon-hamburger") doesn't work
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><g><line x1="18" x2="62" y1="19" y2="19" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="18" x2="62" y1="36" y2="36" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line x1="18" x2="62" y1="53" y2="53" fill="none" stroke="%23004d37" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/></g></svg>');
             background-size: contain;
             background-repeat: no-repeat;
             vertical-align: top;
@@ -168,24 +181,34 @@ body {
 
 
     // Icon:
-    button svg {
-        display: none; // Hidden by default
-        fill: var(--green);
-    }
-    @media (max-width: $media-width-lg) {
-        ul > .nav-drop button {
-            // Hide the text:
-            color: transparent;
+    .nav-drop button {
+        svg {
+            display: none; // Hidden by default
+            fill: var(--green);
+        }
+        @media (max-width: $media-width-lg) {
+            color: transparent; // Hide the text
             font-size: 0;
-
-            // Show the icon instead:
-            svg {
+            svg { // Show the icon instead
                 display: inline;
                 height: 1em;
                 width: 1em;
             }
         }
-    }        
+    }
+
+    // Small screens: These should guarantee no wrapping before 16rem
+    @media (max-width: $media-width-sm) {
+        .nav-drop button::after {
+            content: none; // Hide the hamburger
+        }
+        .nav-drop ul {
+            right: 0; // In small screens, align to right
+        }
+        nav > ul > li + li {
+            margin-left: 0.5rem;
+        }
+    }
 }
 
 
@@ -195,6 +218,7 @@ body {
 #rssite-footer {
     background-color: var(--darkgreen);
     padding: 1rem 0 0.5rem 0;
+    margin: 0; // Just for robustness
     min-width: var(--body-min-width);
 
     p {
