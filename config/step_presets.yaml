@@ -20,7 +20,7 @@ inject_project:
       rssite-external: {position: "addclass", selector: "body"}
     }
   quartoblog:
-    subsource: /_dist/blog
+    subsource: /_site/blog
     components: {
       rsquartoblog-meta: {position: "append", selector: "head"},
       quartoblog-site-main: {position: "wrap", selector: "#quarto-content"},
@@ -42,7 +42,7 @@ fetch_external_data:
       branch: main
       folder: docs
     local: PATH_LOCAL_RFCD
-    target: _dist/library/rfcd
+    target: _site/library/rfcd
     update_required: true
     use_remote: false
   phyopt:
@@ -51,7 +51,7 @@ fetch_external_data:
       branch: main
       folder: docs
     local: PATH_LOCAL_PHYOPT
-    target: _dist/tools/phyopt
+    target: _site/tools/phyopt
     update_required: true
     use_remote: false
   mtsdesc:
@@ -60,19 +60,21 @@ fetch_external_data:
       branch: main
       folder: docs
     local: PATH_LOCAL_MTSDESC
-    target: _dist/tools/mtsdesc
+    target: _site/tools/mtsdesc
     update_required: true
     use_remote: false
 
 build_sitemap:
   sitemap: {
+    root_url: "https://ricardo-semiao.github.io",
     exclude: "(404|LICENSE.*|authors)\\.html",
-    sep_external: False,
+    sep_external: false,
     external: [library/rfcd, tools/phyopt, tools/mtsdesc],
     priority: {
       index.html: 1.0,
+      blog/index.html: 0.8,
+      gallery/index.html: 0.5,
       cv/index.html: 0.5,
-      blog/index.html: 0.5,
       library/rfcd/index.html: 0.8,
       tools/phyopt/index.html: 0.8,
       tools/mtsdesc/index.html: 0.8,

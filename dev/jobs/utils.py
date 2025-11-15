@@ -86,6 +86,7 @@ def check_external_deps(pyproject_path: Path = Path("pyproject.toml")) -> None:
             else:
                 print(f"  - '{dep}' found with non-matching version {version_true}.")
 
+    print("  ✔ Done.\n")
     return None
 
 

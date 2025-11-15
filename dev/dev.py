@@ -31,6 +31,8 @@ def main():
     # Reading configurations and stashing cached jobs:
     if Path("dev/.env").exists():
         load_dotenv("dev/.env")
+    else:
+        print("=> Warning: no dev/.env file found. Fetching external data must use `use_remote = true`.")
 
     cached_jobs = yaml_load(environ.get("CACHED_JOBS", "{}"))
     cache_store(cached_jobs)
@@ -56,10 +58,6 @@ def main():
         raise e
     else:
         cache_restore(cached_jobs)
-
-
-    # Deployment:
-    # TODO
 
 
 # Entry point:

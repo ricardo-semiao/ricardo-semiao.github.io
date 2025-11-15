@@ -13,10 +13,10 @@
 
 # Initialization --------------------
 
-# Site structure (_dist folder):
+# Site structure (_site folder):
 site_structure:
   source: config/jobs.yaml # The targets information on this file
-  target: _dist
+  target: _site
   steps:
     build_site_structure: {}
 
@@ -30,16 +30,27 @@ site_structure:
 # Index page:
 index:
   source: src/index
-  target: _dist
+  target: _site
   steps:
     inject_template: {}
     assets_compile: {subsource: module, subtarget: index, type: "css"}
     assets_move: {subsource: module, subtarget: index, exclude: "\\.(scss|html)"}
 
+# Blog:
+blog:
+  source: "src/blog"
+  target: "_site/blog"
+  steps:
+    build_quarto_blog: {}
+    inject_project: quartoblog
+    inject_template: {subsource: /_site/blog}
+    assets_compile: {subsource: module, type: "css"}
+    assets_move: {subsource: module, exclude: "\\.(scss|html)"}
+
 # CV:
 cv:
   source: src/cv
-  target: _dist/cv
+  target: _site/cv
   steps:
     inject_template: {}
     assets_compile: [
@@ -51,11 +62,11 @@ cv:
 # Gallery:
 gallery:
   source: "src/gallery"
-  target: _dist/gallery
+  target: _site/gallery
   steps:
     inject_template: {}
     build_gallery: {
-      subsource: /_dist/gallery, fill_holes: false,
+      subsource: /_site/gallery, fill_holes: false,
       ncols: 6, ndraws: 1000, prefs_h: ["true"], prefs_w: [] # Also consider ["ne", "true"]
     }
     assets_compile: {subsource: module, type: "css"}
@@ -63,37 +74,26 @@ gallery:
 
 # External projects:
 rfcd:
-  source: _dist/library/rfcd
-  target: _dist/library/rfcd
+  source: _site/library/rfcd
+  target: _site/library/rfcd
   steps:
     fetch_external_data: rfcd
     inject_project: rsbookdown
     assets_remove: pkg/bookdown
 phyopt:
-  source: _dist/tools/phyopt
-  target: _dist/tools/phyopt
+  source: _site/tools/phyopt
+  target: _site/tools/phyopt
   steps:
     fetch_external_data: phyopt
     inject_project: rspkgdown
     assets_remove: pkg/bookdown
 mtsdesc:
-  source: _dist/tools/mtsdesc
-  target: _dist/tools/mtsdesc
+  source: _site/tools/mtsdesc
+  target: _site/tools/mtsdesc
   steps:
     fetch_external_data: mtsdesc
     inject_project: rspkgdown
     assets_remove: pkg/bookdown
-
-# Blog:
-blog:
-  source: "src/blog"
-  target: "_dist/blog"
-  steps:
-    build_quarto_blog: {}
-    inject_project: quartoblog
-    inject_template: {subsource: /_dist/blog}
-    assets_compile: {subsource: module, type: "css"}
-    assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 
 
 
@@ -102,37 +102,33 @@ blog:
 # Assets:
 static_assets:
   source: static
-  target: _dist
+  target: _site
   steps:
-    assets_move: {include: "404\\.html|robots\\.txt|sitemap\\.xml"}
-    assets_move: {subtarget: "assets/img", include: "img$"}
+    assets_move: [
+      {include: "404\\.html|robots\\.txt"},
+      {subtarget: "assets/img", include: "img$"}
+    ]
 
 global_assets:
   source: src/global
-  target: _dist/assets
+  target: _site/assets
   steps:
     assets_compile: {type: "css", exclude: "variables\\.scss"}
     assets_move: {exclude: "\\.scss|components\\.html", flatten: True}
     assets_merge: {
-      subsource: /_dist/assets, subtarget: global.css,
+      subsource: /_site/assets, subtarget: global.css,
       include: [global_imports.css, global_style.css, global_structure.css]
     }
     
-# external_assets:
+# external_assets: # Currently not needed
 #   source: src/external
-#   target: _dist
+#   target: _site
 #   steps:
 #     assets_compile: {subtarget: tools, type: "css", include: "rspkgdown\\.scss"}
 
 # Sitemap:
 sitemap:
-  source: static/sitemap.xml
-  target: static/sitemap.xml
+  source: config/jobs.yaml
+  target: _site/sitemap.xml
   steps:
     build_sitemap: sitemap
-
-
-
-# Deplyment --------------------
-
-# TODO

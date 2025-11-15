@@ -4,7 +4,6 @@
 # File operations:
 from pathlib import Path
 from shutil import rmtree
-from yaml import safe_load as yaml_load
 
 # HTML and XML parsing:
 from xml.etree import ElementTree as ET
@@ -24,23 +23,32 @@ from jobs.utils import remove_readonly, glob_re, get_lastmod, run
 # Site Structure ---------------------------------------------------------------
 
 def build_site_structure(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
-    print(f"  - Creating _dist/ folder ...")
+    print(f"  - Creating _site/ folder ...")
 
-    # Rebuilding _dist/ folder:
-    if Path("_dist/").is_dir():
-        rmtree("_dist/", onexc = remove_readonly)
-    Path("_dist/").mkdir()
+    # Rebuilding _site/ folder:
+    if Path("_site/").is_dir():
+        for item in Path("_site/").iterdir():
+            if item.name != ".git":
+                if item.is_dir():
+                    rmtree(item, onexc = remove_readonly)
+                else:
+                    item.unlink()
+    else:
+        raise Exception("'_site/' must exist and be a git worktree.")
 
     target_paths = {
         args["target"]
         for job_name, steps in jobs.items()
         for step_name, args in steps.items()
-        if "_dist" in Path(args["target"]).parts
+        if "_site" in Path(args["target"]).parts
             and "." not in Path(args["target"]).name # Exclude files
     }
 
     for path in target_paths:
         Path(path).mkdir(exist_ok = True, parents = True)
+    
+    # Add .nojekyll to disable Jekyll processing on GitHub Pages:
+    Path("_site/.nojekyll").touch()
 
     return None
 
@@ -49,9 +57,7 @@ def build_site_structure(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) 
 # Sitemap ----------------------------------------------------------------------
 
 def build_sitemap_index(args: dict[str, Any]) -> ET.Element:
-    # Getting configurations:
-    with open(Path("config/deployment.yaml"), "r", encoding = "utf-8") as file:
-        root_url = yaml_load(file)["url"]
+    root_url = args["root_url"]
 
     sitemapindex = ET.Element(
         "sitemapindex",
@@ -59,23 +65,21 @@ def build_sitemap_index(args: dict[str, Any]) -> ET.Element:
     )
 
     for external in args["external"]:
-        external_path = Path(external.replace("_dist/", "/"))
+        external_path = Path(external.replace("_site/", "/"))
 
         sitemap_el = ET.SubElement(sitemapindex, "sitemap")
         ET.SubElement(sitemap_el, "loc").text = (
             str(Path(root_url, external_path, "sitemap.xml").as_posix())
         )
         ET.SubElement(sitemap_el, "lastmod").text = get_lastmod(
-            Path("_dist", external_path, "index.html")
+            Path("_site", external_path, "index.html")
         )
     
     return sitemapindex
 
 
 def build_sitemap_urlset(args: dict[str, Any], sep_external: bool = False) -> ET.Element:
-    # Getting configurations:
-    with open(Path("config/deployment.yaml"), "r", encoding = "utf-8") as file:
-        root_url = yaml_load(file)["url"]
+    root_url = args["root_url"]
 
     urlset = ET.Element(
         "urlset",
@@ -85,7 +89,7 @@ def build_sitemap_urlset(args: dict[str, Any], sep_external: bool = False) -> ET
     # Getting HTML pages to include:
     html_pages = [
         Path(*page.parts[1:])
-        for page in glob_re(Path("_dist"), r".*\.html", recursive = True)
+        for page in glob_re(Path("_site"), r".*\.html", recursive = True)
         if not re.search(args["exclude"], str(page))
     ]
     if sep_external:
@@ -106,7 +110,7 @@ def build_sitemap_urlset(args: dict[str, Any], sep_external: bool = False) -> ET
         # Build url element
         url_el = ET.SubElement(urlset, "url")
         ET.SubElement(url_el, "loc").text = str(url.as_posix())
-        ET.SubElement(url_el, "lastmod").text = get_lastmod(Path("_dist", page))
+        ET.SubElement(url_el, "lastmod").text = get_lastmod(Path("_site", page))
 
         # Add optional hints from args with sensible defaults
         changefreq = {Path(k): v for k, v in args["changefreq"].items()}.get(page)
@@ -117,13 +121,11 @@ def build_sitemap_urlset(args: dict[str, Any], sep_external: bool = False) -> ET
         if priority:
             ET.SubElement(url_el, "priority").text = str(priority)
     
-    
-    print("  ✔ Done.\n")
     return urlset
 
 
 def build_sitemap(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
-    print(f"  - Updating static/sitemap.xml ...")
+    print(f"  - Creating _site/sitemap.xml ...")
 
     if args.get("sep_external", False):
         combined_root = ET.Element("root")
