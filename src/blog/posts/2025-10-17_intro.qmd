@@ -1,0 +1,15 @@
+---
+title: "Post With Code"
+description: "Post description"
+author: "Fizz McPhee"
+date: "5/22/2021"
+date-modified: "2025-10-17"
+categories:
+  - news
+  - code
+  - analysis
+---
+
+# Introduction
+
+Hi...

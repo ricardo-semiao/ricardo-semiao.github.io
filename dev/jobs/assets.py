@@ -91,6 +91,24 @@ def assets_compile(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> Non
                 "--no-source-map", "--load-path=src"
             )
 
+    elif (args["type"] == "latex"):
+        for tex_file in glob_re(args["source"], args.get("include", r".*\.tex")):
+            if re.search(args.get("exclude", r"^$"), str(tex_file)):
+                continue
+
+            run(
+                "latexmk", "-pdf", "-xelatex",
+                "-interaction=nonstopmode", "-silent",
+                "-output-directory=" + str(Path(args["target"])), str(tex_file),
+                timeout = 30
+            )
+
+            aux_extensions = [".aux", ".log", ".out", ".toc", ".fls", ".fdb_latexmk", ".xdv"]
+            for ext in aux_extensions:
+                aux_file = Path(args["target"], tex_file.with_suffix(ext).name)
+                if aux_file.exists():
+                    aux_file.unlink()
+
     else:
         raise Exception(f"Compilation type '{args["type"]}' is not supported.")
 

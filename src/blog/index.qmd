@@ -9,11 +9,12 @@ listing:
   sort: "date desc"
   type: default
   categories: true
+  filter-ui: true
 ---
 
 Welcome to my blog! I post mostly about something that I made and how, or about something that I learned and didn't found an educational resource quite how I like.
 
-The posts are divided by category and you can also filter with the search bar. This blog is built with [Quarto](https://quarto.org), plus the custom build process of the site as a whole.
+The posts are filterable by clicking on the categories, or with the filter bar, which also supports dates. This blog is built with [Quarto](https://quarto.org), plus the custom build process of the site as a whole.
 
 
 # Posts

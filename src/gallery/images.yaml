@@ -54,3 +54,20 @@ serra_orgaos:
   description: Hiking in Serra dos Órgãos National Park, in Teresópolis RJ. The name comes from the organ-tube-like rock formations. Went running downhill on the back, very fun.
   where: Teresópolis, RJ, Brazil
   when: Feb/2024
+
+# Arbitrarily change the dimensions on these last two to avoid holes
+gallery:
+  src: ./gallery.png
+  size: [3, 2]
+  alt: Gallery's masonry algorithm written in python/numpy
+  description: "Start with an empty grid. Find the first empty row, then column. Pick some image that fit in the right, randomly, but preferring some width and height mismatch. If no image fit, mark as a 'hole'. Repeat until all rectangles are placed. Run several draws, and pick the one with: less holes, then less shared divides, then highest height diversity."
+  where: ""
+  when: ""
+
+costelas:
+  src: ./costelas.png
+  size: [3, 1]
+  alt: Adam's ribs 
+  description: Green and orange is my favorite combination of colors, partially inspired by RColorBrewer's palette 'Dark2'. I also grew up with a beautiful Adam's ribs plant in my home. The site's aesthetic is inspired by these two things.  
+  where: ""
+  when: ""

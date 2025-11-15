@@ -21,7 +21,7 @@ const updateTooltip = function(li, a, pt, remove) {
         const tooltipDims = {"height": pt.self.offsetHeight, "width": pt.self.offsetWidth};
 
         const mainWidth = parseFloat(getComputedStyle(document.querySelector("#rssite-header > nav")).width);
-        padding = (viewportDims.width - mainWidth) / 2;
+        const padding = (viewportDims.width - mainWidth) / 2;
 
         const left = aRect.left + aRect.width / 2; // Also consider other centering options
         const excessRight = Math.max(0, left + tooltipDims.width - viewportDims.width);

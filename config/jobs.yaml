@@ -42,8 +42,11 @@ cv:
   target: _dist/cv
   steps:
     inject_template: {}
-    assets_compile: {subsource: module, type: "css"}
-    assets_move: {subsource: module, exclude: "\\.(scss|html)"}
+    assets_compile: [
+      {subsource: module, type: "css"},
+      {subsource: module, type: "latex"}
+    ]
+    assets_move: {subsource: module, exclude: "\\.(scss|html|tex)"}
 
 # Gallery:
 gallery:
@@ -51,7 +54,10 @@ gallery:
   target: _dist/gallery
   steps:
     inject_template: {}
-    build_gallery: {subsource: /_dist/gallery, ncols: 6, ndraws: 1000}
+    build_gallery: {
+      subsource: /_dist/gallery, fill_holes: false,
+      ncols: 6, ndraws: 1000, prefs_h: ["true"], prefs_w: [] # Also consider ["ne", "true"]
+    }
     assets_compile: {subsource: module, type: "css"}
     assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 

@@ -5,6 +5,8 @@ project:
 website:
   page-navigation: true
   back-to-top-navigation: true
+  search:
+    type: overlay
 
 format:
   html:

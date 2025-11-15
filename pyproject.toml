@@ -11,8 +11,10 @@ dependencies = [
     "pyyaml>=6.0.3",
     "requests>=2.32.5",
     "template-injector",
+    "armasonry",
     "typing>=3.10.0.0",
 ]
 
 [tool.uv.sources]
 template-injector = { path = "../ricardo-semiao/packages/template_injector", editable = true }
+armasonry = { path = "../ricardo-semiao/packages/armasonry", editable = true }

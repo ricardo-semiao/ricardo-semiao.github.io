@@ -1,0 +1,214 @@
+\documentclass[11pt,oneside]{scrartcl}
+
+% Basic packages --------------------
+
+\usepackage[a4paper, top = 1.5cm, bottom = 1.5cm, left = 1.5cm, right = 1.5cm]{geometry}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{fontawesome5} % for trophy icon
+\usepackage{tikz}
+
+
+
+% Metadata --------------------
+
+\hypersetup{
+    pdftitle = Ricardo Semião e Castro - CV,
+    pdfauthor = Ricardo Semião e Castro,
+    pdfsubject = Curriculum Vitae,
+    pdfcreator = LaTeX with scrartcl class,
+    pdfproducer = XeLaTeX
+}
+
+
+
+% Fonts --------------------
+
+\usepackage{fontspec}
+
+% Set main font to Nunito Sans, lighter weight
+\IfFontExistsTF{Nunito Sans}{
+    \setmainfont{Nunito Sans}[%
+        FontWeight = 300,
+        BoldFont = {Nunito Sans SemiBold},
+        BoldFontWeight = 600
+    ]
+}{
+    \setmainfont{Latin Modern Sans}
+}
+
+% Define Montserrat for headings/titlecard, lighter weight
+\IfFontExistsTF{Montserrat}{
+    \newfontfamily\montserrat{Montserrat}[%
+        FontWeight = 300,
+        BoldFont = {Montserrat SemiBold},
+        BoldFontWeight = 600
+    ]
+}{
+    \newfontfamily\montserrat{Latin Modern Sans}
+}
+
+
+
+% Colors --------------------
+
+\usepackage{xcolor}
+\definecolor{orange}{rgb}{0.8, 0.3333, 0.0}
+\definecolor{green}{rgb}{0.0, 0.5, 0.3583}
+\definecolor{fontblack}{rgb}{0.17, 0.18, 0.19}
+\definecolor{darkgray}{rgb}{0.8, 0.8, 0.8}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=green,
+    urlcolor=green
+}
+
+
+
+% Itemize settings --------------------
+
+\usepackage{enumitem}
+\renewcommand{\labelitemi}{{\color{orange}$\bullet$}}
+\setitemize{itemsep=6pt, topsep=0pt, parsep=0pt, partopsep=0pt, left=0pt}
+
+
+
+% Constructs --------------------
+
+% Section title with horizontal rule
+\newcommand{\cvsection}[1]{%
+    \vspace{-0.125em}%
+    \section*{{\montserrat #1}}%
+    \vspace{-1.75em}%
+    \textcolor{darkgray}{\rule{\linewidth}{0.2pt}}%
+    \vspace{0.5em}%
+}
+
+% Education item:
+\newcommand{\education}[3]{%
+    \item \noindent\textbf{#1} - \small\textit{#2} (\textit{#3})%
+}
+
+% Job item:
+\newcommand{\job}[4]{%
+    \item {%
+        \noindent\textbf{#1}\\%
+        \noindent{\small \textit{#2}\hfill \textit{#3}}\\[0.25em]%
+        {\small #4}%\par\vspace{0.8em}%
+    }%
+}
+\newcommand{\jobsimple}[2]{%
+    \item {%
+        \noindent\textbf{#1}\\%
+        {\small #2}%\par\vspace{0.8em}%
+    }%
+}
+
+% Award item:
+\newcommand{\award}[2]{%
+    \item #1\\[0.15em]{\footnotesize\faTrophy\ \ #2}%
+}
+
+% Vertical line for timeline (customizable)
+\newcommand{\timeline}[4]{%
+    \vspace{-#1}%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw[thick, color=orange] (#2, #3) -- (#2, -#4);
+    \end{tikzpicture}
+}
+
+
+
+% Document --------------------
+
+\begin{document}
+
+% Configurations
+\color{fontblack} % set default text color to fontblack
+\pagestyle{empty} % remove page numbering
+\setstretch{1.1} % increase line spacing
+
+
+% Title card
+\begin{center}
+  \colorbox{orange}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+      \vspace{2.5em}% add vertical padding above
+      \centering\LARGE\textcolor{black}{\bfseries{\montserrat Ricardo Semião e Castro}}%
+      \vspace{1.75em}% add vertical padding below
+    }%
+  }%
+\end{center}
+
+\hspace{-0.5cm}
+\begin{minipage}[t]{0.42\linewidth}
+    \cvsection{Contact}%
+    \begin{itemize}[label={}]
+        \item \faGlobe\ $\;$ \href{https://ricardo-semiao.github.io/}{ricardo-semiao.github.io}
+        \item \faEnvelope\ $\;$ \href{mailto:ricardo.semiao@outlook.com}{ricardo.semiao@outlook.com}
+        \item \faLinkedin\ $\;$ \href{https://linkedin.com/in/ricardo-semiao}{linkedin.com/in/ricardo-semiao}
+    \end{itemize}
+    %
+    \cvsection{Skills}
+    \begin{itemize}
+        \item \textbf{Languages:} Fluent English (CAE)
+        \item \textbf{Programming:} R, Python\vspace{0.4em}\par
+        \hspace{0.5em}Familiar with: JavaScript, Julia, Stata
+        \item \textbf{Document:} LaTeX, Web, Quarto, Office
+        \item \textbf{Tools:} Git/GitHub, SQL, Docker
+    \end{itemize}
+    %
+    \cvsection{Awards}
+    \begin{itemize}
+        \award{ANPEC exam, the Brazil-wide admission for master's students in economics.}{10th place (2023).}
+        \award{\href{https://github.com/ricardo-semiao/challenge-constdev}{Prediction challenge} for investment flow in the Brazilian stock exchange, using a neural network.}{2nd place (2022, Constellation A. M.).}
+        \award{Academic assignments: Ridge and Lasso regression on salary determinants; Nations clustering with WTO data.}{1st and 2nd place in the category (2020 and 2021, FGV-EESP).}
+    \end{itemize}
+    %
+    \cvsection{Other Activities}
+    \begin{itemize}
+        \item Voluntary work during high school. Worked in daycare, nursing homes, and hospitals.
+        \item Volunteer teacher in the EESP Ensina Project (2022 - 2023). Taught economics to high school students.
+        \item Member of the Scout Movement (2010 - 2021). Developed socio-environmental activities.
+    \end{itemize}
+\end{minipage}\hfill%
+%
+%
+\begin{minipage}[t]{0.55\linewidth}
+    \cvsection{Education}
+    \timeline{1.3em}{0.095}{0.1}{0.5}
+    \begin{itemize}
+        \education{Bachelor's Degree in Economics}{FGV-EESP}{2019 - 2023}
+        \education{Master's Degree in Economics}{FGV-EESP}{2024 - ongoing}
+    \end{itemize}
+    %
+    \cvsection{Experience}
+    \timeline{1.3em}{0.095}{0.05}{11}
+    \begin{itemize}
+        \job{Researcher}{ADB Sindical (syndicate of diplomats)}
+        {08/2024 - ongoing}
+        {Research on the diplomatic career path and its barriers. Creation of a predictive calculator for individual's careers (\href{https://atualizamre.com.br/calculadora/}{atualizamre.com.br/calculadora}). Data scrapping, reorganization, and validation from different media sources.}
+        \job{Research Assistant}{FGV-EESP \& Ripple}{10/2022 - 04/2023}
+        {Development of a \href{https://github.com/mevaldt/diversified_crypto}{R-Shiny application} for crypto portfolio optimization and analysis.}
+        \job{Econometrics I Teaching Assistant}{FGV-EESP}{02/2022 - 06/2023}
+        {Conducted exercises, theoretical classes, and R teaching sessions.}
+        \job{Vice President, HR Director}{GVCode (data science
+        league at FGV)}{06/2020 - 12/2023}
+        {Coordinated all league activities, created and conducted selection processes and trainee programs. Data science projects.}
+        \jobsimple{Private Tutor in Statistics, R, and Python}
+        {Private lessons for college students. Active in StackOverflow: 260 answers in over 125 tags, peaked at top 5\% in the R community.}
+    \end{itemize}
+    %
+    \cvsection{Projects}
+    \begin{itemize}
+        \item Code packages: \href{https://ricardo-semiao.github.io/tools/mtsdesc/}{mtsdesc} for multivariate time series visualization and testing; \href{https://ricardo-semiao.github.io/tools/phyopt/}{phyopt} for numerical optimization with population-based hybrid algorithms.
+        \item Educational material about R (\href{https://ricardo-semiao.github.io/library/rfcd/}{RFCD}), with classes being given at GV's teaching assistantship and GVCode.
+        \item Thesis: \href{https://github.com/ricardo-semiao/article-covid-svardiff}{Graduation thesis}
+        on SVAR models applied to epidemiology; \href{https://github.com/ricardo-semiao/article-regimes-id-performance}{Masters thesis} on performance analysis of regime-switching models via Monte Carlo simulations.
+        \item My \href{https://ricardo-semiao.github.io/}{personal website} built with bare HTML/SCSS/JS, and  python scripts to orchestrate components and the blog.
+    \end{itemize}
+\end{minipage}
+
+
+\end{document}

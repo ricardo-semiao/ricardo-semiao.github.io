@@ -153,7 +153,9 @@ def get_lastmod(path: Path) -> str:
 
     if "blog" in parts and "index.html" not in parts:
         post_file = Path("src", *parts[1:-1], path.stem + ".qmd")
-        lastmod = str(get_frontmatter(post_file)["last-edited"])
+        lastmod_str = str(get_frontmatter(post_file)["date-modified"])
+        day, month, year = lastmod_str.split(" ")
+        lastmod = f"{year}-{month.zfill(2)}-{day.zfill(2)}"
 
     if lastmod:
         return lastmod

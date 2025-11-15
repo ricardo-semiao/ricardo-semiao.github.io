@@ -20,6 +20,7 @@
 
 // Education:
 #education dl {
+    margin-left: var(--cv-pad);
     display: grid;
     grid-template-columns: 15ch 1fr;
     @media (max-width: 600px) {
@@ -36,6 +37,12 @@
         div, div + dd, dt:not(:first-child) + dd {
             margin-top: 0;
         }
+    }
+}
+#education .cv-div {
+    padding: 0 0.25rem;
+    &::before {
+        content: "⫶";
     }
 }
 
@@ -87,5 +94,30 @@
         height: 1.5em;
         width: 1.2em;
         margin-left: 0.25rem;
+    }
+}
+
+
+// CV Download:
+#cv-download {
+    & > p {
+        font-weight: bold;
+    }
+    .d-options {
+        margin-left: 0.5rem;
+        p {
+            display: inline-block;
+        }
+    }
+    .flag-icon {
+        font-family: 'Noto Color Emoji', sans-serif;
+        display: inline-block;
+        margin-right: 0.25rem;
+    }
+    .d-div {
+        padding: 0 0.25rem;
+        &::before {
+            content: "|";
+        }
     }
 }

@@ -148,4 +148,5 @@ def build_quarto_blog(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> 
     print("  - Running `quarto render` ...")
 
     run("quarto", "render", str(args["source"]))
+
     return None

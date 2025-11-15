@@ -45,9 +45,12 @@ body {
 
 // Hole item:
 .gallery-hole {
-    background-image: url("./costelas.png");
-    background-size: cover;
-    background-position: center;
+    // Option one: add a background image to holes
+    //background-image: url("./costelas.png");
+    //background-size: cover;
+    //background-position: center;
+    // Option two: just make holes transparent
+    opacity: 0;
 }
 
 

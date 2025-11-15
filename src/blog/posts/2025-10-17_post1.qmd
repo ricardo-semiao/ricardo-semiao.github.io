@@ -2,8 +2,9 @@
 title: "Post With Code"
 description: "Post description"
 author: "Fizz McPhee"
-date: "5/22/2021"
-last-edited: "2025-10-17"
+date: 02 22 2025
+date-modified: 17 10 2025
+draft: true
 categories:
   - news
   - code
