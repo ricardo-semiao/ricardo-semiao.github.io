@@ -3,19 +3,27 @@
 
 # File operations:
 from pathlib import Path
-from os import chdir, environ
-from shutil import copytree, copy2, rmtree
+from os import chdir
+from shutil import copytree, copy2, rmtree, which
 from stat import S_IWRITE
 
 # Reading yaml:
 from yaml import safe_load as yaml_load
+from toml import load as load_toml
 
 # Others:
 from contextlib import contextmanager
 from datetime import datetime
 import subprocess
 import re
-from copy import copy, deepcopy
+from copy import deepcopy
+
+# For checking external dependencies:
+from warnings import warn
+from subprocess import run as srun
+from packaging.version import Version
+from operator import eq, eq, ne, lt, le, gt, ge
+ops = {"==": eq, "!=": ne, "<": lt, "<=": le, ">": gt, ">=": ge}
 
 # Type hints:
 from typing import Generator, Callable, Any
@@ -26,6 +34,59 @@ proj_root = next(
     p for p in Path(__file__).resolve().parents
     if Path(p, "pyproject.toml").is_file()
 )
+
+
+
+# Check External Dependencies --------------------------------------------------
+
+def check_external_deps(pyproject_path: Path = Path("pyproject.toml")) -> None:
+    print("=> Checking external dependencies in pyproject.toml ...")
+
+    pyproject = load_toml(pyproject_path)
+    external_section = pyproject.get("external", {})
+    dependencies = external_section.get("dependencies", [])
+
+    if not dependencies:
+        print("  - No external dependencies found.")
+        return None
+
+    for dep in dependencies:
+        dep_fields = re.search(
+            r"pkg:generic/(?P<program>[0-9a-zA-Z]+)(?P<comparison>[<>=!]*)(?P<version>[0-9\.]*)",
+            dep
+        )
+
+        if not dep_fields:
+            raise Exception(f"  - Dependency '{dep}' has invalid format in {pyproject_path}.")
+        
+        program = dep_fields["program"]
+
+        if which(program) is None:
+            raise Exception(f"  - '{program}' not found in PATH.")
+        elif not dep_fields.groupdict().get('comparison'):
+            print(f"  - '{dep}' found, no version check defined.")
+            continue
+
+        op = ops[dep_fields["comparison"]]
+        version = Version(dep_fields["version"])
+
+        version_true_raw = srun(
+            [program, "--version"],
+            capture_output = True, text = True, check = True
+        ).stdout.strip()
+        
+        version_match = re.search(r"((?:\d+)\.(?:\w+)\.?(?:\w+)?)", str(version_true_raw))
+        if not version_match:
+            warn(f"  - Unable to attain '{dep}' true version, skipping version check.")
+        else:
+            version_true = Version(version_match[1])
+            op = ops[dep_fields["comparison"]]
+            if op(version_true, version):
+                print(f"  - '{dep}' found with matching version {version_true}.")
+            else:
+                print(f"  - '{dep}' found with non-matching version {version_true}.")
+
+    return None
 
 
 
@@ -124,7 +185,7 @@ def run(
 
         res = subprocess.run(
             [cmd, *opts],
-            stdout = file_log, stderr = subprocess.STDOUT, check = True,
+            stdout = file_log, stderr = subprocess.STDOUT,
             **kwargs
         )
 
@@ -190,9 +251,9 @@ def cache_store(cached_jobs: dict[str, str] = {}) -> None:
     if len(cached_jobs) > 0:
         print("Skipping cached jobs: '", "', '".join(cached_jobs.keys()), "'.\n", sep = "")
 
-    for job_name, job_path in cached_jobs.items():
-        if Path(job_path).is_dir():
-            copytree(job_path, Path(".tmp", job_path), dirs_exist_ok = True)
+        for job_name, job_path in cached_jobs.items():
+            if Path(job_path).is_dir():
+                copytree(job_path, Path(".tmp", job_path), dirs_exist_ok = True)
     
     return None
 

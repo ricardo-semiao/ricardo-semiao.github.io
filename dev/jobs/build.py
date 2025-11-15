@@ -3,7 +3,7 @@
 
 # File operations:
 from pathlib import Path
-from shutil import rmtree   
+from shutil import rmtree
 from yaml import safe_load as yaml_load
 
 # HTML and XML parsing:
@@ -21,7 +21,7 @@ from jobs.utils import remove_readonly, glob_re, get_lastmod, run
 
 
 
-# Site structure ---------------------------------------------------------------
+# Site Structure ---------------------------------------------------------------
 
 def build_site_structure(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
     print(f"  - Creating _dist/ folder ...")
@@ -117,6 +117,8 @@ def build_sitemap_urlset(args: dict[str, Any], sep_external: bool = False) -> ET
         if priority:
             ET.SubElement(url_el, "priority").text = str(priority)
     
+    
+    print("  ✔ Done.\n")
     return urlset
 
 

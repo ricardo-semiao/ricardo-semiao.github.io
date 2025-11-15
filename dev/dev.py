@@ -2,12 +2,13 @@
 # Setup ------------------------------------------------------------------------
 
 # Data loading:
+from pathlib import Path
 from os import environ
 from dotenv import load_dotenv
 from yaml import safe_load as yaml_load
 
 # Local modules:
-from jobs.utils import get_enriched_jobs, cache_store, cache_restore
+from jobs.utils import get_enriched_jobs, cache_store, cache_restore, check_external_deps
 from importlib import import_module
 step_functions = {
     **import_module("jobs.fetch").__dict__,
@@ -24,8 +25,13 @@ step_functions = {
 # Main -------------------------------------------------------------------------
 
 def main():
+    # Checking external dependencies:
+    check_external_deps(Path("pyproject.toml"))
+
     # Reading configurations and stashing cached jobs:
-    load_dotenv("dev/.env")
+    if Path("dev/.env").exists():
+        load_dotenv("dev/.env")
+
     cached_jobs = yaml_load(environ.get("CACHED_JOBS", "{}"))
     cache_store(cached_jobs)
 

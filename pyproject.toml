@@ -13,8 +13,17 @@ dependencies = [
     "template-injector",
     "armasonry",
     "typing>=3.10.0.0",
+    "toml>=0.10.2",
+    "packaging>=25.0",
 ]
 
 [tool.uv.sources]
 template-injector = { path = "../ricardo-semiao/packages/template_injector", editable = true }
 armasonry = { path = "../ricardo-semiao/packages/armasonry", editable = true }
+
+[external]
+dependencies = [
+    "pkg:generic/latexmk>=4.0",
+    "pkg:generic/quarto>=1.0.0",
+    "pkg:generic/sass>=1.0.0",
+]

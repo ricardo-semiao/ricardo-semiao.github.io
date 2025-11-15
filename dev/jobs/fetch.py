@@ -86,7 +86,13 @@ def fetch_external_data(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -
             file.write(contents.text)
 
     else:
-        local_path = str(environ[args["local"]])
+        try:
+            local_path = str(environ[args["local"]])
+        except KeyError:
+            raise Exception((
+                f"Environment variable '{args['local']}' not set."
+                "Did you forget to define it in 'dev/.env'?"
+            ))
         print(f"  - Fetching external data from '{local_path}' ...")
         
         copytree(local_path, args["target"], dirs_exist_ok = True)
