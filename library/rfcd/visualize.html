@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!-- Meta --><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+<title>20 Visualizar | R: Fundamentos e Ciência de Dados</title>
+<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  20.1 Introdução Neste capítulo, apresentarei como aplicar as habilidades de manipulação e visualização de dados, para..." name="description"/>
+<meta content="bookdown 0.45 with bs4_book()" name="generator"/>
+<meta content="20 Visualizar | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="book" property="og:type"/>
+<meta content="https://ricardo-semiao.github.io/course-rfcd/visualize.html" property="og:url"/>
+<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  20.1 Introdução Neste capítulo, apresentarei como aplicar as habilidades de manipulação e visualização de dados, para..." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="20 Visualizar | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="@ricardo_semiao" name="twitter:site"/>
+<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  20.1 Introdução Neste capítulo, apresentarei como aplicar as habilidades de manipulação e visualização de dados, para..." name="twitter:description"/>
+<!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"/>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"/>
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet"/>
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet"/>
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet"/>
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"/>
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script><script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script><script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script><script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script><!-- CSS --><style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<!-- Custom Assets --><link href="/assets/global.css" rel="stylesheet"/>
+<link href="./assets/rsbd_module.css" rel="stylesheet"/>
+<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external" data-spy="scroll" data-target="#toc">
+<!-- @@site-icons@@ -->
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+<div class="row">
+<header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div class="d-flex align-items-start justify-content-between">
+<h1>
+<a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+</h1>
+<button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+<i class="fas fa-bars"></i>
+<span class="sr-only">Show table of contents</span>
+</button>
+</div>
+<div class="collapse-lg" id="main-nav">
+<form role="search">
+<input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search"/>
+</form>
+<nav aria-label="Table of contents"><h2>Índice</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
+<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li><a class="" href="intro1.html">Introdução</a></li>
+<li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
+<li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="" href="subset.html"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
+<li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
+<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
+<li><a class="" href="recap1.html">Recapitulando</a></li>
+<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li><a class="" href="intro2.html">Introdução</a></li>
+<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
+<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
+<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
+<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
+<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
+<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
+<li><a class="" href="recap2.html">Recapitulando</a></li>
+<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="intro3.html">Introdução</a></li>
+<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
+<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
+<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
+<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
+<li><a class="" href="recap3.html">Recapitulando</a></li>
+<li><a class="active" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
+<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
+<li><a class="" href="intro4.html">Introdução</a></li>
+<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
+<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
+<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
+<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li class="book-part">Apêndice</li>
+<li><a class="" href="dict.html">Dicionário de funções</a></li>
+<li><a class="" href="refs.html">Referências</a></li>
+</ul>
+<!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+</nav>
+</div>
+</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1" id="visualize" number="20">
+<h1>
+<span class="header-section-number">20</span> Visualizar<a aria-label="anchor" class="anchor" href="#visualize"><i class="fas fa-link"></i></a>
+</h1>
+<div class="warn">
+<p>este capítulo está em construção. O que segue abaixo é apenas um rascunho.</p>
+</div>
+<div class="section level2" id="introdução-20" number="20.1">
+<h2>
+<span class="header-section-number">20.1</span> Introdução<a aria-label="anchor" class="anchor" href="#introdu%C3%A7%C3%A3o-20"><i class="fas fa-link"></i></a>
+</h2>
+<p>Neste capítulo, apresentarei como aplicar as habilidades de manipulação e visualização de dados, para explorar e obter informações contidas em datasets.</p>
+</div>
+<div class="section level2" id="visualizações-úteis" number="20.2">
+<h2>
+<span class="header-section-number">20.2</span> Visualizações Úteis<a aria-label="anchor" class="anchor" href="#visualiza%C3%A7%C3%B5es-%C3%BAteis"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div class="section level2" id="métricas-úteis" number="20.3">
+<h2>
+<span class="header-section-number">20.3</span> Métricas Úteis<a aria-label="anchor" class="anchor" href="#m%C3%A9tricas-%C3%BAteis"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div class="section level2" id="gráficos-úteis" number="20.4">
+<h2>
+<span class="header-section-number">20.4</span> Gráficos Úteis<a aria-label="anchor" class="anchor" href="#gr%C3%A1ficos-%C3%BAteis"><i class="fas fa-link"></i></a>
+</h2>
+<hr class="double-hrule"/>
+</div>
+<div class="section level2 unlisted unnumbered" id="complemento-18">
+<h2>Complemento<a aria-label="anchor" class="anchor" href="#complemento-18"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3 unnumbered" id="recapitulando-18">
+<h3>Recapitulando<a aria-label="anchor" class="anchor" href="#recapitulando-18"><i class="fas fa-link"></i></a>
+</h3>
+<hr class="single-hrule"/>
+</div>
+<div class="section level3 unnumbered" id="dicionário-de-funções-21">
+<h3>Dicionário de Funções<a aria-label="anchor" class="anchor" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-21"><i class="fas fa-link"></i></a>
+</h3>
+<hr class="single-hrule"/>
+</div>
+<div class="section level3 unnumbered" id="referências-18">
+<h3>Referências<a aria-label="anchor" class="anchor" href="#refer%C3%AAncias-18"><i class="fas fa-link"></i></a>
+</h3>
+<hr class="single-hrule"/>
+</div>
+<div class="section level3 unnumbered" id="exercícios-15">
+<h3>Exercícios<a aria-label="anchor" class="anchor" href="#exerc%C3%ADcios-15"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+</div>
+<div class="chapter-nav">
+<div class="prev"><a href="recap3.html">Recapitulando</a></div>
+<div class="next"><a href="intro4.html">Introdução</a></div>
+</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+<nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#visualize"><span class="header-section-number">20</span> Visualizar</a></li>
+<li><a class="nav-link" href="#introdu%C3%A7%C3%A3o-20"><span class="header-section-number">20.1</span> Introdução</a></li>
+<li><a class="nav-link" href="#visualiza%C3%A7%C3%B5es-%C3%BAteis"><span class="header-section-number">20.2</span> Visualizações Úteis</a></li>
+<li><a class="nav-link" href="#m%C3%A9tricas-%C3%BAteis"><span class="header-section-number">20.3</span> Métricas Úteis</a></li>
+<li><a class="nav-link" href="#gr%C3%A1ficos-%C3%BAteis"><span class="header-section-number">20.4</span> Gráficos Úteis</a></li>
+<li>
+<a class="nav-link" href="#complemento-18">Complemento</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#recapitulando-18">Recapitulando</a></li>
+<li><a class="nav-link" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-21">Dicionário de Funções</a></li>
+<li><a class="nav-link" href="#refer%C3%AAncias-18">Referências</a></li>
+<li><a class="nav-link" href="#exerc%C3%ADcios-15">Exercícios</a></li>
+</ul>
+</li>
+</ul>
+<!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+</nav>
+</div>
+</div>
+</div></main> <!-- .container -->
+<footer id="rssite-footer"><p>
+            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
+            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
+        </p>
+</footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<!-- Scripts -->
+<script src="./assets/rsbd_module.js"></script><!-- dynamically load mathjax for compatibility with self-contained --><script>
+        (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = "true";
+        if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:")
+            if (/^https?:/.test(src))
+            src = src.replace(/^https?:/, '');
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+    for (let popover of popovers) {
+        const div = document.createElement('div');
+        div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+        div.innerHTML = popover.getAttribute('data-content');
+    
+        var has_math = div.querySelector("span.math");
+        if (has_math) {
+        document.body.appendChild(div);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+        MathJax.Hub.Queue(function() {
+            popover.setAttribute('data-content', div.innerHTML);
+            document.body.removeChild(div);
+        })
+        }
+    }
+    </script>
+</body>
+</html>

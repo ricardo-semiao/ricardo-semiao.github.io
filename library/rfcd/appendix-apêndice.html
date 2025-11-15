@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<!-- Meta -->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+<title>25 (APPENDIX) Apêndice | R: Fundamentos e Ciência de Dados</title>
+<meta content="Este livro tem o objetivo de ensinar a linguagem R. Ele (i) é feito para níveis diversos de experiência, é introdutório, mas expõe conceitos avançados e com profundidade; (ii) tem uma abordagem mista, primeiro focando na teoria, fundamentos, e funcionamento da linguagem, mas depois apresentando temas aplicados." name="description"/>
+<meta content="placeholder" name="generator"/>
+<meta content="25 (APPENDIX) Apêndice | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="book" property="og:type"/>
+<meta content="https://ricardo-semiao.github.io/course-rfcd/" property="og:url"/>
+<meta content="Este livro tem o objetivo de ensinar a linguagem R. Ele (i) é feito para níveis diversos de experiência, é introdutório, mas expõe conceitos avançados e com profundidade; (ii) tem uma abordagem mista, primeiro focando na teoria, fundamentos, e funcionamento da linguagem, mas depois apresentando temas aplicados." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="25 (APPENDIX) Apêndice | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="@ricardo_semiao" name="twitter:site"/>
+<meta content="Este livro tem o objetivo de ensinar a linguagem R. Ele (i) é feito para níveis diversos de experiência, é introdutório, mas expõe conceitos avançados e com profundidade; (ii) tem uma abordagem mista, primeiro focando na teoria, fundamentos, e funcionamento da linguagem, mas depois apresentando temas aplicados." name="twitter:description"/>
+<!-- JS -->
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+<script src="libs/bs3compat-0.9.0/transition.js"></script>
+<script src="libs/bs3compat-0.9.0/tabs.js"></script>
+<script src="libs/bs3compat-0.9.0/bs3compat.js"></script>
+<link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"/>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"/>
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet"/>
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet"/>
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet"/>
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"/>
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+<script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script>
+<script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script>
+<script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+<!-- CSS -->
+<style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<!-- Custom Assets -->
+<link href="/assets/global.css" rel="stylesheet"/>
+<link href="./assets/rsbd_module.css" rel="stylesheet"/>
+<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external" data-spy="scroll" data-target="#toc">
+<!-- @@site-icons@@ -->
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+<div class="row">
+<header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div class="d-flex align-items-start justify-content-between">
+<h1><a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+</h1>
+<button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+<i class="fas fa-bars"></i>
+<span class="sr-only">Show table of contents</span>
+</button>
+</div>
+<div class="collapse-lg" id="main-nav">
+<form role="search">
+<input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search"/>
+</form>
+<nav aria-label="Table of contents">
+<h2>Índice</h2>
+<div id="book-toc"></div>
+<!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+</nav>
+</div>
+</header>
+<main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div class="section level1" id="appendix-apêndice" number="25">
+<h1><span class="header-section-number">25</span> (APPENDIX) Apêndice</h1>
+</div>
+</main>
+<!-- Sub Nav -->
+<div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+<nav aria-label="On this page" data-toggle="toc" id="toc">
+<h2>Nesta página</h2>
+<div id="book-on-this-page"></div>
+<!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+</nav>
+</div>
+</div>
+</div></main> <!-- .container -->
+<footer id="rssite-footer">
+<p>
+            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
+            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
+        </p>
+</footer>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<!-- Scripts -->
+<script src="./assets/rsbd_module.js"></script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+        (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = "true";
+        if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:")
+            if (/^https?:/.test(src))
+            src = src.replace(/^https?:/, '');
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+    for (let popover of popovers) {
+        const div = document.createElement('div');
+        div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+        div.innerHTML = popover.getAttribute('data-content');
+    
+        var has_math = div.querySelector("span.math");
+        if (has_math) {
+        document.body.appendChild(div);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+        MathJax.Hub.Queue(function() {
+            popover.setAttribute('data-content', div.innerHTML);
+            document.body.removeChild(div);
+        })
+        }
+    }
+    </script>
+</body>
+</html>

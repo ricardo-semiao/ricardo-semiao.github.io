@@ -1,0 +1,131 @@
+.multicolumn {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  gap: 1rem;
+}
+
+#rssite-main {
+  margin-top: 4px;
+}
+
+#rssite-main > section h2 {
+  text-align: center;
+}
+
+#intro .multicolumn {
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+@media (max-width: 700px) {
+  #intro .multicolumn {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+#intro .column-text {
+  max-width: 36rem;
+  min-width: 12rem;
+}
+#intro .column-img {
+  min-width: 8rem;
+  min-height: 8rem;
+  max-width: 12rem;
+  max-height: 12rem;
+}
+#intro #intro .column-text > p + p {
+  margin-top: 0.5rem;
+}
+#intro svg {
+  width: 0.9em;
+  height: 0.9em;
+  display: inline;
+  vertical-align: middle;
+}
+
+#socials ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  width: 80%;
+  background-color: var(--gray);
+  gap: 1rem;
+  border-radius: 4px;
+  padding: 1rem;
+}
+#socials li {
+  display: inline-block;
+}
+#socials a, #socials svg {
+  display: inline-block;
+  vertical-align: top;
+}
+#socials svg {
+  width: 1lh;
+  height: 1lh;
+  margin-right: 0.25rem;
+  fill: var(--green);
+}
+
+#projects .multicolumn {
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+#projects .column-card {
+  padding: 1rem calc(1rem + 4px) 1rem 1rem;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+#projects .column-card > p {
+  margin-bottom: 0.5rem;
+}
+#projects .column-card > ul {
+  padding-left: 2rem;
+}
+#projects .column-card > ul li + li {
+  margin-top: 0.25rem;
+}
+#projects a, #projects button.tooltip-controller {
+  display: inline-block;
+  vertical-align: top;
+}
+#projects button.tooltip-controller {
+  height: 1.5em;
+  width: 0.8em;
+  margin-left: 0.25rem;
+}
+#projects a {
+  overflow-wrap: anywhere;
+}
+#projects button.tooltip-controller svg {
+  height: 100%;
+}
+
+.projects-tooltip {
+  position: absolute;
+  z-index: 100;
+  width: fit-content;
+  max-width: min(var(--main-width), 20rem);
+  min-width: 8rem;
+  box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.1);
+  background-color: color-mix(in srgb, var(--lightgray) 90%, transparent);
+  padding: 1rem;
+  visibility: hidden;
+}
+.projects-tooltip[aria-hidden=false] {
+  visibility: visible;
+}
+.projects-tooltip .pt-title {
+  color: var(--green);
+  font-weight: bold;
+  font-size: 1.1em;
+  border-bottom: 1px solid var(--darkgray);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.projects-tooltip .pt-text {
+  font-size: 0.9em;
+}

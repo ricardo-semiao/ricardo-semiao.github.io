@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!-- Meta --><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+<title>6 Funções e Ambientes | R: Fundamentos e Ciência de Dados</title>
+<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  6.1 Introdução Referência básica: Advanced R (2e) cap. 6, cap. 7, and cap. 13. Na aula de hoje, aprenderemos alguns dos..." name="description"/>
+<meta content="bookdown 0.45 with bs4_book()" name="generator"/>
+<meta content="6 Funções e Ambientes | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="book" property="og:type"/>
+<meta content="https://ricardo-semiao.github.io/course-rfcd/funs-envs.html" property="og:url"/>
+<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  6.1 Introdução Referência básica: Advanced R (2e) cap. 6, cap. 7, and cap. 13. Na aula de hoje, aprenderemos alguns dos..." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="6 Funções e Ambientes | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="@ricardo_semiao" name="twitter:site"/>
+<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  6.1 Introdução Referência básica: Advanced R (2e) cap. 6, cap. 7, and cap. 13. Na aula de hoje, aprenderemos alguns dos..." name="twitter:description"/>
+<!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"/>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"/>
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet"/>
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet"/>
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet"/>
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"/>
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script><script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script><script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script><script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script><!-- CSS --><style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<!-- Custom Assets --><link href="/assets/global.css" rel="stylesheet"/>
+<link href="./assets/rsbd_module.css" rel="stylesheet"/>
+<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external" data-spy="scroll" data-target="#toc">
+<!-- @@site-icons@@ -->
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+<div class="row">
+<header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div class="d-flex align-items-start justify-content-between">
+<h1>
+<a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+</h1>
+<button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+<i class="fas fa-bars"></i>
+<span class="sr-only">Show table of contents</span>
+</button>
+</div>
+<div class="collapse-lg" id="main-nav">
+<form role="search">
+<input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search"/>
+</form>
+<nav aria-label="Table of contents"><h2>Índice</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
+<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li><a class="" href="intro1.html">Introdução</a></li>
+<li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
+<li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="" href="subset.html"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
+<li><a class="active" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
+<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
+<li><a class="" href="recap1.html">Recapitulando</a></li>
+<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li><a class="" href="intro2.html">Introdução</a></li>
+<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
+<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
+<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
+<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
+<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
+<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
+<li><a class="" href="recap2.html">Recapitulando</a></li>
+<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="intro3.html">Introdução</a></li>
+<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
+<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
+<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
+<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
+<li><a class="" href="recap3.html">Recapitulando</a></li>
+<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
+<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
+<li><a class="" href="intro4.html">Introdução</a></li>
+<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
+<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
+<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
+<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li class="book-part">Apêndice</li>
+<li><a class="" href="dict.html">Dicionário de funções</a></li>
+<li><a class="" href="refs.html">Referências</a></li>
+</ul>
+<!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+</nav>
+</div>
+</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1" id="funs-envs" number="6">
+<h1>
+<span class="header-section-number">6</span> Funções e Ambientes<a aria-label="anchor" class="anchor" href="#funs-envs"><i class="fas fa-link"></i></a>
+</h1>
+<div class="warn">
+<p>este capítulo está em construção. O que segue abaixo é apenas um rascunho.</p>
+</div>
+<div class="section level2" id="introdução-5" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> Introdução<a aria-label="anchor" class="anchor" href="#introdu%C3%A7%C3%A3o-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>Referência básica: Advanced R (2e) <a href="https://adv-r.hadley.nz/functions.html">cap. 6</a>, <a href="https://adv-r.hadley.nz/environments.html">cap. 7</a>, and <a href="https://adv-r.hadley.nz/s3.html">cap. 13</a>.</p>
+<p>Na aula de hoje, aprenderemos alguns dos conceitos mais técnicos do curso. Mas, é a aula de funções, vocês ja aprenderam objetos, então é isso, acabou.</p>
+<p>Haverão três aprendizados principais:</p>
+<p><strong>(i)</strong> o que, no detalhe, são funções;</p>
+<p><strong>(ii)</strong> o que são ambientes;</p>
+<p><strong>(iii)</strong> como funções buscam por valores;</p>
+<p><strong>(iv)</strong> o que são funções genéricas, a OOP do R.</p>
+</div>
+<div class="section level2" id="fundamentos-das-funções" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> Fundamentos das Funções<a aria-label="anchor" class="anchor" href="#fundamentos-das-fun%C3%A7%C3%B5es"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="criação" number="6.2.1">
+<h3>
+<span class="header-section-number">6.2.1</span> Criação<a aria-label="anchor" class="anchor" href="#cria%C3%A7%C3%A3o"><i class="fas fa-link"></i></a>
+</h3>
+<p>Funções no R são expressões que salvamos como um objeto, para utilizá-las repetidas vezes, variando seus argumentos.</p>
+<p>Elas são criadas com a seguinte sintaxe:</p>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fun_name</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span><span class="op">}</span></span>
+<span><span class="va">fun_name</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span><span class="op">}</span></span></code></pre></div>
+<p>Para acessar o código fonte de uma função, digite seu nome (sem parênteses) no console.</p>
+</div>
+<div class="section level3" id="funções-de-primeira-classe" number="6.2.2">
+<h3>
+<span class="header-section-number">6.2.2</span> Funções de Primeira Classe<a aria-label="anchor" class="anchor" href="#fun%C3%A7%C3%B5es-de-primeira-classe"><i class="fas fa-link"></i></a>
+</h3>
+<div class="result">
+<p><strong>Funções de primeira classe</strong><br/>
+No R, funções são objetos como qualquer outro, e são tratados da mesma forma. Tem seu tipo, podem ser salvas à variáveis ou em listas, podem receber atributos, etc.</p>
+</div>
+<p>Exemplo de funções em listas:</p>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">funs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    halve <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">/</span> <span class="fl">2</span>,</span>
+<span>    double <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">funs</span><span class="op">$</span><span class="fu">double</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="co">#&gt; 20</span></span></code></pre></div>
+</div>
+<div class="section level3" id="tipos" number="6.2.3">
+<h3>
+<span class="header-section-number">6.2.3</span> Tipos<a aria-label="anchor" class="anchor" href="#tipos"><i class="fas fa-link"></i></a>
+</h3>
+<p>Funções tem <em>tipo</em> “closure”.</p>
+<p>As únicas exceções existem no R base, e são escritas em C em vez de R, por performance. Elas são as <strong>funções primitivas</strong>, e seu tipo é ou “builtin” ou “primitive”.</p>
+</div>
+<div class="section level3" id="componentes" number="6.2.4">
+<h3>
+<span class="header-section-number">6.2.4</span> Componentes<a aria-label="anchor" class="anchor" href="#componentes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Funções têm três componentes:</p>
+<ul>
+<li>Seus argumentos (<code>x</code> e <code>y</code>), acessados com <code class="sourceCode r"><span class="fu">formals</span>()</code>
+</li>
+<li>Seu corpo (<code>x + y</code>), acessado com <code class="sourceCode r"><span class="fu">body</span>()</code>
+</li>
+<li>Seu <em>environment</em>, um objeto que determina onde a função deve procurar os valores das variáveis relevantes, acessado com <code><a href="https://rdrr.io/r/base/environment.html">environment()</a></code>. Mais sobre em breve.</li>
+</ul>
+<div class="lesser">
+<p>As funções primitivas não tem os componentes: <code>sum #&gt; .Primitive("sum")</code>.</p>
+</div>
+<div class="result">
+<p><strong>Funções closures</strong><br/>
+No R, funções são <em>closures</em>, porque <em>enclose</em> seus ambientes. O lugar onde buscaram valores necessários é definido na hora da criação.</p>
+</div>
+</div>
+<div class="section level3" id="formatos" number="6.2.5">
+<h3>
+<span class="header-section-number">6.2.5</span> Formatos<a aria-label="anchor" class="anchor" href="#formatos"><i class="fas fa-link"></i></a>
+</h3>
+<p>No R, “Everything that exists is an object. Everything that happens is a function call”. Já tatuaram?</p>
+<p>A segunda parte do slogan fica clara ao saber que operadores e keywords também são funções, apenas com outro formato.</p>
+<p>Quais são os formatos possíveis?</p>
+<ul>
+<li><p><strong>Prefix</strong>: o formato “padrão” <code class="sourceCode r"><span class="fu">sum</span>(x, y)</code>.</p></li>
+<li>
+<p><strong>Infix</strong>: a função vai no meio de seus argumentos, <code class="sourceCode r">x <span class="sc">+</span> y</code>.</p>
+<ul>
+<li>Modo <em>prefix</em>: <code class="sourceCode r"><span class="st">`</span><span class="at">+</span><span class="st">`</span>(x, y)</code>.</li>
+<li>Para definir use um nome que comece e termine com “%”: <code class="sourceCode r"><span class="st">`</span><span class="at">%&amp;%</span><span class="st">`</span> <span class="ot">&lt;-</span> \(x, y) <span class="fu">paste</span>(x, y)</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Replacement</strong>: funções que alterem valores de um objeto: <code class="sourceCode r"><span class="fu">names</span>(df) <span class="ot">&lt;-</span> ...</code>.</p>
+<ul>
+<li>Modo <em>prefix</em>: <code class="sourceCode r"><span class="st">`</span><span class="at">names&lt;-</span><span class="st">`</span>(df, ...)</code>.</li>
+<li>Veja <a href="https://adv-r.hadley.nz/functions.html#replacement-functions">como definir</a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Special</strong>: funções muito importantes para o R, cada uma com uma forma própria, como <code>[[</code>, <code>if</code>, and <code>for</code>.</p>
+<ul>
+<li>
+<code class="sourceCode r"><span class="st">`</span><span class="at">if</span><span class="st">`</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, x, x <span class="sc">*</span> (<span class="sc">-</span><span class="dv">1</span>))</code>.</li>
+<li>
+<code class="sourceCode r"><span class="st">`</span><span class="at">for</span><span class="st">`</span>(var, seq, action)</code>.</li>
+<li>
+<code class="sourceCode r"><span class="st">`</span><span class="at">next</span><span class="st">`</span>()</code>, e <code class="sourceCode r"><span class="st">`</span><span class="at">break</span><span class="st">`</span>()</code>.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level3" id="encadeando-funções" number="6.2.6">
+<h3>
+<span class="header-section-number">6.2.6</span> Encadeando Funções<a aria-label="anchor" class="anchor" href="#encadeando-fun%C3%A7%C3%B5es"><i class="fas fa-link"></i></a>
+</h3>
+<p>Existem três maneiras de combinar funções:</p>
+<ul>
+<li>
+<strong>Nesting</strong>: <code class="sourceCode r"><span class="fu">g</span>(<span class="fu">f</span>(x))</code>, <code>f</code> realiza sua operação em <code>x</code>, e o resultado vira argumento para <code>g</code>.
+<ul>
+<li>É enxuto para pequenas expressões, mas pode ficar confuso em expressões muito longas.</li>
+</ul>
+</li>
+<li>
+<strong>Objetos intermediários</strong>: <code class="sourceCode r">y <span class="ot">&lt;-</span> <span class="fu">f</span>(x); z <span class="ot">&lt;-</span> <span class="fu">g</span>(y)</code>.
+<ul>
+<li>Bom quando os valores intermediários são importantes, mas desnecessário quando não são.</li>
+</ul>
+</li>
+<li>
+<strong>Piping</strong>: os operadores <code>|&gt;</code> e <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">magrittr::`%&gt;%`</a></code> chamam “pipe” (cano). Eles transformam a avaliação de “dentro para fora” em “da esquerda pra direita”: <code class="sourceCode r"><span class="fu">f</span>(x) <span class="sc">%&gt;%</span> <span class="fu">g</span>()</code>.
+<ul>
+<li>Facilita a leitura de expressões longas, mas só serve quando é apenas um objeto que irá “avançar” ao longo da função.</li>
+<li>Ideal quando as funções recebem e retornam a mesma classe de objeto.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level3" id="resultados" number="6.2.7">
+<h3>
+<span class="header-section-number">6.2.7</span> Resultados<a aria-label="anchor" class="anchor" href="#resultados"><i class="fas fa-link"></i></a>
+</h3>
+<p>Todas as funções retornam algo:</p>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/base/function.html">return()</a></code> é usado para definir o resultado explicitamente, e encerrar a execução da função. Útil em conjunto com if &amp; else.</li>
+<li>Caso contrário, a função retorna o valor de sua última linha.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/invisible.html">invisible()</a></code> pode ser usado para retornar um valor sem imprimi-lo.</li>
+</ul>
+<p>Isso mesmo, funções que você achava que só realizavam um efeito colateral (<code><a href="https://rdrr.io/r/base/print.html">print()</a></code>), retornam algo invisivelmente – <code class="sourceCode r">(a <span class="ot">&lt;-</span> <span class="dv">2</span>) <span class="co">#&gt; [1] 2</span></code>.</p>
+</div>
+<div class="section level3" id="resultados---exit-handlers" number="6.2.8">
+<h3>
+<span class="header-section-number">6.2.8</span> Resultados - Exit Handlers<a aria-label="anchor" class="anchor" href="#resultados---exit-handlers"><i class="fas fa-link"></i></a>
+</h3>
+<p>Uma função termina sua execução se:</p>
+<ul>
+<li>Encontrar um <code><a href="https://rdrr.io/r/base/function.html">return()</a></code> ou rodar sua última linha.</li>
+<li>Encontrar um erro (<code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>) não <em>handled</em>, ou encontrar avisos e mensagens lidadas por <code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code>.</li>
+</ul>
+<p>Podemos usar a função <code><a href="https://rdrr.io/r/base/on.exit.html">on.exit()</a></code> para rodar uma expressão quando uma função finalizar, independente do motivo.</p>
+</div>
+<div class="section level3" id="argumentos" number="6.2.9">
+<h3>
+<span class="header-section-number">6.2.9</span> Argumentos<a aria-label="anchor" class="anchor" href="#argumentos"><i class="fas fa-link"></i></a>
+</h3>
+<p>Funções podem ter argumentos padrão: <code>f &lt;- \(x, a = 2) x^a</code>. Mais sobre as capacidades disso à frente.</p>
+<p>É muito comum usar <code>NULL</code> para um argumento padrão, junto com <code>%||%</code>.</p>
+<p>Funções podem ter o argumento especial <code>...</code> pronunciado “dot-dot-dot”. Ele é útil em vários casos:</p>
+<ul>
+<li>Sua função é um <em>wrapper</em> de outra função – <code class="sourceCode r">\(x, ...) <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fu">rnorm</span>(...), x)</code>.</li>
+<li>Sua função recebe uma função como variável – <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>.</li>
+<li>Funções genéricas (mais sobre isso no futuro).</li>
+</ul>
+</div>
+<div class="section level3" id="argumentos-em-listas" number="6.2.10">
+<h3>
+<span class="header-section-number">6.2.10</span> Argumentos Em Listas<a aria-label="anchor" class="anchor" href="#argumentos-em-listas"><i class="fas fa-link"></i></a>
+</h3>
+<p>Muitas vezes temos argumentos em uma lista, que queremos passar para uma função. Podemos fazer isso com a função <code><a href="https://rdrr.io/r/base/do.call.html">do.call()</a></code>:</p>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">sum</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="cn">NA</span>, <span class="fl">5</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; 16</span></span></code></pre></div>
+<p>Note que podemos passar argumentos nomeados e não nomeados.</p>
+<p>Similar ao <code>**</code> do python, o pacote rlang oferece um operador <code>!!!</code> de desempacotar/injetar argumentos em uma call de função:</p>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/inject.html">inject</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="cn">NA</span>, <span class="fl">5</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; 16</span></span></code></pre></div>
+<p>Vamos falar mais sobre isso no futuro.</p>
+</div>
+<div class="section level3" id="pacotes" number="6.2.11">
+<h3>
+<span class="header-section-number">6.2.11</span> Pacotes<a aria-label="anchor" class="anchor" href="#pacotes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Um <em>package</em> é um conjunto de funções com um tema/objetivo específico. Eles contém uma documentação explicativa e as vezes datasets para exemplos.</p>
+<p>O CRAN armazena pacotes que passam testes específicos, mas qualquer um pode criar e postar um pacote no GitHub. Vide <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> e o pacote “devtools”.</p>
+<p>Após instalar, para carregar as funções do pacote, use <code><a href="https://rdrr.io/r/base/library.html">library(pkg_name)</a></code>.</p>
+<p>Para aprender como criar seu próprio pacote, vide <a href="https://web.mit.edu/insong/www/pdf/rpackage_instructions.pdf">este tutorial do MIT</a> e o livro <a href="https://r-pkgs.org/">R Packages, 2nd Edition</a>, também de Hadley Wickham.</p>
+<!-- ::, :::, installfromgh, load -->
+<p>O R base conta com 7 pacotes built-in, que estão sempre carregadas no R:</p>
+<ul>
+<li>“base” (a fundação do R, que inicia todos os outros pacotes).</li>
+<li>“graphics” e “grDevices” (funções gráficas).</li>
+<li>“utils” (funções utilitárias).</li>
+<li>“methods” (funções para OOP).</li>
+<li>“datasets” (bases de dados para treino).</li>
+<li>“stats” (funções estatísticas).</li>
+</ul>
+</div>
+<div class="section level3" id="outros-tópicos" number="6.2.12">
+<h3>
+<span class="header-section-number">6.2.12</span> Outros Tópicos<a aria-label="anchor" class="anchor" href="#outros-t%C3%B3picos"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Funções anônimas:</strong> note que não precisamos atribuídas um nome à uma função. Muito comum ao passar funções à outras – <code>lapply(mtcars, \(x) x + 1)</code>.</p>
+<p><strong>Recursividade:</strong> funções no R podem chamar elas mesmas. Muitas vezes, usar uma função recursiva é similar à usar um loop <code>while</code>.</p>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">recursive_factorial</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="kw">else</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">*</span> <span class="fu">recursive_factorial</span><span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2" id="ambientes" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Ambientes<a aria-label="anchor" class="anchor" href="#ambientes"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="definição" number="6.3.1">
+<h3>
+<span class="header-section-number">6.3.1</span> Definição<a aria-label="anchor" class="anchor" href="#defini%C3%A7%C3%A3o"><i class="fas fa-link"></i></a>
+</h3>
+<div class="result">
+<p><strong>Ambientes</strong><br/></p>
+<p>Ambientes são um <em>tipo</em> de objeto no R, que armazenam variáveis, e empoderam o sistema de <em>scoping</em> (i.e. como funções buscam por valores).</p>
+</div>
+<p>Eles são similares à listas nomeadas, onde:</p>
+<ul>
+<li>Todos os nomes devem ser únicos.</li>
+<li>Não existe uma ordem nos elementos.</li>
+<li>Todo ambiente tem um um “ambiente pai” (como uma lista dentro de outra).</li>
+<li>São o único tipo de objeto que não é <em>copied when modified</em>.</li>
+</ul>
+<p>Podemos criar um ambiente com <code><a href="https://rlang.r-lib.org/reference/env.html">rlang::env()</a></code>. Podemos “printar” os conteúdos de um ambiente com <code><a href="https://rlang.r-lib.org/reference/env_print.html">rlang::env_print()</a></code>. <code><a href="https://rlang.r-lib.org/reference/env.html">rlang::new_environment()</a></code> permite escolher o pai.</p>
+</div>
+<div class="section level3" id="ambientes-importantes" number="6.3.2">
+<h3>
+<span class="header-section-number">6.3.2</span> Ambientes Importantes<a aria-label="anchor" class="anchor" href="#ambientes-importantes"><i class="fas fa-link"></i></a>
+</h3>
+<p>A maioria dos ambientes são criados pelo R. Em ordem de senioridade:</p>
+<div class="inline-figure"><img src="assets/img/important_envs.svg" width="100%"/></div>
+<ol start="0" style="list-style-type: decimal">
+<li><p>Ambiente vazio – chamado como <em>R_EmptyEnv</em>, é o único ambiente que não tem pai, serve basicamente para denotar o começo da ordem.</p></li>
+<li><p>Ambiente base – o ambiente do pacote base. As funções definidas nele são utilizadas, inclusive para iniciar o resto do R.</p></li>
+<li><p>Ambientes de pacotes – cada pacote armazena funções em seu próprio ambiente. A ordem é a ordem dos <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>s.</p></li>
+</ol>
+<p>A maioria dos ambientes são criados pelo R. Em ordem de senioridade:</p>
+<div class="inline-figure"><img src="assets/img/important_envs.svg" width="100%"/></div>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Ambiente global – chamado como <em>R_GlobalEnv</em>, é o ambiente onde o usuário define suas variáveis.</p></li>
+<li><p>Ambientes de funções – quando uma função executa, ela cria um ambiente temporário para salvar suas variáveis. Mais sobre isso à frente.</p></li>
+</ol>
+</div>
+<div class="section level3" id="outros-tópicos-1" number="6.3.3">
+<h3>
+<span class="header-section-number">6.3.3</span> Outros Tópicos<a aria-label="anchor" class="anchor" href="#outros-t%C3%B3picos-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Podemos utilizar o operador <code>&lt;&lt;-</code> “super assignment” para salvar uma variável no ambiente pai. Assim como a função <code><a href="https://rdrr.io/r/base/assign.html">assign()</a></code> para salvar uma variável em qualquer ambiente. O uso disso é raro.</p>
+<p>Ambientes são objetos, como qualquer outro, e seus conteúdos podem ser acessados e alterados por <code>[[</code> e <code>$</code>.</p>
+<p>A relação entre um nome e seu valor é chamada de <em>bind</em>. Afora a relação que vocês ja conhecem de variáveis, <a href="https://adv-r.hadley.nz/environments.html#advanced-bindings">podem haver outras duas mais avançadas</a>.</p>
+<p>Os pacotes, além do ambiente que armazena as funções, também tem um <a href="https://adv-r.hadley.nz/environments.html#namespaces">ambiente especial chamado de “namespace”</a>, que descreve como cada função deve procurar suas variáveis. Mais sobre isso a frente.</p>
+</div>
+<div class="section level3" id="funções-úteis-2" number="6.3.4">
+<h3>
+<span class="header-section-number">6.3.4</span> Funções Úteis<a aria-label="anchor" class="anchor" href="#fun%C3%A7%C3%B5es-%C3%BAteis-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use <code><a href="https://rlang.r-lib.org/reference/env_parent.html">rlang::env_parent()</a></code> para achar o pai de um ambiente, e <code><a href="https://rlang.r-lib.org/reference/stack.html">rlang::current_env()</a></code> para achar o ambiente atual.</p>
+</div>
+</div>
+<div class="section level2" id="scoping-e-evaluation" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> Scoping e Evaluation<a aria-label="anchor" class="anchor" href="#scoping-e-evaluation"><i class="fas fa-link"></i></a>
+</h2>
+<p>Na aula 1, falamos sobre como o R associa valores à um nome (atribuição), agora, falaremos sobre como o R acha o valor associado à um nome (scoping). No R, utilizamos o <em>lexical scoping</em>.</p>
+<p>Ao encontrar um nome em seu corpo, como uma função procura por seu valor? Quando esse valor é acessado?</p>
+<p>Adicionalmente, como, especialmente, os argumentos serão avaliados?</p>
+<div class="section level3" id="como" number="6.4.1">
+<h3>
+<span class="header-section-number">6.4.1</span> Como<a aria-label="anchor" class="anchor" href="#como"><i class="fas fa-link"></i></a>
+</h3>
+<p>Princípios do “como”:</p>
+<ol style="list-style-type: decimal">
+<li><p>Funções procuram nomes em ambientes. Começam de um específico (já te conto qual), se não acham, buscam no ambiente pai, e vão subindo até o último ambiente (<code>R_EmptyEnv</code>).</p></li>
+<li><p>Essa lógica é utilizada para procurar todos os nomes, inclusive funções.</p></li>
+</ol>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">e1</span> <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/env.html">new_environment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, parent <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/empty_env.html">empty_env</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">e2</span> <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/env.html">new_environment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>, parent <span class="op">=</span> <span class="va">e1</span><span class="op">)</span></span>
+<span><span class="va">e3</span> <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/env.html">new_environment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>, parent <span class="op">=</span> <span class="va">e2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">f1</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="op">)</span> <span class="va">x</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/environment.html">environment</a></span><span class="op">(</span><span class="va">f1</span><span class="op">)</span> <span class="co">#&lt;environment: R_GlobalEnv&gt;</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/environment.html">environment</a></span><span class="op">(</span><span class="va">f1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">e3</span></span>
+<span></span>
+<span><span class="fu">f1</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">env</span> <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/env.html">new_environment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>`+` <span class="op">=</span> \<span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">f1</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/environment.html">environment</a></span><span class="op">(</span><span class="va">f1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">env</span></span>
+<span></span>
+<span><span class="fu">f1</span><span class="op">(</span><span class="st">"oi"</span>, <span class="st">"olá"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="onde" number="6.4.2">
+<h3>
+<span class="header-section-number">6.4.2</span> Onde<a aria-label="anchor" class="anchor" href="#onde"><i class="fas fa-link"></i></a>
+</h3>
+<p>Princípios do “onde”:</p>
+<ol style="list-style-type: decimal">
+<li><p>Static scope – o ambiente pai do primeiro é o ambiente que a função carrega. Não se usa o ambiente de onde a função foi chamada.</p></li>
+<li><p>Name masking – o primeiro ambiente é criado pela função, onde serão salvos seus argumentos e variáveis definidas em seu corpo. Não se usa o ambiente que a função carrega.</p></li>
+<li><p>Fresh start – esse ambiente de execução é temporário, a função nunca “lembra” nada da última vez que foi chamada.</p></li>
+</ol>
+<p>Podemos utilizar o operador <code>&lt;&lt;-</code> para a função gerar um efeito colateral no ambiente que carrega, “alterando” (em termos práticos) o ponto 3. Isso não costuma ser uma boa prática.</p>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="va">f1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="va">a</span></span>
+<span><span class="va">f2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span>    <span class="fu">f1</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">f2</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">i</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="va">f1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">i</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span>  <span class="va">i</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">f1</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">f1</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="quando" number="6.4.3">
+<h3>
+<span class="header-section-number">6.4.3</span> Quando<a aria-label="anchor" class="anchor" href="#quando"><i class="fas fa-link"></i></a>
+</h3>
+<p>Princípios do “quando”:</p>
+<ol style="list-style-type: decimal">
+<li><p>Dynamic lookup – funções buscam os valores na hora da chamada, não quando são criadas. Só salvamos o ambiente, não “congelamos” seu conteúdo.</p></li>
+<li><p>Lazy evaluation – argumentos são salvados como uma expressão, que só é avaliada quando acessada.</p></li>
+</ol>
+<p>Lazy evaluation é empoderada por um <em>tipo</em> de dado chamado <strong>promessa</strong>: uma expressão (que carrega o ambiente onde deve ser avaliada, similar às closures), mas que, uma vez acessada, colapsa e “vira” o valor.</p>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="va">f1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="va">a</span></span>
+<span></span>
+<span><span class="fu">f1</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span><span class="fu">f1</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fl">1</span>, <span class="va">y</span> <span class="op">=</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span>, <span class="va">z</span> <span class="op">=</span> <span class="va">a</span> <span class="op">+</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">z</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mean_unif</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">sim</span> <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="va">a</span>, <span class="va">b</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">sim</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="kw">else</span> <span class="op">(</span><span class="va">a</span> <span class="op">+</span> <span class="va">b</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2" id="funções-genéricas-oop" number="6.5">
+<h2>
+<span class="header-section-number">6.5</span> Funções Genéricas (OOP)<a aria-label="anchor" class="anchor" href="#fun%C3%A7%C3%B5es-gen%C3%A9ricas-oop"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="funções-genéricas" number="6.5.1">
+<h3>
+<span class="header-section-number">6.5.1</span> Funções Genéricas<a aria-label="anchor" class="anchor" href="#fun%C3%A7%C3%B5es-gen%C3%A9ricas"><i class="fas fa-link"></i></a>
+</h3>
+<p>Vamos falar mais sobre o sistema de OOP no R, S3, na aula que vem, mas vou contar o principal conceito de OOP no R: <strong>funções genéricas</strong>.</p>
+<p>Algumas funções no R assumem uma forma, um método, diferente a depender da classe do seu argumento (polimorfismo). Ex: <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>.</p>
+<p>Os métodos são funções cujo nome junta o nome da genérica e da classe, <code class="sourceCode r">funname.classname</code>. Note que <code>.</code> não é um caracter especial no R, mas é utilizado para denotar métodos.</p>
+</div>
+<div class="section level3" id="method-dispatch" number="6.5.2">
+<h3>
+<span class="header-section-number">6.5.2</span> Method Dispatch<a aria-label="anchor" class="anchor" href="#method-dispatch"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Method dispatch:</strong> Essas funções genéricas são apenas um intermediário, que recebem argumentos, descobrem qual é o <strong>método</strong> adequado, e passam os argumentos a diante.</p>
+<p>Quem faz o method dispatch é a função <code><a href="https://rdrr.io/r/base/UseMethod.html">UseMethod()</a></code>. Ela olha para a classe de <code>x</code>, e busca o método <code>mean.classofx</code>.</p>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mean</span></span>
+<span><span class="co">#&gt; function (x, ...) UseMethod("mean")</span></span></code></pre></div>
+<p>No S3, o método “mora” na função, e não na classe!</p>
+</div>
+<div class="section level3" id="default-e-herança" number="6.5.3">
+<h3>
+<span class="header-section-number">6.5.3</span> Default e Herança<a aria-label="anchor" class="anchor" href="#default-e-heran%C3%A7a"><i class="fas fa-link"></i></a>
+</h3>
+<p>Se não há nenhum método para a classe “classofx”, existe a pseudo-classe “default”, que é um fallback para todas as classes.</p>
+<p>O R também tem um sistema de herança. Bem simples, classes podem ser vetores:</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; "tbl_df" "tbl" "data.frame"</span></span></code></pre></div>
+<p><code><a href="https://rdrr.io/r/base/UseMethod.html">UseMethod()</a></code> vai procurar por <code class="sourceCode r">funname.tbl_df</code>, depois <code class="sourceCode r">funname.tbl</code>, depois, <code class="sourceCode r">funname.data.frame</code>, e por fim, <code class="sourceCode r">funname.default</code>. É como se todos os objetos herdassem “default”. Nesse processo, também é utilizada a função <code><a href="https://rdrr.io/r/base/UseMethod.html">NextMethod()</a></code></p>
+</div>
+<div class="section level3" id="funções-úteis-3" number="6.5.4">
+<h3>
+<span class="header-section-number">6.5.4</span> Funções Úteis<a aria-label="anchor" class="anchor" href="#fun%C3%A7%C3%B5es-%C3%BAteis-3"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Para achar os métodos de uma generic, use <code>sloop::s3_methods_generic()</code>.</li>
+<li>Para achar os métodos de uma classe, use <code>sloop::s3_methods_class()</code>.</li>
+<li>Para ver o código fonte de um método, use <code>sloop::s3_get_method()</code>.</li>
+<li>Para ver o processo de dispatch, use <code>sloop::s3_dispatch()</code>.</li>
+</ul>
+</div>
+</div>
+<div class="section level2" id="outros-tópicos-em-ambientes" number="6.6">
+<h2>
+<span class="header-section-number">6.6</span> Outros Tópicos em Ambientes<a aria-label="anchor" class="anchor" href="#outros-t%C3%B3picos-em-ambientes"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="caller-environment" number="6.6.1">
+<h3>
+<span class="header-section-number">6.6.1</span> Caller Environment<a aria-label="anchor" class="anchor" href="#caller-environment"><i class="fas fa-link"></i></a>
+</h3>
+<p>Ok, funções carregam seu próprio ambiente, independente de onde foram chamadas. Ainda assim, podemos estar interessados no <strong>caller environment</strong>.</p>
+<p>Dentro de uma função, podemos acessar o ambiente onde ela foi chamada com <code><a href="https://rlang.r-lib.org/reference/stack.html">rlang::caller_env()</a></code>.</p>
+<p>Podemos utilizar isso para criar funções que dependam de onde foram chamadas, funções com <em>dynamic scope</em>.</p>
+<p>Haverá um material explicando o que empodera <code><a href="https://rlang.r-lib.org/reference/stack.html">rlang::caller_env()</a></code> no livro. Saber isso não é súper prático, mas ensina um conceito de programação importante, o de Call Stack (e Call Stack Trees).</p>
+<p>Apenas note que, para denotar calls, e o fato de que uma é “pai” de outra, existe um conceito similar ao de ambientes, chamado “frame”.</p>
+</div>
+<div class="section level3" id="ambientes-como-dado" number="6.6.2">
+<h3>
+<span class="header-section-number">6.6.2</span> Ambientes como Dado<a aria-label="anchor" class="anchor" href="#ambientes-como-dado"><i class="fas fa-link"></i></a>
+</h3>
+<p>Na aula 1, comentamos que utilizar <em>copy-on-modify</em> era uma escolha de design, mas as vezes é útil ter um dado que <em>modifies-in-place</em>.</p>
+<p>Como ambientes tem essa característica, existe o pacote <a href="https://r6.r-lib.org/articles/Introduction.html">r6</a> que implementa uma classe criada em cima dos ambientes. Também é um pacote sobre OOP, e será explicado no futuro.</p>
+<hr class="double-hrule"/>
+</div>
+</div>
+<div class="section level2 unlisted unnumbered" id="complemento-4">
+<h2>Complemento<a aria-label="anchor" class="anchor" href="#complemento-4"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3 unnumbered" id="recapitulando-4">
+<h3>Recapitulando<a aria-label="anchor" class="anchor" href="#recapitulando-4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Funções:</p>
+<ul>
+<li>São expressões que dependem de argumentos.</li>
+<li>No R, funções são de <strong>primeira classe</strong>, são objetos como qualquer outro</li>
+<li>No R, funções são <strong>closures</strong>, carregam um ambiente onde deve-se avaliar suas variáveis.</li>
+<li>Temos também as funções primitivas.</li>
+<li>Têm três componentes, argumentos, corpo, e ambiente.</li>
+</ul>
+<p>Funções:</p>
+<ul>
+<li>Podem vir em três formatos, prefix, infix, replacement, e special.</li>
+<li>Podem ser encadeadas com nesting, objetos intermediários, ou piping.</li>
+<li>Sempre retornam algo.</li>
+<li>Encerram ao encontrar sua última linha, um return(), ou em certos contextos de condições.</li>
+</ul>
+<p>Funções:</p>
+<ul>
+<li>Podem ter argumentos padrões, que podem depender de outros argumentos.</li>
+<li>Podem recever <em>varargs</em> ``.</li>
+<li>Podem receber argumentos em listas via <code><a href="https://rdrr.io/r/base/do.call.html">do.call()</a></code> ou <code><a href="https://rlang.r-lib.org/reference/splice-operator.html">rlang::`!!!`</a></code>.</li>
+<li>São aglomeradas em pacotes.</li>
+<li>Podem ser anônimas.</li>
+<li>Podem ser recursivas.</li>
+</ul>
+<p>Ambientes:</p>
+<ul>
+<li>Ambientes são um <em>tipo</em> de objeto no R, que armazenam variáveis.</li>
+<li>Similares à listas, mas com nomes únicos, sem ordem, carregam um ambiente pai, e são <em>modified-in-place</em>.</li>
+<li>Temos, em ordem: o ambiente vazio, base, de pacotes, global, de funções.</li>
+</ul>
+<p>Scoping e Evaluation:</p>
+<ul>
+<li>Scoping é o processo de encontrar o valor de um nome.</li>
+<li>Como: procura-se em ambientes, subindo até achar; vale para tudo, inclusive funções.</li>
+<li>Onde: <em>static scope</em> (o ambiente pai é o que a função carrega); <em>name masking</em> (mas o primeiro é criado pela função, com seus argumentos e corpo); <em>fresh start</em> (o ambiente de execução é temporário).</li>
+<li>Quando: <em>dynamic lookup</em> (só quando acessados); <em>lazy evaluation</em> (o mesmo vale para argumentos, através de promessas).</li>
+<li>Podemos criar uma função com <em>dynamic scope</em> acessando o ambiente de onde a função foi chamada, o <code><a href="https://rlang.r-lib.org/reference/stack.html">rlang::caller_env()</a></code>.</li>
+</ul>
+<p>Funções Genéricas:</p>
+<ul>
+<li>Algumas funções no R assumem uma forma, um método, diferente a depender da classe do seu argumento.</li>
+<li>Os métodos são funções cujo nome junta o nome da genérica e da classe, separados por um ponto <code>.</code>.</li>
+<li>O método adequado é encontrado no processo chamado method dispatch, feito pela função <code><a href="https://rdrr.io/r/base/UseMethod.html">UseMethod()</a></code>.</li>
+<li>Objetos podem ter sub-classes (herança), e existe a pseudo-classe “default”, fallback de todos os objetos.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/UseMethod.html">UseMethod()</a></code> vai procurar por todas as classes (e “default”), até achar um método, e dar erro caso não ache nenhum.</li>
+</ul>
+<hr class="single-hrule"/>
+</div>
+<div class="section level3 unnumbered" id="dicionário-de-funções-4">
+<h3>Dicionário de Funções<a aria-label="anchor" class="anchor" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-4"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:left;">
+Categoria
+</th>
+<th style="text-align:left;">
+Função
+</th>
+<th style="text-align:left;">
+Descrição
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+functions
+</td>
+<td style="text-align:left;">
+<code>function()</code>, <code><a href="https://rdrr.io/r/base/formals.html">formals()</a></code>, <code><a href="https://rdrr.io/r/base/body.html">body()</a></code>, <code><a href="https://rdrr.io/r/base/environment.html">environment()</a></code>
+</td>
+<td style="text-align:left;">
+function creation and components
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+functions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/function.html">return()</a></code>, <code><a href="https://rdrr.io/r/base/invisible.html">invisible()</a></code>, <code><a href="https://rdrr.io/r/base/on.exit.html">on.exit()</a></code>
+</td>
+<td style="text-align:left;">
+function results
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+operadores
+</td>
+<td style="text-align:left;">
+<code>|&gt;</code>, <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">magrittr::`%&gt;%`</a></code>
+</td>
+<td style="text-align:left;">
+pipes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+outros
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/do.call.html">do.call()</a></code>
+</td>
+<td style="text-align:left;">
+calling functions
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+functions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/library.html">library()</a></code>, <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>
+</td>
+<td style="text-align:left;">
+installing and loading packages
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ambientes
+</td>
+<td style="text-align:left;">
+<code><a href="https://rlang.r-lib.org/reference/env.html">rlang::env()</a></code>, <code><a href="https://rlang.r-lib.org/reference/env.html">rlang::new_environment()</a></code>, <code><a href="https://rlang.r-lib.org/reference/env_print.html">rlang::env_print()</a></code>
+</td>
+<td style="text-align:left;">
+creating and printing environments
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ambientes
+</td>
+<td style="text-align:left;">
+<code>&lt;&lt;-</code>, <code><a href="https://rdrr.io/r/base/assign.html">assign()</a></code>
+</td>
+<td style="text-align:left;">
+assignment with envrironments
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+generics
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/UseMethod.html">UseMethod()</a></code>, <code><a href="https://rdrr.io/r/base/UseMethod.html">NextMethod()</a></code>, <code>sloop::s3_dispatch()</code>
+</td>
+<td style="text-align:left;">
+method dispatch
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+generics
+</td>
+<td style="text-align:left;">
+<code>sloop::s3_methods_generic()</code>, <code>sloop::s3_methods_class()</code>
+</td>
+<td style="text-align:left;">
+finding methods
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+generics
+</td>
+<td style="text-align:left;">
+<code>sloop::s3_get_method()</code>
+</td>
+<td style="text-align:left;">
+finding source code of method
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ambientes
+</td>
+<td style="text-align:left;">
+<code><a href="https://rlang.r-lib.org/reference/env_parent.html">rlang::env_parent()</a></code>, <code><a href="https://rlang.r-lib.org/reference/stack.html">rlang::current_env()</a></code>, <code><a href="https://rlang.r-lib.org/reference/stack.html">rlang::caller_env()</a></code>
+</td>
+<td style="text-align:left;">
+finding environments from context
+</td>
+</tr>
+</tbody>
+</table></div>
+<hr class="single-hrule"/>
+</div>
+<div class="section level3 unnumbered" id="referências-4">
+<h3>Referências<a aria-label="anchor" class="anchor" href="#refer%C3%AAncias-4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Referência básica: Advanced R (2e) <a href="https://adv-r.hadley.nz/functions.html">cap. 6</a>, <a href="https://adv-r.hadley.nz/environments.html">cap. 7</a>, and <a href="https://adv-r.hadley.nz/s3.html">cap. 13</a>.</p>
+</div>
+</div>
+</div>
+<div class="chapter-nav">
+<div class="prev"><a href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></div>
+<div class="next"><a href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></div>
+</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+<nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#funs-envs"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="nav-link" href="#introdu%C3%A7%C3%A3o-5"><span class="header-section-number">6.1</span> Introdução</a></li>
+<li>
+<a class="nav-link" href="#fundamentos-das-fun%C3%A7%C3%B5es"><span class="header-section-number">6.2</span> Fundamentos das Funções</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#cria%C3%A7%C3%A3o"><span class="header-section-number">6.2.1</span> Criação</a></li>
+<li><a class="nav-link" href="#fun%C3%A7%C3%B5es-de-primeira-classe"><span class="header-section-number">6.2.2</span> Funções de Primeira Classe</a></li>
+<li><a class="nav-link" href="#tipos"><span class="header-section-number">6.2.3</span> Tipos</a></li>
+<li><a class="nav-link" href="#componentes"><span class="header-section-number">6.2.4</span> Componentes</a></li>
+<li><a class="nav-link" href="#formatos"><span class="header-section-number">6.2.5</span> Formatos</a></li>
+<li><a class="nav-link" href="#encadeando-fun%C3%A7%C3%B5es"><span class="header-section-number">6.2.6</span> Encadeando Funções</a></li>
+<li><a class="nav-link" href="#resultados"><span class="header-section-number">6.2.7</span> Resultados</a></li>
+<li><a class="nav-link" href="#resultados---exit-handlers"><span class="header-section-number">6.2.8</span> Resultados - Exit Handlers</a></li>
+<li><a class="nav-link" href="#argumentos"><span class="header-section-number">6.2.9</span> Argumentos</a></li>
+<li><a class="nav-link" href="#argumentos-em-listas"><span class="header-section-number">6.2.10</span> Argumentos Em Listas</a></li>
+<li><a class="nav-link" href="#pacotes"><span class="header-section-number">6.2.11</span> Pacotes</a></li>
+<li><a class="nav-link" href="#outros-t%C3%B3picos"><span class="header-section-number">6.2.12</span> Outros Tópicos</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ambientes"><span class="header-section-number">6.3</span> Ambientes</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#defini%C3%A7%C3%A3o"><span class="header-section-number">6.3.1</span> Definição</a></li>
+<li><a class="nav-link" href="#ambientes-importantes"><span class="header-section-number">6.3.2</span> Ambientes Importantes</a></li>
+<li><a class="nav-link" href="#outros-t%C3%B3picos-1"><span class="header-section-number">6.3.3</span> Outros Tópicos</a></li>
+<li><a class="nav-link" href="#fun%C3%A7%C3%B5es-%C3%BAteis-2"><span class="header-section-number">6.3.4</span> Funções Úteis</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#scoping-e-evaluation"><span class="header-section-number">6.4</span> Scoping e Evaluation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#como"><span class="header-section-number">6.4.1</span> Como</a></li>
+<li><a class="nav-link" href="#onde"><span class="header-section-number">6.4.2</span> Onde</a></li>
+<li><a class="nav-link" href="#quando"><span class="header-section-number">6.4.3</span> Quando</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#fun%C3%A7%C3%B5es-gen%C3%A9ricas-oop"><span class="header-section-number">6.5</span> Funções Genéricas (OOP)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#fun%C3%A7%C3%B5es-gen%C3%A9ricas"><span class="header-section-number">6.5.1</span> Funções Genéricas</a></li>
+<li><a class="nav-link" href="#method-dispatch"><span class="header-section-number">6.5.2</span> Method Dispatch</a></li>
+<li><a class="nav-link" href="#default-e-heran%C3%A7a"><span class="header-section-number">6.5.3</span> Default e Herança</a></li>
+<li><a class="nav-link" href="#fun%C3%A7%C3%B5es-%C3%BAteis-3"><span class="header-section-number">6.5.4</span> Funções Úteis</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#outros-t%C3%B3picos-em-ambientes"><span class="header-section-number">6.6</span> Outros Tópicos em Ambientes</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#caller-environment"><span class="header-section-number">6.6.1</span> Caller Environment</a></li>
+<li><a class="nav-link" href="#ambientes-como-dado"><span class="header-section-number">6.6.2</span> Ambientes como Dado</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#complemento-4">Complemento</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#recapitulando-4">Recapitulando</a></li>
+<li><a class="nav-link" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-4">Dicionário de Funções</a></li>
+<li><a class="nav-link" href="#refer%C3%AAncias-4">Referências</a></li>
+</ul>
+</li>
+</ul>
+<!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+</nav>
+</div>
+</div>
+</div></main> <!-- .container -->
+<footer id="rssite-footer"><p>
+            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
+            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
+        </p>
+</footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<!-- Scripts -->
+<script src="./assets/rsbd_module.js"></script><!-- dynamically load mathjax for compatibility with self-contained --><script>
+        (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = "true";
+        if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:")
+            if (/^https?:/.test(src))
+            src = src.replace(/^https?:/, '');
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+    for (let popover of popovers) {
+        const div = document.createElement('div');
+        div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+        div.innerHTML = popover.getAttribute('data-content');
+    
+        var has_math = div.querySelector("span.math");
+        if (has_math) {
+        document.body.appendChild(div);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+        MathJax.Hub.Queue(function() {
+            popover.setAttribute('data-content', div.innerHTML);
+            document.body.removeChild(div);
+        })
+        }
+    }
+    </script>
+</body>
+</html>

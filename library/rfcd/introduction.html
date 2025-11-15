@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!-- Meta --><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+<title>1 Introdução | R: Fundamentos e Ciência de Dados</title>
+<meta content="1.1 História R é “uma linguagem de programação e um ambiente para computação estatística e gráfica”10. Ambiente no sentido que é um “sistema totalmente planejado e coerente”, não uma ferramenta..." name="description"/>
+<meta content="bookdown 0.45 with bs4_book()" name="generator"/>
+<meta content="1 Introdução | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="book" property="og:type"/>
+<meta content="https://ricardo-semiao.github.io/course-rfcd/introduction.html" property="og:url"/>
+<meta content="1.1 História R é “uma linguagem de programação e um ambiente para computação estatística e gráfica”10. Ambiente no sentido que é um “sistema totalmente planejado e coerente”, não uma ferramenta..." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="1 Introdução | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="@ricardo_semiao" name="twitter:site"/>
+<meta content="1.1 História R é “uma linguagem de programação e um ambiente para computação estatística e gráfica”10. Ambiente no sentido que é um “sistema totalmente planejado e coerente”, não uma ferramenta..." name="twitter:description"/>
+<!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"/>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"/>
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet"/>
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet"/>
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet"/>
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"/>
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script><script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script><script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script><script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script><!-- CSS --><style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<!-- Custom Assets --><link href="/assets/global.css" rel="stylesheet"/>
+<link href="./assets/rsbd_module.css" rel="stylesheet"/>
+<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external" data-spy="scroll" data-target="#toc">
+<!-- @@site-icons@@ -->
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+<div class="row">
+<header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div class="d-flex align-items-start justify-content-between">
+<h1>
+<a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+</h1>
+<button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+<i class="fas fa-bars"></i>
+<span class="sr-only">Show table of contents</span>
+</button>
+</div>
+<div class="collapse-lg" id="main-nav">
+<form role="search">
+<input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search"/>
+</form>
+<nav aria-label="Table of contents"><h2>Índice</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="active" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
+<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li><a class="" href="intro1.html">Introdução</a></li>
+<li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
+<li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="" href="subset.html"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
+<li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
+<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
+<li><a class="" href="recap1.html">Recapitulando</a></li>
+<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li><a class="" href="intro2.html">Introdução</a></li>
+<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
+<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
+<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
+<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
+<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
+<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
+<li><a class="" href="recap2.html">Recapitulando</a></li>
+<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="intro3.html">Introdução</a></li>
+<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
+<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
+<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
+<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
+<li><a class="" href="recap3.html">Recapitulando</a></li>
+<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
+<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
+<li><a class="" href="intro4.html">Introdução</a></li>
+<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
+<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
+<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
+<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li class="book-part">Apêndice</li>
+<li><a class="" href="dict.html">Dicionário de funções</a></li>
+<li><a class="" href="refs.html">Referências</a></li>
+</ul>
+<!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+</nav>
+</div>
+</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1" id="introduction" number="1">
+<h1>
+<span class="header-section-number">1</span> Introdução<a aria-label="anchor" class="anchor" href="#introduction"><i class="fas fa-link"></i></a>
+</h1>
+<div class="section level2" id="história" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> História<a aria-label="anchor" class="anchor" href="#hist%C3%B3ria"><i class="fas fa-link"></i></a>
+</h2>
+<p>R é “uma linguagem de programação e um <em>ambiente</em> para computação estatística e gráfica”<a class="footnote-ref" data-content='&lt;p&gt;Vide o &lt;a href="https://www.r-project.org/about.html"&gt;site oficial do R project&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>10</sup></a>. Ambiente no sentido que é um “sistema totalmente planejado e coerente”, não uma ferramenta específica e inflexível. É uma linguagem especializada, com ferramentas poderosas e acessíveis para projetos de campos como estatística e ciência de dados. Ao mesmo tempo, é facilmente incrementável, com centenas de extensões para as mais diversas áreas.</p>
+<p>O R foi criado em 1993 por Ross Ihaka e Robert Gentleman da Universidade de Auckland, Nova Zelândia, com o apoio de John Chambers do Bell Laboratories. Sucedeu a linguagem S, e junto com a inicial dos autores, o nome R foi cunhado. Não, infelizmente, não é R de “Ricardo”.</p>
+<p>Existem várias entidades associadas ao desenvolvimento da linguagem:</p>
+<ul>
+<li>O <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a> (CRAN) foi criado em 1997 por Kurt Hornik e Fritz Leisch para armazenar o código fonte, documentação, e pacotes do R.</li>
+<li>O <a href="https://www.r-project.org/contributors.html">R Core Team</a> foi formado em 1997 para desenvolver a linguagem.</li>
+<li>A linguagem como projeto e homepage oficial é o <a href="https://www.r-project.org/">R Project</a>. Também existe a <a href="https://stat.ethz.ch/R-manual/">homepage</a> das versões em desenvolvimento do R.</li>
+<li>A <a href="https://www.r-project.org/foundation/">R Foundation</a> foi fundada em 2003 para guiar o R Project.</li>
+<li>O RStudio, agora <a href="https://posit.co/about/">Posit</a> foi fundado para expandir a qualidade do projeto, lançando um ambiente de desenvolvimento integrado em 2011, e oferecendo soluções para empresas.</li>
+<li>O <a href="https://journal.r-project.org/">R Journal</a> e <a href="https://blog.r-project.org/">R Blog</a>.</li>
+</ul>
+</div>
+<div class="section level2" id="características-da-linguagem-e-porque-r" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> Características da Linguagem, e “Porque R?”<a aria-label="anchor" class="anchor" href="#caracter%C3%ADsticas-da-linguagem-e-porque-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>O R é uma linguagem bem específica. Abaixo cito algumas de suas características, e porque elas podem motivar seu estudo.</p>
+<ul>
+<li><p>R está disponível como código aberto, com sua licença <a href="https://www.r-project.org/COPYING">GNU General Public License</a>. Adicionalmente, é acessível para a maioria das máquinas/sistemas operacionais. Isso faz com que projetos no R sejam acessíveis e facilmente replicados por outros.</p></li>
+<li><p>R é uma linguagem popular, ficou na posição 21 no <a href="https://www.tiobe.com/tiobe-index/">TIOBE Index</a> em fev/2024. Especialmente, ele conta com uma comunidade muito ativa e amigável, na <a href="https://twitter.com/search?q=%23rstats">#rstats</a> do Twitter, no <a href="https://stackoverflow.com/questions/tagged/r">StackOverflow</a>, no <a href="https://community.rstudio.com/">Posit Community</a>, e <a href="https://www.meetup.com/topics/r-programming-language/">pessoalmente</a>.</p></li>
+<li>
+<p>Um produto dessa popularidade é a quantidade massiva de extensões, para toda sorte de tarefa.</p>
+<ul>
+<li>Existem múltiplas abordagens para manipulação de dados, modelagem, e criação de visualizações.</li>
+<li>Poderosas ferramentas para comunicação, o RMarkdown (que foi utilizado para construir esse livro), e o Shiny, utilizado para construir Apps.</li>
+<li>Ferramentas na fronteira de pesquisa, uma vez que pesquisadores costumam criar pacotes no R para acompanhar suas inovações.</li>
+</ul>
+</li>
+<li>
+<p>Ocupa um espaço muito interessante na paisagem de softwares:</p>
+<ul>
+<li>É uma linguagem de programação verdadeira, permitindo soluções para problemas mais complexos, e dando mais flexibilidade ao usuário, quando comparado com outros softwares estatísticos não programáticos como o SAS, SPSS, Stata, Eviews, e GRETL.</li>
+<li>Mas é especializado, <em>interpretada</em>, e <em>high-level</em>, facilitando seu uso, e apresentando uma cuva de aprendizado mais rápida que linguagens mais complexas/generalistas como C.</li>
+<li>A especialização em estatística faz com que ferramentas muito necessárias para análise de dados sejam de fácil acesso, como <em>data frames</em> e <em>vetorização</em>. O usuário não precisa aprender extensões para realizar projetos em ciência de dados.</li>
+</ul>
+</li>
+<li>
+<p>Algumas características mais técnicas:</p>
+<ul>
+<li>Sua sintaxe é similar à C e Python, mas sua semântica é a de uma linguagem funcional, mais similar à Lisp e APL. Veremos que o estilo funcional é muito útil para projetos de ciência de dados.</li>
+<li>Dito isso, o R é uma linguagem com múltiplos paradigmas: tem capacidades incomuns de metaprogramação, permitindo códigos elegantes e sucintos; provê programação orientada ao objeto de forma limitada, mas de maneira útil e simples.</li>
+<li>O R usa código em C, C++, e Fortran para executar tarefas computacionalmente intensivas. Isso é algo que o usuário também pode explorar.</li>
+</ul>
+</li>
+</ul>
+<p>Porém, nem tudo são flores. Muitas dessas características tem prós e contras, e a execução dessas ideias conta com heranças obsoletas e inconsistências. Neste livro, deixarei claro os pontos negativos mais importantes, e ensino a evitá-los.</p>
+</div>
+<div class="section level2" id="biblio" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Literatura sobre R<a aria-label="anchor" class="anchor" href="#biblio"><i class="fas fa-link"></i></a>
+</h2>
+<p>A literatura base pode ser encontrada no <a href="https://cran.r-project.org/manuals.html">CRAN</a>. Ela é composta de, principalmente:</p>
+<ul>
+<li>O código fonte.</li>
+<li>O manual “R Language Definition”, que descreve a linguagem em si.</li>
+<li>O manual “R Internals”, que descreve as estruturas internas do R, e a fundação do código em C.</li>
+<li>A documentação de ajuda para o R base e as extensões padrões.</li>
+<li>A documentação de ajuda para as extensões externas<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-r-packs"&gt;R Core Team, &lt;span&gt;“Contributed &lt;span&gt;Packages&lt;/span&gt;”&lt;/span&gt;, 2024, &lt;span&gt;https://cran.r-project.org/web/packages/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>11</sup></a></span>
+</li>
+</ul>
+<p>Nenhuma dessas é exatamente didática, mas existe uma vasta bibliografia de livros para R, tanto para ensinar a linguagem no geral, quanto para toda sorte de aplicações.</p>
+<p>Abaixo apresento a bibliografia principal deste livro. Na seção de introdução de cada parte, descreverei melhor as sugestões de leitura, e como elas complementam o material.</p>
+<p><strong>Bibliografia base da parte I:</strong> “R Language Definition”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-r-lang"&gt;R Core Team, &lt;span&gt;“R &lt;span&gt;Language&lt;/span&gt; &lt;span&gt;Definition&lt;/span&gt;”&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>12</sup></a></span> “R Internals”<span class="citation"><a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-r-ints"&gt;R Core Team, &lt;span&gt;“R &lt;span&gt;Internals&lt;/span&gt;”&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>13</sup></a></span> e “Advanced R” (2e)<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-advr"&gt;Hadley Wickham, &lt;em&gt;Advanced &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>14</sup></a></span></p>
+<ul>
+<li>Outras documentações utilizadas: código fonte<span class="citation"><a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-r-source"&gt;R Core Team, &lt;span&gt;“Index of /src/base”&lt;/span&gt;, 2024, &lt;span&gt;https://cran.r-project.org/src/base/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>15</sup></a></span> e a documentação das extensões básicas<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-r-helps"&gt;R Core Team, &lt;span&gt;“R: &lt;span&gt;Package&lt;/span&gt; &lt;span&gt;Index&lt;/span&gt;”&lt;/span&gt;, 2024, &lt;span&gt;https://stat.ethz.ch/R-manual/R-patched/doc/html/packages.html&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>16</sup></a></span>
+</li>
+<li>Outros livros utilizados: “Working with R”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-locke-work"&gt;Stephanie Locke, &lt;em&gt;Working with &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;, 1º ed, 2017, &lt;span&gt;https://itsalocke.com/files/workingwithr.pdf&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>17</sup></a></span> e “What They Forgot to Teach You About R”<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-wtfr"&gt;Jennifer Bryan et al., &lt;em&gt;What &lt;span&gt;They&lt;/span&gt; &lt;span&gt;Forgot&lt;/span&gt; to &lt;span&gt;Teach&lt;/span&gt; &lt;span&gt;You&lt;/span&gt; &lt;span&gt;About&lt;/span&gt; &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;, 2023, &lt;span&gt;https://rstats.wtf/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>18</sup></a></span>
+</li>
+<li>Sugestões de leitura: “Hands on Programming with R”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-hopr"&gt;Garrett Grolemund, &lt;em&gt;Hands-&lt;span&gt;On&lt;/span&gt; &lt;span&gt;Programming&lt;/span&gt; with &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;, 1º ed, 2014, &lt;span&gt;https://rstudio-education.github.io/hopr/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>19</sup></a></span> e “An Introduction to R”<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-intror"&gt;Longhow Lam, &lt;em&gt;An introduction to &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;, 2010, &lt;span&gt;https://cran.r-project.org/doc/contrib/Lam-IntroductionToR_LHL.pdf&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>20</sup></a></span>
+</li>
+</ul>
+<p><strong>Bibliografia base da parte II:</strong> documentação do tidyverse<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-tidy"&gt;&lt;span&gt;“Tidyverse”&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>21</sup></a></span> “ggplot2: Elegant Graphics for Data Analysis” (3e)<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-ggplot"&gt;Hadley Wickham, Danielle Navarro, e Thomas Lin Pedersen, &lt;em&gt;ggplot2&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>22</sup></a></span></p>
+<ul>
+<li>Outros livros utilizados: “Data Manipulation in R”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-locke-data"&gt;Stephanie Locke, &lt;em&gt;Data &lt;span&gt;Manipulation&lt;/span&gt; in &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>23</sup></a></span> e “R Programming for Data Science”<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-rpds"&gt;Peng, &lt;em&gt;R &lt;span&gt;Programming&lt;/span&gt; for &lt;span&gt;Data&lt;/span&gt; &lt;span&gt;Science&lt;/span&gt;&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>24</sup></a></span>
+</li>
+<li>Sugestões de leitura: “Modern R with the tidyverse”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-modernr"&gt;Bruno Rodrigues, &lt;em&gt;Modern &lt;span&gt;R&lt;/span&gt; with the tidyverse&lt;/em&gt;, 2022, &lt;span&gt;https://modern-rstats.eu/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>25</sup></a></span> e “STAT 545”<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-stat545"&gt;Jenny Bryan, &lt;em&gt;&lt;span&gt;STAT&lt;/span&gt; 545&lt;/em&gt;, 1º ed, 2020, &lt;span&gt;https://stat545.com/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>26</sup></a></span>
+</li>
+</ul>
+<p><strong>Bibliografia base das partes III e IV:</strong> “R for Data Science”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-r4ds"&gt;Hadley Wickham e Garrett Grolemund, &lt;em&gt;R for &lt;span&gt;Data&lt;/span&gt; &lt;span&gt;Science&lt;/span&gt;&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>27</sup></a></span> e “R Cookbook” (2e)<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-cookr"&gt;James Long e Paul Teetor, &lt;em&gt;R &lt;span&gt;Cookbook&lt;/span&gt;&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>28</sup></a></span></p>
+<ul>
+<li>Sugestões de leitura: “A ModernDive into R and the Tidyverse”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-diver"&gt;Chester Ismay e Albert Y. Kim, &lt;em&gt;A &lt;span&gt;ModernDive&lt;/span&gt; into &lt;span&gt;R&lt;/span&gt; and the &lt;span&gt;Tidyverse&lt;/span&gt;&lt;/em&gt;, 2024, &lt;span&gt;moderndive.com&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>29</sup></a></span> “Everything you need for Exploratory Data Analysis &amp; Visualization”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-edav"&gt;Joyce Robbins, &lt;em&gt;edav.info&lt;/em&gt;, 2º ed, 2024, &lt;span&gt;https://edav.info/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>30</sup></a></span> “Introduction to Data Exploration and Analysis with R”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-idear"&gt;Michael Mahoney, &lt;em&gt;Introduction to &lt;span&gt;Data&lt;/span&gt; &lt;span&gt;Exploration&lt;/span&gt; and &lt;span&gt;Analysis&lt;/span&gt; with &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;, 1º ed, 2019, &lt;span&gt;https://bookdown.org/mikemahoney218/IDEAR/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>31</sup></a></span> “The Big Book of R”</li>
+<li>Existem muitos outros livros e tutoriais dedicados a aplicações específicas. Algumas listas (incompletas) podem ser encontradas no <a href="https://www.r-project.org/doc/bib/R-jabref.html">arquivo do CRAN</a>.</li>
+</ul>
+</div>
+<div class="section level2" id="estilo-do-livro" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Estilo do Livro<a aria-label="anchor" class="anchor" href="#estilo-do-livro"><i class="fas fa-link"></i></a>
+</h2>
+<p>Antes de prosseguir, quero expor de antemão o estilo e organização dos capítulos.</p>
+<p>Este livro tem muito a cobrir, e tem um andamento acelerado. Para facilitar ao máximo a vida do leitor, o estilo dos capítulos foi definido para ajudar a direcionar a atenção para o que é mais importante, e menos atenção para o extra. Abaixo apresento alguns dos construtos utilizados para tal.</p>
+<p>Pequenos excertos de código são apresentados na linha <code class="sourceCode r"><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></code>, e blocos de código como abaixo.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="va">x</span> <span class="op">*</span> <span class="fl">2</span> <span class="co">#&gt; 4</span></span></code></pre></div>
+<p>Nos exemplos deste livro, um comentário no formato <code class="sourceCode r"><span class="co">#&gt; ...</span></code> indica o resultado esperado da declaração que o precede.</p>
+<p><strong>Palavras em negrito</strong> normalmente indicam conceitos que serão definidos. Após sua apresentação, os conceitos costumam deixar de aparecer em negrito.</p>
+<p><em>Palavras em itálico</em> costumam denotar um termo com significado específico no contexto relevante.</p>
+<div class="result">
+<p><strong>‘Nome’ do resultado</strong><br/>
+Resultados importantes são expostos neste tipo de bloco. Note que nem todos os resultados serão simples de entender imediatamente, mas são expostos no momento em que é relevante para o estudo da linguagem.</p>
+</div>
+<div class="ex">
+<p>as vezes é importante apresentar um exemplo para esclarecer um conceito. Tendo a colocar exemplos apenas quando necessário, de modo que é importante entendê-los. Em contrapartida, não há muitos exemplos “complementares”. É natural que essa baixa frequência torne difícil a compreensão de alguns temas. Mas para isso existem os exercícios.</p>
+</div>
+<div class="warn">
+<p>nesse bloco explicito pontos que o leitor deve prestar atenção. Na maioria dos casos, apresento causas comuns de erros.</p>
+</div>
+<div class="obs">
+<p>observações deste tipo costumam ser sobre a organização do livro ou outros esclarecimentos menos importantes.</p>
+</div>
+<div class="extra">
+<p>nesse tipo de bloco apresento referências que tratam do tema relevante com mais calma, ou trazem tópicos adicionais para o leitor que queira expandir seus conhecimentos.</p>
+</div>
+<div class="lesser">
+<p>Itens desse tipo costumam trazer curiosidades menos importantes.</p>
+</div>
+<p>Ao final de cada capítulo existe uma seção de “Complemento”. Nele, há:</p>
+<ul>
+<li>Uma recapitulação dos conceitos apresentados.</li>
+<li>Uma lista de funções apresentadas no capítulo.</li>
+<li>Uma seção de referências, inclusive com links para conceitos deixados de lado no capítulo, para o leitor que quiser ir além.</li>
+<li>Uma lista de exercícios, que normalmente também apresenta novos conceitos/funções.</li>
+</ul>
+</div>
+<div class="section level2" id="instalação-interface-e-ferramentas" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Instalação, Interface, e Ferramentas<a aria-label="anchor" class="anchor" href="#instala%C3%A7%C3%A3o-interface-e-ferramentas"><i class="fas fa-link"></i></a>
+</h2>
+<p>Antes de começar o aprendizado, é preciso instalar a linguagem (R), e se familiarizar com a interface do editor de código oficial (RStudio).</p>
+<p>Veja como instalar <a href="https://www.curso-de-programacao-em-r-para-jornalistas.com/2019/10/27/instalacao-r-e-rstudio/">neste tutorial</a> do curso “R Para Jornalistas”. PS: coincidentemente, a maneira que jornalistas instalam o R serve para qualquer outra profissão também.</p>
+<p>Existem vários tutoriais online explicando a interface, como o da <a href="https://www.datacamp.com/tutorial/r-studio-tutorial">Datacamp</a> (veja até “How to Write R Scripts in RStudio”), e o video <a href="https://www.youtube.com/watch?v=FIrsOBy5k58">“RStudio for the Total Beginner”</a>. Eu gosto bastante do capítulo <a href="https://modern-rstats.eu/getting-to-know-rstudio.html">“Getting to know RStudio”</a> do meu amigo Bruno Rodrigues<a class="footnote-ref" data-content="&lt;p&gt;Na verdade, eu não o conheço, mas seu livro é muito bom, e se é brasileiro, é meu amigo.&lt;/p&gt;" data-toggle="popover" tabindex="0"><sup>32</sup></a>.</p>
+<p>Além disso, existem três configurações mais comuns de serem alteradas: alterar onde os arquivos são salvos por padrão; impedir que os dados da última sessão do R sejam recarregados quando você voltar; e alterar aparência – afinal, você só se torna um programador após passar 3h escolhendo o tema perfeito. Elas podem ser encontradas em <em>[barra de menu] &gt; Tools &gt; Global Options</em>, nas abas <em>General</em> e <em>Appearance</em>.</p>
+<div class="extra">
+<p>vide capítulo “3 - Using RStudio”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-locke-work"&gt;Stephanie Locke, &lt;em&gt;Working with &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>33</sup></a></span> e <a href="https://rc2e.com/navigatingthesoftware">3 - “Navigating the Software”</a><span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-cookr"&gt;James Long e Paul Teetor, &lt;em&gt;R &lt;span&gt;Cookbook&lt;/span&gt;&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>34</sup></a></span> para mais informações sobre a interface.</p>
+</div>
+<p>Até o momento, eu fui preguiçoso e não trouxe esse material para o livro. Ainda assim, veja as referências com calma, não deixe confusões com o software atrapalharem seu aprendizado.</p>
+<p>Última coisa, eu juro. O R provê alguns comandos para procurar por ajuda. A função <code><a href="https://rdrr.io/r/utils/vignette.html">vignette()</a></code> abre uma lista de artigos de ajuda das extensões do R. Adicionalmente, se você quer saber informações sobre uma função chamada <code>acaba_pelo_amor_de_deus</code>, os códigos abaixo abrem suas documentações de ajuda.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">acaba_pelo_amor_de_deus</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="st">"acaba_pelo_amor_de_deus"</span><span class="op">)</span></span></code></pre></div>
+<p>Agora sim, vamos começar. <strong>Boa sorte!</strong></p>
+</div>
+</div>
+<div class="chapter-nav">
+<div class="prev"><a href="index.html">Bem Vindo(a)!</a></div>
+<div class="next"><a href="intro1.html">Introdução</a></div>
+</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+<nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction"><span class="header-section-number">1</span> Introdução</a></li>
+<li><a class="nav-link" href="#hist%C3%B3ria"><span class="header-section-number">1.1</span> História</a></li>
+<li><a class="nav-link" href="#caracter%C3%ADsticas-da-linguagem-e-porque-r"><span class="header-section-number">1.2</span> Características da Linguagem, e “Porque R?”</a></li>
+<li><a class="nav-link" href="#biblio"><span class="header-section-number">1.3</span> Literatura sobre R</a></li>
+<li><a class="nav-link" href="#estilo-do-livro"><span class="header-section-number">1.4</span> Estilo do Livro</a></li>
+<li><a class="nav-link" href="#instala%C3%A7%C3%A3o-interface-e-ferramentas"><span class="header-section-number">1.5</span> Instalação, Interface, e Ferramentas</a></li>
+</ul>
+<!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+</nav>
+</div>
+</div>
+</div></main> <!-- .container -->
+<footer id="rssite-footer"><p>
+            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
+            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
+        </p>
+</footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<!-- Scripts -->
+<script src="./assets/rsbd_module.js"></script><!-- dynamically load mathjax for compatibility with self-contained --><script>
+        (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = "true";
+        if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:")
+            if (/^https?:/.test(src))
+            src = src.replace(/^https?:/, '');
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+    for (let popover of popovers) {
+        const div = document.createElement('div');
+        div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+        div.innerHTML = popover.getAttribute('data-content');
+    
+        var has_math = div.querySelector("span.math");
+        if (has_math) {
+        document.body.appendChild(div);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+        MathJax.Hub.Queue(function() {
+            popover.setAttribute('data-content', div.innerHTML);
+            document.body.removeChild(div);
+        })
+        }
+    }
+    </script>
+</body>
+</html>

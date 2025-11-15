@@ -1,0 +1,55 @@
+#rssite-main.rssite-quartoblog > #quarto-content {
+  min-height: 0 !important;
+}
+
+#rssite-footer .footer-div {
+  padding: 0 0.25rem;
+}
+#rssite-footer .footer-div::before {
+  content: "|";
+}
+
+#rssite-header .nav-drop button {
+  border-radius: 4px;
+}
+
+#rssite-main.rssite-quartoblog .sidebar nav[role=doc-toc] ul > li > a:hover, #rssite-main.rssite-quartoblog .sidebar nav[role=doc-toc] ul > li > ul > li > a:hover {
+  color: var(--green) !important;
+}
+#rssite-main.rssite-quartoblog .sidebar nav[role=doc-toc] ul > li > a.active, #rssite-main.rssite-quartoblog .sidebar nav[role=doc-toc] ul > li > ul > li > a.active {
+  border-left: 1px solid var(--green);
+  color: var(--green) !important;
+}
+#rssite-main.rssite-quartoblog .quarto-title .quarto-categories .quarto-category {
+  opacity: 0.9;
+}
+#rssite-main.rssite-quartoblog .quarto-title .quarto-categories .quarto-category a {
+  color: var(--green);
+}
+#rssite-main.rssite-quartoblog div.quarto-post .listing-title a {
+  color: var(--green);
+}
+#rssite-main.rssite-quartoblog #quarto-back-to-top {
+  color: var(--green);
+}
+#rssite-main.rssite-quartoblog blockquote {
+  border-left: 0.25rem solid var(--lightorange);
+}
+#rssite-main.rssite-quartoblog main.content .header-section-number {
+  color: var(--orange);
+}
+#rssite-main.rssite-quartoblog .quarto-listing .thumbnail {
+  display: none;
+}
+#rssite-main.rssite-quartoblog .quarto-listing .quarto-post {
+  flex-direction: row-reverse;
+}
+@media (max-width: 360px) {
+  #rssite-main.rssite-quartoblog .quarto-listing .quarto-post {
+    flex-direction: column;
+  }
+}
+#rssite-main.rssite-quartoblog .quarto-listing-category-title {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}

@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!-- Meta --><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+<title>4 Subsetting | R: Fundamentos e Ciência de Dados</title>
+<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  4.1 Introdução Referência básica: Advanced R (2e) cap. 4 and cap. 5. Na aula de hoje, aprenderemos operações mais..." name="description"/>
+<meta content="bookdown 0.45 with bs4_book()" name="generator"/>
+<meta content="4 Subsetting | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="book" property="og:type"/>
+<meta content="https://ricardo-semiao.github.io/course-rfcd/subset.html" property="og:url"/>
+<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  4.1 Introdução Referência básica: Advanced R (2e) cap. 4 and cap. 5. Na aula de hoje, aprenderemos operações mais..." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="4 Subsetting | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="@ricardo_semiao" name="twitter:site"/>
+<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  4.1 Introdução Referência básica: Advanced R (2e) cap. 4 and cap. 5. Na aula de hoje, aprenderemos operações mais..." name="twitter:description"/>
+<!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"/>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"/>
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet"/>
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet"/>
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet"/>
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"/>
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script><script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script><script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script><script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script><!-- CSS --><style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<!-- Custom Assets --><link href="/assets/global.css" rel="stylesheet"/>
+<link href="./assets/rsbd_module.css" rel="stylesheet"/>
+<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external" data-spy="scroll" data-target="#toc">
+<!-- @@site-icons@@ -->
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+<div class="row">
+<header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div class="d-flex align-items-start justify-content-between">
+<h1>
+<a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+</h1>
+<button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+<i class="fas fa-bars"></i>
+<span class="sr-only">Show table of contents</span>
+</button>
+</div>
+<div class="collapse-lg" id="main-nav">
+<form role="search">
+<input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search"/>
+</form>
+<nav aria-label="Table of contents"><h2>Índice</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
+<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li><a class="" href="intro1.html">Introdução</a></li>
+<li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
+<li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="active" href="subset.html"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
+<li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
+<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
+<li><a class="" href="recap1.html">Recapitulando</a></li>
+<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li><a class="" href="intro2.html">Introdução</a></li>
+<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
+<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
+<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
+<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
+<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
+<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
+<li><a class="" href="recap2.html">Recapitulando</a></li>
+<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="intro3.html">Introdução</a></li>
+<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
+<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
+<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
+<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
+<li><a class="" href="recap3.html">Recapitulando</a></li>
+<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
+<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
+<li><a class="" href="intro4.html">Introdução</a></li>
+<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
+<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
+<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
+<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li class="book-part">Apêndice</li>
+<li><a class="" href="dict.html">Dicionário de funções</a></li>
+<li><a class="" href="refs.html">Referências</a></li>
+</ul>
+<!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+</nav>
+</div>
+</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1" id="subset" number="4">
+<h1>
+<span class="header-section-number">4</span> Subsetting<a aria-label="anchor" class="anchor" href="#subset"><i class="fas fa-link"></i></a>
+</h1>
+<div class="warn">
+<p>este capítulo está em construção. O que segue abaixo é apenas um rascunho.</p>
+</div>
+<div class="section level2" id="introdução-3" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Introdução<a aria-label="anchor" class="anchor" href="#introdu%C3%A7%C3%A3o-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Referência básica: Advanced R (2e) <a href="https://adv-r.hadley.nz/subsetting.html">cap. 4</a> and <a href="https://adv-r.hadley.nz/control-flow.html">cap. 5</a>.</p>
+<p>Na aula de hoje, aprenderemos operações mais concretas, mas muito essenciais.</p>
+<p>Haverão três aprendizados principais:</p>
+<p><strong>(i)</strong> como funciona o sistema de subsetting, e sua relação com os tipos de valores;</p>
+<p><strong>(ii)</strong> as ferramentas de control flow no R;</p>
+<p><strong>(iii)</strong> o sistema de condições e suas ferramentas.</p>
+<p>Para os exemplos, considere:</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1.3</span>, <span class="fl">7.4</span>, <span class="fl">6.0</span>, <span class="fl">5.9</span><span class="op">)</span></span>
+<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span>
+<span><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"a"</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="st">"b"</span> <span class="op">=</span> <span class="st">"oi"</span>, <span class="st">"c"</span> <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2" id="subset---operador" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Subset - Operador <code>[</code><a aria-label="anchor" class="anchor" href="#subset---operador"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="operador" number="4.2.1">
+<h3>
+<span class="header-section-number">4.2.1</span> Operador <code>[</code><a aria-label="anchor" class="anchor" href="#operador"><i class="fas fa-link"></i></a>
+</h3>
+<p>O operador <code>[</code> é utilizado após um vetor <code>x[...]</code>, para selecionar um subconjunto de seus elementos.</p>
+<p>O conteúdo em <code>...</code> pode tomar seis formas.</p>
+</div>
+<div class="section level3" id="operador-com-vetores-atômicos" number="4.2.2">
+<h3>
+<span class="header-section-number">4.2.2</span> Operador <code>[</code> Com Vetores Atômicos<a aria-label="anchor" class="anchor" href="#operador-com-vetores-at%C3%B4micos"><i class="fas fa-link"></i></a>
+</h3>
+<p>Seis ‘insumos’ para selecionar com <code>[</code>:</p>
+<p>A1. <strong>Inteiros positivos:</strong> retornam elementos nas posições:</p>
+<ul>
+<li>
+<code class="sourceCode r">x[<span class="dv">1</span>] <span class="co">#&gt; 1.3</span></code>.</li>
+<li>
+<code class="sourceCode r">x[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="co">#&gt; 1.3 7.4 6.0</span></code>.</li>
+<li>
+<code class="sourceCode r">x[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)] <span class="co">#&gt; 1.3 6.0</span></code>.</li>
+</ul>
+<p>A2. <strong>Inteiros negativos:</strong> retornam todos os elementos menos os das posições.</p>
+<ul>
+<li><code class="sourceCode r">x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)] <span class="co">#&gt; 7.4 5.9</span></code></li>
+</ul>
+<p>Obs: decimais são truncados <code class="sourceCode r">x[<span class="fl">1.7</span>] <span class="sc">==</span> x[<span class="dv">1</span>]</code>, e factors ‘viram’ inteiros.</p>
+<p>A3. <strong>Vetores lógicos:</strong> retornam os elementos nas posições onde tem-se <code class="sourceCode r"><span class="cn">TRUE</span></code>’s.</p>
+<ul>
+<li>
+<code class="sourceCode r">x[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)] <span class="co">#&gt; 1.3 7.4</span></code>.</li>
+</ul>
+<p>A4. <strong>Vetores de texto:</strong> retornam os elementos com os nomes escolhidos.</p>
+<ul>
+<li>
+<code class="sourceCode r"><span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>, <span class="at">c =</span> <span class="dv">3</span>)[<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"c"</span>)] <span class="co">#&gt; 1 3</span></code>.</li>
+</ul>
+<p><strong>Reciclagem:</strong> para relacionar vetores de tamanhos diferentes, o R multiplica o tamanho do menor, se for múltiplo do maior: <code class="sourceCode r">x[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</code>.</p>
+<p>A5. <strong>Nada:</strong> <code class="sourceCode r">x[]</code> retorna o vetor original.</p>
+<ul>
+<li>Será relevante para matrizes, e para substituir o conteúdo, deixando a estrutura intacta.</li>
+</ul>
+<p>A6. <strong>Zero:</strong> retorna um vetor de tamanho 0.</p>
+<p>Note que 1. e 4. podem reordear um vetor <code class="sourceCode r">x[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)]</code>, bem como retornar um único elemento.</p>
+</div>
+<div class="section level3" id="operador-com-matrizes-e-arrays" number="4.2.3">
+<h3>
+<span class="header-section-number">4.2.3</span> Operador <code>[</code> Com Matrizes e Arrays<a aria-label="anchor" class="anchor" href="#operador-com-matrizes-e-arrays"><i class="fas fa-link"></i></a>
+</h3>
+<p>Com matrizes (vetores com dimensão), existem três ‘métodos’:</p>
+<p>M1. <strong>Múltiplos vetores:</strong> um vetor para cada dimensão:</p>
+<ul>
+<li>
+<code class="sourceCode r">m[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>), <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"A"</span>)]</code>.</li>
+<li>Um vetor omisso retorna todos os ‘elementos da dimensão’: <code class="sourceCode r">a[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</code>.</li>
+<li>Para arrays, use um argumento para cada dimensão <code class="sourceCode r">a[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>, , <span class="dv">4</span>]</code>.</li>
+</ul>
+<p>M2. <strong>Vetor único:</strong> como matrizes são vetores, podemos tratá-las como tal:</p>
+<ul>
+<li>
+<code class="sourceCode r">m[<span class="dv">5</span><span class="sc">:</span><span class="dv">7</span>]</code> do elemento 5 até o 7 (a ordem é “column-major”).</li>
+<li>Podemos usar um vetor lógico aqui. E, como dimensão é um mero meta-dado, uma matriz lógica.</li>
+</ul>
+<p>M3. <strong>Matrizes seletoras:</strong> onde cada coluna é uma dimensão, e cada linha um elemento quisto:</p>
+<ul>
+<li>
+<code class="sourceCode r">m[<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>))]</code>.</li>
+<li>Para arrays, precisamos de três ou mais colunas.</li>
+</ul>
+</div>
+<div class="section level3" id="operador-com-listas-e-dataframes" number="4.2.4">
+<h3>
+<span class="header-section-number">4.2.4</span> Operador <code>[</code> Com Listas e Dataframes<a aria-label="anchor" class="anchor" href="#operador-com-listas-e-dataframes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Com listas, não temos nenhuma diferença. <code>[</code> sempre retorna uma lista, mesmo ao selecionar um único elemento.</p>
+<div class="ex">
+<p>E para data frames? O que <code class="sourceCode r">df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</code> deve retornar?</p>
+<p>E <code class="sourceCode r">df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ]</code>? É “natural” que esses métodos coexistam?</p>
+</div>
+<p>Com dataframes, que são uma ‘lista com cara de matriz’, ambos os métodos existem.</p>
+</div>
+<div class="section level3" id="operador-e-simplificação" number="4.2.5">
+<h3>
+<span class="header-section-number">4.2.5</span> Operador <code>[</code> e Simplificação<a aria-label="anchor" class="anchor" href="#operador-e-simplifica%C3%A7%C3%A3o"><i class="fas fa-link"></i></a>
+</h3>
+<p>O operador <code>[</code> simplifica a dimensão do resultado.</p>
+<ul>
+<li>Em matrizes/arrays, dimensões de <em>length</em> 1 são desfeitas:
+<ul>
+<li>
+<code class="sourceCode r">m[<span class="dv">1</span>,]</code>, e <code class="sourceCode r">m[,<span class="dv">1</span>]</code>. Ou também <code class="sourceCode r">m[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>]</code>.</li>
+</ul>
+</li>
+<li>Ou ao selecionar uma única coluna de um dataframe no ‘modo matriz’ <code>df[..., 2]</code>.
+<ul>
+<li>Mas selecionar linhas, mais de uma coluna, ou pelo ‘modo elemento’, mantêm a dimensão.</li>
+</ul>
+</li>
+</ul>
+<p>Isso é controlado pelo argumento <code>drop = TRUE</code> do operador. Podemos alterá-lo: <code class="sourceCode r">df[<span class="dv">1</span>, , drop <span class="ot">=</span> <span class="cn">FALSE</span>]</code>.</p>
+<p>Tibbles tem <code>drop = FALSE</code> por padrão, sempre retornando outra tibble/nunca simplificando (alá a preguiça).</p>
+</div>
+</div>
+<div class="section level2" id="subset---operador-1" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Subset - Operador <code>[[</code><a aria-label="anchor" class="anchor" href="#subset---operador-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="operador-1" number="4.3.1">
+<h3>
+<span class="header-section-number">4.3.1</span> Operador <code>[[</code><a aria-label="anchor" class="anchor" href="#operador-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Lembre que, em listas, <code>[</code> sempre retorna uma lista – retorna o(s) elemento(s) <strong>e</strong> a ‘estrutura em volta’.</p>
+<p>Para retornar apenas um (único) elemento, usamos os operadores <code class="sourceCode r">[[...]]</code> ou <code class="sourceCode r"><span class="sc">$</span>...</code>.</p>
+<div class="ex">
+<p>Qual deve ser o resultado de <code class="sourceCode r">x[<span class="dv">1</span>] <span class="sc">==</span> x[[<span class="dv">1</span>]]</code>? Porque?</p>
+<div class="fragment">
+<p>Pode ser útil usar <code>[[</code> mesmo assim?</p>
+</div>
+</div>
+</div>
+<div class="section level3" id="operador-com-listas" number="4.3.2">
+<h3>
+<span class="header-section-number">4.3.2</span> Operador <code>[[</code> Com Listas<a aria-label="anchor" class="anchor" href="#operador-com-listas"><i class="fas fa-link"></i></a>
+</h3>
+<p>Dois ‘insumos’ para selecionar com <code>[[</code>:</p>
+<p>L1. <strong>Um escalar inteiro:</strong> selecionando o elemento pelo índide.</p>
+<p>L2. <strong>Um escalar string:</strong> selecionando pelo nome.</p>
+<p>No segundo caso, podemos usar a abreviação <code class="sourceCode r">l<span class="sc">$</span>a</code>, no lugar de <code class="sourceCode r">l[[<span class="st">"a"</span>]]</code>.</p>
+<p>Obs:</p>
+<ul>
+<li>Selecionar com um vetor seleciona recursivamente na lista, <code>x[[c(1, 2)]]</code> é similar à <code>x[[1]][[2]]</code>.</li>
+<li>
+<code>$</code> faz matching parcial nos nomes, use <code>options(warnPartialMatchDollar = TRUE)</code>.</li>
+</ul>
+</div>
+</div>
+<div class="section level2" id="subset---seleções-erradas-e-assignment" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Subset - Seleções Erradas e Assignment<a aria-label="anchor" class="anchor" href="#subset---sele%C3%A7%C3%B5es-erradas-e-assignment"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="seleções-erradas" number="4.4.1">
+<h3>
+<span class="header-section-number">4.4.1</span> Seleções Erradas<a aria-label="anchor" class="anchor" href="#sele%C3%A7%C3%B5es-erradas"><i class="fas fa-link"></i></a>
+</h3>
+<p>E se selecionarmos um elemento que não existe? A resposta é <em>suco de R</em>:</p>
+<!-- <style>
+table colgroup col {
+    width: auto !important;
+}
+</style> -->
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="10%"/>
+<col width="13%"/>
+<col width="13%"/>
+<col width="13%"/>
+<col width="12%"/>
+<col width="22%"/>
+<col width="13%"/>
+</colgroup>
+<thead><tr class="header">
+<th align="left">x</th>
+<th align="left">fun</th>
+<th align="center">-Int OOB</th>
+<th align="center">+Int OOB</th>
+<th align="center">Chr OOB</th>
+<th align="center"><code>NA</code></th>
+<th align="center">0-length</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Atomic</td>
+<td align="left"><code>[</code></td>
+<td align="center"><code>x</code></td>
+<td align="center"><code>NA</code></td>
+<td align="center"><code>NA</code></td>
+<td align="center">N-length <code>NA</code>
+</td>
+<td align="center">0-length</td>
+</tr>
+<tr class="even">
+<td align="left">List</td>
+<td align="left"><code>[</code></td>
+<td align="center"><code>x</code></td>
+<td align="center"><code>NULL</code></td>
+<td align="center"><code>NULL</code></td>
+<td align="center">N-length <code>NULL</code>
+</td>
+<td align="center">0-length</td>
+</tr>
+<tr class="odd">
+<td align="left">Atomic</td>
+<td align="left"><code>[[</code></td>
+<td align="center">Error</td>
+<td align="center">Error</td>
+<td align="center">Error</td>
+<td align="center">Error</td>
+<td align="center">Error</td>
+</tr>
+<tr class="even">
+<td align="left">List</td>
+<td align="left"><code>[[</code></td>
+<td align="center">Error</td>
+<td align="center">Error</td>
+<td align="center"><code>NULL</code></td>
+<td align="center"><code>NULL</code></td>
+<td align="center">Error</td>
+</tr>
+<tr class="odd">
+<td align="left">NULL</td>
+<td align="left">
+<code>[[</code>/<code>[</code>
+</td>
+<td align="center"><code>NULL</code></td>
+<td align="center"><code>NULL</code></td>
+<td align="center"><code>NULL</code></td>
+<td align="center"><code>NULL</code></td>
+<td align="center"><code>NULL</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Obs: o comportamento é o mesmo com ’x’s de tamanho zero.</p>
+<p>Não é importante decorar essa matriz, mas note:</p>
+<ul>
+<li>
+<code>[</code> é mais permissivo, retorna “nada” em vez de um erro.
+<ul>
+<li>Com -Int, retorna <code>x</code>, faz sentido.</li>
+<li>O que pode representar “nada” em listas? E em atômicos?</li>
+</ul>
+</li>
+<li>
+<code>[[</code> é menos permissivo, retorna erro em vez de nada.
+<ul>
+<li>Mas com listas, temos duas exceções.</li>
+</ul>
+</li>
+<li>O que significa selecionar com <code>NA</code>? Em qual dos tipos de conteúdo ele se encaixa?</li>
+</ul>
+<p>Para lidar com essas inconsistências, existem as seguintes funções:</p>
+<ul>
+<li>Para <code>[</code>: <code><a href="https://purrr.tidyverse.org/reference/keep_at.html">purrr::keep_at()</a></code>, <code><a href="https://vctrs.r-lib.org/reference/vec_slice.html">vctrs::vec_slice</a></code>.</li>
+<li>Para <code>[</code>: <code><a href="https://purrr.tidyverse.org/reference/pluck.html">purrr::pluck()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/chuck.html">purrr::chuck()</a></code>.</li>
+</ul>
+</div>
+<div class="section level3" id="assingment" number="4.4.2">
+<h3>
+<span class="header-section-number">4.4.2</span> Assingment<a aria-label="anchor" class="anchor" href="#assingment"><i class="fas fa-link"></i></a>
+</h3>
+<p>Todos os operadores de subset podem ser combinados com <code>&lt;-</code>: <code>x[i] &lt;- ...</code>.</p>
+<p><code>x[[i]] &lt;- NULL</code> remove o item de uma lista, <code>x[i] &lt;- list(NULL)</code> adiciona um elemento <code>NULL</code>.</p>
+<p>Subsetar com nada seleciona o ‘conteúdo’ de um objeto, e pode ser combinado com assignment para manter a estrutura inalterada:</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df</span><span class="op">[</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">as.integer</span><span class="op">)</span> <span class="co"># df se mantem um dataframe</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">as.integer</span><span class="op">)</span> <span class="co"># df vira uma lista</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2" id="control-flow---condicionais" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Control Flow - Condicionais<a aria-label="anchor" class="anchor" href="#control-flow---condicionais"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="control-flow" number="4.5.1">
+<h3>
+<span class="header-section-number">4.5.1</span> Control Flow<a aria-label="anchor" class="anchor" href="#control-flow"><i class="fas fa-link"></i></a>
+</h3>
+<p>As ferramentas de control flow são aquelas que alteram a ordem de execução de um dado código.</p>
+<p>No R, temos dois grupos principais:</p>
+<ul>
+<li>
+<em>Choices</em>, com <code>if</code>, <code>else</code>, <code><a href="https://rdrr.io/r/base/switch.html">switch()</a></code>, e <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>
+</li>
+<li>
+<em>Loops</em>, com <code>repeat</code>, <code>while</code>, e <code>for</code>
+</li>
+</ul>
+</div>
+<div class="section level3" id="if-e-else" number="4.5.2">
+<h3>
+<span class="header-section-number">4.5.2</span> If e Else<a aria-label="anchor" class="anchor" href="#if-e-else"><i class="fas fa-link"></i></a>
+</h3>
+<p>Podemos criar uma expressão que apenas é avaliada se uma certa condição for verdade. Se não for, podemos complementar com expressões auxiliares:</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">60</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">90</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="st">"A"</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">80</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="st">"B"</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">50</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="st">"C"</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="st">"F"</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+<div class="section level3" id="if-e-else-1" number="4.5.3">
+<h3>
+<span class="header-section-number">4.5.3</span> If e Else<a aria-label="anchor" class="anchor" href="#if-e-else-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Características gerais:</p>
+<ul>
+<li><p>A condição deve gerar <code>TRUE</code> ou <code>FALSE</code> (os escalares). Outras coisas geram erros.</p></li>
+<li><p>Podemos escrever essas expressões em uma linha, sem “{”.</p></li>
+<li>
+<p>Podemos utilizá-las para assinalar valores: <code class="sourceCode r">x <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="cn">TRUE</span>) <span class="dv">1</span> <span class="cf">else</span> <span class="dv">2</span></code>.</p>
+<ul>
+<li>Se não houver nenhum <code>else</code>, <code>if</code> retorna um <code class="sourceCode r"><span class="cn">NULL</span></code>.</li>
+</ul>
+</li>
+<li><p>Mais pra fente, veremos que if é uma função! <code class="sourceCode r"><span class="st">`</span><span class="at">if(cond, expr1, expr2)</span><span class="st">`</span></code>.</p></li>
+</ul>
+</div>
+<div class="section level3" id="if-e-else-vetorizado" number="4.5.4">
+<h3>
+<span class="header-section-number">4.5.4</span> If e Else Vetorizado<a aria-label="anchor" class="anchor" href="#if-e-else-vetorizado"><i class="fas fa-link"></i></a>
+</h3>
+<p>A função <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> funciona para um vetor de condições, diferentemente de <code>if</code>, que exigia um único valor booleano.</p>
+<p>Para cada elemento, ela checa a condição, e avalia uma ou outra expressão, salvando os resultados em um vetor.</p>
+<div class="ex">
+<p>O que o código abaixo vai retornar?</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">5</span>, <span class="cn">NA</span>, <span class="va">x</span><span class="op">)</span></span></code></pre></div>
+</div>
+<p>Outra opção é <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">dplyr::case_when()</a></code>, que permite vários pares condição-resultado:</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
+<span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>  <span class="va">k</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">35</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">~</span> <span class="st">"fizz buzz"</span>,</span>
+<span>  <span class="va">k</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">5</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">~</span> <span class="st">"fizz"</span>,</span>
+<span>  <span class="va">k</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">7</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">~</span> <span class="st">"buzz"</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">~</span> <span class="st">"???"</span>,</span>
+<span>  <span class="cn">TRUE</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">k</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "1"    "2"    "3"    "4"    "fizz" "6"    "buzz" "8"    "9"    "fizz"</span></span></code></pre></div>
+</div>
+<div class="section level3" id="and-and-e-or-or" number="4.5.5">
+<h3>
+<span class="header-section-number">4.5.5</span> And And e Or Or<a aria-label="anchor" class="anchor" href="#and-and-e-or-or"><i class="fas fa-link"></i></a>
+</h3>
+<p>Existem os operadores “and and” <code>&amp;&amp;</code> e “or or” <code>||</code> que garantem sempre um único valor booleano (dão erros com vetores longos), além de serem “short circuit”.</p>
+<div class="ex">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="cn">TRUE</span></span>
+<span><span class="co">#&gt; erro por usar vetor longo</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; FALSE pois para no `FALSE`</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">&amp;</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="op">)</span> <span class="co">#gera erro,</span></span>
+<span><span class="co">#&gt; erro, pois não para no `FALSE`</span></span></code></pre></div>
+</div>
+<p>Por isso, use <code>&amp;&amp;</code> e <code>||</code> em <code>if</code>, <code>&amp;</code> e <code>|</code> em <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>.</p>
+</div>
+<div class="section level3" id="switch" number="4.5.6">
+<h3>
+<span class="header-section-number">4.5.6</span> Switch<a aria-label="anchor" class="anchor" href="#switch"><i class="fas fa-link"></i></a>
+</h3>
+<p>Existe uma maneira mais simples de escrever uma expressão <code>if</code> de “escolha de opções”, com a função <code><a href="https://rdrr.io/r/base/switch.html">switch()</a></code>:</p>
+<div class="ex">
+<div class="columns">
+<div class="column" style="width:47.5%;">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="st">"a"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="st">"option 1"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="st">"b"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="st">"option 2"</span> </span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="st">"c"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="st">"option 3"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"`x` inválido"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+<div class="column" style="width:5%;">
+</div>
+<div class="column" style="width:47.5%;">
+<div class="fragment">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/switch.html">switch</a></span><span class="op">(</span><span class="va">x</span>,</span>
+<span>  a <span class="op">=</span> <span class="st">"option 1"</span>,</span>
+<span>  b <span class="op">=</span> <span class="st">"option 2"</span>,</span>
+<span>  c <span class="op">=</span> <span class="st">"option 3"</span>,</span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"`x` inválido"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3" id="infix-operator" number="4.5.7">
+<h3>
+<span class="header-section-number">4.5.7</span> Infix Operator<a aria-label="anchor" class="anchor" href="#infix-operator"><i class="fas fa-link"></i></a>
+</h3>
+<p>Muitas vezes, queremos substituir o valor de uma variável caso ela seja <code>NULL</code>. Muitas vezes, funções usam isso para definir argumentos padrão.</p>
+<p>Para isso, temos o infix operator:</p>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">k</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span><span class="va">k</span> <span class="op">&lt;-</span> <span class="va">k</span> <span class="op"><a href="https://rdrr.io/r/base/Control.html">%||%</a></span> <span class="fl">10</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2" id="control-flow---loops" number="4.6">
+<h2>
+<span class="header-section-number">4.6</span> Control Flow - Loops<a aria-label="anchor" class="anchor" href="#control-flow---loops"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="loops-for" number="4.6.1">
+<h3>
+<span class="header-section-number">4.6.1</span> Loops For<a aria-label="anchor" class="anchor" href="#loops-for"><i class="fas fa-link"></i></a>
+</h3>
+<p>Loops for são usados para iterar em elementos de um vetor:</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">item</span> <span class="kw">in</span> <span class="va">vector</span><span class="op">)</span> <span class="va">expr</span></span></code></pre></div>
+<p><code>item</code> é literalmente um objeto, cujo valor vai sendo atualizado a cada iteração, e fica armazenado no ambiente global.</p>
+<p>Dicas gerais:</p>
+<ul>
+<li>O R é uma lingua vetorizada, use operações vetorizadas no lugar de loops!</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;</span> <span class="fl">0</span>, <span class="op">-</span><span class="va">x</span>, <span class="va">x</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="kw">else</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>Ao usar um loop para criar uma variável, crie o “contêiner” de antemão, pois é bem mais rápido:</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>; <span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">i</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>; <span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">i</span></span></code></pre></div>
+<ul>
+<li><p>Prefira usar <code class="sourceCode r"><span class="fu">seq_along</span>(x)</code> no lugar de <code class="sourceCode r"><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)</code>.</p></li>
+<li><p>Cuidado que loops costuma remover atributos. Use <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> e acesse os itens você mesmo:</p></li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2020-01-01"</span>, <span class="st">"2010-01-01"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="map" number="4.6.2">
+<h3>
+<span class="header-section-number">4.6.2</span> Map<a aria-label="anchor" class="anchor" href="#map"><i class="fas fa-link"></i></a>
+</h3>
+<p>Em muitas linguagens, um map é uma <a href="https://en.wikipedia.org/wiki/Higher-order_function">higher-order-function</a> que aplica uma função aos elementos de uma coleção.</p>
+<p>Este é um padrão <em>funcional</em>, e será discutido na aula 5, mas tem sua semelhança com loops.</p>
+<p>No R, existem vários maps:</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">x</span>, \<span class="op">(</span><span class="va">a</span><span class="op">)</span> <span class="va">a</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">x</span>, \<span class="op">(</span><span class="va">a</span><span class="op">)</span> <span class="va">a</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<p>E existem muitas variações:</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">x</span>, \<span class="op">(</span><span class="va">a</span><span class="op">)</span> <span class="va">a</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">df</span>, <span class="fl">1</span>, \<span class="op">(</span><span class="va">a</span><span class="op">)</span> <span class="va">a</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Map</a></span><span class="op">(</span>\<span class="op">(</span><span class="va">a</span><span class="op">)</span> <span class="va">a</span> <span class="op">+</span> <span class="fl">1</span>, <span class="va">x</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="outros-loops" number="4.6.3">
+<h3>
+<span class="header-section-number">4.6.3</span> Outros Loops<a aria-label="anchor" class="anchor" href="#outros-loops"><i class="fas fa-link"></i></a>
+</h3>
+<p>Se você não tem um vetor de opções de antemão, não sabe sobre quais valores quer iterar, você pode:</p>
+<ul>
+<li><p>Usar um loop <code class="sourceCode r"><span class="cf">while</span> (condition) {...}</code>, que repete uma ação enquanto uma condição valer.</p></li>
+<li><p>Ou, ainda mais flexível, <code class="sourceCode r"><span class="cf">repeat</span>(...)</code>, que repete uma ação para sempre até encontrar um <code><a href="https://rdrr.io/r/base/Control.html">break</a></code>.</p></li>
+</ul>
+<p>É uma boa prática usar a opção menos flexível possível, para dar menos brechas para erros. Prefira usar o <code>for</code>, ou <code>lapply</code>/<code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map</a></code>.</p>
+</div>
+</div>
+<div class="section level2" id="control-flow---keywords" number="4.7">
+<h2>
+<span class="header-section-number">4.7</span> Control Flow - Keywords<a aria-label="anchor" class="anchor" href="#control-flow---keywords"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="keywords" number="4.7.1">
+<h3>
+<span class="header-section-number">4.7.1</span> Keywords<a aria-label="anchor" class="anchor" href="#keywords"><i class="fas fa-link"></i></a>
+</h3>
+<p>A keyword <code><a href="https://rdrr.io/r/base/Control.html">next</a></code> pula para a próxima iteração, e <code><a href="https://rdrr.io/r/base/Control.html">break</a></code> termina o loop/condicional.</p>
+<div class="ex">
+<p>Como será a ordem do loop abaixo?</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op">&lt;</span> <span class="fl">3</span><span class="op">)</span> <span class="kw">next</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op">&gt;=</span> <span class="fl">5</span><span class="op">)</span> <span class="kw">break</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="section level2" id="condition-system" number="4.8">
+<h2>
+<span class="header-section-number">4.8</span> Condition System<a aria-label="anchor" class="anchor" href="#condition-system"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="conditions" number="4.8.1">
+<h3>
+<span class="header-section-number">4.8.1</span> Conditions<a aria-label="anchor" class="anchor" href="#conditions"><i class="fas fa-link"></i></a>
+</h3>
+<p>O sistema de condições serve para funções indicarem ao usuário alguma informação, como a existência de erros.</p>
+<p>Existem três tipos de informação:</p>
+<ul>
+<li>Erros: muito severos, indicam que nem foi possível terminar a execução da função</li>
+<li>Avisos: médiamente severos, indicam alga provávelmente errado, mas que não impediu a execução.</li>
+<li>Mensagens: pouco severos, normalmente indicam que a função realizou alguma correção para o usuário.</li>
+</ul>
+</div>
+<div class="section level3" id="condition-functions" number="4.8.2">
+<h3>
+<span class="header-section-number">4.8.2</span> Condition Functions<a aria-label="anchor" class="anchor" href="#condition-functions"><i class="fas fa-link"></i></a>
+</h3>
+<p>Dentro da função, chamadas à <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code>, ou <code><a href="https://rdrr.io/r/base/message.html">message()</a></code> criam a condição. <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>, inclusive, para a execução da função.</p>
+<p>Também existe <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::abort()</a></code>, <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::warn()</a></code>, <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::inform()</a></code>.</p>
+<p>O usuário pode encapsular uma call em funções como <code><a href="https://rdrr.io/r/base/try.html">try()</a></code> e <code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> para ignorar ou lidar com condições.</p>
+</div>
+<div class="section level3" id="signaling" number="4.8.3">
+<h3>
+<span class="header-section-number">4.8.3</span> Signaling<a aria-label="anchor" class="anchor" href="#signaling"><i class="fas fa-link"></i></a>
+</h3>
+<p>Autores de funções devem aprender quando e como indicar cada tipo de condição. Se tiver curiosidade, veja a seção <a href="https://adv-r.hadley.nz/conditions.html#signalling-conditions">8.2 do AdvR</a>.</p>
+<div class="ex">
+<p>Considere as função de teste do pacote <a href="https://ricardo-semiao.github.io/varr/">varr</a>.</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">category</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">arg</span>, <span class="va">options</span>, <span class="va">env</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">arg_name</span> <span class="op">&lt;-</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html">ensym</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="va">arg</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">options</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">cli_abort</span><span class="op">(</span></span>
+<span>      <span class="st">"{.var {arg_name}} must contain only {.or {options}}"</span>,</span>
+<span>      call <span class="op">=</span> <span class="va">env</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">test</span><span class="op">$</span><span class="va">unused</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">arg</span>, <span class="va">x</span>, <span class="va">class</span>, <span class="va">env</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">arg_name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html">ensym</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">==</span> <span class="va">class</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">cli_inform</span><span class="op">(</span></span>
+<span>      <span class="st">"{.val {arg_name}} is unused if `x` is of class {class}."</span>,</span>
+<span>      call <span class="op">=</span> <span class="va">env</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3" id="ignoring" number="4.8.4">
+<h3>
+<span class="header-section-number">4.8.4</span> Ignoring<a aria-label="anchor" class="anchor" href="#ignoring"><i class="fas fa-link"></i></a>
+</h3>
+<p>No R, podemos ignorar condições:</p>
+<ul>
+<li>Ignore erros com <code><a href="https://rdrr.io/r/base/try.html">try()</a></code>.</li>
+<li>Ignore avisos com <code><a href="https://rdrr.io/r/base/warning.html">suppressWarnings()</a></code>.</li>
+<li>Ignore mensagens com <code><a href="https://rdrr.io/r/base/message.html">suppressMessages()</a></code>.</li>
+</ul>
+<div class="ex">
+<p>Considere o padrão abaixo.</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/try.html">try</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">call_que_pode_dar_errado</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3" id="handling" number="4.8.5">
+<h3>
+<span class="header-section-number">4.8.5</span> Handling<a aria-label="anchor" class="anchor" href="#handling"><i class="fas fa-link"></i></a>
+</h3>
+<p>Podemos lidar com condições usando <code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> e <code><a href="https://rdrr.io/r/base/conditions.html">withCallingHandlers()</a></code>, que especificam funções para se executar no caso de cada tipo de condição:</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/conditions.html">tryCatch</a></span><span class="op">(</span></span>
+<span>  error <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">cnd</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="co"># código a ser executado quando ocorrer um erro</span></span>
+<span>  <span class="op">}</span>,</span>
+<span>  warning <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">cnd</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="co"># código a ser executado quando um aviso for sinalizado</span></span>
+<span>  <span class="op">}</span>,</span>
+<span>  message <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">cnd</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="co"># código a ser executado quando uma mensagem for sinalizada</span></span>
+<span>  <span class="op">}</span>,</span>
+<span>  <span class="va">call_rodada_com_handlers</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>Qual a diferença das duas?</p>
+<ul>
+<li><p><code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> define <em>exiting handlers</em>, após a condição aparecer, a função handler relevante é ativada, e seu valor é retornado para onde <code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> foi chamado.</p></li>
+<li><p><code><a href="https://rdrr.io/r/base/conditions.html">withCallingHandlers()</a></code> define <em>calling handlers</em>, após a condição, a função handler relevante é ativada, e seu valor é retornado para onde a call que gerou a condição estava.</p></li>
+</ul>
+<p>Isto é, uma sai da call, outra não. A primeira é mais intuitiva para erros, a segunda para avisos ou mensagens.</p>
+<hr class="double-hrule"/>
+</div>
+</div>
+<div class="section level2 unlisted unnumbered" id="complemento-2">
+<h2>Complemento<a aria-label="anchor" class="anchor" href="#complemento-2"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3 unnumbered" id="recapitulando-2">
+<h3>Recapitulando<a aria-label="anchor" class="anchor" href="#recapitulando-2"><i class="fas fa-link"></i></a>
+</h3>
+<div class="section level4" id="subsetting" number="4.8.5.1">
+<h4>
+<span class="header-section-number">4.8.5.1</span> Subsetting<a aria-label="anchor" class="anchor" href="#subsetting"><i class="fas fa-link"></i></a>
+</h4>
+<p>Seis ‘insumos’ para selecionar com <code>[</code>:</p>
+<p>A1. <strong>Inteiros positivos:</strong> retornam elementos nas posições.</p>
+<p>A2. <strong>Inteiros negativos:</strong> retornam todos os elementos menos os das posições.</p>
+<p>A3. <strong>Vetores lógicos:</strong> retornam os elementos nas posições onde tem-se <code class="sourceCode r"><span class="cn">TRUE</span></code>’s.</p>
+<p>A4. <strong>Vetores de texto:</strong> retornam os elementos com os nomes escolhidos.</p>
+<p>A5. <strong>Nada:</strong> <code class="sourceCode r">x[]</code> retorna o vetor original.</p>
+<p>A6. <strong>Zero:</strong> retorna um vetor de tamanho 0.</p>
+<p><strong>Reciclagem:</strong> para relacionar vetores de tamanhos diferentes, o R multiplica o tamanho do menor, se for múltiplo do maior: <code class="sourceCode r">x[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</code>.</p>
+<p>Três ‘métodos’ para selecionar com dimensões:</p>
+<p>M1. <strong>Múltiplos vetores:</strong> um vetor para cada dimensão.
+M2. <strong>Vetor único:</strong> como matrizes são vetores, podemos tratá-las como tal.
+M3. <strong>Matrizes seletoras:</strong> onde cada coluna é uma dimensão, e cada linha um elemento quisto.</p>
+<p>Com listas e dataframes:</p>
+<ul>
+<li>Com listas, não temos nenhuma diferença. <code>[</code> sempre retorna uma lista, mesmo ao selecionar um único elemento.</li>
+<li>Com dataframes, que são uma ‘lista com cara de matriz’, temos o método normal e o de matriz.</li>
+</ul>
+<p>O operador <code>[</code> simplifica a dimensão do resultado. Veja o argumento <code>drop = TRUE</code>.</p>
+<p>Para retornar apenas um (único) elemento, usamos os operadores <code class="sourceCode r">[[...]]</code> ou <code class="sourceCode r"><span class="sc">$</span>...</code>.</p>
+<p>Dois ‘insumos’ para selecionar com <code>[[</code>:</p>
+<p>L1. <strong>Um escalar inteiro:</strong> selecionando o elemento pelo índide.
+L2. <strong>Um escalar string:</strong> selecionando pelo nome.</p>
+<p>Selecionar elementos que não existem está relacionado a comportamentos inconsistentes, as vezes retornando erros, <code>NULL</code>, ou <code>NA</code>.</p>
+<ul>
+<li>
+<code>[</code> é mais permissivo, retorna “nada” em vez de um erro.
+<ul>
+<li>Considere usar <code><a href="https://purrr.tidyverse.org/reference/keep_at.html">purrr::keep_at()</a></code> ou <code><a href="https://vctrs.r-lib.org/reference/vec_slice.html">vctrs::vec_slice</a></code>.</li>
+</ul>
+</li>
+<li>
+<code>[[</code> é menos permissivo, retorna erro em vez de nada.
+<ul>
+<li>Considere usar <code><a href="https://purrr.tidyverse.org/reference/pluck.html">purrr::pluck()</a></code> e <code><a href="https://purrr.tidyverse.org/reference/chuck.html">purrr::chuck()</a></code>.</li>
+</ul>
+</li>
+</ul>
+<p>Todos os operadores de subset podem ser combinados com <code>&lt;-</code>: <code>x[i] &lt;- ...</code>.</p>
+</div>
+<div class="section level4" id="control-flow-1" number="4.8.5.2">
+<h4>
+<span class="header-section-number">4.8.5.2</span> Control Flow<a aria-label="anchor" class="anchor" href="#control-flow-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>As ferramentas de control flow são aquelas que alteram a ordem de execução de um dado código.</p>
+<ul>
+<li>
+<em>Choices</em>, com <code>if</code>, <code>else</code>, <code><a href="https://rdrr.io/r/base/switch.html">switch()</a></code>.
+<ul>
+<li>E suas versões vetorizadas, <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> e <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">dplyr::case_when()</a></code>.</li>
+</ul>
+</li>
+<li>
+<em>Loops</em>, com <code>repeat</code>, <code>while</code>, e <code>for</code>.
+<ul>
+<li>Similares ao conceito de map, funções como <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code>, e <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code>.</li>
+</ul>
+</li>
+</ul>
+<p>Também vimos:</p>
+<ul>
+<li>Operadores and and e or or.</li>
+<li>Ooperador infix.</li>
+<li>Keywords <code><a href="https://rdrr.io/r/base/Control.html">next</a></code> e <code><a href="https://rdrr.io/r/base/Control.html">break</a></code>.</li>
+</ul>
+</div>
+<div class="section level4" id="condições" number="4.8.5.3">
+<h4>
+<span class="header-section-number">4.8.5.3</span> Condições<a aria-label="anchor" class="anchor" href="#condi%C3%A7%C3%B5es"><i class="fas fa-link"></i></a>
+</h4>
+<p>O sistema de condições serve para funções indicarem ao usuário alguma informação, como a existência de erros.</p>
+<p>Existem três tipos de informação: erros (<code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>), avisos (<code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code>), e mensagens (<code><a href="https://rdrr.io/r/base/message.html">message()</a></code>).</p>
+<p>Podemos ignorar condições:</p>
+<ul>
+<li>Ignore erros com <code><a href="https://rdrr.io/r/base/try.html">try()</a></code>.</li>
+<li>Ignore avisos com <code><a href="https://rdrr.io/r/base/warning.html">suppressWarnings()</a></code>.</li>
+<li>Ignore mensagens com <code><a href="https://rdrr.io/r/base/message.html">suppressMessages()</a></code>.</li>
+</ul>
+<p>E podemos lidar com condições usando <code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> e <code><a href="https://rdrr.io/r/base/conditions.html">withCallingHandlers()</a></code>, que especificam funções para se executar no caso de cada tipo de condição.</p>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> define <em>exiting handlers</em>, após a condição aparecer, a função handler relevante é ativada, e seu valor é retornado para onde <code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> foi chamado.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/conditions.html">withCallingHandlers()</a></code> define <em>calling handlers</em>, após a condição, a função handler relevante é ativada, e seu valor é retornado para onde a call que gerou a condição estava.</li>
+</ul>
+</div>
+</div>
+<div class="section level3 unnumbered" id="dicionário-de-funções-2">
+<h3>Dicionário de Funções<a aria-label="anchor" class="anchor" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-2"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:left;">
+Categoria
+</th>
+<th style="text-align:left;">
+Função
+</th>
+<th style="text-align:left;">
+Descrição
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+subset
+</td>
+<td style="text-align:left;">
+<code>[</code>, <code>[[</code>, <code>$</code>
+</td>
+<td style="text-align:left;">
+<a href="https://search.r-project.org/R/refmans/base/html/Extract.html">extração de elementos</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+control flow
+</td>
+<td style="text-align:left;">
+<code>if</code>, <code><a href="https://rdrr.io/r/base/switch.html">switch()</a></code>, <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>, <code>%||%</code>
+</td>
+<td style="text-align:left;">
+<a href="https://search.r-project.org/R/refmans/base/html/Control.html">if else</a>, ifelse vetorizado, e infix operator
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+control flow
+</td>
+<td style="text-align:left;">
+<code>for</code>, <code>while</code>, <code>repeat</code>
+</td>
+<td style="text-align:left;">
+<a href="https://search.r-project.org/R/refmans/base/html/Control.html">loops</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+control flow
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/Control.html">break</a></code>, <code><a href="https://rdrr.io/r/base/Control.html">next</a></code>
+</td>
+<td style="text-align:left;">
+<a href="https://search.r-project.org/R/refmans/base/html/Control.html">keywords</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+operadores
+</td>
+<td style="text-align:left;">
+<code>&amp;&amp;</code>, <code>||</code>
+</td>
+<td style="text-align:left;">
+<a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html">lógica</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+outros
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, <code><a href="https://rdrr.io/r/base/seq.html">seq.int()</a></code>, <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code>, <code><a href="https://rdrr.io/r/base/seq.html">seq_len()</a></code>
+</td>
+<td style="text-align:left;">
+geração de sequências
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+maps
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>, <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code>
+</td>
+<td style="text-align:left;">
+maps
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+maps
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code>, <code><a href="https://rdrr.io/r/base/lapply.html">replicate()</a></code>, <code><a href="https://rdrr.io/r/base/funprog.html">Map()</a></code>
+</td>
+<td style="text-align:left;">
+maps (variações)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conditions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code>, <code><a href="https://rdrr.io/r/base/message.html">message()</a></code>
+</td>
+<td style="text-align:left;">
+signaling conditions
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conditions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::abort()</a></code>, <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::warn()</a></code>, <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::inform()</a></code>
+</td>
+<td style="text-align:left;">
+signaling conditions (rlang)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conditions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/try.html">try()</a></code>, <code>supressWarnings()</code>, <code>supressErrors()</code>
+</td>
+<td style="text-align:left;">
+ignoring conditions
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conditions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code>, <code>withCallingHandlers</code>
+</td>
+<td style="text-align:left;">
+handling conditions
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section level3 unnumbered" id="referências-2">
+<h3>Referências<a aria-label="anchor" class="anchor" href="#refer%C3%AAncias-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Referência básica: Advanced R (2e) <a href="https://adv-r.hadley.nz/subsetting.html">cap. 4</a> and <a href="https://adv-r.hadley.nz/control-flow.html">cap. 5</a>.</p>
+</div>
+</div>
+</div>
+<div class="chapter-nav">
+<div class="prev"><a href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></div>
+<div class="next"><a href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></div>
+</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+<nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#subset"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="nav-link" href="#introdu%C3%A7%C3%A3o-3"><span class="header-section-number">4.1</span> Introdução</a></li>
+<li>
+<a class="nav-link" href="#subset---operador"><span class="header-section-number">4.2</span> Subset - Operador [</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#operador"><span class="header-section-number">4.2.1</span> Operador [</a></li>
+<li><a class="nav-link" href="#operador-com-vetores-at%C3%B4micos"><span class="header-section-number">4.2.2</span> Operador [ Com Vetores Atômicos</a></li>
+<li><a class="nav-link" href="#operador-com-matrizes-e-arrays"><span class="header-section-number">4.2.3</span> Operador [ Com Matrizes e Arrays</a></li>
+<li><a class="nav-link" href="#operador-com-listas-e-dataframes"><span class="header-section-number">4.2.4</span> Operador [ Com Listas e Dataframes</a></li>
+<li><a class="nav-link" href="#operador-e-simplifica%C3%A7%C3%A3o"><span class="header-section-number">4.2.5</span> Operador [ e Simplificação</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#subset---operador-1"><span class="header-section-number">4.3</span> Subset - Operador [[</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#operador-1"><span class="header-section-number">4.3.1</span> Operador [[</a></li>
+<li><a class="nav-link" href="#operador-com-listas"><span class="header-section-number">4.3.2</span> Operador [[ Com Listas</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#subset---sele%C3%A7%C3%B5es-erradas-e-assignment"><span class="header-section-number">4.4</span> Subset - Seleções Erradas e Assignment</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sele%C3%A7%C3%B5es-erradas"><span class="header-section-number">4.4.1</span> Seleções Erradas</a></li>
+<li><a class="nav-link" href="#assingment"><span class="header-section-number">4.4.2</span> Assingment</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#control-flow---condicionais"><span class="header-section-number">4.5</span> Control Flow - Condicionais</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#control-flow"><span class="header-section-number">4.5.1</span> Control Flow</a></li>
+<li><a class="nav-link" href="#if-e-else"><span class="header-section-number">4.5.2</span> If e Else</a></li>
+<li><a class="nav-link" href="#if-e-else-1"><span class="header-section-number">4.5.3</span> If e Else</a></li>
+<li><a class="nav-link" href="#if-e-else-vetorizado"><span class="header-section-number">4.5.4</span> If e Else Vetorizado</a></li>
+<li><a class="nav-link" href="#and-and-e-or-or"><span class="header-section-number">4.5.5</span> And And e Or Or</a></li>
+<li><a class="nav-link" href="#switch"><span class="header-section-number">4.5.6</span> Switch</a></li>
+<li><a class="nav-link" href="#infix-operator"><span class="header-section-number">4.5.7</span> Infix Operator</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#control-flow---loops"><span class="header-section-number">4.6</span> Control Flow - Loops</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#loops-for"><span class="header-section-number">4.6.1</span> Loops For</a></li>
+<li><a class="nav-link" href="#map"><span class="header-section-number">4.6.2</span> Map</a></li>
+<li><a class="nav-link" href="#outros-loops"><span class="header-section-number">4.6.3</span> Outros Loops</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#control-flow---keywords"><span class="header-section-number">4.7</span> Control Flow - Keywords</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#keywords"><span class="header-section-number">4.7.1</span> Keywords</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#condition-system"><span class="header-section-number">4.8</span> Condition System</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#conditions"><span class="header-section-number">4.8.1</span> Conditions</a></li>
+<li><a class="nav-link" href="#condition-functions"><span class="header-section-number">4.8.2</span> Condition Functions</a></li>
+<li><a class="nav-link" href="#signaling"><span class="header-section-number">4.8.3</span> Signaling</a></li>
+<li><a class="nav-link" href="#ignoring"><span class="header-section-number">4.8.4</span> Ignoring</a></li>
+<li><a class="nav-link" href="#handling"><span class="header-section-number">4.8.5</span> Handling</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#complemento-2">Complemento</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#recapitulando-2">Recapitulando</a></li>
+<li><a class="nav-link" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-2">Dicionário de Funções</a></li>
+<li><a class="nav-link" href="#refer%C3%AAncias-2">Referências</a></li>
+</ul>
+</li>
+</ul>
+<!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+</nav>
+</div>
+</div>
+</div></main> <!-- .container -->
+<footer id="rssite-footer"><p>
+            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
+            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
+        </p>
+</footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<!-- Scripts -->
+<script src="./assets/rsbd_module.js"></script><!-- dynamically load mathjax for compatibility with self-contained --><script>
+        (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = "true";
+        if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:")
+            if (/^https?:/.test(src))
+            src = src.replace(/^https?:/, '');
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+    for (let popover of popovers) {
+        const div = document.createElement('div');
+        div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+        div.innerHTML = popover.getAttribute('data-content');
+    
+        var has_math = div.querySelector("span.math");
+        if (has_math) {
+        document.body.appendChild(div);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+        MathJax.Hub.Queue(function() {
+            popover.setAttribute('data-content', div.innerHTML);
+            document.body.removeChild(div);
+        })
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!-- Meta --><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+<title>Bem Vindo(a)! | R: Fundamentos e Ciência de Dados</title>
+<meta content="Este livro tem o objetivo de ensinar a linguagem R. Ele (i) é feito para níveis diversos de experiência, é introdutório, mas expõe conceitos avançados e com profundidade; (ii) tem uma abordagem mista, primeiro focando na teoria, fundamentos, e funcionamento da linguagem, mas depois apresentando temas aplicados." name="description"/>
+<meta content="bookdown 0.45 with bs4_book()" name="generator"/>
+<meta content="Bem Vindo(a)! | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="book" property="og:type"/>
+<meta content="https://ricardo-semiao.github.io/course-rfcd/" property="og:url"/>
+<meta content="Este livro tem o objetivo de ensinar a linguagem R. Ele (i) é feito para níveis diversos de experiência, é introdutório, mas expõe conceitos avançados e com profundidade; (ii) tem uma abordagem mista, primeiro focando na teoria, fundamentos, e funcionamento da linguagem, mas depois apresentando temas aplicados." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Bem Vindo(a)! | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="@ricardo_semiao" name="twitter:site"/>
+<meta content="Este livro tem o objetivo de ensinar a linguagem R. Ele (i) é feito para níveis diversos de experiência, é introdutório, mas expõe conceitos avançados e com profundidade; (ii) tem uma abordagem mista, primeiro focando na teoria, fundamentos, e funcionamento da linguagem, mas depois apresentando temas aplicados." name="twitter:description"/>
+<!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"/>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"/>
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet"/>
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet"/>
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet"/>
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"/>
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script><script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script><script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script><script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script><!-- CSS --><style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<!-- Custom Assets --><link href="/assets/global.css" rel="stylesheet"/>
+<link href="./assets/rsbd_module.css" rel="stylesheet"/>
+<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external" data-spy="scroll" data-target="#toc">
+<!-- @@site-icons@@ -->
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+<div class="row">
+<header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div class="d-flex align-items-start justify-content-between">
+<h1>
+<a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+</h1>
+<button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+<i class="fas fa-bars"></i>
+<span class="sr-only">Show table of contents</span>
+</button>
+</div>
+<div class="collapse-lg" id="main-nav">
+<form role="search">
+<input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search"/>
+</form>
+<nav aria-label="Table of contents"><h2>Índice</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="active" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
+<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li><a class="" href="intro1.html">Introdução</a></li>
+<li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
+<li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="" href="subset.html"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
+<li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
+<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
+<li><a class="" href="recap1.html">Recapitulando</a></li>
+<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li><a class="" href="intro2.html">Introdução</a></li>
+<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
+<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
+<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
+<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
+<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
+<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
+<li><a class="" href="recap2.html">Recapitulando</a></li>
+<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="intro3.html">Introdução</a></li>
+<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
+<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
+<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
+<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
+<li><a class="" href="recap3.html">Recapitulando</a></li>
+<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
+<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
+<li><a class="" href="intro4.html">Introdução</a></li>
+<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
+<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
+<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
+<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li class="book-part">Apêndice</li>
+<li><a class="" href="dict.html">Dicionário de funções</a></li>
+<li><a class="" href="refs.html">Referências</a></li>
+</ul>
+<!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+</nav>
+</div>
+</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div class="section level1 unnumbered" id="bem-vindoa">
+<h1>Bem Vindo(a)!<a aria-label="anchor" class="anchor" href="#bem-vindoa"><i class="fas fa-link"></i></a>
+</h1>
+<p>Este livro tem o objetivo de ensinar a linguagem R. O material tem duas especificidades principais:</p>
+<ol style="list-style-type: decimal">
+<li>É um livro para níveis diversos de experiência – é introdutório, mas expõe conceitos avançados e com profundidade.</li>
+<li>Tem uma abordagem mista – primeiro focando na teoria, fundamentos, e funcionamento da linguagem, mas depois apresentando temas aplicados.</li>
+</ol>
+<p>Abaixo explico a motivação para esse estilo, bem como para quem ele pode ser útil.</p>
+<div class="warn">
+<p>este livro está em construção. O material aqui presente ainda é um rascunho, o estilo do livro pode vir a sofrer mudanças drásticas. Adicionalmente, a precisão dos conceitos não está 100% garantida.<br/>
+No momento, o início do livro, até o capítulo <a href="data-attrs.html#data-attrs">3</a>, está relativamente em ordem, depois, até <a href="paradigms.html#paradigms">7</a> + <a href="philosophy.html#philosophy">9</a> e <a href="tidyr-dplyr.html#tidyr-dplyr">11</a> existe um rascunho bem feito. Atualmente, estou mais focado no material de Julia. Voltarei à este projeto em 2026, após finalizar meu mestrado.</p>
+</div>
+<div class="section level2 unnumbered" id="por-que-este-livro">
+<h2>Por que Este Livro?<a aria-label="anchor" class="anchor" href="#por-que-este-livro"><i class="fas fa-link"></i></a>
+</h2>
+<p>Existem diferentes estilos de aprendizagem, alguns preferem “aprender fazendo”, outros preferem “aprender estudando”. Este livro é, em sua maior parte, signatário do segundo. Porém, mesmo se esse não for seu estilo preferido, argumento que ele combina com o estudo de R.</p>
+<p>R é uma linguagem única, para o bem e para o mal:</p>
+<ul>
+<li>Ela contém muitas exceções, particularidades, e heranças de outros tempos. Elas são causas comuns de erros e dificuldades de compreensão. Aprender a regra, a teoria, o contexto geral, facilita muito aprender a lidar com exceções da maneira menos dolorosa possível.</li>
+<li>Ela contém ferramentas poderosas e incomuns. A especialização em estatística motiva a existência de construtos nada óbvios, mas muito úteis. Existe uma variedade de estilos (funcionais, orientado ao objeto, metalinguísticos) igualmente importantes, mas difíceis de alcançar sem um estudo mais teórico.</li>
+</ul>
+<p>Essas especificidades são exploradas na primeira metade do livro, “Fundamentos”. A ideia é que o leitor fique confiante de saber “como o R funciona”, e não apenas “saber escrever códigos”, mas sem investir tempo nas complexidades não-essenciais. Adicionalmente, introduzo o <a href="https://www.tidyverse.org/"><em>tidyverse</em></a>, que dispõe ferramentas poderosas e acessíveis, graças à sua filosofia e sintaxe intuitiva.</p>
+<p>Mas claro que o conhecimento aplicado também é quisto (deixemos o estudo puramente teórico para os <em>nerds</em> da ciência da computação). Portanto, na segunda metade do livro, “Ciência de Dados”, foco em aplicar o conhecimento recém adquirido para aprender algumas das tarefas mais comuns em projetos no R: arrumação, manipulação, visualização, e modelagem de dados. Aqui, os conhecimentos da primeira metade permitem um aprendizado mais rápido e profundo.</p>
+<p>Antes de seguir adiante, <strong>uma palava motivacional</strong>: as vezes uma pessoa passa mais tempo estudando um assunto do que deveria, e quanto mais fundo vai, mais difícil é parar de estudar. Esse é o meu caso, mas gostaria de ter companhia nessa situação (ninguém é de ferro). Foi com isso em mente que montei esse material, para dar a oportunidade do leitor fazer o mesmo, “se afundar no R”, da forma mais eficiente possível. Espero que goste!</p>
+</div>
+<div class="section level2 unnumbered" id="organização-do-livro">
+<h2>Organização do Livro<a aria-label="anchor" class="anchor" href="#organiza%C3%A7%C3%A3o-do-livro"><i class="fas fa-link"></i></a>
+</h2>
+<p>O livro é dividido em quatro partes: “I - Fundamentos: R Base”, “II - Fundamentos: Tidyverse”, “III - Ciência de Dados: Processar e Visualizar”, e “IV - Ciência de Dados: Modelar”.</p>
+<p>As bases desse material estão descritas na seção <a href="introduction.html#biblio">1.3</a>, já adianto o <strong>disclaimer: boa parte do conteúdo deste livro é uma curadoria, adaptação, e tradução dos materiais abaixo</strong>.</p>
+<ul>
+<li>Parte I - “R Language Definition”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-r-lang"&gt;R Core Team, &lt;span&gt;“R &lt;span&gt;Language&lt;/span&gt; &lt;span&gt;Definition&lt;/span&gt;”&lt;/span&gt;, 2024, &lt;span&gt;https://cran.r-project.org/doc/manuals/r-release/R-lang.pdf&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>1</sup></a></span> “R Internals”<span class="citation"><a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-r-ints"&gt;R Core Team, &lt;span&gt;“R &lt;span&gt;Internals&lt;/span&gt;”&lt;/span&gt;, 2024, &lt;span&gt;https://cran.r-project.org/doc/manuals/r-release/R-ints.pdf&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>2</sup></a></span> e “Advanced R” (2e)<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-advr"&gt;Hadley Wickham, &lt;em&gt;Advanced &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;, 2º ed, 2019, &lt;span&gt;https://adv-r.hadley.nz/index.html&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>3</sup></a></span>
+</li>
+<li>Parte II - Documentação do tidyverse<span class="citation"><a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-tidy"&gt;&lt;span&gt;“Tidyverse”&lt;/span&gt;, 2024, &lt;span&gt;https://www.tidyverse.org/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>4</sup></a></span> e do ggplot2<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-ggplot"&gt;Hadley Wickham, Danielle Navarro, e Thomas Lin Pedersen, &lt;em&gt;ggplot2: &lt;span&gt;Elegant&lt;/span&gt; &lt;span&gt;Graphics&lt;/span&gt; for &lt;span&gt;Data&lt;/span&gt; &lt;span&gt;Analysis&lt;/span&gt;&lt;/em&gt;, 3º ed, 2010, &lt;span&gt;https://ggplot2-book.org/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>5</sup></a></span> “Data Manipulation in R”<span class="citation">,<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-locke-data"&gt;Stephanie Locke, &lt;em&gt;Data &lt;span&gt;Manipulation&lt;/span&gt; in &lt;span&gt;R&lt;/span&gt;&lt;/em&gt;, 1º ed, 2017, &lt;span&gt;https://itsalocke.com/files/DataManipulationinR.pdf&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>6</sup></a></span> e “R Programming for Data Science”<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-rpds"&gt;Roger D. Peng, &lt;em&gt;R &lt;span&gt;Programming&lt;/span&gt; for &lt;span&gt;Data&lt;/span&gt; &lt;span&gt;Science&lt;/span&gt;&lt;/em&gt;, 2022, &lt;span&gt;https://bookdown.org/rdpeng/rprogdatascience/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>7</sup></a></span>
+</li>
+<li>Partes III e IV - “R for Data Science” (2e)<span class="citation"><a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-r4ds"&gt;Hadley Wickham e Garrett Grolemund, &lt;em&gt;R for &lt;span&gt;Data&lt;/span&gt; &lt;span&gt;Science&lt;/span&gt;&lt;/em&gt;, 2º ed, 2024, &lt;span&gt;https://r4ds.hadley.nz/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>8</sup></a></span> e “R Cookbook” (2e)<span class="citation">.<a class="footnote-ref" data-content='&lt;p&gt;&lt;a href="refs.html#ref-cookr"&gt;James Long e Paul Teetor, &lt;em&gt;R &lt;span&gt;Cookbook&lt;/span&gt;&lt;/em&gt;, 2º ed, 2019, &lt;span&gt;https://rc2e.com/&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>9</sup></a></span>
+</li>
+</ul>
+<div class="section level3 unnumbered" id="introdução">
+<h3>Introdução<a aria-label="anchor" class="anchor" href="#introdu%C3%A7%C3%A3o"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para começar, exponho alguns temas iniciais, como: a história da linguagem, suas características gerais, porque aprender R; A literatura sobre R, e as referências deste livro.</p>
+<p>Também preparo o leitor para iniciar sua jornada, explicando o estilo e didática do livro, bem como mostrando a instalação e interface do RStudio (de uma maneira bastante preguiçosa).</p>
+</div>
+<div class="section level3 unnumbered" id="parte-i---fundamentos-r-base">
+<h3>Parte I - Fundamentos: R base<a aria-label="anchor" class="anchor" href="#parte-i---fundamentos-r-base"><i class="fas fa-link"></i></a>
+</h3>
+<p>Os conceitos basilares do R costumam ser ensinados rapidamente, para dar prioridade na manipulação de dados e aplicações. Esse curso não fará isso, iremos passar com bastante calma por essa dimensão, tanto porque existem menos tutoriais que fazem isso, mas principalmente, porque aprender sobre como o R funciona com detalhe gera uma série de benefícios:</p>
+<ul>
+<li>Permite aprender fontes comuns de erros e como evitá-las.</li>
+<li>Facilitará o entendimento dos conceitos que empoderam o tidyverse e as diversas aplicações possíveis.</li>
+<li>Permite escrever códigos mais elegantes e, principalmente, mais eficientes.</li>
+<li>Permite entender códigos mais complexos.</li>
+</ul>
+<p>Essa abordagem é algo como “ter aulas formais de uma língua”, em oposição a “ensino para turismo”. A utilidade desse enfoque depende de seu objetivo.</p>
+</div>
+<div class="section level3 unnumbered" id="parte-ii---fundamentos-tidyverse">
+<h3>Parte II - Fundamentos: Tidyverse<a aria-label="anchor" class="anchor" href="#parte-ii---fundamentos-tidyverse"><i class="fas fa-link"></i></a>
+</h3>
+<p>O tidyverse é um conjunto incrível de extensões ao R, com uma filosofia e sintaxe unificada e intuitiva. Ele apresenta ferramentas poderosas para a maior parte das tarefas essenciais em projetos no R.</p>
+<p>Nessa parte, explicarei seus fundamentos, relacionando com os conceitos da Parte I, e darei rápidos tutoriais sobre as ferramentas nele contidas. Todas serão imediatamente aplicadas na parte seguinte.</p>
+</div>
+<div class="section level3 unnumbered" id="parte-iii---ciência-de-dados-processar">
+<h3>Parte III - Ciência de Dados: Processar<a aria-label="anchor" class="anchor" href="#parte-iii---ci%C3%AAncia-de-dados-processar"><i class="fas fa-link"></i></a>
+</h3>
+<p>Aqui começa a segunda metade do livro. Inicio respondendo “o que é ciência de dados?”, e em qual formato queremos esse tal de “dados”. A partir daí, o objetivo é aprender a obter, arrumar, manipular, e unir dados, de modo a alcançar esse formato quisto.</p>
+<p>Além da formatação, aprenderemos a manipular dados como uma ferramenta de exploração.</p>
+<p>Em termos simplistas, a parte III é a parte II aplicada (menos a visualização).</p>
+</div>
+<div class="section level3 unnumbered" id="parte-iv---ciência-de-dados-explorar">
+<h3>Parte IV - Ciência de Dados: Explorar<a aria-label="anchor" class="anchor" href="#parte-iv---ci%C3%AAncia-de-dados-explorar"><i class="fas fa-link"></i></a>
+</h3>
+<p>A última parte do livro foca em como descrever dados com base em visualizações e modelos.</p>
+<p>Iremos aplicar as ferramentas de visualização da parte II para criar gráficos que ajudem a explorar e entender relações presentes nos dados.</p>
+<p>Irei explicar o que é um modelo, e apresentar algumas estratégias e <em>frameworks</em> disponíveis. Ao fim, listo referências para outras aplicações de possível interesse.</p>
+</div>
+</div>
+<div class="section level2 unnumbered" id="treinamento">
+<h2>Treinamento<a aria-label="anchor" class="anchor" href="#treinamento"><i class="fas fa-link"></i></a>
+</h2>
+<p>Contarei mais sobre mim na seção abaixo, mas antes, uma auto-divulgação (que nunca fez mal a ninguém).</p>
+<p>Eu aplico aulas personalizadas de R para qualquer tipo de grupo/indivíduo. As aulas podem incluir o conteúdo deste livro e/ou focar em temas aplicados específicos, bem como conter tópicos teóricos de áreas de meu conhecimento – estatística, economia, finanças, matemática, entre outros.</p>
+<p>Se tiver interesse, me mande um email! Sou bastante aberto para conversar e criar projetos em conjunto.</p>
+</div>
+<div class="section level2 unnumbered" id="sobre-o-autor">
+<h2>Sobre o Autor<a aria-label="anchor" class="anchor" href="#sobre-o-autor"><i class="fas fa-link"></i></a>
+</h2>
+<p>Meu nome é Ricardo Semião e Castro, sou mestrando em economia na FGV-EESP, e <em>sou fã</em> de R. Se tiver algum comentário sobre este material, por favor mande em meu email (<a href="mailto:ricardo.semiao@outlook.com">ricardo.semiao@outlook.com</a>). Minhas redes são:</p>
+<ul>
+<li>
+<a href="https://ricardo-semiao.github.io/">Site pessoal</a>.</li>
+<li>
+<a href="https://github.com/ricardo-semiao">Github</a>.</li>
+<li>
+<a href="https://www.linkedin.com/in/ricardo-semiao/">Linkedin</a>.</li>
+<li>
+<a href="https://stackoverflow.com/users/13048728/ricardo-semi%c3%a3o-e-castro">StackOverflow</a>.</li>
+<li>
+<a href="https://twitter.com/ricardo_semiao">Twitter</a>.</li>
+</ul>
+<p>O livro tem relação com meus outros materiais educativos, mas em oposição ao resto, foi criado para ser um material independente e voltado ao público geral. Veja-os abaixo:</p>
+<ul>
+<li>“Ciência da Computação: Introdução e Aplicações” (<a href="https://ricardo-semiao.github.io/course-ccia/">course-ccia</a>): conceitos básicos de ciência da computação, de maneira bem simplificada. Define a fundação para os outros livros, focados em linguagens/ferramentas específicas.</li>
+<li>Linguagens de baixo nível, e outros tópicos (em course-ccia): conceitos básicos de linguagens de baixo nível, databases, controle de versão, para empoderar seu uso como acessórios em projetos.</li>
+<li>“Julia: Performance e Ciência” (em course-ccia): Typing, multiple dispatch, e performance; programação científica.</li>
+<li>“R: Fundamentos e Ciência de Dados” (este livro): metaprogramação e programação funcional; manipulação e visualização de dados.</li>
+<li>“Python: Automação, Apps, e Machine Learning” (<a href="https://ricardo-semiao.github.io/course-paaml/">course-paaml</a>): oop; automação, desenvolvimento de aplicações, e modelagem de machine learning.</li>
+</ul>
+</div>
+<div class="section level2 unnumbered" id="licença">
+<h2>Licença<a aria-label="anchor" class="anchor" href="#licen%C3%A7a"><i class="fas fa-link"></i></a>
+</h2>
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license"><img alt="Creative Commons Licence" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="border-width:0"/></a></p>
+<p>Esse material, como um todo, está licenciado pela <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+</div>
+</div>
+<div class="chapter-nav">
+<div class="empty"></div>
+<div class="next"><a href="introduction.html"><span class="header-section-number">1</span> Introdução</a></div>
+</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+<nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#bem-vindoa">Bem Vindo(a)!</a></li>
+<li><a class="nav-link" href="#por-que-este-livro">Por que Este Livro?</a></li>
+<li>
+<a class="nav-link" href="#organiza%C3%A7%C3%A3o-do-livro">Organização do Livro</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introdu%C3%A7%C3%A3o">Introdução</a></li>
+<li><a class="nav-link" href="#parte-i---fundamentos-r-base">Parte I - Fundamentos: R base</a></li>
+<li><a class="nav-link" href="#parte-ii---fundamentos-tidyverse">Parte II - Fundamentos: Tidyverse</a></li>
+<li><a class="nav-link" href="#parte-iii---ci%C3%AAncia-de-dados-processar">Parte III - Ciência de Dados: Processar</a></li>
+<li><a class="nav-link" href="#parte-iv---ci%C3%AAncia-de-dados-explorar">Parte IV - Ciência de Dados: Explorar</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#treinamento">Treinamento</a></li>
+<li><a class="nav-link" href="#sobre-o-autor">Sobre o Autor</a></li>
+<li><a class="nav-link" href="#licen%C3%A7a">Licença</a></li>
+</ul>
+<!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+</nav>
+</div>
+</div>
+</div></main> <!-- .container -->
+<footer id="rssite-footer"><p>
+            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
+            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
+        </p>
+</footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<!-- Scripts -->
+<script src="./assets/rsbd_module.js"></script><!-- dynamically load mathjax for compatibility with self-contained --><script>
+        (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = "true";
+        if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:")
+            if (/^https?:/.test(src))
+            src = src.replace(/^https?:/, '');
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+    for (let popover of popovers) {
+        const div = document.createElement('div');
+        div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+        div.innerHTML = popover.getAttribute('data-content');
+    
+        var has_math = div.querySelector("span.math");
+        if (has_math) {
+        document.body.appendChild(div);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+        MathJax.Hub.Queue(function() {
+            popover.setAttribute('data-content', div.innerHTML);
+            document.body.removeChild(div);
+        })
+        }
+    }
+    </script>
+</body>
+</html>

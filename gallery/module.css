@@ -1,0 +1,159 @@
+#rssite-main.gallery-grid {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 8rem;
+  gap: clamp(0.5rem, 1vmax, 1rem);
+}
+@media (max-width: 700px) {
+  #rssite-main.gallery-grid {
+    margin: 1rem;
+  }
+}
+@media (max-width: 360px) {
+  #rssite-main.gallery-grid {
+    margin: 0.5rem;
+  }
+}
+
+body {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("./costelas.png");
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.3s ease-out;
+  box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-hole {
+  opacity: 0;
+}
+
+.gallery-overlay {
+  --go-margin: 1rem;
+  --go-padding: 1rem;
+  --go-gap: clamp(0.5rem, 4vmax, 4rem);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.2, 0, 0.3, 1);
+  position: fixed;
+  z-index: 1000;
+  padding: var(--go-padding);
+  margin: var(--go-margin);
+  width: max(100 * var(--vw) - 2 * var(--go-margin), 16rem);
+  height: calc(100dvh - 2 * var(--go-margin));
+  box-sizing: border-box;
+  background: color-mix(in srgb, var(--darkorange) 80%, transparent);
+  box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--go-gap);
+  flex-direction: row;
+}
+@media (max-width: 700px) {
+  .gallery-overlay {
+    --go-margin: 0.5rem;
+    --go-padding: 0.5rem;
+  }
+}
+.gallery-overlay[aria-hidden=false] {
+  visibility: visible;
+  opacity: 1;
+}
+@media (max-width: 700px) {
+  .gallery-overlay {
+    font-size: 0.9em;
+  }
+}
+@media (max-width: 700px) {
+  .gallery-overlay {
+    flex-direction: column;
+  }
+}
+.gallery-overlay .go-img {
+  --go-prop: 60%;
+  object-fit: contain;
+  box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.5);
+  min-width: 8rem;
+  min-height: 8rem;
+}
+.gallery-overlay .go-info {
+  --go-prop: 40%;
+  padding: 1rem;
+  background-color: color-mix(in srgb, var(--gray) 75%, transparent);
+  box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.5);
+}
+.gallery-overlay .go-img, .gallery-overlay .go-info {
+  --go-inline-size: calc(var(--go-prop) - var(--go-gap) - var(--go-padding));
+  --go-block-size: calc(100% - var(--go-gap));
+  max-width: var(--go-inline-size);
+  max-height: var(--go-block-size);
+}
+@media (max-width: 700px) {
+  .gallery-overlay .go-img, .gallery-overlay .go-info {
+    max-width: var(--go-block-size);
+    max-height: var(--go-inline-size);
+  }
+}
+.gallery-overlay .go-title {
+  border-bottom: 1px solid var(--darkgray);
+}
+.gallery-overlay .go-text {
+  margin-top: 0.5rem;
+}
+.gallery-overlay .go-wherewhen {
+  margin-top: 0.25rem;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+.gallery-overlay .go-wherewhen * {
+  font-style: italic;
+  font-size: 0.9em;
+}
+.gallery-overlay .go-closer {
+  position: absolute;
+  z-index: 1001;
+  top: var(--go-padding);
+  right: var(--go-padding);
+  cursor: pointer;
+}
+.gallery-overlay .go-closer svg {
+  filter: drop-shadow(1.5px 3px 1.5px rgba(0, 0, 0, 0.65));
+  width: 30px;
+  height: 30px;
+  fill: var(--gray);
+}
+
+.w-2 {
+  grid-column-end: span 2;
+}
+
+.h-2 {
+  grid-row-end: span 2;
+}
+
+.w-3 {
+  grid-column-end: span 3;
+}
+
+.h-3 {
+  grid-row-end: span 3;
+}
+
+.w-4 {
+  grid-column-end: span 4;
+}
+
+.h-4 {
+  grid-row-end: span 4;
+}

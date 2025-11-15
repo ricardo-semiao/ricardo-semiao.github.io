@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/global.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<title>phyopt | Ricardo Semião</title>
+<!-- mathjax math --><script crossorigin="anonymous" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><script>
+  window.MathJax = {
+    chtml: {
+      fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
+    }
+  };
+</script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"/>
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/>
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta content="General-Use Population-Based Hybrid-Optimization" property="og:title"/>
+<meta content="Implement population-based hybrid-optimization algorithms. Separate a problem into two steps, define methods for initializing a population of first-step guesses, optimizing the second step, and updating the population, all with comprehensive helpers and error handling." name="description"/>
+<meta content="Implement population-based hybrid-optimization algorithms. Separate a problem into two steps, define methods for initializing a population of first-step guesses, optimizing the second step, and updating the population, all with comprehensive helpers and error handling." property="og:description"/>
+<!-- Module css: --><link href="assets/rspd_module.css" rel="stylesheet"/>
+<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external">
+<!-- @@site-icons@@ -->
+<a class="visually-hidden-focusable" href="#main">Skip to contents</a>
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" id="pkgdown-navbar"><div class="container">
+<a class="navbar-brand me-2" href="index.html">phyopt</a>
+<small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
+<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse ms-3" id="navbar">
+<ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="dropdown-articles" type="button">Articles</button>
+<ul aria-labelledby="dropdown-articles" class="dropdown-menu">
+<li><a class="dropdown-item" href="articles/example.html">Using the Phy Algorithm</a></li>
+<li><a class="dropdown-item" href="articles/theoretical_framework.html">Theoretical Framework</a></li>
+</ul>
+</li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
+</ul>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/>
+</form></li>
+<li class="nav-item"><a aria-label="GitHub" class="nav-link" href="https://github.com/ricardo-semiao/phyopt/"><span class="fa fab fa-github fa-lg"></span></a></li>
+</ul>
+</div>
+</div>
+</nav><div class="container template-home">
+<div class="row">
+<main class="col-md-9" id="main"><div class="section level1">
+<!-- badges: start -->
+<p>This package implements a two-step, population-based, hybrid optimization algorithm, for solving problems of the form:</p>
+<p><span class="math display">\[
+\begin{array}{c}
+  \max_{x, \tilde{x}} f(x, \tilde{x}) ~~s.t.~~ g(x, \tilde{x}) \geq 0,~ \tilde{g}(\tilde{x}) \geq 0,\\
+  x \in X,~ \tilde{x} \in \tilde{X}
+\end{array}
+\]</span></p>
+<p>The paper fully describing the motivation, theoretical framework, and method design is available at <code><a href="articles/theoretical_framework.html">vignette("theoretical_framework", package = "phyopt")</a></code>. The goal of the package is to provide a flexible framework for users to implement their own optimization strategies, by combining different types of <em>initializers</em>, <em>optimizers</em>, and <em>updaters</em>.</p>
+<p>For now, see the vignette <code><a href="articles/example.html">vignette("example", package = "phyopt")</a></code>, which contains a simple example but a thorough explanation of how the package works. Additionally, see the documentation for the <code><a href="reference/optimize_phy.html">optimize_phy()</a></code> function, which is the main function of the package.</p>
+<p><strong>Disclaimer:</strong> this package is in an early stage of development. It hasn’t been thoroughly tested and may contain several bugs. I don’t recommend using it for large-scale projects yet.</p>
+<p>Please report any problems as a GitHub <a href="https://github.com/ricardo-semiao/morphdown/issues">issue</a>. Other comments can be posted as a GitHub <a href="https://github.com/ricardo-semiao/morphdown/discussions">discussion</a>, or sent in my email below. Thank you!</p>
+<p>Author: Ricardo Semião e Castro (<a class="email" href="mailto:ricardo.semiao@outlook">ricardo.semiao@outlook</a>).</p>
+<div class="section level2">
+<h2 id="installation">Installation<a aria-label="anchor" class="anchor" href="#installation"></a>
+</h2>
+<p>You can install the development version of phyopt like so:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"ricardo-semiao/phyopt"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="development-comments">Development Comments<a aria-label="anchor" class="anchor" href="#development-comments"></a>
+</h2>
+<p>This package is young and places much of the optimization responsibility on the user. That said, I believe it is reasonably solid. Once I implement tests and run more examples, I expect it will be stable.</p>
+<p>Some of the more important features I plan to add in the future are:</p>
+<ul>
+<li>The <code>testthat</code> package structure is created for the package, but I haven’t had the time to write unit tests yet.</li>
+<li>Add more complicated examples to <code><a href="articles/example.html">vignette("example", package = "phyopt")</a></code>.</li>
+<li>Expand the suggested metrics on <code>get_metrics</code>, also add suggestions formatters for the <code>logger</code> object.</li>
+<li>Add suggested operators for <code><a href="reference/optimize_phy.html">optimize_phy()</a></code>, with common initializers, optimizers, and updaters from the literature.</li>
+<li>Add an <code><a href="https://rdrr.io/r/base/on.exit.html">on.exit()</a></code> call to <code>optimize_pbhy()</code>, such that it safely returns what it had before reaching an eventual error.</li>
+<li>Create <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> and <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> methods for the <code>optimize_pbhy()</code> result.</li>
+</ul>
+<p>Note that this package:</p>
+<ul>
+<li>Follows the <a href="https://style.tidyverse.org/">tidyverse style guide</a>.
+<ul>
+<li>Using the <a href="https://styler.r-lib.org/">styler</a> and <a href="https://lintr.r-lib.org/">lintr</a> packages for style consistency.</li>
+</ul>
+</li>
+<li>Uses <a href="https://testthat.r-lib.org/">testthat 3</a> for automate tests.</li>
+<li>Uses <a href="https://rlang.r-lib.org/">rlang</a> frameworks for <em>tidy eval</em> and <em>rlang errors</em>.</li>
+</ul>
+</div>
+</div>
+</main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip="">Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/ricardo-semiao/phyopt/">Browse source code</a></li>
+<li><a href="https://github.com/ricardo-semiao/phyopt/issues">Report a bug</a></li>
+</ul>
+</div>
+<div class="license">
+<h2 data-toc-skip="">License</h2>
+<ul class="list-unstyled">
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+</ul>
+</div>
+<div class="citation">
+<h2 data-toc-skip="">Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing phyopt</a></li>
+</ul>
+</div>
+<div class="developers">
+<h2 data-toc-skip="">Developers</h2>
+<ul class="list-unstyled">
+<li>Ricardo Semião <br/><small class="roles"> Author, maintainer </small> </li>
+</ul>
+</div>
+</aside>
+</div>
+</div>
+</main></main><footer id="rssite-footer"><p>
+            Package made with <a href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<script src="assets/rspd_module.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!-- Meta --><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+<title>Dicionário de funções | R: Fundamentos e Ciência de Dados</title>
+<meta content='Abaixo segue a lista de funções vistas neste livro. {"x":{"filter":"top","vertical":false,"filterHTML":"&lt;tr&gt;\n &lt;td data-type=\"character\" style=\"vertical-align: top;\"&gt;\n  &lt;div...' name="description"/>
+<meta content="bookdown 0.45 with bs4_book()" name="generator"/>
+<meta content="Dicionário de funções | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="book" property="og:type"/>
+<meta content="https://ricardo-semiao.github.io/course-rfcd/dict.html" property="og:url"/>
+<meta content='Abaixo segue a lista de funções vistas neste livro. {"x":{"filter":"top","vertical":false,"filterHTML":"&lt;tr&gt;\n &lt;td data-type=\"character\" style=\"vertical-align: top;\"&gt;\n  &lt;div...' property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Dicionário de funções | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="@ricardo_semiao" name="twitter:site"/>
+<meta content='Abaixo segue a lista de funções vistas neste livro. {"x":{"filter":"top","vertical":false,"filterHTML":"&lt;tr&gt;\n &lt;td data-type=\"character\" style=\"vertical-align: top;\"&gt;\n  &lt;div...' name="twitter:description"/>
+<!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"/>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"/>
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet"/>
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet"/>
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet"/>
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"/>
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script><script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script><script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script><script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script><!-- CSS --><style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<!-- Custom Assets --><link href="/assets/global.css" rel="stylesheet"/>
+<link href="./assets/rsbd_module.css" rel="stylesheet"/>
+<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external" data-spy="scroll" data-target="#toc">
+<!-- @@site-icons@@ -->
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+<div class="row">
+<header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div class="d-flex align-items-start justify-content-between">
+<h1>
+<a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+</h1>
+<button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+<i class="fas fa-bars"></i>
+<span class="sr-only">Show table of contents</span>
+</button>
+</div>
+<div class="collapse-lg" id="main-nav">
+<form role="search">
+<input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search"/>
+</form>
+<nav aria-label="Table of contents"><h2>Índice</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
+<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li><a class="" href="intro1.html">Introdução</a></li>
+<li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
+<li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="" href="subset.html"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
+<li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
+<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
+<li><a class="" href="recap1.html">Recapitulando</a></li>
+<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li><a class="" href="intro2.html">Introdução</a></li>
+<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
+<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
+<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
+<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
+<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
+<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
+<li><a class="" href="recap2.html">Recapitulando</a></li>
+<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="intro3.html">Introdução</a></li>
+<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
+<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
+<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
+<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
+<li><a class="" href="recap3.html">Recapitulando</a></li>
+<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
+<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
+<li><a class="" href="intro4.html">Introdução</a></li>
+<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
+<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
+<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
+<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li class="book-part">Apêndice</li>
+<li><a class="active" href="dict.html">Dicionário de funções</a></li>
+<li><a class="" href="refs.html">Referências</a></li>
+</ul>
+<!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+</nav>
+</div>
+</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1 unnumbered" id="dict">
+<h1>Dicionário de funções<a aria-label="anchor" class="anchor" href="#dict"><i class="fas fa-link"></i></a>
+</h1>
+<p>Abaixo segue a lista de funções vistas neste livro.</p>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-0eced35df5aaede83fcf" style="width:100%;height:auto;"></div>
+<script data-for="htmlwidget-0eced35df5aaede83fcf" type="application/json">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>4<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>"],["<p>operadores<\/p>","<p>operadores<\/p>","<p>operadores<\/p>","<p>operadores<\/p>","<p>operadores<\/p>","<p>variáveis<\/p>","<p>variáveis<\/p>","<p>ajuda<\/p>","<p>objetos<\/p>","<p>objetos<\/p>","<p>objetos<\/p>","<p>atributos<\/p>","<p>atributos<\/p>","<p>attrs - name<\/p>","<p>attrs - name<\/p>","<p>attrs - dim<\/p>","<p>attrs - dim<\/p>","<p>attrs - class<\/p>","<p>attrs - class<\/p>","<p>attrs - class<\/p>","<p>attrs - class<\/p>","<p>outros<\/p>","<p>vetores<\/p>","<p>vetores<\/p>","<p>vetores<\/p>","<p>subset<\/p>","<p>control flow<\/p>","<p>control flow<\/p>","<p>control flow<\/p>","<p>operadores<\/p>","<p>outros<\/p>","<p>maps<\/p>","<p>maps<\/p>","<p>conditions<\/p>","<p>conditions<\/p>","<p>conditions<\/p>","<p>conditions<\/p>","<p>functions<\/p>","<p>functions<\/p>","<p>operadores<\/p>","<p>outros<\/p>","<p>functions<\/p>","<p>ambientes<\/p>","<p>ambientes<\/p>","<p>generics<\/p>","<p>generics<\/p>","<p>generics<\/p>","<p>ambientes<\/p>"],["<p><code>+<\/code>, <code>-<\/code>,  <code>*<\/code>, <code>/<\/code>, <code>\\^<\/code>, <code>%%<\/code>, <code>%/%<\/code><\/p>","<p><code>==<\/code>, <code>!=<\/code>, <code>&lt;<\/code>, <code>&gt;<\/code>, <code>&gt;=<\/code>, <code>&lt;=<\/code><\/p>","<p><code>!<\/code>, <code>&amp;<\/code>, <code>│<\/code><\/p>","<p><code>{<\/code>, <code>(<\/code><\/p>","<p><code>&lt;-<\/code>, <code>-&gt;<\/code>, <code>=<\/code>,<\/p>","<p><code>assign()<\/code>, <code>remove()<\/code>, <code>rm()<\/code><\/p>","<p><code>make.names()<\/code><\/p>","<p><code>help()<\/code>, <code>vignette()<\/code>, <code>?<\/code><\/p>","<p><code>is.*()<\/code>, <code>rlang::is_*()<\/code>, <code>as.*()<\/code>, <code>rlang::as_*()<\/code><\/p>","<p><code>typeof()<\/code><\/p>","<p><code>length()<\/code><\/p>","<p><code>structure()<\/code>, <code>str()<\/code><\/p>","<p><code>atributes()<\/code>, <code>attr()<\/code><\/p>","<p><code>names()<\/code>, <code>colnames()<\/code>, <code>rownames()<\/code>, <code>dimnames()<\/code><\/p>","<p><code>setNames()<\/code>, <code>purrr::set_names()<\/code>, <code>unname()<\/code><\/p>","<p><code>dim()<\/code>, <code>nrow()<\/code>, <code>ncol()<\/code><\/p>","<p><code>t()<\/code>, <code>aperm()<\/code><\/p>","<p><code>class()<\/code>, <code>unclass()<\/code><\/p>","<p><code>matrix()<\/code>, <code>array()<\/code><\/p>","<p><code>factor()<\/code>, <code>ordered()<\/code><\/p>","<p><code>data.frame()<\/code>, <code>tibble()<\/code><\/p>","<p><code>I()<\/code><\/p>","<p><code>c()<\/code>, <code>list()<\/code><\/p>","<p><code>cbind()<\/code>, <code>rbind()<\/code>, <code>abind::abind()<\/code><\/p>","<p><code>unlist()<\/code>, <code>purrr::list_c()<\/code>, <code>purrr::list_flatten()<\/code><\/p>","<p><code>[<\/code>, <code>[[<\/code>, <code>$<\/code><\/p>","<p><code>if<\/code>, <code>switch()<\/code>, <code>ifelse()<\/code>, <code>%||%<\/code><\/p>","<p><code>for<\/code>, <code>while<\/code>, <code>repeat<\/code><\/p>","<p><code>break<\/code>, <code>next<\/code><\/p>","<p><code>&amp;&amp;<\/code>, <code>||<\/code><\/p>","<p><code>seq()<\/code>, <code>seq.int()<\/code>, <code>seq_along()<\/code>, <code>seq_len()<\/code><\/p>","<p><code>lapply()<\/code>, <code>apply()<\/code>, <code>purrr::map()<\/code><\/p>","<p><code>sapply()<\/code>, <code>replicate()<\/code>, <code>Map()<\/code><\/p>","<p><code>stop()<\/code>, <code>warning()<\/code>, <code>message()<\/code><\/p>","<p><code>rlang::abort()<\/code>, <code>rlang::warn()<\/code>, <code>rlang::inform()<\/code><\/p>","<p><code>try()<\/code>, <code>supressWarnings()<\/code>, <code>supressErrors()<\/code><\/p>","<p><code>tryCatch()<\/code>, <code>withCallingHandlers<\/code><\/p>","<p><code>function()<\/code>, <code>formals()<\/code>, <code>body()<\/code>, <code>environment()<\/code><\/p>","<p><code>return()<\/code>, <code>invisible()<\/code>, <code>on.exit()<\/code><\/p>","<p><code>|&gt;<\/code>, <code>magrittr::`%&gt;%`<\/code><\/p>","<p><code>do.call()<\/code><\/p>","<p><code>library()<\/code>, <code>install.packages()<\/code><\/p>","<p><code>rlang::env()<\/code>, <code>rlang::new_environment()<\/code>, <code>rlang::env_print()<\/code><\/p>","<p><code>&lt;&lt;-<\/code>, <code>assign()<\/code><\/p>","<p><code>UseMethod()<\/code>, <code>NextMethod()<\/code>, <code>sloop::s3_dispatch()<\/code><\/p>","<p><code>sloop::s3_methods_generic()<\/code>, <code>sloop::s3_methods_class()<\/code><\/p>","<p><code>sloop::s3_get_method()<\/code><\/p>","<p><code>rlang::env_parent()<\/code>, <code>rlang::current_env()<\/code>, <code>rlang::caller_env()<\/code><\/p>"],["<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Arithmetic.html\">aritimétrica<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Comparison.html\">comparação<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html\">lógica<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Paren.html\">organização de expressões<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html\">definição de variáveis<\/a><\/p>","<p>definição e remoção de variáveis<\/p>","<p>criar nomes sintáticos<\/p>","<p>ajuda sobre funções e pacotes<\/p>","<p>testes e conversões de tipos<\/p>","<p>tipo de um objeto<\/p>","<p>tamanho de um objeto<\/p>","<p>criar e ver a estrutura de um objeto<\/p>","<p>atributos de um objeto<\/p>","<p>nomes por dimensão<\/p>","<p>criar nomes<\/p>","<p>dimensões<\/p>","<p>transpor dimensões<\/p>","<p>criar e remover classes<\/p>","<p>criaração de objetos S3<\/p>","<p>criaração de objetos S4<\/p>","<p>criaração de objetos S5<\/p>","<p>tratar expressões “as is” em data.frame e formulas<\/p>","<p>criar e combinar vetores<\/p>","<p>combinar vetores por dimensão<\/p>","<p>manipular hierarquia de listas<\/p>","<p><a href=\"https://search.r-project.org/R/refmans/base/html/Extract.html\">extração de elementos<\/a><\/p>","<p><a href=\"https://search.r-project.org/R/refmans/base/html/Control.html\">if else<\/a>, ifelse vetorizado, e infix operator<\/p>","<p><a href=\"https://search.r-project.org/R/refmans/base/html/Control.html\">loops<\/a><\/p>","<p><a href=\"https://search.r-project.org/R/refmans/base/html/Control.html\">keywords<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html\">lógica<\/a><\/p>","<p>geração de sequências<\/p>","<p>maps<\/p>","<p>maps (variações)<\/p>","<p>signaling conditions<\/p>","<p>signaling conditions (rlang)<\/p>","<p>ignoring conditions<\/p>","<p>handling conditions<\/p>","<p>function creation and components<\/p>","<p>function results<\/p>","<p>pipes<\/p>","<p>calling functions<\/p>","<p>installing and loading packages<\/p>","<p>creating and printing environments<\/p>","<p>assignment with envrironments<\/p>","<p>method dispatch<\/p>","<p>finding methods<\/p>","<p>finding source code of method<\/p>","<p>finding environments from context<\/p>"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Capítulo<\/th>\n      <th>Categoria<\/th>\n      <th>Função<\/th>\n      <th>Descrição<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paginate":false,"columnDefs":[{"width":"100px","targets":0},{"name":"Capítulo","targets":0},{"name":"Categoria","targets":1},{"name":"Função","targets":2},{"name":"Descrição","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="chapter-nav">
+<div class="prev"><a href="recap4.html">Recapitulando</a></div>
+<div class="next"><a href="refs.html">Referências</a></div>
+</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+<nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
+<ul class="nav navbar-nav"><li><a class="nav-link" href="#dict">Dicionário de funções</a></li></ul>
+<!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+</nav>
+</div>
+</div>
+</div></main> <!-- .container -->
+<footer id="rssite-footer"><p>
+            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
+            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
+        </p>
+</footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<!-- Scripts -->
+<script src="./assets/rsbd_module.js"></script><!-- dynamically load mathjax for compatibility with self-contained --><script>
+        (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = "true";
+        if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:")
+            if (/^https?:/.test(src))
+            src = src.replace(/^https?:/, '');
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+    for (let popover of popovers) {
+        const div = document.createElement('div');
+        div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+        div.innerHTML = popover.getAttribute('data-content');
+    
+        var has_math = div.querySelector("span.math");
+        if (has_math) {
+        document.body.appendChild(div);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+        MathJax.Hub.Queue(function() {
+            popover.setAttribute('data-content', div.innerHTML);
+            document.body.removeChild(div);
+        })
+        }
+    }
+    </script>
+</body>
+</html>

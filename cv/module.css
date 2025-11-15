@@ -1,0 +1,106 @@
+@charset "UTF-8";
+#rssite-main {
+  margin-top: 4px;
+  --cv-pad: 2rem;
+}
+@media (max-width: 920px) {
+  #rssite-main {
+    --cv-pad: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  #rssite-main {
+    --cv-pad: 0.5rem;
+  }
+}
+
+#education dl {
+  margin-left: var(--cv-pad);
+  display: grid;
+  grid-template-columns: 15ch 1fr;
+}
+@media (max-width: 600px) {
+  #education dl {
+    grid-template-columns: 1fr;
+  }
+}
+#education dl dt {
+  font-weight: bold;
+}
+#education dl dt:not(:first-child), #education dl dt:not(:first-child) + dd {
+  margin-top: 1rem;
+}
+@media (max-width: 600px) {
+  #education dl div, #education dl div + dd, #education dl dt:not(:first-child) + dd {
+    margin-top: 0;
+  }
+}
+
+#education .cv-div {
+  padding: 0 0.25rem;
+}
+#education .cv-div::before {
+  content: "⫶";
+}
+
+#experience ul {
+  margin-left: var(--cv-pad);
+}
+#experience .job {
+  list-style-type: none;
+}
+#experience .job + .job {
+  margin-top: 1rem;
+}
+#experience .job .j-title {
+  margin-bottom: 0.5rem;
+}
+#experience .job .j-wherewhen {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+#projects ul, #awards ul, #others ul {
+  margin-left: var(--cv-pad);
+}
+#projects li, #awards li, #others li {
+  margin-left: 1em;
+}
+#projects li + li, #awards li + li, #others li + li {
+  margin-top: 0.5rem;
+}
+#projects .award, #awards .award, #others .award {
+  margin-top: 0.25rem;
+}
+#projects .award, #projects .award svg, #awards .award, #awards .award svg, #others .award, #others .award svg {
+  display: inline-block;
+  vertical-align: top;
+}
+#projects .award svg, #awards .award svg, #others .award svg {
+  height: 1.5em;
+  width: 1.2em;
+  margin-left: 0.25rem;
+}
+
+#cv-download > p {
+  font-weight: bold;
+}
+#cv-download .d-options {
+  margin-left: 0.5rem;
+}
+#cv-download .d-options p {
+  display: inline-block;
+}
+#cv-download .flag-icon {
+  font-family: "Noto Color Emoji", sans-serif;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+#cv-download .d-div {
+  padding: 0 0.25rem;
+}
+#cv-download .d-div::before {
+  content: "|";
+}
