@@ -3,14 +3,31 @@
 
 
 <head>
-    @@site-meta@@
+    @@site-charset-viewport@@
 
     <title>Ricardo Semião | CV</title>
+    <meta name="description" content="Ricardo Semião's curriculum vitae.">
     
     @@site-style@@
-
     <link rel="stylesheet" href="./module.css">
+
+    @@site-social@@
+    <meta property="og:image" content="/index/profile_picture.jpg">
+
     <script data-goatcounter="https://ricardo-semiao.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Ricardo Semião Professional Curriculum Vitae (CV)",
+        "description": "Ricardo Semião's professional history, skills, experience, and education.",
+        "author": { "@id": "https://ricardo-semiao.github.io/#person" },
+        "url": "https://ricardo-semiao.github.io/cv/",
+        "isPartOf": { "@id": "https://ricardo-semiao.github.io/#website" },
+        "mainEntity": { "@id": "https://ricardo-semiao.github.io/#person" }
+    }
+    </script>
 </head>
 
 
@@ -26,9 +43,10 @@
             <h2>Education and Skills</h2> 
             <dl>
                 <dt>Education</dt>
-                <dd>Bachelor's Degree in Economics - FGV-EESP (2019 - 2023)</dd>
-                <div></div>
-                <dd>Master's Degree in Economics - FGV-EESP (2024 - ongoing)</dd>
+                <dd>
+                    <p>Bachelor's Degree in Economics - FGV-EESP (2019 - 2023)</p>
+                    <p>Master's Degree in Economics - FGV-EESP (2024 - ongoing)</p>
+                </dd>
 
                 <dt>Languages</dt>
                 <dd>Fluent English - Cambridge English: Advanced (C1) Certificate</dd>

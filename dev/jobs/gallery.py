@@ -39,12 +39,16 @@ def build_gallery(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None
             "class": " ".join(["gallery-item", f"h-{h}", f"w-{w}"]),
             "tabindex": "0"
         })
-        gallery_item.append(soup.new_tag("img", attrs = {
-            "src": item["src"], "alt": item["alt"], "loading": "lazy",
+        attrs ={
+            "src": item["src"],
+            "alt": item["alt"],
             "data-description": item["description"],
             "data-where": item["where"],
             "data-when": item["when"]
-        }))
+        }
+        if i > 5: # Lazy loading for images not in the beginning
+            attrs["loading"] = "lazy"
+        gallery_item.append(soup.new_tag("img", attrs = attrs))
         gallery_items.append(gallery_item)
 
     best = best_pack_draw(

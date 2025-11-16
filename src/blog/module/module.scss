@@ -54,9 +54,9 @@
     }
 
 
-    // No thumbnails, thus no wrapping:
+    // No thumbnails, thus no wrapping
     .quarto-listing .thumbnail {
-        display: none;
+        display: none; // This is getting removed from the HTML in inject_project()
     }
     .quarto-listing .quarto-post {
         flex-direction:row-reverse;

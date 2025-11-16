@@ -1,6 +1,10 @@
 ---
 title: "Blog"
 
+pagetitle: "Ricardo Semião | Blog"
+description-meta: "Ricardo Semião's personal blog, about programming and personal projects."
+author-meta: "Ricardo Semião e Castro"
+
 toc: false
 number-sections: false
 
@@ -10,6 +14,29 @@ listing:
   type: default
   categories: true
   filter-ui: true
+
+include-in-header:
+    - text: |
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "@id": "https://ricardo-semiao.github.io/blog/#blog",
+            "name": "Ricardo Semião's Blog",
+            "description": "Ricardo Semião's personal blog, about programming and personal projects.",
+            "author": { "@id": "https://ricardo-semiao.github.io/#person" },
+            "url": "https://ricardo-semiao.github.io/blog/",
+            "isPartOf": { "@id": "https://ricardo-semiao.github.io/#website" },
+            "blogPost": [
+                {
+                    "@type": "BlogPosting",
+                    "headline": "Blog Introduction",
+                    "url": "https://ricardo-semiao.github.io/blog/posts/2025-10-17_intro.html",
+                    "description": "This blog's first post, introducing myself"
+                }
+            ]
+        }
+        </script>
 ---
 
 Welcome to my blog! I post mostly about something that I made and how, or about something that I learned and didn't found an educational resource quite how I like.
@@ -18,4 +45,3 @@ The posts are filterable by clicking on the categories, or with the filter bar, 
 
 
 # Posts
-

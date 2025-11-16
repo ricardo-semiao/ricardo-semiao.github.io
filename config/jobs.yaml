@@ -106,7 +106,8 @@ static_assets:
   steps:
     assets_move: [
       {include: "404\\.html|robots\\.txt"},
-      {subtarget: "assets/img", include: "img$"}
+      {subtarget: "assets/img", include: "img$"},
+      {subtarget: "assets/fonts", include: "fonts$"},
     ]
 
 global_assets:

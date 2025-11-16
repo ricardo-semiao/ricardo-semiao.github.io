@@ -7,6 +7,10 @@ author: "Ricardo Semião"
 date: 14 11 2025
 date-modified: 14 11 2025
 
+pagetitle: "Ricardo Semião | Blog Introduction"
+description-meta: "Ricardo Semião Blog's first post, introducing himself."
+author-meta: "Ricardo Semião e Castro"
+
 fig-align: center # NOTE: requires additional margin: auto :(
 fig-width: 70 # NOTE: not working :(
 toc-expand: 2
@@ -28,6 +32,20 @@ include-in-header:
                 text-align: center;
             }
         </style>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "Blog Introduction",
+            "description": "This blog's first post, introducing myself",
+            "author": { "@id": "https://ricardo-semiao.github.io/#person" },
+            "url": "https://ricardo-semiao.github.io/blog/posts/2025-10-17_intro.html",
+            "isPartOf": [
+                { "@id": "https://ricardo-semiao.github.io/blog/#blog" },
+                { "@id": "https://ricardo-semiao.github.io/#website" }
+            ]
+        }
+        </script>
 ---
 
 # The Life Of
@@ -47,7 +65,7 @@ Until 2021, I was part of the scout movement, which is awesome. I learned lots o
 
 Below, one of the best moments as a scout: going up Mount Fuji in the 2015 World Jamboree. We started the climb very late to see the sunrise from the top. I immediately fell asleep when I got to the summit, didn't see the sunrise, but it was a damn good nap—no regrets.
 
-![The view from Mount Fuji](../img/fuji.jpg){width=60%}
+![The view from Mount Fuji](../img/fuji.webp){width=60% fig-alt="The view from Mount Fuji."}
 
 
 ## Graduation
@@ -56,9 +74,11 @@ I liked many subjects in high school; I just wanted to be a teacher in any of th
 
 In 2020, the COVID pandemic hit. But on a good note, I joined GVCode, the data science and programming student league at FGV. I learned Python in its trainee program, and after a year I became HR director, responsible for the selection process and the trainee program. The selection process was a blast; we did a very challenging but relaxed process, and organizing the Python trainee program for eventually two years was great. I realized my preferred way of learning is teaching others. One semester after becoming HR director, I became vice-president, which taught me and my president partner so much, especially through our mistakes. Overall, the league, while with its flaws, had some high-quality learning experiences, while at the same time being very relaxed and not taking itself too seriously. I keep it in my heart.
 
-![Ricardo vice-president (left) and Ricardo RH director (right)](../img/ric_and_ric.jpeg){width=60%}
+![Ricardo vice-president (left), GVCode directors[^dirs] Ricardo RH director (right)](../img/ric_and_ric.webp){width=60% fig-alt="GVCode directors' glitched photo with two Ricardos."}
 
-![GVCode's team at 2nd place in the Constellation A. M. Dev Challenge](../img/constellation.jpg){width=60%}
+[^dirs]: Felipe Tetsuo (Commercial), Victor Laube (president), Richard Jin (Administration), and Felipe Le Du (Marketing).
+
+![GVCode's team at 2nd place in the Constellation A. M. Dev Challenge](../img/constellation.webp){width=60% fig-alt="GVCode team holding certificates."}
 
 Also around 2020, I started learning R, and soon began answering questions on Stack Overflow. All the courses were very applied, and I wanted to dig deeper into how things worked. I started reading some books, curating, translating, and turned that material into my own book: [R: Fundamentos e Ciência de Dados](https://ricardo-semiao.github.io/library/rfcd/). It is still under construction, but I am very proud of it. It is authorial, but inspired by existing literature. It is available in the navbar above. This material was used in teaching assistantships and as a semester-long course for GVCode members.
 
@@ -69,11 +89,11 @@ After the pandemic ended, I got to enjoy a little more of university life. Don't
 I found out about many more applied paths outside of academia and teaching, but these kept being points of interest for me. For all of them, I wanted to keep studying and prepared for the ANPEC test, the Brazil-wide exam for economics graduate programs. I had lots of family support and time to study, and wound up with 10th place in the country, next to some colleagues. I was invited to visit the FGV-Rio and PUC-Rio universities in Rio de Janeiro, which was very fun, but eventually decided to stay in EESP for its strong Econometrics program.
 
 
-## Masters
+## Master's
 
-Before my masters started, I got to learn lots of theoretical Computer Science and started developing my code packages (in the navbar above). I got tired of the intense statistics programming and learned the cuter web dev to create the first draft of this site. On a side note, open source is an important value and stepping stone for the world (what do you mean people do things without a profit incentive?), donate to your favorite projects if you can!
+Before my master's started, I got to learn lots of theoretical Computer Science and started developing my code packages (in the navbar above). I got tired of the intense statistics programming and learned the cuter web dev to create the first draft of this site. On a side note, open source is an important value and stepping stone for the world (what do you mean people do things without a profit incentive?), donate to your favorite projects if you can!
 
-The masters has been very challenging, but very nice. It is very satisfying learning the very formal knowledge behind Economic Theory, and also the more advanced applied practices. I did several computational-related courses, and also some Bayesian Statistics—very nice. I am doing my thesis with Prof. Marcelo Fernandes, looking to understand the performance of regime-switching models in the presence of mis-specification, and how it relates to regime-conditional characteristics of the dependent variable.
+The master's has been very challenging, but very nice. It is very satisfying learning the very formal knowledge behind Economic Theory, and also the more advanced applied practices. I did several computational-related courses, and also some Bayesian Statistics—very nice. I am doing my thesis with Prof. Marcelo Fernandes, looking to understand the performance of regime-switching models in the presence of mis-specification, and how it relates to regime-conditional characteristics of the dependent variable.
 
 
 ## Next Steps

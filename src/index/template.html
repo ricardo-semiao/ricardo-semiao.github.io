@@ -3,14 +3,73 @@
 
 
 <head>
-    @@site-meta@@
+    @@site-charset-viewport@@
 
     <title>Ricardo Semião | Welcome!</title>
-    
-    @@site-style@@
+    <meta name="description" content="Personal site and projects of Ricardo Semião e Castro, master's student in economics with interests in statistics, data science, and programming.">
 
+    @@site-style@@
     <link rel="stylesheet" href="./index/module.css">
+
+    @@site-social@@
+    <meta property="og:image" content="/index/profile_picture.jpg">
+
     <script data-goatcounter="https://ricardo-semiao.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://ricardo-semiao.github.io/#website",
+            "name": "Ricardo Semião's Personal Site",
+            "url": "https://ricardo-semiao.github.io/"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://ricardo-semiao.github.io/#person",
+            "name": "Ricardo Semião e Castro",
+            "description": "Master's student in economics, with interests in statistics, data science, and programming.",
+            "url": "https://ricardo-semiao.github.io/",
+            "image": "https://ricardo-semiao.github.io/index/profile_picture.jpg",
+            "sameAs": [
+                "https://github.com/ricardo-semiao",
+                "https://linkedin.com/in/ricardo-semiao",
+                "mailto:ricardo.semiao@outlook.com",
+                "https://stackoverflow.com/users/13048728"
+            ],
+            "jobTitle": "Master's Student in Economics",
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "FGV-EESP",
+                "sameAs": "https://economics-sp.fgv.br/",
+                "description": "Master's student in Economics.",
+                "startDate": "2024-01-01"
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://ricardo-semiao.github.io/#projects",
+            "name": "Ricardo Semião's Portfolio Projects",
+            "description": "A listing of Ricardo Semião's academic articles, code packages, and other personal projects."
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Ricardo Semião's Landing Page",
+            "description": "Ricardo Semião's site introduction and projects listing.",
+            "url": "https://ricardo-semiao.github.io/",
+            "isPartOf": { "@id": "https://ricardo-semiao.github.io/#website" },
+            "author": { "@id": "https://ricardo-semiao.github.io/#person" },
+            "mainEntity": [
+                { "@id": "https://ricardo-semiao.github.io/#person" },
+                { "@id": "https://ricardo-semiao.github.io/#projects" }
+            ]
+        }
+    ]
+    </script>
 </head>
 
 
@@ -30,7 +89,7 @@
                     <p>In the navbar above you can find my blog, CV, a gallery, and some of my projects. Hover the '<svg><use href="/assets/img/icons.svg#icon-info"></use></svg>' icons below to see a brief explanation of each project.</p>
                 </div>
                 <div class="column-img">
-                    <img src="/assets/img/profile_picture.jpg" alt="Profile Picture" style="width: 100%;">
+                    <img src="/index/profile_picture.jpg" alt="Profile Picture">
                 </div>
             </div>
         </section>
@@ -52,7 +111,7 @@
                 <div class="column-card">
                     <p>Academic articles/tasks:</p>
                     <ul>
-                        <li><a href="https://github.com/ricardo-semiao/article-regime-id-performance" data-description="My (in progress) Master thesis. My goal is to understand the performance of regime switching time-series models, specially in relation to the characteristics of the estimated regimes, using Monte Carlo simulations.">article-regime-id-performance</a>@@i@@</li>
+                        <li><a href="https://github.com/ricardo-semiao/article-regime-id-performance" data-description="My (in progress) Master's thesis. My goal is to understand the performance of regime switching time-series models, specially in relation to the characteristics of the estimated regimes, using Monte Carlo simulations.">article-regime-id-performance</a>@@i@@</li>
                         <li><a href="https://github.com/ricardo-semiao/article-covid-svardiff" data-description="My graduation thesis. My goal was to estimate the effect of the Brazilian vaccination policy, by comparing Structural VAR models before and after the start of its implementation.">article-covid-svardiff</a>@@i@@</li>
                         <li><a href="https://github.com/ricardo-semiao/misc-masters" data-description="Empirical and theoretical tasks from my masters degree, spamming several courses, with lots of econometrics.">misc-masters</a>@@i@@</li>
                     </ul>
@@ -69,7 +128,7 @@
                     <p>Python packages:</p>
                     <ul>
                         <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/packages/template_injector" data-description="A simple, custom build, HTML template engine built in Python. Uses regex to identify component calls.">template_injector</a>@@i@@</li>
-                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/packages/template_injector" data-description="A packing algorithm for rectangles with discrete dimensions. Built with numpy, it is partially random, finding the best option over may draws.">armasonry</a>@@i@@</li>
+                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/packages/armasonry" data-description="A packing algorithm for rectangles with discrete dimensions. Built with numpy, it is partially random, finding the best option over may draws.">armasonry</a>@@i@@</li>
                     </ul>
                 </div>
                 <div class="column-card">
@@ -82,7 +141,7 @@
                 <div class="column-card">
                     <p>Miscellaneous:</p>
                     <ul>
-                        <li><a href="https://ricardo-semiao.github.io/course-rfcd" data-description="An educational book on the R language. Authorial, but inspired by existing literature. It is in construction and available in the navbar above.">RFCD book</a>@@i@@</li>
+                        <li><a href="https://ricardo-semiao.github.io/library/rfcd" data-description="An educational book on the R language. Authorial, but inspired by existing literature. It is in construction and available in the navbar above.">RFCD book</a>@@i@@</li>
                         <li><a href="https://github.com/ricardo-semiao/misc-general" data-description="Miscellaneous projects, most for fun or for learning, with questionable quality.">misc-general</a>@@i@@</li>
                         <li><a href="https://github.com/mevaldt/diversified_crypto" data-description="A R Shiny app for crypto portfolio optimization and analysis, with Ripple funding.">diversified_crypto</a>@@i@@</li>
                     </ul>

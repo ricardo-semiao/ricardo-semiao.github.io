@@ -30,12 +30,15 @@
     dt {
         font-weight: bold;
     }
-    dt:not(:first-child), dt:not(:first-child) + dd {
-        margin-top: 1rem;
+    dt:not(:last-child), dd:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+    dd > p:not(:last-child) {
+        margin-bottom: 0.5rem;
     }
     @media (max-width: 600px) {
-        div, div + dd, dt:not(:first-child) + dd {
-            margin-top: 0;
+        dt:not(:last-child) {
+            margin-bottom: 0;
         }
     }
 }
@@ -54,8 +57,8 @@
     }
     .job {
         list-style-type: none;
-        & + .job {
-            margin-top: 1rem;
+        &:not(:last-child) {
+            margin-bottom: 1rem;
         }
 
         .j-title {
@@ -79,8 +82,8 @@
     li {
         margin-left: 1em;
     }
-    li + li {
-        margin-top: 0.5rem;
+    li:not(:last-child) {
+        margin-bottom: 0.5rem;
     }
     
     .award {

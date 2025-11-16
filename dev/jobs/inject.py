@@ -29,7 +29,8 @@ manipulators = {
     "wrap": lambda el, comp: el.wrap(comp),
     "append": lambda el, comp: el.append(comp),
     "insert": lambda el, comp: el.insert(0, comp),
-    "addclass": lambda el, comp: el.attrs.setdefault("class", []).append(comp)
+    "addclass": lambda el, comp: el.attrs.setdefault("class", []).append(comp),
+    "remove": lambda el, comp: el.decompose()
 }
 
 def inject_project(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> None:
@@ -49,7 +50,13 @@ def inject_project(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> Non
             manipulate = manipulators[comp_args["position"]]
             for comp_item in components.get(comp_name, [comp_name]):
                 # If no components found, use the name as raw HTML/text
-                manipulate(soup.select_one(comp_args["selector"]), copy(comp_item))
+                if comp_args.get("try", False):
+                    try:
+                        manipulate(soup.select_one(comp_args["selector"]), copy(comp_item))
+                    except:
+                        pass
+                else:
+                    manipulate(soup.select_one(comp_args["selector"]), copy(comp_item))
 
         with open(page, "w", encoding="utf-8") as file:
             file.write(str(soup))

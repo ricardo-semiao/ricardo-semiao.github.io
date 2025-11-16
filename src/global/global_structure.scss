@@ -104,10 +104,10 @@ body {
         & > li {
             display: inline-block;
         }
-        & > li + li {
-            margin-left: 2rem;
+        & > li:not(:last-child) {
+            margin-right: 2rem;
             @media (max-width: $media-width-md) {
-                margin-left: 1rem;
+                margin-right: 1rem;
             }   
         }
     }
@@ -205,8 +205,8 @@ body {
         .nav-drop ul {
             right: 0; // In small screens, align to right
         }
-        nav > ul > li + li {
-            margin-left: 0.5rem;
+        nav > ul > li:not(:last-child) {
+            margin-right: 0.5rem;
         }
     }
 }

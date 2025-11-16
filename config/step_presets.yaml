@@ -26,7 +26,8 @@ inject_project:
       quartoblog-site-main: {position: "wrap", selector: "#quarto-content"},
       site-header: {position: "before", selector: "#quarto-search-results"},
       rsquartoblog-footer: {position: "after", selector: "#rssite-main"},
-      site-scripts: {position: "after", selector: "#rssite-footer"}
+      site-scripts: {position: "after", selector: "#rssite-footer"},
+      remove: {position: "remove", selector: ".quarto-post > .thumbnail", try: true},
     }
 
 assets_remove:

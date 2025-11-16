@@ -50,8 +50,8 @@
         max-width: 12rem;
         max-height: 12rem; 
     }
-    #intro .column-text > p + p {
-        margin-top: 0.5rem;
+    #intro .column-text > p:not(:last-child) {
+        margin-bottom: 0.5rem;
     }
     svg {
         width: 0.9em;
@@ -112,8 +112,8 @@
     .column-card > ul {
         padding-left: 2rem;
     }
-    .column-card > ul li + li {
-        margin-top: 0.25rem;
+    .column-card > ul li:not(:last-child) {
+        margin-bottom: 0.25rem;
     }
 
     // .column-card li {
@@ -125,7 +125,7 @@
     }
     button.tooltip-controller {
         height: 1.5em; // Match a height
-        width: 0.8em; // Actual size
+        width: 0.9em; // Actual size
         margin-left: 0.25rem;
     }
     a {

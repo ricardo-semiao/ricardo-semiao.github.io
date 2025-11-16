@@ -3,14 +3,44 @@
 
 
 <head>
-    @@site-meta@@
+    @@site-charset-viewport@@
 
     <title>Ricardo Semião | Gallery</title>
-    
-    @@site-style@@
+    <meta name="description" content="Ricardo Semião's personal photo gallery.">
 
+    @@site-style@@
     <link rel="stylesheet" href="./module.css">
+
+    @@site-social@@
+    <meta property="og:image" content="./barco_nova_vida.webp">
+
     <script data-goatcounter="https://ricardo-semiao.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        "name": "Ricardo Semião Photo Gallery",
+        "description": "A personal gallery of hobby photos by Ricardo Semião.",
+        "creator": { "@id": "https://ricardo-semiao.github.io/#person" },
+        "url": "https://ricardo-semiao.github.io/gallery/",
+        "isPartOf": { "@id": "https://ricardo-semiao.github.io/#website" },
+        "associatedMedia": [
+            {
+                "@type": "ImageObject",
+                "contentUrl": "./barco_nova_vida.webp",
+                "name": "Barco Nova Vida",
+                "description": "A boat named Nova Vida on the water."
+            },
+            {
+                "@type": "ImageObject",
+                "contentUrl": "./serra_dos_orgaos.webp",
+                "name": "Serra dos Órgãos",
+                "description": "Serra dos Órgãos National Park, in Teresópolis RJ."
+            }
+        ]
+    }
+    </script>
 </head>
 
 
