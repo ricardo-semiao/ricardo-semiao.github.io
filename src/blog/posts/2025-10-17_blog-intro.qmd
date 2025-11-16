@@ -1,0 +1,211 @@
+---
+title: "Blog Introduction"
+description: "This blog's first post, introducing myself"
+categories: personal
+
+author: "Ricardo Semião"
+date: 14 11 2025
+date-modified: 14 11 2025
+
+pagetitle: "Ricardo Semião | Blog Introduction"
+description-meta: "Ricardo Semião Blog's first post, introducing himself."
+author-meta: "Ricardo Semião e Castro"
+
+fig-align: center # NOTE: requires additional margin: auto :(
+fig-width: 70 # NOTE: not working :(
+toc-expand: 2
+
+include-in-header:
+    - text: |
+        <style>
+            iframe, iframe * {
+                max-height: 5rem !important;
+                margin-bottom: 0 !important;
+            }
+            p:has(+ iframe) {
+                margin-bottom: 0.5rem !important;
+            }
+            img {
+                margin: 0 auto;
+            }
+            figcaption {
+                text-align: center;
+            }
+        </style>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "Blog Introduction",
+            "description": "This blog's first post, introducing myself",
+            "author": { "@id": "https://ricardo-semiao.github.io/#person" },
+            "url": "https://ricardo-semiao.github.io/blog/posts/2025-10-17_intro.html",
+            "isPartOf": [
+                { "@id": "https://ricardo-semiao.github.io/blog/#blog" },
+                { "@id": "https://ricardo-semiao.github.io/#website" }
+            ]
+        }
+        </script>
+---
+
+# The Life Of
+
+Hello! This is my first blog post. My intent is to have a space to share some of my thoughts in a more informal way. Today, I'll introduce myself in an overly dramatic way.
+
+
+## Early Life
+
+Ok, maybe too dramatic.
+
+I've always lived in São Paulo, which has its flaws, but is a very diverse city. I especially love carnaval, the Virada Cultural, and its street bars. I also like getting around with public transport, though again, it has its flaws.
+
+Anyway, school days were nice, with lots of friends I carry to this day, and lots of very bad football. While I was not particularly studious, I liked helping colleagues and decided that I wanted to be a teacher at some point.
+
+Until 2021, I was part of the scout movement, which is awesome. I learned lots of important values and skills, and did some meaningful community projects. Because of it, I am now the friend who is very [invested in keeping the fire going](https://www.tiktok.com/@.aidanbaker/video/7570150449853091085). There, I also made friends for life.
+
+Below, one of the best moments as a scout: going up Mount Fuji in the 2015 World Jamboree. We started the climb very late to see the sunrise from the top. I immediately fell asleep when I got to the summit, didn't see the sunrise, but it was a damn good nap—no regrets.
+
+![The view from Mount Fuji](../img/fuji.webp){imgfig-alt="The view from Mount Fuji."}
+
+
+## Graduation
+
+I liked many subjects in high school; I just wanted to be a teacher in any of them. I ended up starting my undergrad in Economics at FGV-EESP in 2019. I learned to love the formality and rigor of economics and academic knowledge as a whole. I started enjoying studying more (pfft, nerd 🤭).
+
+In 2020, the COVID pandemic hit. But on a good note, I joined GVCode, the data science and programming student league at FGV. I learned Python in its trainee program, and after a year I became HR director, responsible for the selection process and the trainee program. The selection process was a blast; we did a very challenging but relaxed process, and organizing the Python trainee program for eventually two years was great. I realized my preferred way of learning is teaching others. One semester after becoming HR director, I became vice-president, which taught me and my president partner so much, especially through our mistakes. Overall, the league, while with its flaws, had some high-quality learning experiences, while at the same time being very relaxed and not taking itself too seriously. I keep it in my heart.
+
+![Ricardo vice-president (left), GVCode directors[^dirs] Ricardo RH director (right)](../img/ric_and_ric.webp){imgfig-alt="GVCode directors' glitched photo with two Ricardos."}
+
+[^dirs]: Felipe Tetsuo (Commercial), Victor Laube (president), Richard Jin (Administration), and Felipe Le Du (Marketing).
+
+![GVCode's team at 2nd place in the Constellation A. M. Dev Challenge](../img/constellation.webp){imgfig-alt="GVCode team holding certificates."}
+
+Also around 2020, I started learning R, and soon began answering questions on Stack Overflow. All the courses were very applied, and I wanted to dig deeper into how things worked. I started reading some books, curating, translating, and turned that material into my own book: [R: Fundamentos e Ciência de Dados](https://ricardo-semiao.github.io/library/rfcd/). It is still under construction, but I am very proud of it. It is authorial, but inspired by existing literature. It is available in the navbar above. This material was used in teaching assistantships and as a semester-long course for GVCode members.
+
+Further in my graduation, I was also a teaching assistant for Econometrics, and a research assistant for Professor Jéferson Colombo, building an [R Shiny app](https://github.com/mevaldt/diversified_crypto) for crypto portfolio optimization and analysis, with Ripple funding.
+
+After the pandemic ended, I got to enjoy a little more of university life. Don't tell my FGV compatriots, but I went to the best university games, BIFE from USP, disguised as a philosophy student, and had a blast.
+
+I found out about many more applied paths outside of academia and teaching, but these kept being points of interest for me. For all of them, I wanted to keep studying and prepared for the ANPEC test, the Brazil-wide exam for economics graduate programs. I had lots of family support and time to study, and wound up with 10th place in the country, next to some colleagues. I was invited to visit the FGV-Rio and PUC-Rio universities in Rio de Janeiro, which was very fun, but eventually decided to stay in EESP for its strong Econometrics program.
+
+
+## Master's
+
+Before my master's started, I got to learn lots of theoretical Computer Science and started developing my code packages (in the navbar above). I got tired of the intense statistics programming and learned the cuter web dev to create the first draft of this site. On a side note, open source is an important value and stepping stone for the world (what do you mean people do things without a profit incentive?), donate to your favorite projects if you can!
+
+The master's has been very challenging, but very nice. It is very satisfying learning the very formal knowledge behind Economic Theory, and also the more advanced applied practices. I did several computational-related courses, and also some Bayesian Statistics—very nice. I am doing my thesis with Prof. Marcelo Fernandes, looking to understand the performance of regime-switching models in the presence of mis-specification, and how it relates to regime-conditional characteristics of the dependent variable.
+
+
+## Next Steps
+
+For now, finishing the thesis. No spoilers.
+
+
+## Controversies
+
+Just kidding 😅.
+
+
+
+# Interests
+
+## Film, TV, and Books
+
+I am horrible at consistently consuming films, TV, or books; people judge me. I don't really know what my favorite movies are, but I cry in a bunch of them. One of the most recent perpetrators was Eternal Sunshine of the Spotless Mind. For books, I should read more, but some childhood ones are the Narnia Chronicles and The Little Prince.
+
+For TV series, I can be a little more opinionated. My favorite is Dark, followed by Breaking Bad and Better Call Saul. Maid and Bodies were also awesome.
+
+
+## Games
+
+I always loved video games. Outside of Sly Cooper 3 and PES 2008, mostly on PC. I really like story-rich single player games. Some of my favorites are Diablo II, Half Life 1 (no, I haven't played the 2 yet, maybe when the 3 comes out...), and Subnautica. I also like simulation games, like Civilization IV and Cities Skylines. And finally, Minecraft and League of Legends are also played from time to time. As a child, I loved Legos.
+
+
+## Others
+
+I wouldn't call it a hobby, nor that I am especially good at it, but I like cooking and taking photos. The cooking is more 'scout food', improvisational food, but spicy though. Some of the photos can be seen in the gallery (at the navbar above).
+
+
+## Music
+
+During my childhood, I had a music player with: The Offspring (Smash to Days Go By), Audioslave (all 3), and Coldplay (A Rush of Blood to the Head and Parachutes). For some time I did pilates class, and my teacher listened to punk rock during it—it was awesome. I'll try to show some non-obvious picks that stuck with me.
+
+From Audioslave, #1 Zero was the first song alphabetically in my playlists, so I listened to it a lot, and it rules:
+
+```{=html}
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0wxR6vA8Je5JHiTsZSmG01?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+```
+
+I really think that Coldplay's first albums are looked down on by the rock dudes, but they are great. "Yes" is a song in a deeper voice, and with different instrumentals:
+
+```{=html}
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/04zfFfRMXegKi4mMkGMeze?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+```
+
+The Offspring I don't hear that much nowadays, but here is a solid one:
+
+```{=html}
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0GlTcDHNVSbx1Oy8kQqRMB?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+```
+
+Later there was Linkin Park, Muse, Queens of the Stone Age, and Gorillaz.
+
+For Linkin Park, "Overflow" is my favorite from the new album, and I saw it live in São Paulo 8/11/2025:
+
+```{=html}
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2Yh356WJoVcWleiWRFoLUa?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+```
+
+From Muse, it's really hard. I'm gonna go with "Recess" from the very weird Hullabaloo Soundtrack—it makes me scream. I love so many others though; "Hyper Music" for a long time was the perfect rock song for me.
+
+```{=html}
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4fv1bVofsMcwqGZpMT6eSv?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+```
+
+From QotSA, I love "The Vampire of Time and Memory" and "I Sat By the Ocean." To be a little less obvious:
+
+```{=html}
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7mGAH8wfCljwG0tBi9WMGJ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+```
+
+From Gorillaz, there are some: "Fire Coming out of the Monkey's Head," "Let Me Out," but I'm going with:
+
+```{=html}
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4M88Wd7Aps5LGRWMOC7gSH?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+```
+
+Today I am hearing a lot of Nine Inch Nails. My favorite so far is "We're in This Together," but stay with:
+
+```{=html}
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4bTYuyH7wejFS2e82i6pPb?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+```
+
+Nowadays I am pretty eclectic, and I think we should strive for that in many places in life. Still, I haven't taken the time to properly expand my playlist. To close up, here are some lesser known artists/songs I like:
+
+- Some heavier ones:
+    - Highly Suspect. [Mister Asylum](https://open.spotify.com/track/0YHHwYuLA0kEkV56moCNpU?si=bd9f94441bed4edb).
+    - cleopatric. [GOOD GRIEF](https://open.spotify.com/track/7GjQaDCkilmYWzK0yf60xe?si=4428540de6e14a50).
+    - Biffy Clyro. [In the Name of the Wee Man](https://open.spotify.com/track/4G8ma3P8TNuEmeQCMJ2rP8?si=43f4b81463594f77).
+    - Royal Blood. [Either You Want It](https://open.spotify.com/track/59ealPRjLfAY6AE6ro8GVk?si=0e678451e1f34340).
+- Some chiller ones:
+    - Elbow. [Leaders of the Free World](https://open.spotify.com/track/0FeKXParpIZgzNzzOeJiZY?si=4a475554fcf74703).
+    - Men I Trust. [Space Is the Place](https://open.spotify.com/track/0xhTx5dH36sI1SQljLnFJS?si=b624766cb9314e16).
+    - Nothing But Thieves. [Broken Machine](https://open.spotify.com/track/1lpxUd0kkSbVbYoUS7hLJJ?si=e1d32d9537ca496d).
+    - Catarina Round. [Pick up the Phone](https://open.spotify.com/track/3VkgPsik4603KgBlMGcA6j?si=2257fa1afaa24907).
+    - Crumb. [Ghostride](https://open.spotify.com/track/0R3TWpoxAhT3HDXM7tpRzS?si=13f5743006134df7).
+- Some of my favorites from Brazil (and friends):
+    - Junio Barreto. [Amigos Bons](https://open.spotify.com/track/4ofJo8bIZ6OaFiRkdJm79x?si=647bbf2d671246e2).
+    - BaianaSystem, a very Brazilian mix. [Cobra Criada](https://open.spotify.com/track/5E71fcXzFwtoWj2oRsGvc2?si=eed54664f08e4b40).
+    - Planet Hemp. [A Culpa é de Quem?](https://open.spotify.com/track/4h8MTOryjJFvsnKvB6yPvp?si=8aae21d38f794fd2).
+    - Gabriel O Pensador. [Faça o Diabo Feliz](https://open.spotify.com/track/576Pgp3yJM009By9Evf9YR?si=ebb76e0abe714d0f).
+    - Inti Illimani Histórico. [La Partida](https://open.spotify.com/track/2KBiQ5sviRQN0UkKSbTnqc?si=cf9d7e59a72745ac).
+    - Los Piojos. [Civilización](https://open.spotify.com/album/0aPjWHFy8wvMwUBhWVq6TV?si=48f2fd8369b5416f).
+- I keep writing this and I keep getting sad from leaving stuff out. Let me throw out some random songs:
+    - [A Certain Shade of Green Acoustic](https://open.spotify.com/track/6P2DVhW1mmHSKQLfqkxLmO?si=087f4ea6bfdc480a) - Incubus.
+    - [Vanity](https://open.spotify.com/track/1unH1mDWKxidZvjgnLigXg?si=f4a55002c3904c9a) - Mica Levi
+    - [Wet](https://open.spotify.com/track/7yBjQ29XKxHlxuqycHuvmm?si=2de954710506465a) - Dazey and the Scouts
+    - [Young Liars](https://open.spotify.com/track/5FMhejeHdxTibd9T0pfurT?si=3c0910b2a00e4adc) - TV On The Radio
+    - [I Put a Spell on You](https://open.spotify.com/track/5N8ttZslGXlcNGMP2ACivh?si=b69d21e50e2e4196) - IZA
+    - [Weight of Love](https://open.spotify.com/track/3xMQOd1C3TXsjQ3pmzOmkC?si=add262fe152b4f10) - The Black Keys
+    - [Deadcrush](https://open.spotify.com/track/26JGATuL9PiVya5TjNAsCe?si=1dc7b900630c4b16) - alt-J
+    - Virtual Insanity, Kiss from a Rose, From The Ritz To The Rubble, Girls & Boys, Life Itself, Night Running, Little Dark Age, Machu Picchu, N 2 Gether Now, Mistério do Planeta, Cash Machine, Favela Sinistra, Chama os Mulekes, LEAVE ME ALONE, A Little Bit of Madness.

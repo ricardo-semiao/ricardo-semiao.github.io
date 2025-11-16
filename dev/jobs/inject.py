@@ -72,20 +72,23 @@ def inject_template(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> No
     components_paths = glob_re(Path("src"), r".*_components\.html", recursive = True)
     # TODO: Only load needed components to avoid name clashes
 
-    template_paths = glob_re(Path(args["source"]), r".*(?<!_components)\.html", recursive = True)
+    if args.get("recursive", False):
+        template_paths = glob_re(Path(args["source"]), r".*(?<!_components)\.html", recursive = True)
+    elif Path(args["source"]).is_dir(): # By default, index.html in the source folder
+        template_paths = [Path(args["source"], "index.html")]
+    else:
+        template_paths = [Path(args["source"])]
 
-    for template_path in template_paths:
-        target_path = [
-            *Path(args["target"]).parts,
-            *template_path.parts[2:]
-        ]
-        target_path[-1] = re.sub(
-            r"^\.html$", "index.html",
-            re.sub(r"_?template", "", target_path[-1])
-        )
-        
+    for path in template_paths:
+        if Path(args["target"]).is_dir(): # By default, the target + name of the template
+            target_path = Path(args["target"], path.name)
+        elif Path(args["target"]).is_file():
+            target_path = Path(args["target"])
+        else:
+            raise Exception(f"Target path {args['target']} does not exist.")
+
         build(
-            template_path, components_paths, Path(*target_path),
+            path, components_paths, target_path,
             prettify = False, quiet = True
         )
 

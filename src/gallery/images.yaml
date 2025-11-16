@@ -1,5 +1,5 @@
 araucaria:
-  src: ./araucaria.webm
+  src: ./araucaria.gif
   size: [3, 2]
   alt: An Araucaria tree
   description: An Araucaria tree, native to southern Brazil. I like how different it is from other pine trees.
@@ -10,7 +10,7 @@ galdi:
   src: ./galdi.webp
   size: [3, 3]
   alt: Mosaic art by Antoni Gaudí
-  description: I loved the Galdí architecture in Barcelona, the mosaics and nature-inspired forms. This one is in Parque Güell.
+  description: I loved the Gaudí architecture in Barcelona, the mosaics, and nature-inspired forms. This one is in Parque Güell.
   where: Barcelona, Spain
   when: Nov/2023
 
@@ -19,7 +19,7 @@ rio:
   size: [2, 4]
   alt: Rio de Janeiro view
   title: Rio de Janeiro view
-  description: Went to Rio and took no pictures, just this one already on the way back. Was invited there by the graduate-level economics programs of FGV-RJ and PUC-Rio. Brazil lost to Argentina there, that day :(.
+  description: Went to Rio and took no pictures, just this one already on the way back. I was invited there by the graduate-level economics programs of FGV-RJ and PUC-Rio. Brazil lost to Argentina that day :(.
   where: Rio de Janeiro, Brazil
   when: Nov/2023
 
@@ -27,7 +27,7 @@ cabana_praia:
   src: ./cabana_praia.webp
   size: [2, 2]
   alt: Improvised beach cabin
-  description: Me and some friends went to the wrong Barra do Una beach, which had no shadow, thus the cabin. It wasn't enough, and my friend ended up with a bad sunburn.
+  description: Some friends and I went to the wrong Barra do Una beach, which had no shade, thus the cabin. It wasn't enough, and my friend ended up with a bad sunburn.
   where: Barra do Una, SP, Brazil
   when: Dec/2018
 
@@ -51,7 +51,7 @@ serra_orgaos:
   src: ./serra_orgaos.webp
   size: [3, 4]
   alt: Serra dos Órgãos mountains
-  description: Hiking in Serra dos Órgãos National Park, in Teresópolis RJ. The name comes from the organ-tube-like rock formations. Went running downhill on the back, very fun.
+  description: Hiking in Serra dos Órgãos National Park, in Teresópolis RJ. The name comes from the organ-tube-like rock formations. Went running downhill on the way back, very fun.
   where: Teresópolis, RJ, Brazil
   when: Feb/2024
 
@@ -60,7 +60,7 @@ gallery:
   src: ./gallery.webp
   size: [3, 2]
   alt: Gallery's masonry algorithm written in python/numpy
-  description: "Start with an empty grid. Find the first empty row, then column. Pick some image that fit in the right, randomly, but preferring some width and height mismatch. If no image fit, mark as a 'hole'. Repeat until all rectangles are placed. Run several draws, and pick the one with: less holes, then less shared divides, then highest height diversity."
+  description: "Start with an empty grid. Find the first empty row, then column. Pick some image that fits on the right, randomly, but preferring some width and height mismatch. If no image fits, mark as a 'hole'. Repeat until all rectangles are placed. Run several draws, and pick the one with: fewer holes, then fewer shared divides, then highest height diversity."
   where: ""
   when: ""
 

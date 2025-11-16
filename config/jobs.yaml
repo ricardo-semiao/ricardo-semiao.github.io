@@ -38,12 +38,15 @@ index:
 
 # Blog:
 blog:
-  source: "src/blog"
-  target: "_site/blog"
+  source: src/blog
+  target: _site/blog
   steps:
     build_quarto_blog: {}
     inject_project: quartoblog
-    inject_template: {subsource: /_site/blog}
+    inject_template: [
+      {subsource: /_site/blog/posts, subtarget: posts, recursive: true},
+      {subsource: /_site/blog}
+    ]
     assets_compile: {subsource: module, type: "css"}
     assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 
@@ -105,7 +108,7 @@ static_assets:
   target: _site
   steps:
     assets_move: [
-      {include: "404\\.html|robots\\.txt"},
+      {include: "google([a-z0-9]+)\\.html|robots\\.txt"},
       {subtarget: "assets/img", include: "img$"},
       {subtarget: "assets/fonts", include: "fonts$"},
     ]
@@ -114,11 +117,12 @@ global_assets:
   source: src/global
   target: _site/assets
   steps:
+    inject_template: {subsource: "404.html", subtarget: "/_site/"}
+    assets_move: {include: "global\\.js"}
     assets_compile: {type: "css", exclude: "variables\\.scss"}
-    assets_move: {exclude: "\\.scss|components\\.html", flatten: True}
     assets_merge: {
       subsource: /_site/assets, subtarget: global.css,
-      include: [global_imports.css, global_style.css, global_structure.css]
+      include: [global_style.css, global_structure.css]
     }
     
 # external_assets: # Currently not needed

@@ -39,9 +39,10 @@ include-in-header:
         </script>
 ---
 
-Welcome to my blog! I post mostly about something that I made and how, or about something that I learned and didn't found an educational resource quite how I like.
+Welcome to my blog! I mostly post about things I have made and how I made them, or about something I learned when I could not find an educational resource that suited me.
 
-The posts are filterable by clicking on the categories, or with the filter bar, which also supports dates. This blog is built with [Quarto](https://quarto.org), plus the custom build process of the site as a whole.
+You can filter posts by clicking on the categories or using the filter bar, which also supports dates. This blog is built with [Quarto](https://quarto.org), along with a custom build process for the site as a whole.
+
 
 
 # Posts

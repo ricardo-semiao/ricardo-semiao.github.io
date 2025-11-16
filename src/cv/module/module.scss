@@ -5,6 +5,15 @@
 
 // Main --------------------
 
+@font-face {
+  font-display: fallback;
+  font-family: 'Noto Color Emoji';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/NotoColorEmoji-flagsonly.ttf') format('truetype');
+}
+
+
 #rssite-main {
     margin-top: 4px;
 
@@ -70,6 +79,9 @@
             justify-content: space-between;
             margin-bottom: 0.25rem;
         }
+        .j-wherewhen * {
+            font-style: italic;
+        }
     }
 }
 
@@ -105,15 +117,17 @@
 #cv-download {
     & > p {
         font-weight: bold;
+        font-size: 1.1em;
+        margin-bottom: 1rem;
     }
     .d-options {
-        margin-left: 0.5rem;
+        margin-left: 1rem;
         p {
             display: inline-block;
         }
     }
     .flag-icon {
-        font-family: 'Noto Color Emoji', sans-serif;
+        font-family: 'Noto Color Emoji';
         display: inline-block;
         margin-right: 0.25rem;
     }
