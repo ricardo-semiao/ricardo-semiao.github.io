@@ -1,6 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Color+Emoji&display=swap");
+/* montserrat-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/montserrat-v31-latin-regular.woff2") format("woff2"), url("/assets/fonts/Montserrat-Medium.ttf") format("truetype");
+}
+/* montserrat-italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/assets/fonts/montserrat-v31-latin-italic.woff2") format("woff2"), url("/assets/fonts/Montserrat-MediumItalic.ttf") format("truetype");
+}
+/* montserrat-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/assets/fonts/montserrat-v31-latin-700.woff2") format("woff2"), url("/assets/fonts/Montserrat-Bold.ttf") format("truetype");
+}
+/* noto-color-emoji-regular - emoji */
+@font-face {
+  font-display: fallback;
+  font-family: "Noto Color Emoji";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/noto-color-emoji-v36-emoji-regular.woff2") format("woff2"), url("/assets/fonts/NotoColorEmoji-Regular.ttf") format("truetype");
+}
 :root {
   --gray: hsl(0, 0%, 95%);
   --darkgray: hsl(0, 0%, 80%);
@@ -221,12 +250,12 @@ body #rssite-main {
 #rssite-header nav > ul > li {
   display: inline-block;
 }
-#rssite-header nav > ul > li + li {
-  margin-left: 2rem;
+#rssite-header nav > ul > li:not(:last-child) {
+  margin-right: 2rem;
 }
 @media (max-width: 700px) {
-  #rssite-header nav > ul > li + li {
-    margin-left: 1rem;
+  #rssite-header nav > ul > li:not(:last-child) {
+    margin-right: 1rem;
   }
 }
 #rssite-header .nav-drop {
@@ -309,8 +338,8 @@ body #rssite-main {
   #rssite-header .nav-drop ul {
     right: 0;
   }
-  #rssite-header nav > ul > li + li {
-    margin-left: 0.5rem;
+  #rssite-header nav > ul > li:not(:last-child) {
+    margin-right: 0.5rem;
   }
 }
 

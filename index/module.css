@@ -35,8 +35,8 @@
   max-width: 12rem;
   max-height: 12rem;
 }
-#intro #intro .column-text > p + p {
-  margin-top: 0.5rem;
+#intro #intro .column-text > p:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 #intro svg {
   width: 0.9em;
@@ -85,8 +85,8 @@
 #projects .column-card > ul {
   padding-left: 2rem;
 }
-#projects .column-card > ul li + li {
-  margin-top: 0.25rem;
+#projects .column-card > ul li:not(:last-child) {
+  margin-bottom: 0.25rem;
 }
 #projects a, #projects button.tooltip-controller {
   display: inline-block;
@@ -94,7 +94,7 @@
 }
 #projects button.tooltip-controller {
   height: 1.5em;
-  width: 0.8em;
+  width: 0.9em;
   margin-left: 0.25rem;
 }
 #projects a {
