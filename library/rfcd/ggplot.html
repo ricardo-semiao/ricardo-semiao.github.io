@@ -5,10 +5,10 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!-- Meta --><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Ricardo Semião e Castro" name="Author"/>
-<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
-<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
 <title>12 ggplot2 | R: Fundamentos e Ciência de Dados</title>
+<link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
 <meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  12.1 Introdução Neste capítulo, descreverei os fundamentos da visualização de dados. Falo como aplicá-la usando o pacote..." name="description"/>
 <meta content="bookdown 0.45 with bs4_book()" name="generator"/>
 <meta content="12 ggplot2 | R: Fundamentos e Ciência de Dados" property="og:title"/>
@@ -55,9 +55,51 @@
             margin-left: 2em;
         }
     </style>
-<!-- Custom Assets --><link href="/assets/global.css" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/global.css" rel="stylesheet"/>
 <link href="./assets/rsbd_module.css" rel="stylesheet"/>
-<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+<!-- Analytics --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="rssite-external" data-spy="scroll" data-target="#toc">
 <!-- @@site-icons@@ -->

@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 
-<html lang="en-US">
-<head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Ricardo Semião e Castro" name="Author"/>
-<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
-<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
-<link href="/assets/global.css" rel="stylesheet"/>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
-<title>phyopt | Ricardo Semião</title>
-<!-- mathjax math --><script crossorigin="anonymous" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><script>
+<html lang="en-US"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta charset="utf-8"/><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><title>phyopt | Ricardo Semião</title><!-- mathjax math --><script crossorigin="anonymous" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><script>
   window.MathJax = {
     chtml: {
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"/>
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/>
-<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/>
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta content="Optimize a function with the PB-Hybrid algorithm — optimize_phy" property="og:title"/>
-<meta content="
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"/><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/><link href="/assets/global.css" rel="stylesheet"/><link href="../assets/rspd_module.css" rel="stylesheet"/><link href="/assets/img/icon.webp" rel="icon" type="image/png"/><link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/><meta content="Ricardo Semião e Castro" name="Author"/><meta content="Optimize a function with the PB-Hybrid algorithm — optimize_phy" property="og:title"/><meta content="
 This function implements a two-step, population-based, hybrid optimization
 algorithm, for solving problems of the form:
 \[
@@ -35,8 +53,7 @@ x \in X,~ \tilde{x} \in \tilde{X}
 \end{array}
 \]
 See the readme and vignettes for more details on this format of problems, and
-when a phy algorithm would be useful." name="description"/>
-<meta content="
+when a phy algorithm would be useful." name="description"/><meta content="
 This function implements a two-step, population-based, hybrid optimization
 algorithm, for solving problems of the form:
 \[
@@ -47,11 +64,7 @@ x \in X,~ \tilde{x} \in \tilde{X}
 \end{array}
 \]
 See the readme and vignettes for more details on this format of problems, and
-when a phy algorithm would be useful." property="og:description"/>
-<!-- Module css: --><link href="../assets/rspd_module.css" rel="stylesheet"/>
-<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
-</head>
-<body class="rssite-external">
+when a phy algorithm would be useful." property="og:description"/><!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script></head><body class="rssite-external">
 <!-- @@site-icons@@ -->
 <a class="visually-hidden-focusable" href="#main">Skip to contents</a>
 <header id="rssite-header">
@@ -80,31 +93,24 @@ when a phy algorithm would be useful." property="og:description"/>
 </li>
 </ul>
 </nav>
-</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" id="pkgdown-navbar"><div class="container">
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
 <a class="navbar-brand me-2" href="../index.html">phyopt</a>
 <small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
 <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
 <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse ms-3" id="navbar">
-<ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
 <button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="dropdown-articles" type="button">Articles</button>
-<ul aria-labelledby="dropdown-articles" class="dropdown-menu">
-<li><a class="dropdown-item" href="../articles/example.html">Using the Phy Algorithm</a></li>
+<ul aria-labelledby="dropdown-articles" class="dropdown-menu"><li><a class="dropdown-item" href="../articles/example.html">Using the Phy Algorithm</a></li>
 <li><a class="dropdown-item" href="../articles/theoretical_framework.html">Theoretical Framework</a></li>
-</ul>
-</li>
+</ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
-</ul>
-<ul class="navbar-nav">
-<li class="nav-item"><form class="form-inline" role="search">
-<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="../search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/>
-</form></li>
+</ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="../search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/></form></li>
 <li class="nav-item"><a aria-label="GitHub" class="nav-link" href="https://github.com/ricardo-semiao/phyopt/"><span class="fa fab fa-github fa-lg"></span></a></li>
-</ul>
-</div>
+</ul></div>
 </div>
 </nav><div class="container template-reference-topic">
 <div class="row">
@@ -128,8 +134,7 @@ x \in X,~ \tilde{x} \in \tilde{X}
 when a phy algorithm would be useful.</p>
 </div>
 <div class="section level2">
-<h2 id="ref-usage">Usage<a aria-label="anchor" class="anchor" href="#ref-usage"></a>
-</h2>
+<h2 id="ref-usage">Usage<a aria-label="anchor" class="anchor" href="#ref-usage"></a></h2>
 <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">optimize_phy</span><span class="op">(</span></span>
 <span>  f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">xtil</span><span class="op">)</span> <span class="cn">NA</span>,</span>
 <span>  g <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">xtil</span><span class="op">)</span> <span class="fl">0</span>,</span>
@@ -146,115 +151,78 @@ when a phy algorithm would be useful.</p>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="arguments">Arguments<a aria-label="anchor" class="anchor" href="#arguments"></a>
-</h2>
-<dl>
-<dt id="arg-f">f<a aria-label="anchor" class="anchor" href="#arg-f"></a>
-</dt>
+<h2 id="arguments">Arguments<a aria-label="anchor" class="anchor" href="#arguments"></a></h2>
+<dl><dt id="arg-f">f<a aria-label="anchor" class="anchor" href="#arg-f"></a></dt>
 <dd><p>Objective function <em></em>\(f(x, \tilde{x})\).</p></dd>
-<dt id="arg-g-gtil">g, gtil<a aria-label="anchor" class="anchor" href="#arg-g-gtil"></a>
-</dt>
+<dt id="arg-g-gtil">g, gtil<a aria-label="anchor" class="anchor" href="#arg-g-gtil"></a></dt>
 <dd><p>Constraint functions <em></em>\(g(x, \tilde{x})\) and
 <em></em>\(\tilde{g}(\tilde{x})\). By default, never-binding ones.</p></dd>
-<dt id="arg-x-dom-xtil-dom">x_dom, xtil_dom<a aria-label="anchor" class="anchor" href="#arg-x-dom-xtil-dom"></a>
-</dt>
+<dt id="arg-x-dom-xtil-dom">x_dom, xtil_dom<a aria-label="anchor" class="anchor" href="#arg-x-dom-xtil-dom"></a></dt>
 <dd><p>Domains <em></em>\(X\) and <em></em>\(\tilde{X}\). These will
 be used by <code>optimizer</code> (for <em></em>\(X\)), and <code>initializer</code>/<code>updater</code> (for
 <em></em>\(\tilde{X}\)). Should be a list with <em></em>\(m\) and <em></em>\(\tilde{m}\)
 entries.</p></dd>
-<dt id="arg-initializer">initializer<a aria-label="anchor" class="anchor" href="#arg-initializer"></a>
-</dt>
+<dt id="arg-initializer">initializer<a aria-label="anchor" class="anchor" href="#arg-initializer"></a></dt>
 <dd><p>Operator (function) to initialize the population, such
 that <em></em>\(S_0 = \text{initializer}(\tilde{X}, \tilde{g})\) (see details).</p></dd>
-<dt id="arg-optimizer">optimizer<a aria-label="anchor" class="anchor" href="#arg-optimizer"></a>
-</dt>
+<dt id="arg-optimizer">optimizer<a aria-label="anchor" class="anchor" href="#arg-optimizer"></a></dt>
 <dd><p>Operator (function) to solve the reduced problem, such that
 <em></em>\(R_t = \text{optimizer}(X, g, t, S_t)\) (see details).</p></dd>
-<dt id="arg-updater">updater<a aria-label="anchor" class="anchor" href="#arg-updater"></a>
-</dt>
+<dt id="arg-updater">updater<a aria-label="anchor" class="anchor" href="#arg-updater"></a></dt>
 <dd><p>Operator (function) to update the population, such that
 <em></em>\(S_{t+1} = \text{updater}(\tilde{X}, \tilde{g}, t, S_t, R_t)\).</p></dd>
-<dt id="arg-stopper">stopper<a aria-label="anchor" class="anchor" href="#arg-stopper"></a>
-</dt>
+<dt id="arg-stopper">stopper<a aria-label="anchor" class="anchor" href="#arg-stopper"></a></dt>
 <dd><p>Stopping criteria for the algorithm, created via
 <code><a href="flow_stopper.html">flow_stopper()</a></code>.</p></dd>
-<dt id="arg-logger">logger<a aria-label="anchor" class="anchor" href="#arg-logger"></a>
-</dt>
+<dt id="arg-logger">logger<a aria-label="anchor" class="anchor" href="#arg-logger"></a></dt>
 <dd><p>Logger for tracking the process, created via <code><a href="flow_logger.html">flow_logger()</a></code>.</p></dd>
-<dt id="arg-check-samples">check_samples<a aria-label="anchor" class="anchor" href="#arg-check-samples"></a>
-</dt>
+<dt id="arg-check-samples">check_samples<a aria-label="anchor" class="anchor" href="#arg-check-samples"></a></dt>
 <dd><p>Number of samples to be expected in <em></em>\(S_t\). Set to
 <code>NULL</code> to not check (required if it changes with iterations <em></em>\(t\)).</p></dd>
-<dt id="arg-check-op">check_op<a aria-label="anchor" class="anchor" href="#arg-check-op"></a>
-</dt>
+<dt id="arg-check-op">check_op<a aria-label="anchor" class="anchor" href="#arg-check-op"></a></dt>
 <dd><p>Integer vector with iterations to check if the operators are
 producing results with the needed format. Helps catching errors. Set to <code>0</code>
 to not check.</p></dd>
-</dl>
-</div>
+</dl></div>
 <div class="section level2">
-<h2 id="value">Value<a aria-label="anchor" class="anchor" href="#value"></a>
-</h2>
+<h2 id="value">Value<a aria-label="anchor" class="anchor" href="#value"></a></h2>
 <p>A list containing:</p>
-<dl>
-<dt>results</dt>
+<dl><dt>results</dt>
 <dd><p>Optimization results for each iteration.</p></dd>
 <dt>metrics</dt>
 <dd><p>Metrics calculated during the optimization process.</p></dd>
 <dt>duration</dt>
 <dd><p>Timing information for initialization, main loop, and total
 execution.</p></dd>
-</dl>
-</div>
+</dl></div>
 <div class="section level2">
-<h2 id="details">Details<a aria-label="anchor" class="anchor" href="#details"></a>
-</h2>
+<h2 id="details">Details<a aria-label="anchor" class="anchor" href="#details"></a></h2>
 <p>This function is a wrapper for the operator functions, organizing them in the
 correct structure of a population-based, two-step, hybrid algorithm. But, it
 is the job of the user to implement the operators correctly. I highly
-recommend seeing <code><a href="../articles/example.html">vignette("example")</a></code> to fully understand their use:</p>
-<ul>
-<li>
-<p><code>initializer</code>:</p>
-<ul>
-<li><p>Arguments: <code>xtil_dom</code> and <code>gtil</code>.</p></li>
+recommend seeing <code><a href="../articles/example.html">vignette("example")</a></code> to fully understand their use:</p><ul><li><p><code>initializer</code>:</p><ul><li><p>Arguments: <code>xtil_dom</code> and <code>gtil</code>.</p></li>
 <li><p>Returns: A <em></em>\(N \times \tilde{m}\) matrix of initial guesses for
 <em></em>\(\tilde{x}\), where <em></em>\(N\) is the initial population size.</p></li>
-</ul>
-</li>
-<li>
-<p><code>optimizer</code>:</p>
-<ul>
-<li><p>Arguments: <code>f_s</code>, <code>g_s</code> - the functions conditional on a sample
+</ul></li>
+<li><p><code>optimizer</code>:</p><ul><li><p>Arguments: <code>f_s</code>, <code>g_s</code> - the functions conditional on a sample
 <em></em>\(\tilde{x}_s\) -, <code>x_dom</code>, <code>t</code> - the current iteration -, and
 <code>xtil_s</code> - the current sample.</p></li>
-<li>
-<p>Returns: A data.frame with four columns:</p>
-<ul>
-<li><p><code>x</code>: A <em></em>\(1 \times m\) vector of optimal values <em></em>\(x^*\), given
+<li><p>Returns: A data.frame with four columns:</p><ul><li><p><code>x</code>: A <em></em>\(1 \times m\) vector of optimal values <em></em>\(x^*\), given
 <em></em>\(\tilde{x}_s\). Hint: use <code><a href="https://rdrr.io/r/base/AsIs.html">I()</a></code> to create matrix-columns.</p></li>
 <li><p><code>xtil</code>: A <em></em>\(1 \times \tilde{m}\) matrix with <code>xtil_s</code>.</p></li>
 <li><p><code>f</code>: The value of <em></em>\(f(x^*, \tilde{x}_s)\) (a single double).</p></li>
 <li><p><code>i</code>: Any meta-information you want to add, for use in the <code>updater</code> or
 metrics methods. If none, use a single <code>NA</code>.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><code>updater</code>:</p>
-<ul>
-<li><p>Arguments: <code>xtil_dom</code>, <code>gtil</code>, <code>r_t</code> - the results of the last
+</ul></li>
+</ul></li>
+<li><p><code>updater</code>:</p><ul><li><p>Arguments: <code>xtil_dom</code>, <code>gtil</code>, <code>r_t</code> - the results of the last
 iteration's optimizer (a data frame) -, and <code>t</code>.</p></li>
 <li><p>Returns: A new <em></em>\(N \times \tilde{m}\) matrix of guesses, but note
 that <em></em>\(N\) can change between iterations.</p></li>
-</ul>
-</li>
-</ul>
-</div>
+</ul></li>
+</ul></div>
 </main><aside class="col-md-3"><nav aria-label="Table of contents" id="toc"><h2>On this page</h2>
-</nav></aside>
-</div>
+</nav></aside></div>
 </div>
 </main></main><footer id="rssite-footer"><p>
             Package made with <a href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
@@ -262,6 +230,4 @@ that <em></em>\(N\) can change between iterations.</p></li>
 <button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
 <span>↑</span> Back to top
     </button><script src="/assets/global.js"></script>
-<script src="../assets/rspd_module.js"></script>
-</body>
-</html>
+<script src="assets/rspd_module.js"></script></body></html>

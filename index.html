@@ -9,13 +9,53 @@
     <title>Ricardo Semião | Welcome!</title>
     <meta name="description" content="Personal site and projects of Ricardo Semião e Castro, master's student in economics with interests in statistics, data science, and programming.">
 
-    <link href="/assets/global.css" rel="stylesheet"/>
+    <style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style>
 <link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
 <link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/global.css" rel="stylesheet"/>
     <link rel="stylesheet" href="./index/module.css">
 
-    <link href="/assets/img/icon.png" rel="icon" type="image/png"/>
-<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+    <link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
 <meta content="Ricardo Semião e Castro" name="Author"/>
     <meta property="og:image" content="/index/profile_picture.jpg">
 
@@ -49,8 +89,7 @@
                 "@type": "CollegeOrUniversity",
                 "name": "FGV-EESP",
                 "sameAs": "https://economics-sp.fgv.br/",
-                "description": "Master's student in Economics.",
-                "startDate": "2024-01-01"
+                "description": "Master's student in Economics."
             }
         },
         {
@@ -128,11 +167,11 @@
             <div class="multicolumn">
                 <div class="column-text">
                     <h2>Welcome!</h2>
-                    <p>I'm a master's student in economics at FGV-EESP, with further interests in statistics/data science and and programming. Check my info below!</p>
-                    <p>In the navbar above you can find my blog, CV, a gallery, and some of my projects. Hover the '<svg><use href="/assets/img/icons.svg#icon-info"></use></svg>' icons below to see a brief explanation of each project.</p>
+                    <p>I'm a master's student in economics at FGV-EESP, with further interests in statistics, data science, and programming. Check my info below!</p>
+                    <p>In the navbar above, you can find my blog, CV, a gallery, and some of my projects. Hover the '<svg><use href="/assets/img/icons.svg#icon-info"></use></svg>' icons below to see a brief explanation of each project.</p>
                 </div>
                 <div class="column-img">
-                    <img src="/index/profile_picture.jpg" alt="Profile Picture">
+                    <img src="/index/profile_picture.jpg" alt="Profile Picture" fetchpriority="high">
                 </div>
             </div>
         </section>
@@ -154,17 +193,17 @@
                 <div class="column-card">
                     <p>Academic articles/tasks:</p>
                     <ul>
-                        <li><a href="https://github.com/ricardo-semiao/article-regime-id-performance" data-description="My (in progress) Master's thesis. My goal is to understand the performance of regime switching time-series models, specially in relation to the characteristics of the estimated regimes, using Monte Carlo simulations.">article-regime-id-performance</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
+                        <li><a href="https://github.com/ricardo-semiao/article-regime-id-performance" data-description="My (in progress) Master's thesis. My goal is to understand the performance of regime switching time-series models, especially in relation to the characteristics of the estimated regimes, using Monte Carlo simulations.">article-regime-id-performance</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
     <svg>
         <use href="/assets/img/icons.svg#icon-info"></use>
     </svg>
 </button></li>
-                        <li><a href="https://github.com/ricardo-semiao/article-covid-svardiff" data-description="My graduation thesis. My goal was to estimate the effect of the Brazilian vaccination policy, by comparing Structural VAR models before and after the start of its implementation.">article-covid-svardiff</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
+                        <li><a href="https://github.com/ricardo-semiao/article-covid-svardiff" data-description="My graduation thesis. My goal was to estimate the effect of the Brazilian vaccination policy by comparing Structural VAR models before and after the start of its implementation.">article-covid-svardiff</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
     <svg>
         <use href="/assets/img/icons.svg#icon-info"></use>
     </svg>
 </button></li>
-                        <li><a href="https://github.com/ricardo-semiao/misc-masters" data-description="Empirical and theoretical tasks from my masters degree, spamming several courses, with lots of econometrics.">misc-masters</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
+                        <li><a href="https://github.com/ricardo-semiao/misc-masters" data-description="Empirical and theoretical tasks from my master's degree, spanning several courses, with lots of econometrics.">misc-masters</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
     <svg>
         <use href="/assets/img/icons.svg#icon-info"></use>
     </svg>
@@ -194,12 +233,12 @@
                 <div class="column-card">
                     <p>Python packages:</p>
                     <ul>
-                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/packages/template_injector" data-description="A simple, custom build, HTML template engine built in Python. Uses regex to identify component calls.">template_injector</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
+                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/packages/template_injector" data-description="A simple, custom-built HTML template engine built in Python. Uses regex to identify component calls.">template_injector</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
     <svg>
         <use href="/assets/img/icons.svg#icon-info"></use>
     </svg>
 </button></li>
-                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/packages/armasonry" data-description="A packing algorithm for rectangles with discrete dimensions. Built with numpy, it is partially random, finding the best option over may draws.">armasonry</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
+                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/packages/armasonry" data-description="A packing algorithm for rectangles with discrete dimensions. Built with numpy, it is partially random, finding the best option over many draws.">armasonry</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
     <svg>
         <use href="/assets/img/icons.svg#icon-info"></use>
     </svg>
@@ -209,7 +248,7 @@
                 <div class="column-card">
                     <p>Site and tools:</p>
                     <ul>
-                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/" data-description="My personal site. built with bare html/scss/js, and custom python scripts to orchestrate components, masonry optimization, processing external projects' sites and the quarto blog.">This site</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
+                        <li><a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/" data-description="My personal site, built with bare HTML/SCSS/JS and custom Python scripts to orchestrate components, masonry optimization, processing external projects' sites, and the Quarto blog.">This site</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
     <svg>
         <use href="/assets/img/icons.svg#icon-info"></use>
     </svg>
@@ -224,17 +263,17 @@
                 <div class="column-card">
                     <p>Miscellaneous:</p>
                     <ul>
-                        <li><a href="https://ricardo-semiao.github.io/library/rfcd" data-description="An educational book on the R language. Authorial, but inspired by existing literature. It is in construction and available in the navbar above.">RFCD book</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
+                        <li><a href="https://ricardo-semiao.github.io/library/rfcd" data-description="An educational book on the R language. Authorial, but inspired by existing literature. It is under construction and available in the navbar above.">RFCD book</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
     <svg>
         <use href="/assets/img/icons.svg#icon-info"></use>
     </svg>
 </button></li>
-                        <li><a href="https://github.com/ricardo-semiao/misc-general" data-description="Miscellaneous projects, most for fun or for learning, with questionable quality.">misc-general</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
+                        <li><a href="https://github.com/ricardo-semiao/misc-general" data-description="Miscellaneous projects, mostly for fun or for learning, with questionable quality.">misc-general</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
     <svg>
         <use href="/assets/img/icons.svg#icon-info"></use>
     </svg>
 </button></li>
-                        <li><a href="https://github.com/mevaldt/diversified_crypto" data-description="A R Shiny app for crypto portfolio optimization and analysis, with Ripple funding.">diversified_crypto</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
+                        <li><a href="https://github.com/mevaldt/diversified_crypto" data-description="An R Shiny app for crypto portfolio optimization and analysis, with Ripple funding.">diversified_crypto</a><button aria-controls="projects-tooltip" aria-expanded="false" aria-label="Show project description" class="tooltip-controller">
     <svg>
         <use href="/assets/img/icons.svg#icon-info"></use>
     </svg>

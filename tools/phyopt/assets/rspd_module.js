@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Show/hide package navbar, update content width accordingly
     const sn = document.querySelector('#show-navbar');
-	const nav = document.querySelector('#rssite-main nav.navbar');
+	const nav = document.querySelector('#rspkgdown-main nav.navbar');
     const content = document.querySelector("#rspkgdown-main > div.container");
-	let isClicked = false;
+	let isClicked = true; // Navbar starts shown
 
 	sn.addEventListener("click", () => {
 		isClicked = !isClicked;
@@ -23,18 +23,20 @@ document.addEventListener("DOMContentLoaded", function() {
         if (document.documentElement.clientWidth > 960) {
             nav.style.visibility = "visible";
             nav.style.width = "unset";
-            content.style["max-width"] = "calc(100% - 150px)";
+            content.style["max-width"] = "calc(100% - 150px)";       
+            sn.style.display = "none";
+            sn.ariaHidden = "true";
         } else {
-			nav.style.visibility = 'hidden';
-			nav.style.width = '0';
-            content.style["max-width"] = "100%";       
+            nav.style.visibility = 'hidden';
+            nav.style.width = '0';
+            content.style["max-width"] = "100%";
         }
     });
 
     // Manage the back to top button AND navbar hider, if one is present. From quarto-nav.js
     let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollDownBuffer = 5;
-    const scrollUpBuffer = 150; // Large buffer in pkgdown
+    const scrollUpBuffer = 100; // Large buffer in pkgdown
     const btt = document.getElementById("back-to-top");
     const main_height = document.querySelector("#rspkgdown-main").offsetHeight;
 
@@ -43,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Shows and hides the button 'intelligently' as the user scrolls
         if (currentScrollTop - scrollDownBuffer > lastScrollTop) {
-            if (document.documentElement.clientWidth > 960) {
+            if (document.documentElement.clientWidth < 960) {
                 sn.style.display = "none";
                 sn.ariaHidden = "true";
             }
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
             btt.ariaHidden = "true";
             lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
         } else if (currentScrollTop < lastScrollTop - scrollUpBuffer) {
-            if (document.documentElement.clientWidth > 960) {
+            if (document.documentElement.clientWidth < 960) {
                 sn.style.display = "inline-block";
                 sn.ariaHidden = "false";
             }
@@ -64,10 +66,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (currentScrollTop <= 0) {
             btt.style.display = "none";
             btt.ariaHidden = "true";
-        } else if (
-            window.innerHeight + currentScrollTop >= main_height
-        ) {
-            if (document.documentElement.clientWidth > 960) {
+        } else if (window.innerHeight + currentScrollTop >= main_height) {
+            if (document.documentElement.clientWidth < 960) {
                 sn.style.display = "inline-block";
                 sn.ariaHidden = "false";
             }

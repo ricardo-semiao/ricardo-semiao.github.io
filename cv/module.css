@@ -1,4 +1,11 @@
 @charset "UTF-8";
+@font-face {
+  font-display: fallback;
+  font-family: "Noto Color Emoji";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/NotoColorEmoji-flagsonly.ttf") format("truetype");
+}
 #rssite-main {
   margin-top: 4px;
   --cv-pad: 2rem;
@@ -64,6 +71,9 @@
   justify-content: space-between;
   margin-bottom: 0.25rem;
 }
+#experience .job .j-wherewhen * {
+  font-style: italic;
+}
 
 #projects ul, #awards ul, #others ul {
   margin-left: var(--cv-pad);
@@ -89,15 +99,17 @@
 
 #cv-download > p {
   font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 1rem;
 }
 #cv-download .d-options {
-  margin-left: 0.5rem;
+  margin-left: 1rem;
 }
 #cv-download .d-options p {
   display: inline-block;
 }
 #cv-download .flag-icon {
-  font-family: "Noto Color Emoji", sans-serif;
+  font-family: "Noto Color Emoji";
   display: inline-block;
   margin-right: 0.25rem;
 }

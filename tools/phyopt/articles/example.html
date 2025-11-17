@@ -4,12 +4,6 @@
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Ricardo Semião e Castro" name="Author"/>
-<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
-<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
-<link href="/assets/global.css" rel="stylesheet"/>
-<meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
 <title>phyopt | Ricardo Semião</title>
@@ -25,9 +19,55 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/>
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="example_files/libs/quarto-html/popper.min.js"></script><script src="example_files/libs/quarto-html/tippy.umd.min.js"></script><link href="example_files/libs/quarto-html/tippy.css" rel="stylesheet"/>
 <link href="example_files/libs/quarto-html/light-border.css" rel="stylesheet"/>
-<!-- pkgdown --><script src="../pkgdown.js"></script><meta content="Using the Phy Algorithm" property="og:title"/>
-<!-- Module css: --><link href="../assets/rspd_module.css" rel="stylesheet"/>
-<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+<!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/global.css" rel="stylesheet"/>
+<link href="../assets/rspd_module.css" rel="stylesheet"/>
+<link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<meta content="Using the Phy Algorithm" property="og:title"/>
+<!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="rssite-external">
 <!-- @@site-icons@@ -->
@@ -58,7 +98,7 @@
 </li>
 </ul>
 </nav>
-</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" id="pkgdown-navbar"><div class="container">
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
 <a class="navbar-brand me-2" href="../index.html">phyopt</a>
 <small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
 <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
@@ -173,16 +213,16 @@ $$
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">initializer</span><span class="op">(</span><span class="va">xtil_dom</span>, <span class="va">gtil</span><span class="op">)</span></span>
 <span><span class="co">#&gt;           [,1]</span></span>
-<span><span class="co">#&gt;  [1,] 4.946839</span></span>
-<span><span class="co">#&gt;  [2,] 6.988739</span></span>
-<span><span class="co">#&gt;  [3,] 7.947151</span></span>
-<span><span class="co">#&gt;  [4,] 3.528791</span></span>
-<span><span class="co">#&gt;  [5,] 9.153805</span></span>
-<span><span class="co">#&gt;  [6,] 5.392818</span></span>
-<span><span class="co">#&gt;  [7,] 5.403080</span></span>
-<span><span class="co">#&gt;  [8,] 4.809501</span></span>
-<span><span class="co">#&gt;  [9,] 7.725783</span></span>
-<span><span class="co">#&gt; [10,] 8.332233</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1,] 7.585110</span></span>
+<span><span class="co">#&gt;  [2,] 5.845518</span></span>
+<span><span class="co">#&gt;  [3,] 5.230929</span></span>
+<span><span class="co">#&gt;  [4,] 6.548916</span></span>
+<span><span class="co">#&gt;  [5,] 3.200631</span></span>
+<span><span class="co">#&gt;  [6,] 6.960830</span></span>
+<span><span class="co">#&gt;  [7,] 3.371066</span></span>
+<span><span class="co">#&gt;  [8,] 7.730986</span></span>
+<span><span class="co">#&gt;  [9,] 9.903697</span></span>
+<span><span class="co">#&gt; [10,] 5.786573</span></span></code></pre></div>
 </div>
 </section><section class="level2"><h3 id="optimizer">Optimizer<a aria-label="anchor" class="anchor" href="#optimizer"></a>
 </h3>
@@ -258,8 +298,8 @@ $$
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">results</span><span class="op">[[</span><span class="va">t</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 'data.frame':    10 obs. of  4 variables:</span></span>
 <span><span class="co">#&gt;  $ x   : 'AsIs' num [1:10, 1] 2.05e-06 2.05e-06 2.05e-06 2.05e-06 2.05e-06 ...</span></span>
-<span><span class="co">#&gt;  $ xtil: 'AsIs' num [1:10, 1] 5.92 7.98 7.05 7.63 2.07 ...</span></span>
-<span><span class="co">#&gt;  $ f   : num  35.03 63.75 49.7 58.27 4.29 ...</span></span>
+<span><span class="co">#&gt;  $ xtil: 'AsIs' num [1:10, 1] 4.3 5.33 9.53 7.86 5.52 ...</span></span>
+<span><span class="co">#&gt;  $ f   : num  18.5 28.4 90.8 61.8 30.5 ...</span></span>
 <span><span class="co">#&gt;  $ i   : logi  NA NA NA NA NA NA ...</span></span></code></pre></div>
 </div>
 <p>Note the matrices columns. In this case is hard to differentiate because they are 1-column matrices, but this will accommodate any dimension <span class="math inline">\(m\)</span> and <span class="math inline">\(\tilde{m}\)</span>.</p>
@@ -268,16 +308,16 @@ $$
 <div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">results</span><span class="op">[[</span><span class="va">t</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="co">#&gt;               x     xtil        f  i</span></span>
-<span><span class="co">#&gt; 1  2.053031e-06 5.918194 35.02502 NA</span></span>
-<span><span class="co">#&gt; 2  2.053031e-06 7.984414 63.75086 NA</span></span>
-<span><span class="co">#&gt; 3  2.053031e-06 7.049588 49.69669 NA</span></span>
-<span><span class="co">#&gt; 4  2.053031e-06 7.633369 58.26832 NA</span></span>
-<span><span class="co">#&gt; 5  2.053031e-06 2.072337  4.29458 NA</span></span>
-<span><span class="co">#&gt; 6  2.053031e-06 5.456612 29.77462 NA</span></span>
-<span><span class="co">#&gt; 7  2.053031e-06 8.896251 79.14328 NA</span></span>
-<span><span class="co">#&gt; 8  2.053031e-06 5.158775 26.61296 NA</span></span>
-<span><span class="co">#&gt; 9  2.053031e-06 4.977768 24.77818 NA</span></span>
-<span><span class="co">#&gt; 10 2.053031e-06 7.863985 61.84227 NA</span></span></code></pre></div>
+<span><span class="co">#&gt; 1  2.053031e-06 4.298604 18.47799 NA</span></span>
+<span><span class="co">#&gt; 2  2.053031e-06 5.327705 28.38444 NA</span></span>
+<span><span class="co">#&gt; 3  2.053031e-06 9.527803 90.77903 NA</span></span>
+<span><span class="co">#&gt; 4  2.053031e-06 7.863298 61.83145 NA</span></span>
+<span><span class="co">#&gt; 5  2.053031e-06 5.518513 30.45399 NA</span></span>
+<span><span class="co">#&gt; 6  2.053031e-06 4.856404 23.58466 NA</span></span>
+<span><span class="co">#&gt; 7  2.053031e-06 7.831887 61.33846 NA</span></span>
+<span><span class="co">#&gt; 8  2.053031e-06 5.059124 25.59474 NA</span></span>
+<span><span class="co">#&gt; 9  2.053031e-06 7.892989 62.29928 NA</span></span>
+<span><span class="co">#&gt; 10 2.053031e-06 4.998144 24.98144 NA</span></span></code></pre></div>
 </div>
 </section><section class="level2"><h3 id="updater">Updater<a aria-label="anchor" class="anchor" href="#updater"></a>
 </h3>
@@ -311,16 +351,16 @@ $$
 <div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">updater</span><span class="op">(</span>xtil_dom <span class="op">=</span> <span class="va">xtil_dom</span>, gtil <span class="op">=</span> <span class="va">gtil</span>, r_t <span class="op">=</span> <span class="va">results</span><span class="op">[[</span><span class="va">t</span><span class="op">]</span><span class="op">]</span>, t <span class="op">=</span> <span class="va">t</span><span class="op">)</span></span>
 <span><span class="co">#&gt;           [,1]</span></span>
-<span><span class="co">#&gt;  [1,] 3.268790</span></span>
-<span><span class="co">#&gt;  [2,] 3.757443</span></span>
-<span><span class="co">#&gt;  [3,] 6.782937</span></span>
-<span><span class="co">#&gt;  [4,] 4.758979</span></span>
-<span><span class="co">#&gt;  [5,] 5.452600</span></span>
-<span><span class="co">#&gt;  [6,] 3.722823</span></span>
-<span><span class="co">#&gt;  [7,] 5.029615</span></span>
-<span><span class="co">#&gt;  [8,] 6.165588</span></span>
-<span><span class="co">#&gt;  [9,] 5.685368</span></span>
-<span><span class="co">#&gt; [10,] 3.843856</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1,] 6.238201</span></span>
+<span><span class="co">#&gt;  [2,] 7.116643</span></span>
+<span><span class="co">#&gt;  [3,] 5.128445</span></span>
+<span><span class="co">#&gt;  [4,] 4.952099</span></span>
+<span><span class="co">#&gt;  [5,] 6.962153</span></span>
+<span><span class="co">#&gt;  [6,] 4.354148</span></span>
+<span><span class="co">#&gt;  [7,] 5.560295</span></span>
+<span><span class="co">#&gt;  [8,] 4.418898</span></span>
+<span><span class="co">#&gt;  [9,] 5.836988</span></span>
+<span><span class="co">#&gt; [10,] 4.547852</span></span></code></pre></div>
 </div>
 </section><section class="level2"><h3 id="the-optimize_phy-aggregation">The <code>optimize_phy()</code> Aggregation<a aria-label="anchor" class="anchor" href="#the-optimize_phy-aggregation"></a>
 </h3>
@@ -388,26 +428,26 @@ $$
 <span>  <span class="va">stopper</span>, <span class="va">logger</span>,</span>
 <span>  check_op <span class="op">=</span> <span class="fl">0</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 1 -- mean(f): 39.0876</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 2 -- mean(f): 26.8055</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 3 -- mean(f): 18.7927</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 4 -- mean(f): 11.8601</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 5 -- mean(f): 10.8815</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 6 -- mean(f): 10.3102</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 7 -- mean(f): 9.3541</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 8 -- mean(f): 8.6874</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 9 -- mean(f): 7.1481</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 10 -- mean(f): 6.6392</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 11 -- mean(f): 6.1745</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 12 -- mean(f): 5.1327</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 13 -- mean(f): 4.8341</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 14 -- mean(f): 4.8978</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 15 -- mean(f): 5.0524</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 16 -- mean(f): 5.0036</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 17 -- mean(f): 4.6448</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 18 -- mean(f): 4.6291</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 19 -- mean(f): 4.9121</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 20 -- mean(f): 4.6338</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 1 -- mean(f): 49.9246</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 2 -- mean(f): 24.8656</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 3 -- mean(f): 16.0071</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 4 -- mean(f): 14.8582</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 5 -- mean(f): 14.5863</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 6 -- mean(f): 13.2769</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 7 -- mean(f): 11.9899</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 8 -- mean(f): 9.7686</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 9 -- mean(f): 9.2569</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 10 -- mean(f): 8.4345</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 11 -- mean(f): 7.4639</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 12 -- mean(f): 6.3549</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 13 -- mean(f): 5.879</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 14 -- mean(f): 5.1753</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 15 -- mean(f): 4.8208</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 16 -- mean(f): 4.7199</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 17 -- mean(f): 4.5939</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 18 -- mean(f): 4.5736</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 19 -- mean(f): 4.6209</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 20 -- mean(f): 4.836</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ✔ Finished after 20 iterations. Stopping criteria(s) were:</span></span>
 <span><span class="co">#&gt; • max_iter: t ~ .m &gt;= 20</span></span></code></pre></div>
@@ -430,13 +470,13 @@ $$
 <span><span class="co">#&gt; [1] 20</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $time_init</span></span>
-<span><span class="co">#&gt; Time difference of 0.03287697 secs</span></span>
+<span><span class="co">#&gt; Time difference of 0.04406977 secs</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $time_loop</span></span>
-<span><span class="co">#&gt; Time difference of 1.208624 secs</span></span>
+<span><span class="co">#&gt; Time difference of 2.000718 secs</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $time_total</span></span>
-<span><span class="co">#&gt; Time difference of 1.241504 secs</span></span></code></pre></div>
+<span><span class="co">#&gt; Time difference of 2.044792 secs</span></span></code></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="downlit sourceCode r">
@@ -448,8 +488,8 @@ $$
 <div class="sourceCode cell-code" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">r_t</span> <span class="op">&lt;-</span> <span class="va">optima</span><span class="op">$</span><span class="va">results</span><span class="op">[[</span><span class="fl">20</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="va">r_t</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">r_t</span><span class="op">$</span><span class="va">f</span><span class="op">)</span>, <span class="op">]</span></span>
-<span><span class="co">#&gt;              x    xtil        f  i</span></span>
-<span><span class="co">#&gt; 5 2.053031e-06 2.31753 5.370947 NA</span></span></code></pre></div>
+<span><span class="co">#&gt;              x     xtil        f  i</span></span>
+<span><span class="co">#&gt; 4 2.053031e-06 2.399214 5.756229 NA</span></span></code></pre></div>
 </div>
 <p>We can see that we got very close to the global minimum <span class="math inline">\((0, 2)\)</span>. The efficacy is only due to the number of iters and the user code.</p>
 </section></section><script id="quarto-html-after-body" type="application/javascript">
@@ -563,6 +603,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
 <span>↑</span> Back to top
     </button><script src="/assets/global.js"></script>
-<script src="../assets/rspd_module.js"></script>
+<script src="assets/rspd_module.js"></script>
 </body>
 </html>

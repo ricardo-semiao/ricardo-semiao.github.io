@@ -1,34 +1,50 @@
-/* montserrat-regular - latin */
-@font-face {
-  font-display: swap;
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/assets/fonts/montserrat-v31-latin-regular.woff2") format("woff2"), url("/assets/fonts/Montserrat-Medium.ttf") format("truetype");
+@layer resets;
+@layer resets {
+  html {
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    font-synthesis: none;
+    -moz-osx-font-smoothing: auto;
+  }
+  :root {
+    font-size: 100%;
+  }
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 1.5;
+  }
+  p, li, dd, a, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+  }
+  canvas, img, picture, svg, video {
+    border: none;
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select, progress {
+    background: none;
+    border: none;
+    touch-action: manipulation;
+    font-size: inherit;
+  }
 }
-/* montserrat-italic - latin */
-@font-face {
-  font-display: swap;
-  font-family: "Montserrat";
-  font-style: italic;
-  font-weight: 400;
-  src: url("/assets/fonts/montserrat-v31-latin-italic.woff2") format("woff2"), url("/assets/fonts/Montserrat-MediumItalic.ttf") format("truetype");
-}
-/* montserrat-700 - latin */
-@font-face {
-  font-display: swap;
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 700;
-  src: url("/assets/fonts/montserrat-v31-latin-700.woff2") format("woff2"), url("/assets/fonts/Montserrat-Bold.ttf") format("truetype");
-}
-/* noto-color-emoji-regular - emoji */
-@font-face {
-  font-display: fallback;
-  font-family: "Noto Color Emoji";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/assets/fonts/noto-color-emoji-v36-emoji-regular.woff2") format("woff2"), url("/assets/fonts/NotoColorEmoji-Regular.ttf") format("truetype");
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 :root {
   --gray: hsl(0, 0%, 95%);
@@ -59,55 +75,6 @@
   --aquablue: hsl(185, 75%, 80%);
 }
 
-@layer resets;
-@layer resets {
-  html {
-    scroll-behavior: smooth;
-    overscroll-behavior: none;
-    text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-font-smoothing: antialiased;
-    font-synthesis: none;
-    -moz-osx-font-smoothing: auto;
-  }
-  :root {
-    font-size: 100%;
-  }
-  *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    line-height: 1.5;
-  }
-  p, li, dd, a, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-    text-wrap: pretty;
-  }
-  canvas, img, picture, svg, video {
-    border: none;
-    display: block;
-    max-width: 100%;
-  }
-  input, button, textarea, select, progress {
-    background: none;
-    border: none;
-    touch-action: manipulation;
-    font-size: inherit;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
 body {
   font-weight: 400;
   font-family: "Nunito Sans", sans-serif;
@@ -187,7 +154,6 @@ body #rssite-main {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0;
   box-sizing: content-box;
   line-height: 1.5;
 }
@@ -196,7 +162,6 @@ body #rssite-main {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0;
 }
 
 #rssite-header {

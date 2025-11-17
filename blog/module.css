@@ -53,3 +53,11 @@
   font-size: 1.1rem;
   margin-top: 1rem;
 }
+#rssite-main.rssite-quartoblog .quarto-figure img {
+  width: 60%;
+}
+@media (max-width: 700px) {
+  #rssite-main.rssite-quartoblog .quarto-figure img {
+    width: 100%;
+  }
+}

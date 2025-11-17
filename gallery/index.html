@@ -6,12 +6,52 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ricardo Semião | Gallery</title>
 <meta content="Ricardo Semião's personal photo gallery." name="description"/>
-<link href="/assets/global.css" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style>
 <link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
 <link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/global.css" rel="stylesheet"/>
 <link href="./module.css" rel="stylesheet"/>
-<link href="/assets/img/icon.png" rel="icon" type="image/png">
-<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/icon.webp" rel="icon" type="image/png">
+<link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
 <meta content="Ricardo Semião e Castro" name="Author">
 <meta content="./barco_nova_vida.webp" property="og:image"/>
 <script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
@@ -81,7 +121,7 @@
 </ul>
 </nav>
 </header>
-<main class="gallery-grid" id="rssite-main"><div class="gallery-item h-3 w-4" id="barco_nova_vida" tabindex="0"><img alt="Tropical island viewed from a boat called 'Nova Vida'" data-description="A boat trip around the decently preserved coastline of Paraty RJ, with lots of Mata Atlântica, one of my favorite biomes. The boat was called 'Nova Vida' (New Life)." data-when="Jan/2024" data-where="Paraty, RJ, Brazil" src="./barco_nova_vida.webp"/></div><div class="gallery-item h-2 w-2" id="cabana_praia" tabindex="0"><img alt="Improvised beach cabin" data-description="Me and some friends went to the wrong Barra do Una beach, which had no shadow, thus the cabin. It wasn't enough, and my friend ended up with a bad sunburn." data-when="Dec/2018" data-where="Barra do Una, SP, Brazil" src="./cabana_praia.webp"/></div><div class="gallery-item h-3 w-2" id="araucaria" tabindex="0"><img alt="An Araucaria tree" data-description="An Araucaria tree, native to southern Brazil. I like how different it is from other pine trees." data-when="Dec/2024" data-where="Caxias do Sul, RS, Brazil" src="./araucaria.webm"/></div><div class="gallery-item h-3 w-4" id="serra_orgaos" tabindex="0"><img alt="Serra dos Órgãos mountains" data-description="Hiking in Serra dos Órgãos National Park, in Teresópolis RJ. The name comes from the organ-tube-like rock formations. Went running downhill on the back, very fun." data-when="Feb/2024" data-where="Teresópolis, RJ, Brazil" loading="lazy" src="./serra_orgaos.webp"/></div><div class="gallery-item h-3 w-2" id="flores" tabindex="0"><img alt="A flower bouquet" data-description="A bouquet of flowers I made for a very special someone." data-when="Mai/2025" data-where="São Paulo, SP, Brazil" src="./flores.webp"/></div><div class="gallery-item h-2 w-4" id="rio" tabindex="0"><img alt="Rio de Janeiro view" data-description="Went to Rio and took no pictures, just this one already on the way back. Was invited there by the graduate-level economics programs of FGV-RJ and PUC-Rio. Brazil lost to Argentina there, that day :(." data-when="Nov/2023" data-where="Rio de Janeiro, Brazil" src="./rio.webp"/></div><div class="gallery-item h-3 w-3" id="galdi" tabindex="0"><img alt="Mosaic art by Antoni Gaudí" data-description="I loved the Galdí architecture in Barcelona, the mosaics and nature-inspired forms. This one is in Parque Güell." data-when="Nov/2023" data-where="Barcelona, Spain" src="./galdi.webp"/></div><div class="gallery-item h-3 w-2" id="gallery" tabindex="0"><img alt="Gallery's masonry algorithm written in python/numpy" data-description="Start with an empty grid. Find the first empty row, then column. Pick some image that fit in the right, randomly, but preferring some width and height mismatch. If no image fit, mark as a 'hole'. Repeat until all rectangles are placed. Run several draws, and pick the one with: less holes, then less shared divides, then highest height diversity." data-when="" data-where="" loading="lazy" src="./gallery.webp"/></div><div class="gallery-item h-3 w-1" id="costelas" tabindex="0"><img alt="Adam's ribs" data-description="Green and orange is my favorite combination of colors, partially inspired by RColorBrewer's palette 'Dark2'. I also grew up with a beautiful Adam's ribs plant in my home. The site's aesthetic is inspired by these two things." data-when="" data-where="" loading="lazy" src="./costelas.webp"/></div></main>
+<main class="gallery-grid" id="rssite-main"><div class="gallery-item h-3 w-4" id="barco_nova_vida" tabindex="0"><img alt="Tropical island viewed from a boat called 'Nova Vida'" data-description="A boat trip around the decently preserved coastline of Paraty RJ, with lots of Mata Atlântica, one of my favorite biomes. The boat was called 'Nova Vida' (New Life)." data-when="Jan/2024" data-where="Paraty, RJ, Brazil" src="./barco_nova_vida.webp"/></div><div class="gallery-item h-2 w-2" id="cabana_praia" tabindex="0"><img alt="Improvised beach cabin" data-description="Some friends and I went to the wrong Barra do Una beach, which had no shade, thus the cabin. It wasn't enough, and my friend ended up with a bad sunburn." data-when="Dec/2018" data-where="Barra do Una, SP, Brazil" src="./cabana_praia.webp"/></div><div class="gallery-item h-3 w-2" id="araucaria" tabindex="0"><img alt="An Araucaria tree" data-description="An Araucaria tree, native to southern Brazil. I like how different it is from other pine trees." data-when="Dec/2024" data-where="Caxias do Sul, RS, Brazil" src="./araucaria.gif"/></div><div class="gallery-item h-3 w-4" id="serra_orgaos" tabindex="0"><img alt="Serra dos Órgãos mountains" data-description="Hiking in Serra dos Órgãos National Park, in Teresópolis RJ. The name comes from the organ-tube-like rock formations. Went running downhill on the way back, very fun." data-when="Feb/2024" data-where="Teresópolis, RJ, Brazil" loading="lazy" src="./serra_orgaos.webp"/></div><div class="gallery-item h-3 w-2" id="flores" tabindex="0"><img alt="A flower bouquet" data-description="A bouquet of flowers I made for a very special someone." data-when="Mai/2025" data-where="São Paulo, SP, Brazil" src="./flores.webp"/></div><div class="gallery-item h-2 w-4" id="rio" tabindex="0"><img alt="Rio de Janeiro view" data-description="Went to Rio and took no pictures, just this one already on the way back. I was invited there by the graduate-level economics programs of FGV-RJ and PUC-Rio. Brazil lost to Argentina that day :(." data-when="Nov/2023" data-where="Rio de Janeiro, Brazil" src="./rio.webp"/></div><div class="gallery-item h-3 w-3" id="galdi" tabindex="0"><img alt="Mosaic art by Antoni Gaudí" data-description="I loved the Gaudí architecture in Barcelona, the mosaics, and nature-inspired forms. This one is in Parque Güell." data-when="Nov/2023" data-where="Barcelona, Spain" src="./galdi.webp"/></div><div class="gallery-item h-3 w-2" id="gallery" tabindex="0"><img alt="Gallery's masonry algorithm written in python/numpy" data-description="Start with an empty grid. Find the first empty row, then column. Pick some image that fits on the right, randomly, but preferring some width and height mismatch. If no image fits, mark as a 'hole'. Repeat until all rectangles are placed. Run several draws, and pick the one with: fewer holes, then fewer shared divides, then highest height diversity." data-when="" data-where="" loading="lazy" src="./gallery.webp"/></div><div class="gallery-item h-3 w-1" id="costelas" tabindex="0"><img alt="Adam's ribs" data-description="Green and orange is my favorite combination of colors, partially inspired by RColorBrewer's palette 'Dark2'. I also grew up with a beautiful Adam's ribs plant in my home. The site's aesthetic is inspired by these two things." data-when="" data-where="" loading="lazy" src="./costelas.webp"/></div></main>
 <div aria-hidden="true" class="gallery-overlay" id="gallery-overlay">
 <button aria-controls="gallery-overlay" class="go-closer">
 <svg><use href="/assets/img/icons.svg#icon-circlex"></use></svg>

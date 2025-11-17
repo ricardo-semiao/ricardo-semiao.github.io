@@ -5,10 +5,10 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!-- Meta --><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Ricardo Semião e Castro" name="Author"/>
-<link href="/assets/img/icon.png" rel="icon" type="image/png"/>
-<link href="/assets/img/icon.png" rel="shortcut icon" type="image/png"/>
 <title>6 Funções e Ambientes | R: Fundamentos e Ciência de Dados</title>
+<link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
 <meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  6.1 Introdução Referência básica: Advanced R (2e) cap. 6, cap. 7, and cap. 13. Na aula de hoje, aprenderemos alguns dos..." name="description"/>
 <meta content="bookdown 0.45 with bs4_book()" name="generator"/>
 <meta content="6 Funções e Ambientes | R: Fundamentos e Ciência de Dados" property="og:title"/>
@@ -55,9 +55,51 @@
             margin-left: 2em;
         }
     </style>
-<!-- Custom Assets --><link href="/assets/global.css" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/global.css" rel="stylesheet"/>
 <link href="./assets/rsbd_module.css" rel="stylesheet"/>
-<script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+<!-- Analytics --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="rssite-external" data-spy="scroll" data-target="#toc">
 <!-- @@site-icons@@ -->
@@ -446,9 +488,9 @@ No R, funções são <em>closures</em>, porque <em>enclose</em> seus ambientes. 
 <li><p>Essa lógica é utilizada para procurar todos os nomes, inclusive funções.</p></li>
 </ol>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">e1</span> <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/env.html">new_environment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, parent <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/empty_env.html">empty_env</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">e2</span> <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/env.html">new_environment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>, parent <span class="op">=</span> <span class="va">e1</span><span class="op">)</span></span>
-<span><span class="va">e3</span> <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/env.html">new_environment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>, parent <span class="op">=</span> <span class="va">e2</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">e1</span> <span class="op">=</span> <span class="fu">new_environment</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, parent <span class="op">=</span> <span class="fu">empty_env</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">e2</span> <span class="op">=</span> <span class="fu">new_environment</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>, parent <span class="op">=</span> <span class="va">e1</span><span class="op">)</span></span>
+<span><span class="va">e3</span> <span class="op">=</span> <span class="fu">new_environment</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>, parent <span class="op">=</span> <span class="va">e2</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">f1</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="op">)</span> <span class="va">x</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/environment.html">environment</a></span><span class="op">(</span><span class="va">f1</span><span class="op">)</span> <span class="co">#&lt;environment: R_GlobalEnv&gt;</span></span>
@@ -456,7 +498,7 @@ No R, funções são <em>closures</em>, porque <em>enclose</em> seus ambientes. 
 <span></span>
 <span><span class="fu">f1</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">env</span> <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/env.html">new_environment</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>`+` <span class="op">=</span> \<span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">env</span> <span class="op">=</span> <span class="fu">new_environment</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>`+` <span class="op">=</span> \<span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">f1</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/environment.html">environment</a></span><span class="op">(</span><span class="va">f1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">env</span></span>
