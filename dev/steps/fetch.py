@@ -20,7 +20,7 @@ import re
 from typing import Any
 
 # Local modules:
-from jobs.utils import glob_re, run, cd, move_contents, proj_root
+from steps.utils import glob_re, run, cd, move_contents, proj_root
 
 
 
@@ -63,16 +63,16 @@ def fetch_external_data(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -
 
         with cd(Path(mkdtemp())):
             run(
-                'git', 'clone',
-                '--no-checkout', '--depth=1', '--filter=tree:0',
+                "git", "clone",
+                "--no-checkout", "--depth=1", "--filter=tree:0",
                 repo_url, "temp_local_repo"
             )
             with cd(Path("temp_local_repo")):
                 run(
-                    'git', 'sparse-checkout', 'set',
-                    '--no-cone', arg_remote["folder"]
+                    "git", "sparse-checkout", "set",
+                    "--no-cone", arg_remote["folder"]
                 )
-                run('git', 'checkout')
+                run("git", "checkout")
                 move_contents(
                     Path(arg_remote["folder"]),
                     Path(str(proj_root), args["target"])

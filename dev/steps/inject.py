@@ -16,8 +16,8 @@ from copy import copy
 from typing import Any
 
 # Local modules:
-from jobs.utils  import glob_re
-from jobs.fetch import get_components
+from steps.utils  import glob_re
+from steps.fetch import get_components
 
 
 # Injectors --------------------------------------------------------------------

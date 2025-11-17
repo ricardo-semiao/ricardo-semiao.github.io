@@ -8,14 +8,14 @@ from dotenv import load_dotenv
 from yaml import safe_load as yaml_load
 
 # Local modules:
-from jobs.utils import get_enriched_jobs, cache_store, cache_restore, check_external_deps
+from steps.utils import get_enriched_jobs, cache_store, cache_restore, check_external_deps
 from importlib import import_module
 step_functions = {
-    **import_module("jobs.fetch").__dict__,
-    **import_module("jobs.build").__dict__,
-    **import_module("jobs.gallery").__dict__,
-    **import_module("jobs.inject").__dict__,
-    **import_module("jobs.assets").__dict__
+    **import_module("steps.fetch").__dict__,
+    **import_module("steps.build").__dict__,
+    **import_module("steps.gallery").__dict__,
+    **import_module("steps.inject").__dict__,
+    **import_module("steps.assets").__dict__
 }
 
 # Debug `os.chdir("..")`

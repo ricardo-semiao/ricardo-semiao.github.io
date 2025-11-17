@@ -8,7 +8,7 @@ const updateTooltip = function(li, a, pt, remove) {
         a.setAttribute("aria-describedby", "projects-tooltip");
 
         pt.title.textContent = a.textContent
-        pt.text.textContent = a.getAttribute('data-description');
+        pt.text.textContent = a.getAttribute("data-description");
 
         pt.self.setAttribute("aria-hidden", "false");
 
@@ -33,20 +33,20 @@ const updateTooltip = function(li, a, pt, remove) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const projects_tooltip = document.querySelector('#projects-tooltip');
+document.addEventListener("DOMContentLoaded", () => {
+    const projects_tooltip = document.querySelector("#projects-tooltip");
     const pt = {
         self: projects_tooltip,
-        title: projects_tooltip.querySelector('.pt-title'),
-        text: projects_tooltip.querySelector('.pt-text')
+        title: projects_tooltip.querySelector(".pt-title"),
+        text: projects_tooltip.querySelector(".pt-text")
     };
 
     let isHovered = false;
     let isFocused = false;
 
-    const lis = document.querySelectorAll('.column-card li');
+    const lis = document.querySelectorAll(".column-card li");
     lis.forEach(li => {
-        const args = [li, li.querySelector('a'), pt];
+        const args = [li, li.querySelector("a"), pt];
         li.addEventListener("focusin", () => {
             isFocused = true;
             updateTooltip(...args, false);

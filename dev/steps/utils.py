@@ -63,7 +63,7 @@ def check_external_deps(pyproject_path: Path = Path("pyproject.toml")) -> None:
 
         if which(program) is None:
             raise Exception(f"  - '{program}' not found in PATH.")
-        elif not dep_fields.groupdict().get('comparison'):
+        elif not dep_fields.groupdict().get("comparison"):
             print(f"  - '{dep}' found, no version check defined.")
             continue
 
@@ -172,7 +172,13 @@ def get_frontmatter(path: Path) -> dict:
 
 # General Helpers --------------------------------------------------------------
 
-log_path = Path(proj_root, "dev", "meta", "run.log")
+# Create and clear log file:
+log_path = Path(proj_root, "dev", "run.log")
+if log_path.is_file():
+    open(log_path, "w").close()
+else:
+    log_path.touch()
+
 
 # Run a command
 def run(
@@ -181,7 +187,7 @@ def run(
     with open(log_path, "ab") as file_log:
         file_log.write((
             f"\n{datetime.now().isoformat()} -- "
-            f"Running command: {cmd} {' '.join(opts)}\n"
+            f"Running command: {cmd} {" ".join(opts)}\n"
         ).encode("utf-8"))
 
         res = subprocess.run(

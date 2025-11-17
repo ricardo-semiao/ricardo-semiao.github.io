@@ -1,6 +1,6 @@
 [project]
 name = "ricardo-semiao-github-io"
-version = "0.1.0"
+version = "1.0.0"
 description = "Ricardo Semião's website"
 readme = "README.md"
 requires-python = ">=3.14"

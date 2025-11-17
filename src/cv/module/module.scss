@@ -7,10 +7,10 @@
 
 @font-face {
   font-display: fallback;
-  font-family: 'Noto Color Emoji';
+  font-family: "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/fonts/NotoColorEmoji-flagsonly.ttf') format('truetype');
+  src: url("/assets/fonts/NotoColorEmoji-flagsonly.ttf") format("truetype");
 }
 
 
@@ -127,7 +127,7 @@
         }
     }
     .flag-icon {
-        font-family: 'Noto Color Emoji';
+        font-family: "Noto Color Emoji";
         display: inline-block;
         margin-right: 0.25rem;
     }

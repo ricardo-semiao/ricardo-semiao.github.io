@@ -9,4 +9,4 @@ __pycache__/
 # Build folders:
 /_site/
 .tmp
-dev/meta/run.log
+run.log
