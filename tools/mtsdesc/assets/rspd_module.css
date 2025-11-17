@@ -77,23 +77,6 @@ nav.navbar div.container small.nav-text {
   transform: none;
 }
 
-@media (max-width: 920px) {
-  .navbar-form, .form-inline {
-    display: none;
-  }
-  nav.navbar {
-    width: 150px;
-  }
-  #navbar, #navbar > ul {
-    width: calc(150px - 2rem);
-  }
-  #rspkgdown-main > div.container {
-    max-width: calc(100% - 150px);
-  }
-  #show-navbar {
-    display: inline-block;
-  }
-}
 /* General margins and paddings */
 #rspkgdown-main .page-header {
   min-height: 0;
@@ -111,7 +94,6 @@ nav.navbar div.container small.nav-text {
   color: var(--green);
 }
 
-/* Home header */
 /* Footer */
 #rssite-footer .footer-div {
   padding: 0 0.25rem;
@@ -168,4 +150,23 @@ nav.navbar div.container small.nav-text {
 
 #show-navbar:hover {
   background-color: var(--orange);
+}
+
+/* Small screens */
+@media (max-width: 920px) {
+  .navbar-form, .form-inline {
+    display: none;
+  }
+  nav.navbar {
+    width: 150px;
+  }
+  #navbar, #navbar > ul {
+    width: calc(150px - 2rem);
+  }
+  #rspkgdown-main > div.container {
+    max-width: calc(100% - 150px);
+  }
+  #show-navbar {
+    display: inline-block;
+  }
 }

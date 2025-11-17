@@ -12,13 +12,13 @@ window.RSSITE = {
 // https://www.smashingmagazine.com/2023/12/new-css-viewport-units-not-solve-classic-scrollbar-problem/
 new ResizeObserver(() => {
   let vw = document.documentElement.clientWidth / 100;
-  document.documentElement.style.setProperty('--vw', `${vw}px`);
+  document.documentElement.style.setProperty("--vw", `${vw}px`);
 }).observe(document.documentElement);
 
 
 // Set current page:
-document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('#rssite-header a');
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll("#rssite-header a");
     for (let i = 0; i < navLinks.length; i++) {
         const link = navLinks[i];
         const currentPath = window.location.pathname.replace(/(^\/|\/$)/g, '');
