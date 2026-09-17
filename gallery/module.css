@@ -43,9 +43,23 @@ body {
   --go-margin: 1rem;
   --go-padding: 1rem;
   --go-gap: clamp(0.5rem, 4vmax, 4rem);
+}
+@media (max-width: 700px) {
+  .gallery-overlay {
+    --go-margin: 0.5rem;
+    --go-padding: 0.5rem;
+  }
+}
+.gallery-overlay {
   visibility: hidden;
   opacity: 0;
   transition: opacity 1s cubic-bezier(0.2, 0, 0.3, 1);
+}
+.gallery-overlay[aria-hidden=false] {
+  visibility: visible;
+  opacity: 1;
+}
+.gallery-overlay {
   position: fixed;
   z-index: 1000;
   padding: var(--go-padding);
@@ -55,26 +69,18 @@ body {
   box-sizing: border-box;
   background: color-mix(in srgb, var(--darkorange) 80%, transparent);
   box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--go-gap);
-  flex-direction: row;
-}
-@media (max-width: 700px) {
-  .gallery-overlay {
-    --go-margin: 0.5rem;
-    --go-padding: 0.5rem;
-  }
-}
-.gallery-overlay[aria-hidden=false] {
-  visibility: visible;
-  opacity: 1;
 }
 @media (max-width: 700px) {
   .gallery-overlay {
     font-size: 0.9em;
   }
+}
+.gallery-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--go-gap);
+  flex-direction: row;
 }
 @media (max-width: 700px) {
   .gallery-overlay {

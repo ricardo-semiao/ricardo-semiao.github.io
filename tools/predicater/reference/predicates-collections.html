@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta charset="utf-8"/><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><title>predicater | Ricardo Semião</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"/><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/><link href="/assets/global.css" rel="stylesheet"/><link href="../assets/rspd_module.css" rel="stylesheet"/><link href="/assets/img/icon.webp" rel="icon" type="image/png"/><link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/><meta content="Ricardo Semião e Castro" name="Author"/><meta content="Type checks - Collection types — predicates-collections" property="og:title"/><meta content="In R, there are several types (typeof()) that can &quot;store elements&quot;:
+The atomic vector types (see predicates-atomic).
+&quot;list&quot;: the generic vector type (can store elements of any type). Tested
+by rlang::is_list().
+&quot;pairlist&quot;: a linked list, used in R's internals. Tested by
+is_pairlist2().
+&quot;environment&quot;: a hash table, used to store variables and their values.
+Tested by is_environment2().
+&quot;expression&quot;: a vector of unevaluated R code objects. Tested by
+is_expression2().
+
+
+See the 'Details' section for what behavior you can expect from these types.
+Additionally:
+rlang::is_atomic() tests for any atomic vector type.
+rlang::is_vector() tests for atomic or generic (list) vectors.
+is_collection() tests for any of the above collection types, with options
+to exclude any of them.
+
+" name="description"/><meta content="In R, there are several types (typeof()) that can &quot;store elements&quot;:
+The atomic vector types (see predicates-atomic).
+&quot;list&quot;: the generic vector type (can store elements of any type). Tested
+by rlang::is_list().
+&quot;pairlist&quot;: a linked list, used in R's internals. Tested by
+is_pairlist2().
+&quot;environment&quot;: a hash table, used to store variables and their values.
+Tested by is_environment2().
+&quot;expression&quot;: a vector of unevaluated R code objects. Tested by
+is_expression2().
+
+
+See the 'Details' section for what behavior you can expect from these types.
+Additionally:
+rlang::is_atomic() tests for any atomic vector type.
+rlang::is_vector() tests for atomic or generic (list) vectors.
+is_collection() tests for any of the above collection types, with options
+to exclude any of them.
+
+" property="og:description"/><!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script></head><body class="rssite-external">
+<!-- @@site-icons@@ -->
+<a class="visually-hidden-focusable" href="#main">Skip to contents</a>
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+<a class="navbar-brand me-2" href="../index.html">predicater</a>
+<small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
+<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse ms-3" id="navbar">
+<ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
+</ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="../search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/></form></li>
+</ul></div>
+</div>
+</nav><div class="container template-reference-topic">
+<div class="row">
+<main class="col-md-9" id="main"><div class="page-header">
+<h1>Type checks - Collection types</h1>
+<div class="d-none name"><code>predicates-collections.Rd</code></div>
+</div>
+<div class="ref-description section level2">
+<p>In R, there are several types (<code><a class="external-link" href="https://rdrr.io/r/base/typeof.html">typeof()</a></code>) that can "store elements":</p><ul><li><p>The atomic vector types (see <a href="predicates-atomic.html">predicates-atomic</a>).</p></li>
+<li><p><code>"list"</code>: the generic vector type (can store elements of any type). Tested
+by <code><a class="external-link" href="https://rlang.r-lib.org/reference/type-predicates.html">rlang::is_list()</a></code>.</p></li>
+<li><p><code>"pairlist"</code>: a linked list, used in R's internals. Tested by
+<code>is_pairlist2()</code>.</p></li>
+<li><p><code>"environment"</code>: a hash table, used to store variables and their values.
+Tested by <code>is_environment2()</code>.</p></li>
+<li><p><code>"expression"</code>: a vector of unevaluated R code objects. Tested by
+<code><a href="predicates-language.html">is_expression2()</a></code>.</p></li>
+</ul><p>See the 'Details' section for what behavior you can expect from these types.</p>
+<p>Additionally:</p><ul><li><p><code><a class="external-link" href="https://rlang.r-lib.org/reference/type-predicates.html">rlang::is_atomic()</a></code> tests for any atomic vector type.</p></li>
+<li><p><code><a class="external-link" href="https://rlang.r-lib.org/reference/type-predicates.html">rlang::is_vector()</a></code> tests for atomic or generic (list) vectors.</p></li>
+<li><p><code>is_collection()</code> tests for any of the above collection types, with options
+to exclude any of them.</p></li>
+</ul></div>
+<div class="section level2">
+<h2 id="ref-usage">Usage<a aria-label="anchor" class="anchor" href="#ref-usage"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">is_list</span><span class="op">(</span><span class="va">x</span>, n <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_pairlist2</span><span class="op">(</span><span class="va">x</span>, n <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_environment2</span><span class="op">(</span><span class="va">x</span>, n <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_vector</span><span class="op">(</span><span class="va">x</span>, n <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_collection</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  n <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  expr <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  pairlist <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  env <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  null <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  dots <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="arguments">Arguments<a aria-label="anchor" class="anchor" href="#arguments"></a></h2>
+<dl><dt id="arg-x">x<a aria-label="anchor" class="anchor" href="#arg-x"></a></dt>
+<dd><p>[<code>any</code>] An object to test.</p></dd>
+<dt id="arg-n">n<a aria-label="anchor" class="anchor" href="#arg-n"></a></dt>
+<dd><p>[<code>integer(1)</code> | <code>NULL</code>] Length of <code>x</code>, set to <code>NULL</code> to not test.</p></dd>
+<dt id="arg-expr-pairlist-env-null-dots">expr, pairlist, env, null, dots<a aria-label="anchor" class="anchor" href="#arg-expr-pairlist-env-null-dots"></a></dt>
+<dd><p>[<code>TRUE</code> | <code>FALSE</code>] Whether to include
+expression, pairlist, environment, <code>NILL</code>, or the <code>...</code> objects as
+collections.</p></dd>
+</dl></div>
+<div class="section level2">
+<h2 id="value">Value<a aria-label="anchor" class="anchor" href="#value"></a></h2>
+<p>[<code>TRUE</code> | <code>FALSE</code>] The scalar result of the test.</p>
+</div>
+<div class="section level2">
+<h2 id="details">Details<a aria-label="anchor" class="anchor" href="#details"></a></h2>
+<p>All collection types:</p><ul><li><p>Have varying <code><a class="external-link" href="https://rdrr.io/r/base/length.html">length()</a></code>.</p></li>
+<li><p>Can have <code><a class="external-link" href="https://rdrr.io/r/base/names.html">names()</a></code>.</p></li>
+<li><p>Can have their elements accessed by names (if present) via <code>[</code>, <code>[[</code>, and <code>$</code>.</p></li>
+<li><p>All but environment can have their elements accessed by integer indexes
+too, and their names set via <code>names(x) &lt;- value</code>.</p></li>
+</ul><p>Note that the result of accessing out-of-bounds indexes depends on the type
+and operator, and is very quirky and inconsistent across R. See <a class="external-link" href="https://adv-r.hadley.nz/subsetting.html">Advanced R, 2nd edition, chapter  4</a> for more
+details.</p>
+<p>Objects that are not considered collections:</p><ul><li><p>Objects of type <code>"s4"</code> or <code>"object"</code> are a 'collection of slots', but their
+data is stored in their attributes, which any R object can do, and their
+length is always 1.</p></li>
+<li><p>The <code>"dots"</code> object is a collection of promises, have varying length,
+names, etc. But it is low-level, and removed from this definition for
+simplicity.</p></li>
+<li><p>'NULL' (and 'any') have length 0, and are often thought as empty collections,
+but in face of <code>integer(0)</code> and <code><a class="external-link" href="https://rdrr.io/r/base/list.html">list()</a></code>, such thought is not the best.</p></li>
+<li><p>'language' and 'promise' can have names, but don't have varying length.</p></li>
+<li><p>All the other types have length 1, and cannot have names.</p></li>
+</ul><p>See <code><a class="external-link" href="https://rlang.r-lib.org/reference/is_namespace.html">rlang::is_namespace()</a></code> for another environment-related test.</p>
+</div>
+<div class="section level2">
+<h2 id="ref-examples">Examples<a aria-label="anchor" class="anchor" href="#ref-examples"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">is_collection</span><span class="op">(</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; TRUE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="fu">is_collection</span><span class="op">(</span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rlang.r-lib.org/reference/env.html">env</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co">#&gt; TRUE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># NULL is not considered a collection:</span></span></span>
+<span class="r-in"><span><span class="fu">is_collection</span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co">#&gt; FALSE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span><span class="fu">is_collection</span><span class="op">(</span><span class="cn">NULL</span>, null <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#&gt; TRUE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># This is the difference between rlang::is_empty() and predicater::is_empty2():</span></span></span>
+<span class="r-in"><span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rlang.r-lib.org/reference/is_empty.html">is_empty</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="co">#&gt; TRUE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="kw"><a class="external-link" href="https://rdrr.io/r/base/try.html">try</a></span><span class="op">(</span><span class="fu"><a href="is_empty2.html">is_empty2</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; Error</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in is_empty2(NULL) : `x` is not a collection.</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+</div>
+</main><aside class="col-md-3"><nav aria-label="Table of contents" id="toc"><h2>On this page</h2>
+</nav></aside></div>
+</div>
+</main></main><footer id="rssite-footer"><p>
+            Package made with <a class="external-link" href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a class="external-link" href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<script src="assets/rspd_module.js"></script></body></html>

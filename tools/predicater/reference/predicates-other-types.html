@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta charset="utf-8"/><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><title>predicater | Ricardo Semião</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"/><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/><link href="/assets/global.css" rel="stylesheet"/><link href="../assets/rspd_module.css" rel="stylesheet"/><link href="/assets/img/icon.webp" rel="icon" type="image/png"/><link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/><meta content="Ricardo Semião e Castro" name="Author"/><meta content="Type checks - Other types — predicates-other-types" property="og:title"/><meta content="Test if object is of a specific type (typeof()). The test is invariant to
+attributes such as class. The general is_type() checks for any
+user-supplied type.
+See the Details section for the full list of types.
+Functions from rlang: rlang::is_null(), rlang::is_weakref()." name="description"/><meta content="Test if object is of a specific type (typeof()). The test is invariant to
+attributes such as class. The general is_type() checks for any
+user-supplied type.
+See the Details section for the full list of types.
+Functions from rlang: rlang::is_null(), rlang::is_weakref()." property="og:description"/><!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script></head><body class="rssite-external">
+<!-- @@site-icons@@ -->
+<a class="visually-hidden-focusable" href="#main">Skip to contents</a>
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+<a class="navbar-brand me-2" href="../index.html">predicater</a>
+<small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
+<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse ms-3" id="navbar">
+<ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
+</ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="../search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/></form></li>
+</ul></div>
+</div>
+</nav><div class="container template-reference-topic">
+<div class="row">
+<main class="col-md-9" id="main"><div class="page-header">
+<h1>Type checks - Other types</h1>
+<div class="d-none name"><code>predicates-other-types.Rd</code></div>
+</div>
+<div class="ref-description section level2">
+<p>Test if object is of a specific type (<code><a class="external-link" href="https://rdrr.io/r/base/typeof.html">typeof()</a></code>). The test is invariant to
+attributes such as class. The general <code>is_type()</code> checks for any
+user-supplied type.</p>
+<p>See the Details section for the full list of types.</p>
+<p>Functions from rlang: <code><a class="external-link" href="https://rlang.r-lib.org/reference/type-predicates.html">rlang::is_null()</a></code>, <code><a class="external-link" href="https://rlang.r-lib.org/reference/is_weakref.html">rlang::is_weakref()</a></code>.</p>
+</div>
+<div class="section level2">
+<h2 id="ref-usage">Usage<a aria-label="anchor" class="anchor" href="#ref-usage"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">is_type</span><span class="op">(</span><span class="va">x</span>, <span class="va">type</span>, n <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_null</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_promise</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_dots</span><span class="op">(</span><span class="va">x</span>, n <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_weakref</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_bytecode</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_externalptr</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_char</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_any</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="arguments">Arguments<a aria-label="anchor" class="anchor" href="#arguments"></a></h2>
+<dl><dt id="arg-x">x<a aria-label="anchor" class="anchor" href="#arg-x"></a></dt>
+<dd><p>[<code>any</code>] An object to test.</p></dd>
+<dt id="arg-type">type<a aria-label="anchor" class="anchor" href="#arg-type"></a></dt>
+<dd><p>[<code>character(1)</code>] A type to test for, as returned by <code><a class="external-link" href="https://rdrr.io/r/base/typeof.html">typeof()</a></code>.</p></dd>
+<dt id="arg-n">n<a aria-label="anchor" class="anchor" href="#arg-n"></a></dt>
+<dd><p>[<code>integer(1)</code> | <code>NULL</code>] Length of <code>x</code>, set to <code>NULL</code> to not test.</p></dd>
+</dl></div>
+<div class="section level2">
+<h2 id="value">Value<a aria-label="anchor" class="anchor" href="#value"></a></h2>
+<p>[<code>TRUE</code> | <code>FALSE</code>] The scalar result of the test.</p>
+</div>
+<div class="section level2">
+<h2 id="details">Details<a aria-label="anchor" class="anchor" href="#details"></a></h2>
+<p>The full list of R object types (<code><a class="external-link" href="https://rdrr.io/r/base/typeof.html">typeof()</a></code>) can be seen in <a class="external-link" href="https://cran.r-project.org/doc/manuals/r-release/R-ints.html#The-_0060data_0027">"R Internals" section 1.1.3</a>.</p>
+<p>The existing types and their corresponding C SEXP types are:</p><ul><li><p>Atomic vectors: <em>"logical"/LGLSXP</em>, <em>"integer"/INTSXP</em>,
+<em>"double"/"numeric"/REALSXP</em>, <em>"complex"/CPLXSXP</em>, <em>"raw"</em>/RAWSXP.</p></li>
+<li><p>Lists: <em>"list"/VECSXP</em>, <em>"pairlist"/LISTSXP</em>.</p></li>
+<li><p>Objects: <em>"s4"/S4SXP, "object"/OBJSXP</em>.</p></li>
+<li><p>Language-related: <em>"symbol"/"name"/SYMSXP</em>, <em>"language"/LANGSXP</em>,
+<em>"expression"/EXPRSXP</em>.</p></li>
+<li><p>Functions: <em>"closure"/CLOSXP</em>, <em>"builtin"/SPECIALSXP</em>,
+<em>"special"/BUILTINSXP</em>.</p></li>
+<li><p>Promises: <em>"promise"/PROMSXP</em>, <em>"..."/DOTSXP</em>.</p></li>
+<li><p>Environments: <em>"environment"/ENVSXP</em>.</p></li>
+<li><p>Null: <em>"NULL"/NILSXP</em>.</p></li>
+<li><p>Bytecode: <em>"bytecode"/BCODESXP</em>.</p></li>
+<li><p>External pointer: <em>"externalptr"/EXTPTRSXP</em>.</p></li>
+<li><p>Weak reference: <em>"weakref"/WEAKREFSXP</em>.</p></li>
+<li><p>Internal-only: <em>"char"/CHARSXP</em>, <em>"any"/ANYSXP</em>.</p></li>
+</ul></div>
+<div class="section level2">
+<h2 id="ref-examples">Examples<a aria-label="anchor" class="anchor" href="#ref-examples"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">is_type</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="st">"integer"</span><span class="op">)</span> <span class="co">#&gt; TRUE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="fu">is_type</span><span class="op">(</span><span class="cn">NULL</span>, <span class="st">"NULL"</span><span class="op">)</span> <span class="co">#&gt; TRUE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+</div>
+</main><aside class="col-md-3"><nav aria-label="Table of contents" id="toc"><h2>On this page</h2>
+</nav></aside></div>
+</div>
+</main></main><footer id="rssite-footer"><p>
+            Package made with <a class="external-link" href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a class="external-link" href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<script src="assets/rspd_module.js"></script></body></html>

@@ -129,11 +129,6 @@ a:hover, a:active, a:focus {
 
 body {
   --main-width: min(65%, 80rem);
-  --body-min-width: 16rem;
-  min-width: var(--body-min-width);
-  display: flex;
-  flex-direction: column;
-  min-height: 100dvh;
 }
 @media (max-width: 920px) {
   body {
@@ -144,6 +139,13 @@ body {
   body {
     --main-width: min(95%, calc(100% - 1rem));
   }
+}
+body {
+  --body-min-width: 16rem;
+  min-width: var(--body-min-width);
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 body #rssite-main {
   flex-grow: 1;

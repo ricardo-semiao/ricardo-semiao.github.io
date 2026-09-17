@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta charset="utf-8"/><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><title>predicater | Ricardo Semião</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"/><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/><link href="/assets/global.css" rel="stylesheet"/><link href="../assets/rspd_module.css" rel="stylesheet"/><link href="/assets/img/icon.webp" rel="icon" type="image/png"/><link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/><meta content="Ricardo Semião e Castro" name="Author"/><meta content="Package index" property="og:title"/><!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script></head><body class="rssite-external">
+<!-- @@site-icons@@ -->
+<a class="visually-hidden-focusable" href="#main">Skip to contents</a>
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+<a class="navbar-brand me-2" href="../index.html">predicater</a>
+<small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
+<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse ms-3" id="navbar">
+<ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
+</ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="../search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/></form></li>
+</ul></div>
+</div>
+</nav><div class="container template-reference-index">
+<div class="row">
+<main class="col-md-9" id="main"><div class="page-header">
+<h1>Package index</h1>
+</div>
+<div class="section level2">
+<h2 id="simple-predicates">Simple predicates<a aria-label="anchor" class="anchor" href="#simple-predicates"></a></h2>
+<dl></dl></div><div class="section level2">
+<h3 id="atomic-vectors">Atomic vectors<a aria-label="anchor" class="anchor" href="#atomic-vectors"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="predicates-atomic.html">is_logical()</a></code> <code><a href="predicates-atomic.html">is_integer()</a></code> <code><a href="predicates-atomic.html">is_double()</a></code> <code><a href="predicates-atomic.html">is_complex()</a></code> <code><a href="predicates-atomic.html">is_character()</a></code> <code><a href="predicates-atomic.html">is_raw()</a></code> <code><a href="predicates-atomic.html">is_atomic()</a></code> <code><a href="predicates-atomic.html">is_numeric()</a></code>
+</dt>
+<dd>Type checks - Atomic vectors</dd>
+<dt>
+<code><a href="is_integer_like.html">are_integer_like()</a></code> <code><a href="is_integer_like.html">is_integer_like()</a></code>
+</dt>
+<dd>Type checks - Integer-like values</dd>
+<dt>
+<code><a href="predicates-true-false.html">are_true()</a></code> <code><a href="predicates-true-false.html">is_true2()</a></code> <code><a href="predicates-true-false.html">are_false()</a></code> <code><a href="predicates-true-false.html">is_false2()</a></code> <code><a href="predicates-true-false.html">is_bool2()</a></code>
+</dt>
+<dd>Type checks - TRUE and FALSE values</dd>
+<dt>
+<code><a href="is_na2.html">are_na2()</a></code> <code><a href="is_na2.html">is_na2()</a></code>
+</dt>
+<dd>Type checks - NA values</dd>
+<dt>
+<code><a href="predicates-infinite.html">are_finite()</a></code> <code><a href="predicates-infinite.html">is_finite()</a></code> <code><a href="predicates-infinite.html">are_nan()</a></code> <code><a href="predicates-infinite.html">is_nan()</a></code> <code><a href="predicates-infinite.html">are_inf()</a></code> <code><a href="predicates-infinite.html">is_inf()</a></code>
+</dt>
+<dd>Type checks - Inf and NaN</dd>
+</dl></div><div class="section level2">
+<h3 id="other-types">Other types<a aria-label="anchor" class="anchor" href="#other-types"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="predicates-collections.html">is_list()</a></code> <code><a href="predicates-collections.html">is_pairlist2()</a></code> <code><a href="predicates-collections.html">is_environment2()</a></code> <code><a href="predicates-collections.html">is_vector()</a></code> <code><a href="predicates-collections.html">is_collection()</a></code>
+</dt>
+<dd>Type checks - Collection types</dd>
+<dt>
+<code><a href="predicates-language.html">is_syntactic_literal()</a></code> <code><a href="predicates-language.html">is_symbol2()</a></code> <code><a href="predicates-language.html">is_language()</a></code> <code><a href="predicates-language.html">is_call()</a></code> <code><a href="predicates-language.html">is_expression2()</a></code> <code><a href="predicates-language.html">is_code()</a></code>
+</dt>
+<dd>Type checks - Language objects</dd>
+<dt>
+<code><a href="is_function.html">is_function()</a></code> <code><a href="is_function.html">is_closure()</a></code> <code><a href="is_function.html">is_primitive()</a></code> <code><a href="is_function.html">is_primitive_eager()</a></code> <code><a href="is_function.html">is_primitive_lazy()</a></code>
+</dt>
+<dd>Type checks - Functions</dd>
+<dt>
+<code><a href="predicates-other-types.html">is_type()</a></code> <code><a href="predicates-other-types.html">is_null()</a></code> <code><a href="predicates-other-types.html">is_promise()</a></code> <code><a href="predicates-other-types.html">is_dots()</a></code> <code><a href="predicates-other-types.html">is_weakref()</a></code> <code><a href="predicates-other-types.html">is_bytecode()</a></code> <code><a href="predicates-other-types.html">is_externalptr()</a></code> <code><a href="predicates-other-types.html">is_char()</a></code> <code><a href="predicates-other-types.html">is_any()</a></code>
+</dt>
+<dd>Type checks - Other types</dd>
+</dl></div><div class="section level2">
+<h3 id="attributes">attributes<a aria-label="anchor" class="anchor" href="#attributes"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="is_attrs_allowed.html">is_attrs_allowed()</a></code>
+</dt>
+<dd>Attribute checks - Check if object allows attributes</dd>
+<dt>
+<code><a href="has_names_valid.html">has_names_valid()</a></code> <code><a href="has_names_valid.html">are_names_valid()</a></code>
+</dt>
+<dd>Attribute checks - Names</dd>
+<dt>
+<code><a href="attributes-dimensions.html">n_dims()</a></code> <code><a href="attributes-dimensions.html">n_dimnames()</a></code> <code><a href="attributes-dimensions.html">has_dimnames()</a></code> <code><a href="attributes-dimensions.html">has_rownames()</a></code> <code><a href="attributes-dimensions.html">has_dim()</a></code>
+</dt>
+<dd>Attribute checks - Dimensions existence and sizes</dd>
+<dt>
+<code><a href="attributes-filter.html">attrs_rmv()</a></code> <code><a href="attributes-filter.html">attrs_keep()</a></code> <code><a href="attributes-filter.html">has_attrs_any()</a></code> <code><a href="attributes-filter.html">has_attrs_all()</a></code> <code><a href="attributes-filter.html">has_attrs_only()</a></code>
+</dt>
+<dd>Attribute checks - Check for and filter attributes from object</dd>
+</dl></div><div class="section level2">
+<h3 id="object-systems">Object systems<a aria-label="anchor" class="anchor" href="#object-systems"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="predicates-objects.html">has_object_bit()</a></code> <code><a href="predicates-objects.html">has_s4_bit()</a></code> <code><a href="predicates-objects.html">has_class()</a></code> <code><a href="predicates-objects.html">is_object_like()</a></code> <code><a href="predicates-objects.html">is_s4()</a></code> <code><a href="predicates-objects.html">is_object()</a></code>
+</dt>
+<dd>Type checks - Objects</dd>
+<dt>
+<code><a href="object_system.html">object_system()</a></code> <code><a href="object_system.html">is_system()</a></code>
+</dt>
+<dd>Type checks - Determine object-oriented system of object</dd>
+</dl></div><div class="section level2">
+<h3 id="data">Data<a aria-label="anchor" class="anchor" href="#data"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="is_sorted.html">is_sorted()</a></code>
+</dt>
+<dd>Data checks - Check if object is ordered</dd>
+<dt>
+<code><a href="is_matching_set.html">is_matching_set()</a></code>
+</dt>
+<dd>Data checks - Check if object is in (and/or not in) a set</dd>
+<dt>
+<code><a href="any_duplicated.html">any_duplicated()</a></code> <code><a href="any_duplicated.html">are_duplicated()</a></code>
+</dt>
+<dd>Data checks - Check for duplicate values</dd>
+<dt>
+<code><a href="is_empty2.html">is_empty2()</a></code>
+</dt>
+<dd>Metadata checks - Check if a collection is empty</dd>
+</dl></div><div class="section level2">
+<h2 id="object-comparison">Object comparison<a aria-label="anchor" class="anchor" href="#object-comparison"></a></h2>
+<dl></dl></div><div class="section level2">
+<h3 id="comparison-and-prototypes">Comparison and prototypes<a aria-label="anchor" class="anchor" href="#comparison-and-prototypes"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="identical2.html">identical2()</a></code> <code><a href="identical2.html">identical_flag()</a></code>
+</dt>
+<dd>Compare - Exact equality with more flexibility</dd>
+<dt>
+<code><a href="is_ptype.html">is_ptype()</a></code> <code><a href="is_ptype.html">is_ptype_list()</a></code>
+</dt>
+<dd>Compare - Check if object is of prototype</dd>
+</dl></div><div class="section level2">
+<h3 id="if-else-and-pattern-matching">If-else and pattern matching<a aria-label="anchor" class="anchor" href="#if-else-and-pattern-matching"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="match_hash.html">match_hash()</a></code> <code><a href="match_hash.html">match_id()</a></code> <code><a href="match_hash.html">match_ptype()</a></code> <code><a href="match_hash.html">match_when()</a></code>
+</dt>
+<dd>Compare - Pattern matching</dd>
+<dt>
+<code><a href="if_else2.html">if_else2()</a></code>
+</dt>
+<dd>Compare - Vectorized if-else</dd>
+<dt>
+<code><a href="case_when2.html">case_when2()</a></code>
+</dt>
+<dd>Compare - Vectorized nested if-else</dd>
+</dl></div><div class="section level2">
+<h2 id="complex-predicates-and-validation">Complex predicates and validation<a aria-label="anchor" class="anchor" href="#complex-predicates-and-validation"></a></h2>
+<dl></dl></div><div class="section level2">
+<h3 id="atomic-vectors-1">Atomic vectors<a aria-label="anchor" class="anchor" href="#atomic-vectors-1"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="tests-numeric.html">test_integer()</a></code> <code><a href="tests-numeric.html">test_double()</a></code> <code><a href="tests-numeric.html">test_complex()</a></code> <code><a href="tests-numeric.html">assert_integer()</a></code> <code><a href="tests-numeric.html">assert_double()</a></code> <code><a href="tests-numeric.html">assert_complex()</a></code>
+</dt>
+<dd>Validation - Numeric vectors</dd>
+<dt>
+<code><a href="test-logical_raw.html">test_logical()</a></code> <code><a href="test-logical_raw.html">test_raw()</a></code> <code><a href="test-logical_raw.html">assert_logical()</a></code> <code><a href="test-logical_raw.html">assert_raw()</a></code>
+</dt>
+<dd>Validation - Logical and Raw vectors</dd>
+<dt>
+<code><a href="test_character.html">test_character()</a></code> <code><a href="test_character.html">assert_character()</a></code>
+</dt>
+<dd>Validation - Character vectors</dd>
+</dl></div><div class="section level2">
+<h3 id="language-objects">Language objects<a aria-label="anchor" class="anchor" href="#language-objects"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="test_expression.html">test_expression()</a></code> <code><a href="test_expression.html">assert_expression()</a></code>
+</dt>
+<dd>Validation - Expression vectors</dd>
+<dt>
+<code><a href="test_symbol.html">test_symbol()</a></code> <code><a href="test_symbol.html">assert_symbol()</a></code>
+</dt>
+<dd>Validation - Symbol</dd>
+<dt>
+<code><a href="test_language.html">test_language()</a></code> <code><a href="test_language.html">assert_language()</a></code>
+</dt>
+<dd>Validation - Language</dd>
+<dt>
+<code><a href="test_code.html">test_code()</a></code> <code><a href="test_code.html">assert_code()</a></code>
+</dt>
+<dd>Validation - Code Objects</dd>
+</dl></div><div class="section level2">
+<h3 id="other-types-1">Other types<a aria-label="anchor" class="anchor" href="#other-types-1"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="test_list.html">test_list()</a></code> <code><a href="test_list.html">assert_list()</a></code>
+</dt>
+<dd>Validation - List</dd>
+<dt>
+<code><a href="test_vector.html">test_vector()</a></code> <code><a href="test_vector.html">assert_vector()</a></code>
+</dt>
+<dd>Validation - General vectors</dd>
+<dt>
+<code><a href="test_environment.html">test_environment()</a></code> <code><a href="test_environment.html">assert_environment()</a></code>
+</dt>
+<dd>Validation - Environment</dd>
+<dt>
+<code><a href="test_function.html">test_function()</a></code> <code><a href="test_function.html">assert_function()</a></code>
+</dt>
+<dd>Validation - Function</dd>
+<dt>
+<code><a href="tests-other_types.html">test_promise()</a></code> <code><a href="tests-other_types.html">test_dots()</a></code> <code><a href="tests-other_types.html">test_weakref()</a></code> <code><a href="tests-other_types.html">test_bytecode()</a></code> <code><a href="tests-other_types.html">test_externalptr()</a></code> <code><a href="tests-other_types.html">assert_null()</a></code> <code><a href="tests-other_types.html">assert_promise()</a></code> <code><a href="tests-other_types.html">assert_dots()</a></code> <code><a href="tests-other_types.html">assert_weakref()</a></code> <code><a href="tests-other_types.html">assert_bytecode()</a></code> <code><a href="tests-other_types.html">assert_externalptr()</a></code>
+</dt>
+<dd>Validation - Other types</dd>
+</dl></div><div class="section level2">
+<h3 id="attributes-1">Attributes<a aria-label="anchor" class="anchor" href="#attributes-1"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="test_names.html">test_names()</a></code> <code><a href="test_names.html">assert_names()</a></code>
+</dt>
+<dd>Validation - Names attribute</dd>
+<dt>
+<code><a href="test_matrix.html">test_matrix()</a></code> <code><a href="test_matrix.html">assert_matrix()</a></code>
+</dt>
+<dd>Validation - Matrix and array attributes</dd>
+<dt>
+<code><a href="test_class.html">test_class()</a></code> <code><a href="test_class.html">assert_class()</a></code>
+</dt>
+<dd>Validation - Class attribute</dd>
+<dt>
+<code><a href="test_object.html">test_object()</a></code> <code><a href="test_object.html">assert_object()</a></code>
+</dt>
+<dd>Validation - Object-related attributes</dd>
+</dl></div><div class="section level2">
+<h3 id="validation-via-external-functions">Validation via external functions<a aria-label="anchor" class="anchor" href="#validation-via-external-functions"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="assert_from_msg.html">assert_from_msg()</a></code> <code><a href="assert_from_msg.html">assert_from_error()</a></code>
+</dt>
+<dd>Validation - Rethrow errors with more information</dd>
+<dt>
+<code><a href="assert_ptype.html">assert_ptype()</a></code>
+</dt>
+<dd>Validation - If object is of prototype</dd>
+<dt>
+<code><a href="assert_predicate.html">assert_predicate()</a></code>
+</dt>
+<dd>Validation - Throw error from custom predicate</dd>
+<dt>
+<code><a href="test_multiple.html">test_multiple()</a></code>
+</dt>
+<dd>Validation - Test for one of multiple types</dd>
+</dl></div><div class="section level2">
+<h2 id="utilities">Utilities<a aria-label="anchor" class="anchor" href="#utilities"></a></h2>
+<dl></dl></div><div class="section level2">
+<h3 id="logical-utilities">Logical utilities<a aria-label="anchor" class="anchor" href="#logical-utilities"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="pany.html">pany()</a></code> <code><a href="pany.html">pall()</a></code> <code><a href="pany.html">pany_na()</a></code> <code><a href="pany.html">pall_na()</a></code>
+</dt>
+<dd>Parallel any and all</dd>
+<dt>
+<code><a href="reduce_predicate.html">reduce_predicate()</a></code> <code><a href="reduce_predicate.html">accumulate_predicate()</a></code>
+</dt>
+<dd>Reduce binary predicate over a list</dd>
+</dl></div><div class="section level2">
+<h3 id="attributes-utilities">Attributes utilities<a aria-label="anchor" class="anchor" href="#attributes-utilities"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="attributes-filter.html">attrs_rmv()</a></code> <code><a href="attributes-filter.html">attrs_keep()</a></code> <code><a href="attributes-filter.html">has_attrs_any()</a></code> <code><a href="attributes-filter.html">has_attrs_all()</a></code> <code><a href="attributes-filter.html">has_attrs_only()</a></code>
+</dt>
+<dd>Attribute checks - Check for and filter attributes from object</dd>
+<dt>
+<code><a href="attributes-getters-setters.html">names3()</a></code> <code><a href="attributes-getters-setters.html">`names3&lt;-`()</a></code> <code><a href="attributes-getters-setters.html">dimnames2()</a></code> <code><a href="attributes-getters-setters.html">`dimnames2&lt;-`()</a></code> <code><a href="attributes-getters-setters.html">rownames2()</a></code> <code><a href="attributes-getters-setters.html">`rownames2&lt;-`()</a></code> <code><a href="attributes-getters-setters.html">class2()</a></code> <code><a href="attributes-getters-setters.html">`class2&lt;-`()</a></code>
+</dt>
+<dd>Attribute utilities - Getters and setters</dd>
+<dt>
+<code><a href="attr2.html">attr2()</a></code>
+</dt>
+<dd>Attribute utilities - Get attribute of object</dd>
+</dl></div><div class="section level2">
+<h3 id="others">Others<a aria-label="anchor" class="anchor" href="#others"></a></h3>
+<dl></dl></div><div class="section level2">
+<dl><dt>
+<code><a href="check_installed2.html">check_installed2()</a></code>
+</dt>
+<dd>Check if user accepted a package installation</dd>
+<dt>
+<code><a href="c2.html">c2()</a></code>
+</dt>
+<dd>Combine many vectors into one vector</dd>
+</dl></div>
+</main><aside class="col-md-3"><nav aria-label="Table of contents" id="toc"><h2>On this page</h2>
+</nav></aside></div>
+</div>
+</main></main><footer id="rssite-footer"><p>
+            Package made with <a class="external-link" href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a class="external-link" href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<script src="assets/rspd_module.js"></script></body></html>

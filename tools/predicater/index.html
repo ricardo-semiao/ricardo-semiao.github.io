@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<title>predicater | Ricardo Semião</title>
+<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"/>
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/>
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/global.css" rel="stylesheet"/>
+<link href="assets/rspd_module.css" rel="stylesheet"/>
+<link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<meta content="Modern and consistent validation for R" property="og:title"/>
+<meta content="Validation of R objects with more consistency and flexibility than base is functions, having predictable and well documented behavior. Provides simple is/are/has predicates, and complex assertions for common input validation needs. Includes improved object comparison, prototypes, if-else chains, and pattern matching." name="description"/>
+<meta content="Validation of R objects with more consistency and flexibility than base is functions, having predictable and well documented behavior. Provides simple is/are/has predicates, and complex assertions for common input validation needs. Includes improved object comparison, prototypes, if-else chains, and pattern matching." property="og:description"/>
+<!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external">
+<!-- @@site-icons@@ -->
+<a class="visually-hidden-focusable" href="#main">Skip to contents</a>
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+<a class="navbar-brand me-2" href="index.html">predicater</a>
+<small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
+<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse ms-3" id="navbar">
+<ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
+</ul>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/>
+</form></li>
+</ul>
+</div>
+</div>
+</nav><div class="container template-home">
+<div class="row">
+<main class="col-md-9" id="main"><div class="section level1">
+<div class="page-header"><h1 id="predicater">predicater<a aria-label="anchor" class="anchor" href="#predicater"></a>
+</h1></div>
+<!-- badges: start -->
+<p>Validation of R objects with more consistency and flexibility than base ‘is’ functions, having predictable and well documented behavior. Provides simple ‘is’/‘are’/‘has’ predicates, and complex assertions for common input validation needs. Includes improved object comparison, prototypes, if-else chains, and pattern matching.</p>
+<p>predicater has three main parts:</p>
+<ul>
+<li>
+<strong>Simple predicates:</strong> functions to test the type/data (<code>is_*()</code>) or attributes (<code>has_*()</code>) of an object. Always returning a logical scalar, but with vectorized versions (<code>are_*()</code>). They are better named and more consistent than base R <code>is.*()</code> functions, while at the same time allowing the user more flexibility.</li>
+<li>
+<strong>Complex predicates and assertions:</strong> functions to test multiple properties of an object (<code>test_*()</code>) and raise informative errors when any of the tests fails (<code>assert_*()</code>). They are useful for input validation, and allow lots of control, meeting most of the needs a developer can have.</li>
+<li>
+<strong>Objects comparison:</strong> a more flexible <code><a class="external-link" href="https://rdrr.io/r/base/identical.html">base::identical()</a></code>; a notion of <em>prototype</em> (see <a class="external-link" href="https://vctrs.r-lib.org/articles/type-size.html">vctrs prototypes</a>) expanded for any metadata/attributes; pattern matching, similar to <code><a class="external-link" href="https://rdrr.io/r/base/switch.html">base::switch()</a></code> but for any object, not just strings; and self-contained re-exports of <code><a class="external-link" href="https://rdrr.io/pkg/funs/man/if_else.html">funs::if_else()</a></code> and <code><a class="external-link" href="https://dplyr.tidyverse.org/reference/case_when.html">dplyr::case_when()</a></code>.</li>
+</ul>
+<div class="section level2">
+<h2 id="main-contributions-to-the-ecosystem">Main contributions to the ecosystem<a aria-label="anchor" class="anchor" href="#main-contributions-to-the-ecosystem"></a>
+</h2>
+<p>This package extends the consistency that <a class="external-link" href="https://rlang.r-lib.org/">rlang</a> brings to the R ecosystem, by introducing predicates for types, attributes, and other properties missing in rlang.</p>
+<p>The validation functions are an alternative to several other packages, currently two of the most prominent being <a class="external-link" href="https://mllg.github.io/checkmate/">checkmate</a> and <a class="external-link" href="https://github.com/poissonconsulting/chk">chk</a>. This package offers more control over the tests, a more modern error reporting, and a clearer separation between testing the type/data of an object and its attributes – e.g. <code><a href="reference/tests-numeric.html">test_integer()</a></code> for the type and values v.s. <code><a href="reference/test_matrix.html">test_matrix()</a></code> for the ‘dim’ and ‘dimnames’ attributes. At the same time, these packages are much more established and have a bigger commitment to performance than this one currently has.</p>
+<p>Finally, the ‘comparison’ functions present useful additions to R logic: the pattern matching in <code>match_*()</code> functions seems like a long needed addition to the R language; the <code><a href="reference/is_ptype.html">is_ptype()</a></code> function generalizes testing the metadata of an object; and <code><a href="reference/identical2.html">identical2()</a></code>, <code><a href="reference/if_else2.html">if_else2()</a></code>, and <code><a href="reference/case_when2.html">case_when2()</a></code> are modern versions of very popular functions.</p>
+</div>
+<div class="section level2">
+<h2 id="main-functions">Main functions<a aria-label="anchor" class="anchor" href="#main-functions"></a>
+</h2>
+<p>predicater standardizes the naming and API of many <code>is_*()</code>/<code>has_*()</code>/<code>are_*()</code> functions, but the most novel ones include:</p>
+<ul>
+<li>Testing for attributes with <code>has_attrs_any</code>/<code>all</code>/<code>only</code> and filtering with <code>attrs_rmv</code>/<code>keep</code>.</li>
+<li>More consistent tests for <code>NA</code>, <code>NaN</code>, <code>Inf</code>, and finite values, with <code>is</code>/<code><a href="reference/is_na2.html">are_na2()</a></code>, <code>is</code>/<code><a href="reference/predicates-infinite.html">are_finite()</a></code>, and <code><a href="reference/predicates-infinite.html">is_nan()</a></code>/<code><a href="reference/predicates-infinite.html">is_inf()</a></code>, e.g. solving <code>is.na(NaN) #&gt; TRUE</code>.</li>
+<li>Expanding the test for ‘any vector type’ to ‘any collection type’ with <code><a href="reference/predicates-collections.html">is_collection()</a></code>, possibly including environments, pairlists, expression vectors, and NULL.</li>
+<li>
+<code><a href="reference/is_integer_like.html">is_integer_like()</a></code>, that organizes the common test for ‘integer-ish’ into two modes: <code>"unbounded"</code> - difference from <code>round(x)</code> within a given tolerance; and <code>"bounded"</code> - unbounded + within the R integer range. Correctly dealing with <code>NaN</code> and <code>Inf</code> values, while allowing control over <code>NA</code> values.</li>
+<li>Testing for names with <code>has</code>/<code><a href="reference/has_names_valid.html">are_names_valid()</a></code>, having more control over empty, NA, duplicate and invalid names.</li>
+<li>A more organized notion of ‘object’, merging S4/object bits, S4/object typeof’s and class attribute in <code><a href="reference/predicates-objects.html">is_object_like()</a></code> and <code><a href="reference/object_system.html">object_system()</a></code>.</li>
+<li>The compare functions cited in the previous section.</li>
+</ul>
+<p>The <code>test_*()</code> and <code>assert_*()</code> suite introduces a ‘menu’ of sub-tests shared across functions, with a focus on flexibility, and a modern reporting of errors. Below is an example for validating an integer-like object.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a class="external-link" href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">predicater</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Object to be validated:</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">3.0</span> <span class="op">+</span> <span class="fl">1e-100</span>, <span class="fl">4.0</span>, <span class="cn">Inf</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Defining the sub tests:</span></span>
+<span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  mode <span class="op">=</span> <span class="st">"unbounded"</span>,    <span class="co"># Equal to round(x), within a tolerance (will pass)</span></span>
+<span>  mode_tol <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span><span class="op">)</span>,</span>
+<span>  len <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span><span class="op">)</span>,             <span class="co"># Length must be between 1 and 10 (will pass)</span></span>
+<span>  n_dup <span class="op">=</span> <span class="fl">0</span>,                  <span class="co"># No duplicate values allowed (will pass)</span></span>
+<span>  n_nan <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>,           <span class="co"># At most length(x) - 2 NaN values (will pass)</span></span>
+<span>  n_na <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,          <span class="co"># 0, 2, or 3 NA values (will pass)</span></span>
+<span>  n_inf <span class="op">=</span> \<span class="op">(</span><span class="va">n</span>, <span class="va">l</span><span class="op">)</span> <span class="va">n</span><span class="op">/</span><span class="va">l</span> <span class="op">&lt;=</span> <span class="fl">0.5</span>, <span class="co"># n of Inf &lt;= 50% of total (will pass)</span></span>
+<span>  range <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="op">+</span><span class="fl">5</span><span class="op">)</span>,          <span class="co"># Values between -5 and 5 (will fail)</span></span>
+<span>  set <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>yes <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, no <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span>, <span class="co"># Must contain 1, and not 0 (will pass)</span></span>
+<span>  sentinels <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"null"</span><span class="op">)</span>, <span class="co"># If not a numeric vector, x can be a NULL sentinel</span></span>
+<span>  sorted <span class="op">=</span> <span class="st">"desc"</span>,       <span class="co"># Must be sorted in descending order (will fail)</span></span>
+<span>  custom <span class="op">=</span> <span class="cn">NULL</span>          <span class="co"># Any user-given custom function</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rlang.r-lib.org/reference/exec.html">exec</a></span><span class="op">(</span><span class="va">test_integer</span>, <span class="va">x</span>, <span class="op">!</span><span class="op">!</span><span class="op">!</span><span class="va">args</span><span class="op">)</span></span>
+<span><span class="co">#&gt; FALSE (not all tests passed)</span></span></code></pre></div>
+<p>Normally one would call <code>test_integer(x, ...)</code>, but I defined the arguments first for visualization purposes.</p>
+<p>Note that all sub-tests about ‘the number/size of something’ (len, n_na, etc.) can have different specifications (a single value, a range, a set of values, or a custom function). They appear in many other <code>test_*()</code> functions, as well as <code>set</code>, <code>sentinels</code>, <code>custom</code>, etc.</p>
+<p>For the validation, often one will call <code>assert_integer(x, ...)</code> to validate user input to his function. Note that <code>assert_*()</code> functions allow control over the conditions’ environment, argument name, and others.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rlang.r-lib.org/reference/exec.html">exec</a></span><span class="op">(</span></span>
+<span>        <span class="va">assert_integer</span>, <span class="va">x</span>, <span class="op">!</span><span class="op">!</span><span class="op">!</span><span class="va">args</span>,</span>
+<span>        env <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rlang.r-lib.org/reference/stack.html">current_env</a></span><span class="op">(</span><span class="op">)</span>, <span class="co"># Shows the error coming from `my_fun()`</span></span>
+<span>        short_circuit <span class="op">=</span> <span class="cn">FALSE</span>, <span class="co"># Reports all sub-tests, beyond the first fail</span></span>
+<span>        args_cnd <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"my_fun_error"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span>    <span class="co"># ... code depending on x's integer properties</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="kw"><a class="external-link" href="https://rdrr.io/r/base/try.html">try</a></span><span class="op">(</span><span class="fu">my_fun</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="do">## Error in my_fun(x) : `x` failed `assert_integer()`:</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="do">## ✔ (pass) sentinels: no sentinel values allowed.</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="do">## ✔ (pass) type  : must pass `predicater::is_integer_like()`() in "unbounded"</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="do">##   mode.</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="do">## ✔ (pass) len   : length must be in range 1 to 10.</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="do">## ✔ (pass) n_na  : #of NA values must be in set 0, 2, and 3.</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="do">## ✔ (pass) n_dup : #of duplicate values must be 0.</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="do">## ✔ (pass) n_nan : #of NaN values must be in range 0 to -2.</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="do">## ✔ (pass) n_inf : #of Inf values must satisfy a custom function.</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="do">## ✖ (fail) range : must be in range -5 to 5. Found Inf.</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="do">## ✖ (fail) set   : must be in a custom set. Was not.</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="do">## ✖ (fail) sorted: must be in descending order. Did not.</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="do">## ℹ See `predicater::assert_integer()` and this condition's `rs_assert_error`</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="do">##   attribute for details.</span></span></code></pre></div>
+<p>The error describes each sub-test and the reason (if possible) for the failure. Tests not defined (e.g. <code>custom = NULL</code>) are not reported.</p>
+<p>The <code>assert_*()</code> functions return <code>x</code> on success, so they can be used in pipelines:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span> <span class="op">|&gt;</span>  <span class="co"># Some external data</span></span>
+<span>  <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/Trig.html">tan</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span>     <span class="co"># Some transformation</span></span>
+<span>  <span class="fu"><a href="reference/tests-numeric.html">assert_double</a></span><span class="op">(</span></span>
+<span>    range <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span>, sorted <span class="op">=</span> <span class="st">"asc"</span>,</span>
+<span>    x_name <span class="op">=</span> <span class="st">"tan(mpg)"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span>         <span class="co"># Validation</span></span>
+<span>  <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/Trig.html">cos</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span>     <span class="co"># If passes, continue the pipeline</span></span>
+<span>  <span class="kw"><a class="external-link" href="https://rdrr.io/r/base/try.html">try</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">## Error in (function (...)  : `tan(mpg)` failed `assert_double()`:</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="do">## ✔ (pass) sentinels: no sentinel values allowed.</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="do">## ✖ (fail) range : must be in range -10 to 10. Found -47.0730006551673.</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="do">## • (skip) sorted: skiped given failure.</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="do">## ✔ (pass) type  : must pass `predicater::is_double()`.</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="do">## ℹ See `predicater::assert_double()` and this condition's `rs_assert_error`</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="do">##   attribute for details.</span></span></code></pre></div>
+<p>Note that with <code>short_circuit = TRUE</code> (the default), the first failing sub-test will raise an error, and the rest will be left as ‘(skip)’.</p>
+<!-- TODO: point to documentation for the user to see, but maybe add an example here too -->
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a aria-label="anchor" class="anchor" href="#installation"></a>
+</h2>
+<p>You can install the development version of predicater from <a class="external-link" href="https://github.com/predicater">GitHub</a> with any of the following commands:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages(c("pak", "renv", "remotes"))</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://pak.r-lib.org/reference/pak.html">pak</a></span><span class="op">(</span><span class="st">"ricardo-semiao/predicater"</span><span class="op">)</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rstudio.github.io/renv/reference/install.html">install</a></span><span class="op">(</span><span class="st">"ricardo-semiao/predicater"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"ricardo-semiao/predicater"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="development-status">Development status<a aria-label="anchor" class="anchor" href="#development-status"></a>
+</h2>
+<p>Currently, predicater is in an <strong>experimental</strong> stage. The API is not stable yet and will go through breaking changes.</p>
+<p>All functions have examples, and they are validated in the test suite. Still, the tests are not extensive and the functions have not been battle-tested yet.</p>
+<p>Currently, the functions do not verify their inputs, although they are well documented in the help pages.</p>
+<p>In the future, I plan to substitute the underlying engines of many functions with C code to improve performance and have cleaner access to the underlying C representation of the R objects.</p>
+<p>Some future additions are planned: - <code>is_*_scalar()</code> for all types of objects, that also allow for excluding the <code>NA</code> value. - Predicates for all items in the C data header of R objects, as is the case of <code><a href="reference/predicates-objects.html">has_object_bit()</a></code>. - A reporting framework that allows the user to store the results of <code>test_*()</code> functions and branch from and report them in a more flexible way than directly raising an error.</p>
+</div>
+</div>
+</main><aside class="col-md-3"><div class="license">
+<h2 data-toc-skip="">License</h2>
+<ul class="list-unstyled">
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a class="external-link" href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+</ul>
+</div>
+<div class="citation">
+<h2 data-toc-skip="">Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing predicater</a></li>
+</ul>
+</div>
+<div class="developers">
+<h2 data-toc-skip="">Developers</h2>
+<ul class="list-unstyled">
+<li>Ricardo Semião <br/><small class="roles"> Author, maintainer </small> </li>
+</ul>
+</div>
+<div class="dev-status">
+<h2 data-toc-skip="">Dev status</h2>
+<ul class="list-unstyled">
+<li><a class="external-link" href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img alt="Lifecycle: experimental" src="https://img.shields.io/badge/lifecycle-experimental-orange.svg"/></a></li>
+<li><a class="external-link" href="https://github.com/ricardo-semiao/predicater/actions/workflows/R-CMD-check.yaml"><img alt="R-CMD-check" src="https://github.com/ricardo-semiao/predicater/actions/workflows/R-CMD-check.yaml/badge.svg"/></a></li>
+<li><a class="external-link" href="https://app.codecov.io/gh/ricardo-semiao/predicater"><img alt="Codecov test coverage" src="https://codecov.io/gh/ricardo-semiao/predicater/graph/badge.svg"/></a></li>
+</ul>
+</div>
+</aside>
+</div>
+</div>
+</main></main><footer id="rssite-footer"><p>
+            Package made with <a class="external-link" href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a class="external-link" href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<script src="assets/rspd_module.js"></script>
+</body>
+</html>

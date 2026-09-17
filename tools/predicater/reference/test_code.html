@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta charset="utf-8"/><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><title>predicater | Ricardo Semião</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"/><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/><link href="/assets/global.css" rel="stylesheet"/><link href="../assets/rspd_module.css" rel="stylesheet"/><link href="/assets/img/icon.webp" rel="icon" type="image/png"/><link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/><meta content="Ricardo Semião e Castro" name="Author"/><meta content="Validation - Code Objects — test_code" property="og:title"/><meta content="Test if an input is a R language code object (symbol, language/call, or
+syntactic literal), and optionally check if it is valid parsable code or
+an empty symbol.
+test_code() is the predicate test, while assert_code() validates
+its input, aborting if it fails the test." name="description"/><meta content="Test if an input is a R language code object (symbol, language/call, or
+syntactic literal), and optionally check if it is valid parsable code or
+an empty symbol.
+test_code() is the predicate test, while assert_code() validates
+its input, aborting if it fails the test." property="og:description"/><!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script></head><body class="rssite-external">
+<!-- @@site-icons@@ -->
+<a class="visually-hidden-focusable" href="#main">Skip to contents</a>
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+<a class="navbar-brand me-2" href="../index.html">predicater</a>
+<small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
+<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse ms-3" id="navbar">
+<ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
+</ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="../search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/></form></li>
+</ul></div>
+</div>
+</nav><div class="container template-reference-topic">
+<div class="row">
+<main class="col-md-9" id="main"><div class="page-header">
+<h1>Validation - Code Objects</h1>
+<div class="d-none name"><code>test_code.Rd</code></div>
+</div>
+<div class="ref-description section level2">
+<p>Test if an input is a R language code object (symbol, language/call, or
+syntactic literal), and optionally check if it is valid parsable code or
+an empty symbol.</p>
+<p><code>test_code()</code> is the predicate test, while <code>assert_code()</code> validates
+its input, aborting if it fails the test.</p>
+</div>
+<div class="section level2">
+<h2 id="ref-usage">Usage<a aria-label="anchor" class="anchor" href="#ref-usage"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">test_code</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  sym <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  lang <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  literal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  valid <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  empty <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  sentinels <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  custom <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">assert_code</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  sym <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  lang <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  literal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  valid <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  empty <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  sentinels <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  custom <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  action <span class="op">=</span> <span class="st">"abort"</span>,</span>
+<span>  env <span class="op">=</span> <span class="fu">caller_env</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  x_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  short_circuit <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  report_untested <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  args_cnd <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="arguments">Arguments<a aria-label="anchor" class="anchor" href="#arguments"></a></h2>
+<dl><dt id="arg-x">x<a aria-label="anchor" class="anchor" href="#arg-x"></a></dt>
+<dd><p>[<code>any</code>] An object to test.</p></dd>
+<dt id="arg-sym-lang-literal">sym, lang, literal<a aria-label="anchor" class="anchor" href="#arg-sym-lang-literal"></a></dt>
+<dd><p>[<code>TRUE</code> | <code>FALSE</code> | <code>NULL</code>] Whether to allow
+symbols, language objects (calls), or syntactic literals.</p></dd>
+<dt id="arg-valid">valid<a aria-label="anchor" class="anchor" href="#arg-valid"></a></dt>
+<dd><p>[<code>logical(1)</code> | <code>NULL</code>] Whether the code object must be
+parsable code.</p></dd>
+<dt id="arg-empty">empty<a aria-label="anchor" class="anchor" href="#arg-empty"></a></dt>
+<dd><p>[<code>logical(1)</code> | <code>NULL</code>] Whether empty symbols are permitted.</p></dd>
+<dt id="arg-sentinels">sentinels<a aria-label="anchor" class="anchor" href="#arg-sentinels"></a></dt>
+<dd><p>[<code><a class="external-link" href="https://rdrr.io/r/base/character.html">character()</a></code> | <code>NULL</code>] Each entry in this character vector allows <code>x</code> to   also be some scalar sentinel below. Set to <code>NULL</code> to disconsider sentinels.</p><ul><li><p><code>"null"</code> for <code>NULL</code>.</p></li>
+<li><p><code>"empty"</code> for any zero-length object.</p></li>
+<li><p><code>"na"</code> for any <code>NA</code> type, or <code>"na_logical"</code> for <code>NA</code>, <code>"na_integer"</code> for     <code>NA_integer_</code>, <code>"na_real"</code> for <code>NA_real_</code>, <code>"na_complex"</code> for     <code>NA_complex_</code>, and <code>"na_character"</code> for <code>NA_character_</code>.</p></li>
+<li><p><code>"nan"</code> for <code>NaN</code>.</p></li>
+<li><p><code>"+inf"</code> for <code>+Inf</code>, <code>"-inf"</code> for <code>-Inf</code>, and <code>"inf"</code> for both.</p></li>
+<li><p><code>"true"</code>/<code>"t"</code> for <code>TRUE</code>, and <code>"false"</code>/<code>"f"</code> for <code>FALSE</code>.</p></li>
+</ul></dd>
+<dt id="arg-custom">custom<a aria-label="anchor" class="anchor" href="#arg-custom"></a></dt>
+<dd><p>[<code>function(x)</code> | <code>NULL</code>] A custom function that takes <code>x</code> as first argument   and returns a single <code>TRUE</code> or <code>FALSE</code>. Set to <code>NULL</code> to not test.</p></dd>
+<dt id="arg-action">action<a aria-label="anchor" class="anchor" href="#arg-action"></a></dt>
+<dd><p>[<code>"abort"</code> | <code>"warn"</code> | <code>"inform"</code>] Action to take when the test fails:</p><ul><li><p><code>"abort"</code> to stop execution and throw an error.</p></li>
+<li><p><code>"warning"</code> to issue a warning and return <code>invisible(x)</code>.</p></li>
+<li><p><code>"message"</code> to issue a message and return <code>invisible(x)</code>.</p></li>
+</ul></dd>
+<dt id="arg-env">env<a aria-label="anchor" class="anchor" href="#arg-env"></a></dt>
+<dd><p>[<code><a class="external-link" href="https://rdrr.io/r/base/environment.html">environment()</a></code> | <code><a class="external-link" href="https://rdrr.io/r/base/call.html">call()</a></code> | <code>NULL</code> | <code>missing_arg()</code>] The call to inform as   the origin of the error, passed to <code><a class="external-link" href="https://rlang.r-lib.org/reference/abort.html">rlang::abort()</a></code>:</p><ul><li><p>An environment in the call stack or a hard-coded defused call.</p></li>
+<li><p><code>NULL</code> for no information.</p></li>
+<li><p><code>missing_arg()</code> to use the assert function itself.</p></li>
+<li><p>The default is <code>caller_env()</code>, to display the function where the assertion     was called.</p></li>
+</ul></dd>
+<dt id="arg-x-name">x_name<a aria-label="anchor" class="anchor" href="#arg-x-name"></a></dt>
+<dd><p>[<code>character(1)</code> | <code>NULL</code>] The name of the object to use in the error message.   If <code>NULL</code>, the name is inferred from the expression passed to <code>x</code>.</p></dd>
+<dt id="arg-short-circuit">short_circuit<a aria-label="anchor" class="anchor" href="#arg-short-circuit"></a></dt>
+<dd><p>[<code>TRUE</code> | <code>FALSE</code>] If <code>TRUE</code>, the tests results will be reported up to the   first failure. Else, all tests results are reported. The former is more   efficient, while the latter is more informative.</p></dd>
+<dt id="arg-report-untested">report_untested<a aria-label="anchor" class="anchor" href="#arg-report-untested"></a></dt>
+<dd><p>[<code>TRUE</code> | <code>FALSE</code>] If <code>TRUE</code>, the tests that were not run due to short-  circuiting will be reported as untested, else, ignored.</p></dd>
+<dt id="arg-args-cnd">args_cnd<a aria-label="anchor" class="anchor" href="#arg-args-cnd"></a></dt>
+<dd><p>[<code><a class="external-link" href="https://rdrr.io/r/base/list.html">list()</a></code>] Additional arguments passed to <code><a class="external-link" href="https://cli.r-lib.org/reference/cli_abort.html">cli::cli_abort()</a></code>, <code><a class="external-link" href="https://cli.r-lib.org/reference/cli_abort.html">cli::cli_warn()</a></code>,   or <code><a class="external-link" href="https://cli.r-lib.org/reference/cli_abort.html">cli::cli_inform()</a></code>, based on the chosen <code>action</code>.</p></dd>
+</dl></div>
+<div class="section level2">
+<h2 id="value">Value<a aria-label="anchor" class="anchor" href="#value"></a></h2>
+<ul><li><p>[<code>TRUE</code> | <code>FALSE</code>] for <code>test_code()</code>.</p></li>
+<li><p>[<code>=x</code>] <code>invisible(x)</code> for <code>assert_code()</code>, or aborts if the test fails.</p></li>
+</ul></div>
+<div class="section level2">
+<h2 id="ref-examples">Examples<a aria-label="anchor" class="anchor" href="#ref-examples"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">42L</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">args</span> <span class="op">&lt;-</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  sym <span class="op">=</span> <span class="cn">FALSE</span>,            <span class="co"># Disallow symbols (will pass)</span></span></span>
+<span class="r-in"><span>  lang <span class="op">=</span> <span class="cn">FALSE</span>,           <span class="co"># Disallow language objects/calls (will pass)</span></span></span>
+<span class="r-in"><span>  literal <span class="op">=</span> <span class="cn">TRUE</span>,         <span class="co"># Allow syntactic literals (will pass)</span></span></span>
+<span class="r-in"><span>  valid <span class="op">=</span> <span class="cn">TRUE</span>,           <span class="co"># Must be parsable code (will pass)</span></span></span>
+<span class="r-in"><span>  empty <span class="op">=</span> <span class="cn">FALSE</span>,          <span class="co"># Disallow empty symbols (will pass)</span></span></span>
+<span class="r-in"><span>  sentinels <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"null"</span><span class="op">)</span>,  <span class="co"># Allow NULL code object (not the case of x)</span></span></span>
+<span class="r-in"><span>  custom <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">100</span>   <span class="co"># Literal value must be &gt; 100 (will fail)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rlang.r-lib.org/reference/exec.html">exec</a></span><span class="op">(</span><span class="va">test_code</span>, <span class="op">!</span><span class="op">!</span><span class="op">!</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="va">args</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; FALSE (not all tests passed)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a class="external-link" href="https://rdrr.io/r/base/try.html">try</a></span><span class="op">(</span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rlang.r-lib.org/reference/exec.html">exec</a></span><span class="op">(</span><span class="va">assert_code</span>, <span class="op">!</span><span class="op">!</span><span class="op">!</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="va">args</span>, short_circuit <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; Error</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir) : `42` failed `assert_code()`:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> (pass) sentinels: no sentinel values allowed.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> (pass) type  : must be of 'type' <span style="color: #0000BB;">"syntactic literal"</span>.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> (pass) valid : must be valid code.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> (pass) empty :</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> (fail) custom: must pass a custom test. <span style="color: #BB0000;">Did not.</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> See `predicater::assert_code()` and this condition's `rs_assert_error`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   attribute for details.</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+</div>
+</main><aside class="col-md-3"><nav aria-label="Table of contents" id="toc"><h2>On this page</h2>
+</nav></aside></div>
+</div>
+</main></main><footer id="rssite-footer"><p>
+            Package made with <a class="external-link" href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a class="external-link" href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<script src="assets/rspd_module.js"></script></body></html>

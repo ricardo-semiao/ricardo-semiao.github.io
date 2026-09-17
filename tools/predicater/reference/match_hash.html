@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta charset="utf-8"/><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><title>predicater | Ricardo Semião</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"/><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/><link href="/assets/global.css" rel="stylesheet"/><link href="../assets/rspd_module.css" rel="stylesheet"/><link href="/assets/img/icon.webp" rel="icon" type="image/png"/><link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/><meta content="Ricardo Semião e Castro" name="Author"/><meta content="Compare - Pattern matching — match_hash" property="og:title"/><meta content="Pattern matching functions to return a value based on a case of x. Similar
+to switch() but allows for any type for object as the case. Cases are two
+sided formulas with the LHS being the case and the RHS being the return
+value.
+For match_hash and match_id, cases are any R object to directly compare
+with x.
+For match_ptype, cases are prototypes to check if x is_ptype().
+For match_when, cases are any predicate expression, that matches when it
+evaluates to TRUE.
+
+" name="description"/><meta content="Pattern matching functions to return a value based on a case of x. Similar
+to switch() but allows for any type for object as the case. Cases are two
+sided formulas with the LHS being the case and the RHS being the return
+value.
+For match_hash and match_id, cases are any R object to directly compare
+with x.
+For match_ptype, cases are prototypes to check if x is_ptype().
+For match_when, cases are any predicate expression, that matches when it
+evaluates to TRUE.
+
+" property="og:description"/><!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script></head><body class="rssite-external">
+<!-- @@site-icons@@ -->
+<a class="visually-hidden-focusable" href="#main">Skip to contents</a>
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+<a class="navbar-brand me-2" href="../index.html">predicater</a>
+<small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
+<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse ms-3" id="navbar">
+<ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
+</ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="../search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/></form></li>
+</ul></div>
+</div>
+</nav><div class="container template-reference-topic">
+<div class="row">
+<main class="col-md-9" id="main"><div class="page-header">
+<h1>Compare - Pattern matching</h1>
+<div class="d-none name"><code>match_hash.Rd</code></div>
+</div>
+<div class="ref-description section level2">
+<p>Pattern matching functions to return a value based on a case of <code>x</code>. Similar
+to <code><a class="external-link" href="https://rdrr.io/r/base/switch.html">switch()</a></code> but allows for any type for object as the case. Cases are two
+sided formulas with the LHS being the case and the RHS being the return
+value.</p><ul><li><p>For <code>match_hash</code> and <code>match_id</code>, cases are any R object to directly compare
+with <code>x</code>.</p></li>
+<li><p>For <code>match_ptype</code>, cases are prototypes to check if <code>x</code> <code><a href="is_ptype.html">is_ptype()</a></code>.</p></li>
+<li><p>For <code>match_when</code>, cases are any predicate expression, that matches when it
+evaluates to <code>TRUE</code>.</p></li>
+</ul></div>
+<div class="section level2">
+<h2 id="ref-usage">Usage<a aria-label="anchor" class="anchor" href="#ref-usage"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">match_hash</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, nomatch <span class="op">=</span> <span class="cn">NULL</span>, htab <span class="op">=</span> <span class="cn">NULL</span>, type <span class="op">=</span> <span class="cn">NULL</span>, size <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">match_id</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, nomatch <span class="op">=</span> <span class="cn">NULL</span>, fun <span class="op">=</span> <span class="st">"identical"</span>, args_id <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">match_ptype</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, nomatch <span class="op">=</span> <span class="cn">NULL</span>, args_ptype <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">match_when</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, nomatch <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="arguments">Arguments<a aria-label="anchor" class="anchor" href="#arguments"></a></h2>
+<dl><dt id="arg-x">x<a aria-label="anchor" class="anchor" href="#arg-x"></a></dt>
+<dd><p>[<code>any</code>] Object to match.</p></dd>
+<dt id="arg--">...<a aria-label="anchor" class="anchor" href="#arg--"></a></dt>
+<dd><p>[<code>&lt;formula&gt;</code> each]
+Cases to match. Each case is a formula with
+the left-hand side being the value to match against and the right-hand side
+being the value to return if the case matches. Cases are evaluated in
+order, and in the caller environment.</p></dd>
+<dt id="arg-nomatch">nomatch<a aria-label="anchor" class="anchor" href="#arg-nomatch"></a></dt>
+<dd><p>[<code>any</code>] Value to return if no cases match. Use <code><a class="external-link" href="https://rdrr.io/r/base/stop.html">stop()</a></code> or
+similar to err.</p></dd>
+<dt id="arg-htab-type-size">htab, type, size<a aria-label="anchor" class="anchor" href="#arg-htab-type-size"></a></dt>
+<dd><p>[<code><a class="external-link" href="https://rdrr.io/r/utils/hashtab.html">hashtab()</a></code> | NULL, <code>character(1)</code> | <code>NULL</code>,
+<code>integer(1)</code> | <code>NULL</code>]
+For <code>match_hash</code>: an existing hash table, or the arguments passed to
+<code><a class="external-link" href="https://rdrr.io/r/utils/hashtab.html">utils::hashtab()</a></code> to create a new one.</p></dd>
+<dt id="arg-fun-args-id">fun, args_id<a aria-label="anchor" class="anchor" href="#arg-fun-args-id"></a></dt>
+<dd><p>[<code>character(1)</code>, <code><a class="external-link" href="https://rdrr.io/r/base/list.html">list()</a></code>] For <code>match_id</code>: which
+'identical' function to use, <code>"identical"</code> for <code><a class="external-link" href="https://rdrr.io/r/base/identical.html">identical()</a></code> or
+<code>"identical2"</code> for <code><a href="identical2.html">identical2()</a></code>; and a list of arguments to pass to it.</p></dd>
+<dt id="arg-args-ptype">args_ptype<a aria-label="anchor" class="anchor" href="#arg-args-ptype"></a></dt>
+<dd><p>[<code><a class="external-link" href="https://rdrr.io/r/base/list.html">list()</a></code>] For
+<code>match_ptype</code>. A list of arguments to pass to <code><a href="is_ptype.html">is_ptype()</a></code>.</p></dd>
+</dl></div>
+<div class="section level2">
+<h2 id="value">Value<a aria-label="anchor" class="anchor" href="#value"></a></h2>
+<p>[<code>any</code>] The value of the first matching case, or <code>nomatch</code> if no
+cases match.</p>
+</div>
+<div class="section level2">
+<h2 id="details">Details<a aria-label="anchor" class="anchor" href="#details"></a></h2>
+<p>The return value is evaluated dynamically and can refer to <code>x</code>, except for
+<code>match_hash</code>, which in turn is faster and can be supplied a pre-built hash
+table.</p>
+</div>
+<div class="section level2">
+<h2 id="ref-examples">Examples<a aria-label="anchor" class="anchor" href="#ref-examples"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">match_hash</span><span class="op">(</span><span class="fl">1.42</span>, <span class="fl">1.42</span> <span class="op">~</span> <span class="fu">base</span><span class="fu">::</span><span class="va"><a class="external-link" href="https://rdrr.io/r/base/sum.html">sum</a></span>, <span class="st">"oi"</span> <span class="op">~</span> <span class="op">-</span><span class="cn">Inf</span><span class="op">)</span> <span class="co">#&gt; base::sum</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> function (..., na.rm = FALSE)  .Primitive("sum")</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># The htab can be reused to speed up repeated calls to match_hash():</span></span></span>
+<span class="r-in"><span><span class="va">htab</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/utils/hashtab.html">hashtab</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/utils/hashtab.html">sethash</a></span><span class="op">(</span><span class="va">htab</span>, <span class="fl">1.42</span>, <span class="fu">base</span><span class="fu">::</span><span class="va"><a class="external-link" href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/utils/hashtab.html">sethash</a></span><span class="op">(</span><span class="va">htab</span>, <span class="st">"oi"</span>, <span class="op">-</span><span class="cn">Inf</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">match_hash</span><span class="op">(</span><span class="fl">1.42</span>, htab <span class="op">=</span> <span class="va">htab</span><span class="op">)</span> <span class="co">#&gt; base::sum</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> function (..., na.rm = FALSE)  .Primitive("sum")</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">match_id</span><span class="op">(</span><span class="fl">1.42</span>, <span class="st">"oi"</span> <span class="op">~</span> <span class="op">-</span><span class="cn">Inf</span>, <span class="fl">1.42</span> <span class="op">~</span> <span class="va">.x</span> <span class="op">*</span> <span class="fl">2</span><span class="op">)</span> <span class="co">#&gt; 2.84</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2.84</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">match_ptype</span><span class="op">(</span><span class="fl">1.42</span>, <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span> <span class="op">~</span> <span class="st">"chr"</span>, <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span> <span class="op">~</span> <span class="st">"dbl"</span><span class="op">)</span> <span class="co">#&gt; "dbl"</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "dbl"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">match_when</span><span class="op">(</span><span class="st">"oi"</span>, <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="va">.x</span><span class="op">)</span> <span class="op">~</span> <span class="st">"1"</span>, <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"o"</span>, <span class="va">.x</span><span class="op">)</span> <span class="op">~</span> <span class="st">"o"</span><span class="op">)</span> <span class="co">#&gt; "o"</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "o"</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+</div>
+</main><aside class="col-md-3"><nav aria-label="Table of contents" id="toc"><h2>On this page</h2>
+</nav></aside></div>
+</div>
+</main></main><footer id="rssite-footer"><p>
+            Package made with <a class="external-link" href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a class="external-link" href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<script src="assets/rspd_module.js"></script></body></html>

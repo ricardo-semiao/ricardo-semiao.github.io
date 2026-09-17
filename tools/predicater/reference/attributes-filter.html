@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta charset="utf-8"/><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><title>predicater | Ricardo Semião</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"/><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/><link href="/assets/global.css" rel="stylesheet"/><link href="../assets/rspd_module.css" rel="stylesheet"/><link href="/assets/img/icon.webp" rel="icon" type="image/png"/><link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/><meta content="Ricardo Semião e Castro" name="Author"/><meta content="Attribute checks - Check for and filter attributes from object — attributes-filter" property="og:title"/><meta content="Functions to test for and filter attributes from an object. Attributes can be
+selected by abbreviation in abbr, by name in exact or disallow, or by
+regex pattern in match.
+To remove attributes:
+attrs_rmv() returns x without the attributes selected.
+attrs_keep() returns x with only the attributes selected.
+
+
+To test for attributes:
+has_attrs_any() returns TRUE if any of the selected attributes are
+present.
+has_attrs_all() returns TRUE if all of the selected attributes are
+present.
+has_attrs_only() returns TRUE if all and only the selected attributes
+are present.
+
+" name="description"/><meta content="Functions to test for and filter attributes from an object. Attributes can be
+selected by abbreviation in abbr, by name in exact or disallow, or by
+regex pattern in match.
+To remove attributes:
+attrs_rmv() returns x without the attributes selected.
+attrs_keep() returns x with only the attributes selected.
+
+
+To test for attributes:
+has_attrs_any() returns TRUE if any of the selected attributes are
+present.
+has_attrs_all() returns TRUE if all of the selected attributes are
+present.
+has_attrs_only() returns TRUE if all and only the selected attributes
+are present.
+
+" property="og:description"/><!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script></head><body class="rssite-external">
+<!-- @@site-icons@@ -->
+<a class="visually-hidden-focusable" href="#main">Skip to contents</a>
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+<a class="navbar-brand me-2" href="../index.html">predicater</a>
+<small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
+<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse ms-3" id="navbar">
+<ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
+</ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="../search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/></form></li>
+</ul></div>
+</div>
+</nav><div class="container template-reference-topic">
+<div class="row">
+<main class="col-md-9" id="main"><div class="page-header">
+<h1>Attribute checks - Check for and filter attributes from object</h1>
+<div class="d-none name"><code>attributes-filter.Rd</code></div>
+</div>
+<div class="ref-description section level2">
+<p>Functions to test for and filter attributes from an object. Attributes can be
+selected by abbreviation in <code>abbr</code>, by name in <code>exact</code> or <code>disallow</code>, or by
+regex pattern in <code>match</code>.</p>
+<p>To remove attributes:</p><ul><li><p><code>attrs_rmv()</code> returns <code>x</code> without the attributes selected.</p></li>
+<li><p><code>attrs_keep()</code> returns <code>x</code> with only the attributes selected.</p></li>
+</ul><p>To test for attributes:</p><ul><li><p><code>has_attrs_any()</code> returns <code>TRUE</code> if any of the selected attributes are
+present.</p></li>
+<li><p><code>has_attrs_all()</code> returns <code>TRUE</code> if all of the selected attributes are
+present.</p></li>
+<li><p><code>has_attrs_only()</code> returns <code>TRUE</code> if all and only the selected attributes
+are present.</p></li>
+</ul></div>
+<div class="section level2">
+<h2 id="ref-usage">Usage<a aria-label="anchor" class="anchor" href="#ref-usage"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">attrs_rmv</span><span class="op">(</span><span class="va">x</span>, abbr <span class="op">=</span> <span class="st">""</span>, exact <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, match <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, perl <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">attrs_keep</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  abbr <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  exact <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  match <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  perl <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">has_attrs_any</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  abbr <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  exact <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  match <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  disallow <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">has_attrs_all</span><span class="op">(</span><span class="va">x</span>, abbr <span class="op">=</span> <span class="st">""</span>, exact <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, disallow <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">has_attrs_only</span><span class="op">(</span><span class="va">x</span>, abbr <span class="op">=</span> <span class="st">""</span>, exact <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="arguments">Arguments<a aria-label="anchor" class="anchor" href="#arguments"></a></h2>
+<dl><dt id="arg-x">x<a aria-label="anchor" class="anchor" href="#arg-x"></a></dt>
+<dd><p>[<code>any</code>] Object to test for or remove attributes from.</p></dd>
+<dt id="arg-abbr">abbr<a aria-label="anchor" class="anchor" href="#arg-abbr"></a></dt>
+<dd><p>[<code>character(1)</code>] String of characters specifying attributes to
+keep: <code>"n"</code> for 'names'; <code>"d"</code> for 'dim'; <code>"c"</code> for 'class'; <code>"r"</code> for both
+rownames and dimnames.</p></dd>
+<dt id="arg-exact">exact<a aria-label="anchor" class="anchor" href="#arg-exact"></a></dt>
+<dd><p>[<code><a class="external-link" href="https://rdrr.io/r/base/character.html">character()</a></code>] Other attributes to keep, specified by name.</p></dd>
+<dt id="arg-match">match<a aria-label="anchor" class="anchor" href="#arg-match"></a></dt>
+<dd><p>[<code><a class="external-link" href="https://rdrr.io/r/base/character.html">character()</a></code>] Other attributes to keep, specified by regex
+pattern. They are combined with the or regex 'or' operator <code>|</code>.</p></dd>
+<dt id="arg-perl">perl<a aria-label="anchor" class="anchor" href="#arg-perl"></a></dt>
+<dd><p>[<code>TRUE</code> | <code>FALSE</code>] Whether to use perl-compatible regex.</p></dd>
+<dt id="arg-disallow">disallow<a aria-label="anchor" class="anchor" href="#arg-disallow"></a></dt>
+<dd><p>[<code><a class="external-link" href="https://rdrr.io/r/base/character.html">character()</a></code>] Attributes that, if present, will fail the
+test.</p></dd>
+</dl></div>
+<div class="section level2">
+<h2 id="value">Value<a aria-label="anchor" class="anchor" href="#value"></a></h2>
+<ul><li><p>[<code>=x</code>] For <code>attrs_rmv()</code> and <code>attrs_keep()</code>: Same object as <code>x</code> but with
+attributes some removed.</p></li>
+<li><p>[<code>TRUE</code> | <code>FALSE</code>] For <code>has_attrs_any()</code>, <code>has_attrs_all()</code>, and
+<code>has_attrs_only()</code>: the scalar result of the test.</p></li>
+</ul></div>
+<div class="section level2">
+<h2 id="ref-examples">Examples<a aria-label="anchor" class="anchor" href="#ref-examples"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span>, c <span class="op">=</span> <span class="fl">3</span>,</span></span>
+<span class="r-in"><span>  names <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"X"</span>, <span class="st">"Y"</span>, <span class="st">"Z"</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>, class <span class="op">=</span> <span class="st">"myclass"</span>,</span></span>
+<span class="r-in"><span>  levels <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"aa"</span>, <span class="st">"bb"</span>, <span class="st">"cc"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Default removal:</span></span></span>
+<span class="r-in"><span><span class="fu">attrs_keep</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># Removes all attributes</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 2 3</span>
+<span class="r-in"><span><span class="fu">attrs_rmv</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># Removes no attributes</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1    2    3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"a")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"b")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"c")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"names")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "X" "Y" "Z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "myclass"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"levels")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "aa" "bb" "cc"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Abbreviation, exact, and regex filtering:</span></span></span>
+<span class="r-in"><span><span class="fu">attrs_keep</span><span class="op">(</span><span class="va">x</span>, abbr <span class="op">=</span> <span class="st">"ncd"</span><span class="op">)</span> <span class="co"># Keeps names, dim, and class</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1    2    3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"names")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "X" "Y" "Z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "myclass"</span>
+<span class="r-in"><span><span class="fu">attrs_rmv</span><span class="op">(</span><span class="va">x</span>, exact <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"levels"</span>, <span class="st">"b"</span><span class="op">)</span><span class="op">)</span> <span class="co"># Removes levels and b</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2] [,3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]    1    2    3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"a")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"c")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"names")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "X" "Y" "Z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "myclass"</span>
+<span class="r-in"><span><span class="fu">attrs_keep</span><span class="op">(</span><span class="va">x</span>, match <span class="op">=</span> <span class="st">"^[a-c]$"</span><span class="op">)</span> <span class="co"># Keeps only a, b, and c</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 2 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"a")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"b")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"c")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Testing for attributes:</span></span></span>
+<span class="r-in"><span><span class="fu">has_attrs_any</span><span class="op">(</span><span class="va">x</span>, <span class="st">"c"</span>, exact <span class="op">=</span> <span class="st">"levels"</span><span class="op">)</span> <span class="co">#&gt; TRUE (has class and levels)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="fu">has_attrs_any</span><span class="op">(</span><span class="va">x</span>, <span class="st">"c"</span>, exact <span class="op">=</span> <span class="st">"levels"</span>, disallow <span class="op">=</span> <span class="st">"dim"</span><span class="op">)</span> <span class="co">#&gt; FALSE (has dim)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span><span class="fu">has_attrs_all</span><span class="op">(</span><span class="va">x</span>, exact <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; TRUE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="fu">has_attrs_all</span><span class="op">(</span><span class="va">x</span>, exact <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; FALSE (missing d)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">has_attrs_only</span><span class="op">(</span><span class="va">x</span>, exact <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; FALSE (has other attributes)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+</div>
+</main><aside class="col-md-3"><nav aria-label="Table of contents" id="toc"><h2>On this page</h2>
+</nav></aside></div>
+</div>
+</main></main><footer id="rssite-footer"><p>
+            Package made with <a class="external-link" href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a class="external-link" href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<script src="assets/rspd_module.js"></script></body></html>

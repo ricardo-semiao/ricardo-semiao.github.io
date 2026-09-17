@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta charset="utf-8"/><meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><title>predicater | Ricardo Semião</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"/><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/><link href="/assets/global.css" rel="stylesheet"/><link href="../assets/rspd_module.css" rel="stylesheet"/><link href="/assets/img/icon.webp" rel="icon" type="image/png"/><link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/><meta content="Ricardo Semião e Castro" name="Author"/><meta content="Type checks - Integer-like values — is_integer_like" property="og:title"/><meta content="Check if an object can be considered integer in two different interpretations
+(modes):
+&quot;unbounded&quot;: checks if x can be represented as a double-precision
+integer, i.e. x - round(x) falls within some tolerance value (tol).
+Allows Inf and NaN values. If so, it can be round()-ded without loss
+of information.
+&quot;range&quot;: checks if x can be represented as an integer, i.e. passes
+'unbounded' and is within R's allowed integer range. Disallows Inf and
+NaN. If so, it can be coerced as.integer(round(x)) without losing
+information.
+Note that tol can be set to zero, for a strict check of the decimal part.
+
+
+are_integer_like() is vectorized, returning a vector of same length as x,
+and errors for non-numeric objects. is_integer_like() returns FALSE for
+non-numeric objects, or if not all elements pass are_integer_like(), and
+TRUE otherwise." name="description"/><meta content="Check if an object can be considered integer in two different interpretations
+(modes):
+&quot;unbounded&quot;: checks if x can be represented as a double-precision
+integer, i.e. x - round(x) falls within some tolerance value (tol).
+Allows Inf and NaN values. If so, it can be round()-ded without loss
+of information.
+&quot;range&quot;: checks if x can be represented as an integer, i.e. passes
+'unbounded' and is within R's allowed integer range. Disallows Inf and
+NaN. If so, it can be coerced as.integer(round(x)) without losing
+information.
+Note that tol can be set to zero, for a strict check of the decimal part.
+
+
+are_integer_like() is vectorized, returning a vector of same length as x,
+and errors for non-numeric objects. is_integer_like() returns FALSE for
+non-numeric objects, or if not all elements pass are_integer_like(), and
+TRUE otherwise." property="og:description"/><!-- Personal analytics and schema: --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script></head><body class="rssite-external">
+<!-- @@site-icons@@ -->
+<a class="visually-hidden-focusable" href="#main">Skip to contents</a>
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<li class="nav-li"><a href="/tools/mtsdesc">mtsdesc</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+<a class="navbar-brand me-2" href="../index.html">predicater</a>
+<small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
+<button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse ms-3" id="navbar">
+<ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
+</ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
+<input aria-label="Search site" autocomplete="off" class="form-control" data-search-index="../search.json" id="search-input" name="search-input" placeholder="Search for" type="search"/></form></li>
+</ul></div>
+</div>
+</nav><div class="container template-reference-topic">
+<div class="row">
+<main class="col-md-9" id="main"><div class="page-header">
+<h1>Type checks - Integer-like values</h1>
+<div class="d-none name"><code>is_integer_like.Rd</code></div>
+</div>
+<div class="ref-description section level2">
+<p>Check if an object can be considered integer in two different interpretations
+(<code>mode</code>s):</p><ul><li><p><code>"unbounded"</code>: checks if <code>x</code> can be represented as a double-precision
+integer, i.e. <code>x - round(x)</code> falls within some tolerance value (<code>tol</code>).
+Allows <code>Inf</code> and <code>NaN</code> values. If so, it can be <code><a class="external-link" href="https://rdrr.io/r/base/Round.html">round()</a></code>-ded without loss
+of information.</p></li>
+<li><p><code>"range"</code>: checks if <code>x</code> can be represented as an integer, i.e. passes
+'unbounded' and is within R's allowed integer range. Disallows <code>Inf</code> and
+<code>NaN</code>. If so, it can be coerced <code>as.integer(round(x))</code> without losing
+information.</p></li>
+<li><p>Note that <code>tol</code> can be set to zero, for a strict check of the decimal part.</p></li>
+</ul><p><code>are_integer_like()</code> is vectorized, returning a vector of same length as <code>x</code>,
+and errors for non-numeric objects. <code>is_integer_like()</code> returns <code>FALSE</code> for
+non-numeric objects, or if not all elements pass <code>are_integer_like()</code>, and
+<code>TRUE</code> otherwise.</p>
+</div>
+<div class="section level2">
+<h2 id="ref-usage">Usage<a aria-label="anchor" class="anchor" href="#ref-usage"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">are_integer_like</span><span class="op">(</span><span class="va">x</span>, mode <span class="op">=</span> <span class="st">"bounded"</span>, tol <span class="op">=</span> <span class="fl">0</span>, na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_integer_like</span><span class="op">(</span><span class="va">x</span>, n <span class="op">=</span> <span class="cn">NULL</span>, mode <span class="op">=</span> <span class="st">"bounded"</span>, tol <span class="op">=</span> <span class="fl">0</span>, na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="arguments">Arguments<a aria-label="anchor" class="anchor" href="#arguments"></a></h2>
+<dl><dt id="arg-x">x<a aria-label="anchor" class="anchor" href="#arg-x"></a></dt>
+<dd><p>[<code>any</code>] An object to test.</p></dd>
+<dt id="arg-mode">mode<a aria-label="anchor" class="anchor" href="#arg-mode"></a></dt>
+<dd><p>[<code>"bounded"</code> | <code>"unbounded"</code>] The mode of integer interpretation
+as described above.</p></dd>
+<dt id="arg-tol">tol<a aria-label="anchor" class="anchor" href="#arg-tol"></a></dt>
+<dd><p>[<code>double(1)</code>] The tolerance for the <code>"trunc_tol"</code> and
+<code>"range_tol"</code> modes, ignored in other modes. A useful value is
+<code>sqrt(.Machine$double.eps)</code>.</p></dd>
+<dt id="arg-na">na<a aria-label="anchor" class="anchor" href="#arg-na"></a></dt>
+<dd><p>[<code>TRUE</code> | <code>NA</code>] What to return for <code>NA</code> values. Integer vectors
+always return <code>TRUE</code> for <code>NA</code> values.</p></dd>
+<dt id="arg-n">n<a aria-label="anchor" class="anchor" href="#arg-n"></a></dt>
+<dd><p>[<code>integer(1)</code> | <code>NULL</code>] Length of <code>x</code>, set to <code>NULL</code> to not test.</p></dd>
+</dl></div>
+<div class="section level2">
+<h2 id="value">Value<a aria-label="anchor" class="anchor" href="#value"></a></h2>
+<ul><li><p>[<code>logical(length(x))</code>] For <code>are_integer_like()</code>: the vectorized or result
+of the test.</p></li>
+<li><p>[<code>TRUE</code> | <code>FALSE</code> | <code>NA</code>] For <code>is_integer_like()</code>: the scalar result of
+the test. If <code>na != NA</code>, then will always return <code>TRUE</code> or <code>FALSE</code>.</p></li>
+</ul></div>
+<div class="section level2">
+<h2 id="details">Details<a aria-label="anchor" class="anchor" href="#details"></a></h2>
+<p>R stores integers with 32 bits, allowing to represent values between about
+\(\pm 2 \times 10^9\) (see <code>.Machine$integer.max</code> for the
+exact value). Doubles and doubles use the 'binary64' format allowing to
+represent values between about \(\pm 1.8 \times 10^{308}\) (see <code>.Machine[c("double.xmin", "double.xmax")]</code> for the exact
+value). Thus, not all zero-decimal doubles can be coerced into integers,
+which is the distinction between the <code>"trunc"</code> and <code>"range"</code> modes.</p>
+<p>Note that the mathematical <code>Inf</code> and <code>NaN</code> concepts exist for integers, but
+they cannot be coerced into <code><a class="external-link" href="https://rdrr.io/r/base/integer.html">integer()</a></code> in R; that's why they are allowed in
+the <code>"trunc"</code> modes and not in <code>"range"</code> modes.</p>
+<p>Philosophically, for <code>NA`` values, consider: </code>na = TRUE<code>as "yes,</code>NA_real_<code>can safely be coerced to</code>NA_integer_<code>"; and </code>na = NA<code>as "this NA value might have a decimal part, so I don't know if I can consider it an integer". Note that with integer vectors, NA values are surely integers, so they always return</code>TRUE`.</p>
+</div>
+<div class="section level2">
+<h2 id="ref-examples">Examples<a aria-label="anchor" class="anchor" href="#ref-examples"></a></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1.0</span>, <span class="cn">NA</span>, <span class="fl">1.0</span> <span class="op">+</span> <span class="fl">1e-15</span>, <span class="fl">1.0</span> <span class="op">+</span> <span class="fl">1e-6</span>, <span class="cn">NaN</span>, <span class="op">-</span><span class="cn">Inf</span>, <span class="fl">1e200</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Default test:</span></span></span>
+<span class="r-in"><span><span class="fu">are_integer_like</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE</span>
+<span class="r-in"><span><span class="co">#&gt; c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)</span></span></span>
+<span class="r-in"><span><span class="co"># By default, NA_real_ values are considered integer-like, since can be</span></span></span>
+<span class="r-in"><span><span class="co"># coerced to NA_integer_</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># is_integer_like only returns TRUE if are_integer_like() is all TRUE:</span></span></span>
+<span class="r-in"><span><span class="fu">is_integer_like</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co">#&gt; FALSE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Objects that don't pass is_integer_like() will generate NAs or loss of</span></span></span>
+<span class="r-in"><span><span class="co"># precision when coerced:</span></span></span>
+<span class="r-in"><span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/warning.html">suppressWarnings</a></span><span class="op">(</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; c(1L, NA, 1L, 1L, NA, NA, NA)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  1 NA  1  1 NA NA NA</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Changing NA interpretation:</span></span></span>
+<span class="r-in"><span><span class="fu">are_integer_like</span><span class="op">(</span><span class="va">x</span>, na <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE    NA FALSE FALSE FALSE FALSE FALSE</span>
+<span class="r-in"><span><span class="co">#&gt; c(TRUE, NA, FALSE, FALSE, FALSE, FALSE, FALSE)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Adding tolerance:</span></span></span>
+<span class="r-in"><span><span class="fu">are_integer_like</span><span class="op">(</span><span class="va">x</span>, tol <span class="op">=</span> <span class="fu"><a class="external-link" href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE</span>
+<span class="r-in"><span><span class="co">#&gt; c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Decreasing tolerance:</span></span></span>
+<span class="r-in"><span><span class="fu">are_integer_like</span><span class="op">(</span><span class="va">x</span>, tol <span class="op">=</span> <span class="fl">1e-5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE</span>
+<span class="r-in"><span><span class="co">#&gt; c(TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># unbounded mode allows Inf, NaN, and out-of-integer-range values:</span></span></span>
+<span class="r-in"><span><span class="fu">are_integer_like</span><span class="op">(</span><span class="va">x</span>, mode <span class="op">=</span> <span class="st">"unbounded"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE</span>
+<span class="r-in"><span><span class="co">#&gt; c(TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Adding tolerance, all pass, and finally is_integer_like() retursn TRUE:</span></span></span>
+<span class="r-in"><span><span class="fu">are_integer_like</span><span class="op">(</span><span class="va">x</span>, mode <span class="op">=</span> <span class="st">"unbounded"</span>, tol <span class="op">=</span> <span class="fl">1e-5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span>
+<span class="r-in"><span><span class="co">#&gt; c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">is_integer_like</span><span class="op">(</span><span class="va">x</span>, mode <span class="op">=</span> <span class="st">"unbounded"</span>, tol <span class="op">=</span> <span class="fl">1e-5</span><span class="op">)</span> <span class="co">#&gt; TRUE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># are_integer_like() fails for non-numeric objects, while is_integer_like()</span></span></span>
+<span class="r-in"><span><span class="co"># returns FALSE:</span></span></span>
+<span class="r-in"><span><span class="kw"><a class="external-link" href="https://rdrr.io/r/base/try.html">try</a></span><span class="op">(</span><span class="fu">are_integer_like</span><span class="op">(</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">2L</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; Error</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in round(x) : non-numeric argument to mathematical function</span>
+<span class="r-in"><span><span class="fu">is_integer_like</span><span class="op">(</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">2L</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; FALSE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># To test for a single integer-like value, use the n argument:</span></span></span>
+<span class="r-in"><span><span class="fu">is_integer_like</span><span class="op">(</span><span class="fl">1L</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co">#&gt; TRUE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="fu">is_integer_like</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co">#&gt; FALSE</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Integer vectors always return TRUE for NA values:</span></span></span>
+<span class="r-in"><span><span class="fu">are_integer_like</span><span class="op">(</span><span class="fu"><a class="external-link" href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="cn">NA_integer_</span><span class="op">)</span>, na <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="co">#&gt; c(TRUE, TRUE)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE TRUE</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+</div>
+</main><aside class="col-md-3"><nav aria-label="Table of contents" id="toc"><h2>On this page</h2>
+</nav></aside></div>
+</div>
+</main></main><footer id="rssite-footer"><p>
+            Package made with <a class="external-link" href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a class="external-link" href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
+<button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<script src="assets/rspd_module.js"></script></body></html>
