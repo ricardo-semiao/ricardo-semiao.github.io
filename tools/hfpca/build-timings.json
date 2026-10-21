@@ -1,0 +1,46 @@
+{
+  "build_time": "2026-10-21T03:02:52Z",
+  "total_seconds": 27.163,
+  "pages": [
+    {
+      "page": "index.qmd",
+      "seconds": 7.315,
+      "frozen": false
+    },
+    {
+      "page": "reference\\quantiles_cut.qmd",
+      "seconds": 6.015,
+      "frozen": false
+    },
+    {
+      "page": "package-info.qmd",
+      "seconds": 3.1,
+      "frozen": false
+    },
+    {
+      "page": "reference\\pca_high_freq.qmd",
+      "seconds": 2.268,
+      "frozen": false
+    },
+    {
+      "page": "reference\\index.qmd",
+      "seconds": 2.24,
+      "frozen": false
+    },
+    {
+      "page": "reference\\plot_loadings.qmd",
+      "seconds": 2.216,
+      "frozen": false
+    },
+    {
+      "page": "reference\\plot_pcs.qmd",
+      "seconds": 2.018,
+      "frozen": false
+    },
+    {
+      "page": "reference\\pca_start_evectors.qmd",
+      "seconds": 1.991,
+      "frozen": false
+    }
+  ]
+}

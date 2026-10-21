@@ -2,27 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https:/ricardo-semiao.github.io/google9c9dc12e176598d6.html</loc>
-    <lastmod>2026-09-17T13:02:47-03:00</lastmod>
+    <lastmod>2026-10-21T09:07:54-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io</loc>
-    <lastmod>2026-09-17T13:02:47-03:00</lastmod>
+    <lastmod>2026-10-21T09:07:54-03:00</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/blog</loc>
-    <lastmod>2026-09-17T13:02:47-03:00</lastmod>
+    <lastmod>2026-10-21T09:07:54-03:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/cv</loc>
-    <lastmod>2026-09-17T13:02:47-03:00</lastmod>
+    <lastmod>2026-10-21T09:07:54-03:00</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/gallery</loc>
-    <lastmod>2026-09-17T13:02:47-03:00</lastmod>
+    <lastmod>2026-10-21T09:07:54-03:00</lastmod>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https:/ricardo-semiao.github.io/tools/hfpca</loc>
+    <lastmod>2026-10-21T09:07:54-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https:/ricardo-semiao.github.io/tools/hfpca/package-info.html</loc>
+    <lastmod>2026-10-21T09:07:55-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc</loc>
@@ -357,6 +365,30 @@
   <url>
     <loc>https:/ricardo-semiao.github.io/tools/mtsdesc/reference/mtsdesc.html</loc>
     <lastmod>2025-11-17T15:08Z</lastmod>
+  </url>
+  <url>
+    <loc>https:/ricardo-semiao.github.io/tools/hfpca/reference</loc>
+    <lastmod>2026-10-21T09:07:55-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https:/ricardo-semiao.github.io/tools/hfpca/reference/pca_high_freq.html</loc>
+    <lastmod>2026-10-21T09:07:55-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https:/ricardo-semiao.github.io/tools/hfpca/reference/pca_start_evectors.html</loc>
+    <lastmod>2026-10-21T09:07:55-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https:/ricardo-semiao.github.io/tools/hfpca/reference/plot_loadings.html</loc>
+    <lastmod>2026-10-21T09:07:55-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https:/ricardo-semiao.github.io/tools/hfpca/reference/plot_pcs.html</loc>
+    <lastmod>2026-10-21T09:07:55-03:00</lastmod>
+  </url>
+  <url>
+    <loc>https:/ricardo-semiao.github.io/tools/hfpca/reference/quantiles_cut.html</loc>
+    <lastmod>2026-10-21T09:07:55-03:00</lastmod>
   </url>
   <url>
     <loc>https:/ricardo-semiao.github.io/library/rfcd/appendix-apêndice.html</loc>
