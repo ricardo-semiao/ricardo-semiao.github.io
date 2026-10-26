@@ -9,16 +9,16 @@
 <link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
 <link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
 <meta content="Ricardo Semião e Castro" name="Author"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho. Bem vindo à segunda parte deste livro. Aqui, foco em ensinar sobre o que é ciência de dados, e o formato de tidy data...." name="description"/>
+<meta content="Nesta última parte, apresento alguns tópigos gerais: ??: o ecossistema de pacotes do R, sugerindo os principais dentro de cada tópico. @ref(package_dev): Um guia para desenvolvimento de pacotes..." name="description"/>
 <meta content="bookdown 0.45 with bs4_book()" name="generator"/>
 <meta content="Introdução | R: Fundamentos e Ciência de Dados" property="og:title"/>
 <meta content="book" property="og:type"/>
 <meta content="https://ricardo-semiao.github.io/course-rfcd/intro3.html" property="og:url"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho. Bem vindo à segunda parte deste livro. Aqui, foco em ensinar sobre o que é ciência de dados, e o formato de tidy data...." property="og:description"/>
+<meta content="Nesta última parte, apresento alguns tópigos gerais: ??: o ecossistema de pacotes do R, sugerindo os principais dentro de cada tópico. @ref(package_dev): Um guia para desenvolvimento de pacotes..." property="og:description"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="Introdução | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
 <meta content="@ricardo_semiao" name="twitter:site"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho. Bem vindo à segunda parte deste livro. Aqui, foco em ensinar sobre o que é ciência de dados, e o formato de tidy data...." name="twitter:description"/>
+<meta content="Nesta última parte, apresento alguns tópigos gerais: ??: o ecossistema de pacotes do R, sugerindo os principais dentro de cada tópico. @ref(package_dev): Um guia para desenvolvimento de pacotes..." name="twitter:description"/>
 <!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
@@ -150,7 +150,7 @@
 <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Bem Vindo(a)!</a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
-<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li class="book-part">Parte I - Fundamentos</li>
 <li><a class="" href="intro1.html">Introdução</a></li>
 <li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
 <li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
@@ -158,33 +158,14 @@
 <li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
 <li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
 <li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
-<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
 <li><a class="" href="recap1.html">Recapitulando</a></li>
-<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li class="book-part">Parte II - Ciência de dados</li>
 <li><a class="" href="intro2.html">Introdução</a></li>
-<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
-<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
-<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
-<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
-<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
-<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
-<li><a class="" href="recap2.html">Recapitulando</a></li>
-<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
+<li class="book-part">Parte III - Programação Geral</li>
 <li><a class="active" href="intro3.html">Introdução</a></li>
-<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
-<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
-<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
-<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
-<li><a class="" href="recap3.html">Recapitulando</a></li>
-<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
-<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
-<li><a class="" href="intro4.html">Introdução</a></li>
-<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
-<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
-<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
-<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li><a class="" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
 <li class="book-part">Apêndice</li>
 <li><a class="" href="dict.html">Dicionário de funções</a></li>
 <li><a class="" href="refs.html">Referências</a></li>
@@ -197,23 +178,16 @@
 </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1 unnumbered" id="intro3">
 <h1>Introdução<a aria-label="anchor" class="anchor" href="#intro3"><i class="fas fa-link"></i></a>
 </h1>
-<div class="warn">
-<p>este capítulo está em construção. O que segue abaixo é apenas um rascunho.</p>
-</div>
-<p>Bem vindo à segunda parte deste livro. Aqui, foco em ensinar sobre o que é ciência de dados, e o formato de <em>tidy data</em>. Ensino também o processo de obter esse formato: importar, arrumar, manipular, e unir bases de dados. Por fim, vamos descobrir como habilidades de visualização de dados para explorá-los, obtendo intuições para a etapa da modelagem.</p>
-<p>Os capítulos estão organizados por etapas de um projeto de ciência de dados:</p>
+<p>Nesta última parte, apresento alguns tópigos gerais:</p>
 <ul>
-<li>Capítulo <a href="ds.html#ds">16</a>: descrevo os fundamentos e etapas de um projeto de ciência de dados e o que é <em>tidy data</em>.</li>
-<li>Capítulo <a href="import-tidy.html#import-tidy">17</a>: descrevo como importar e arrumar dados.</li>
-<li>Capítulo <a href="manipulate.html#manipulate">18</a>: descrevo outras manipulações que dados já arrumados podem exigir.</li>
-<li>Capítulo <a href="unite.html#unite">19</a>: descrevo unir (<em>merge</em>) várias bases de dados em uma só.</li>
 <li>
-<a href="/recap3.html">Recapitulado</a>: seção para retomar os conteúdos aprendidos.</li>
+<a href="#ecosystem"><strong>??</strong></a>: o ecossistema de pacotes do R, sugerindo os principais dentro de cada tópico.</li>
+<li>@ref(package_dev): Um guia para desenvolvimento de pacotes utilizando as ferramentas modernas.</li>
 </ul>
 </div>
 <div class="chapter-nav">
-<div class="prev"><a href="recap2.html">Recapitulando</a></div>
-<div class="next"><a href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></div>
+<div class="prev"><a href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></div>
+<div class="next"><a href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></div>
 </div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
 <nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
 <ul class="nav navbar-nav"><li><a class="nav-link" href="#intro3">Introdução</a></li></ul>

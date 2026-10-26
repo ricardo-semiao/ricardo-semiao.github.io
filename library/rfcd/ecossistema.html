@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!-- Meta --><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>9 Ecossistema | R: Fundamentos e Ciência de Dados</title>
+<link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<meta content="Este capítulo foi inicialmente escrito por mim em inglês, como um post de blog. No futuro, o traduzirei.  9.1 Introduction In this chapter, I’ll present a part-ecosystem description,..." name="description"/>
+<meta content="bookdown 0.45 with bs4_book()" name="generator"/>
+<meta content="9 Ecossistema | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="book" property="og:type"/>
+<meta content="https://ricardo-semiao.github.io/course-rfcd/ecossistema.html" property="og:url"/>
+<meta content="Este capítulo foi inicialmente escrito por mim em inglês, como um post de blog. No futuro, o traduzirei.  9.1 Introduction In this chapter, I’ll present a part-ecosystem description,..." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="9 Ecossistema | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="@ricardo_semiao" name="twitter:site"/>
+<meta content="Este capítulo foi inicialmente escrito por mim em inglês, como um post de blog. No futuro, o traduzirei.  9.1 Introduction In this chapter, I’ll present a part-ecosystem description,..." name="twitter:description"/>
+<!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"/>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"/>
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet"/>
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet"/>
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet"/>
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"/>
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script><script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script><script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script><script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script><!-- CSS --><style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/global.css" rel="stylesheet"/>
+<link href="./assets/rsbd_module.css" rel="stylesheet"/>
+<!-- Analytics --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external" data-spy="scroll" data-target="#toc">
+<!-- @@site-icons@@ -->
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/hfpca">hfpca</a></li>
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+<div class="row">
+<header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div class="d-flex align-items-start justify-content-between">
+<h1>
+<a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+</h1>
+<button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+<i class="fas fa-bars"></i>
+<span class="sr-only">Show table of contents</span>
+</button>
+</div>
+<div class="collapse-lg" id="main-nav">
+<form role="search">
+<input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search"/>
+</form>
+<nav aria-label="Table of contents"><h2>Índice</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
+<li class="book-part">Parte I - Fundamentos</li>
+<li><a class="" href="intro1.html">Introdução</a></li>
+<li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
+<li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="" href="subset.html"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
+<li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
+<li><a class="" href="recap1.html">Recapitulando</a></li>
+<li class="book-part">Parte II - Ciência de dados</li>
+<li><a class="" href="intro2.html">Introdução</a></li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
+<li class="book-part">Parte III - Programação Geral</li>
+<li><a class="" href="intro3.html">Introdução</a></li>
+<li><a class="active" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
+<li class="book-part">Apêndice</li>
+<li><a class="" href="dict.html">Dicionário de funções</a></li>
+<li><a class="" href="refs.html">Referências</a></li>
+</ul>
+<!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+</nav>
+</div>
+</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1" id="ecossistema" number="9">
+<h1>
+<span class="header-section-number">9</span> Ecossistema<a aria-label="anchor" class="anchor" href="#ecossistema"><i class="fas fa-link"></i></a>
+</h1>
+<div class="warn">
+<p>Este capítulo foi inicialmente escrito por mim em inglês, como um post de blog. No futuro, o traduzirei.</p>
+</div>
+<div class="section level2" id="introduction-1" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> Introduction<a aria-label="anchor" class="anchor" href="#introduction-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this chapter, I’ll present a part-ecosystem description, part-sugestion of R packages, i.e. my current toolset for R.</p>
+<p>I’ve been learning R since 2020. I have used it a lot for general data manipulation and statistics/data science, although have not interacted with many different developer bubbles nor several more specific topics. I amassed some knowledge of the advanced concepts of R, and created some not-yet-published packages.</p>
+<p>My latest endeavor was aimed at learning more about the R ecosystem, to familiarize myself with the R development space, but also to define a comprehensive toolset with the state-of-the-art packages. At the same time, the research was basic, and not too opinionated. Thus, the value of this work comes from organizing a little bit better the thousands of options out there, and defining a comprehensible set of what seem to be at the frontier and developed by established sources.</p>
+<p>Below I explain the motivation, sources, and methods for the endeavor, and also briefly summarize the ecosystem’s players. Jump to section “Current toolset” for the final conclusion, and “Package ecosystem” for the full research. I believe that the “Non-standard computing” subsection is specially useful.</p>
+<div class="section level3" id="the-endeavor" number="9.1.1">
+<h3>
+<span class="header-section-number">9.1.1</span> The endeavor<a aria-label="anchor" class="anchor" href="#the-endeavor"><i class="fas fa-link"></i></a>
+</h3>
+<p>To do so, I’ve <strong>diagonally</strong> read package names → descriptions → readmes/sites → documentations, from the following sources:</p>
+<ul>
+<li>All of R-lib packages.</li>
+<li>All of rstudio/posit packages, excluding the very specific shiny ones.</li>
+<li>The ~100 top pacakges in R-universe, both by stars and by their ‘score’ metric.</li>
+<li>Packages from the biggest and better-produced-looking repositories/universes from R-universe (the best example being tidyverse).</li>
+<li>Some packages in some specific CRAN views of my interest.</li>
+<li>Some packages by some authors whose work I like.</li>
+<li>Packages cited by <a class="uri" href="https://github.com/rstudio/RStartHere">https://github.com/rstudio/RStartHere</a>, qinwf/aswesome-R.</li>
+</ul>
+<p>Other lists include this one by Wolfgang Viechtbauer, this one by Gang Su, and alearringo’s starts.</p>
+<p>Note that there is many intersection between sources. Still, this is a big number of packages to consider, and again, the study was <strong>very</strong> diagonal. Many packages were ignored only given their name/description.</p>
+<p>The most important principle that I tried to follow when defining my toolkit was as below.</p>
+<blockquote>
+<p>Prefer to use the established, user-friendly, filosophy-aligned, good-practices packages, mostly done by the oficial r-lib, rstudio/posit, tidyverse &amp; friends groups.</p>
+<p>When the matter is performance, often regress to base R or fastverse alternatives, even if at the cost of some of the above-mentioned characteristics.</p>
+</blockquote>
+<p>Importantly, I never dove deep enough to compare similar packages, as to which would be ‘faster’, ‘more general’, or ‘better implemented’. Although in cases where the general community or the authors themselves agreed in such a relation, I omitted the superseded ones.</p>
+</div>
+<div class="section level3" id="basics-of-the-r-ecosystem" number="9.1.2">
+<h3>
+<span class="header-section-number">9.1.2</span> Basics of the R ecosystem<a aria-label="anchor" class="anchor" href="#basics-of-the-r-ecosystem"><i class="fas fa-link"></i></a>
+</h3>
+<p>The “R Project for Statistical Computing” is maintained by the R Core Team, and supported by the R Foundation and R Consortium. Posit (formerly RStudio) develops RStudio and is a major supporter of the project.</p>
+<p>Anyone can create R packages, and make them available e.g. via GitHub. CRAN, the “Comprehensive R Archive Network” is the official repository of packages and enforces a basic level of quality and stability for packages submitted to it. The R Universe project is a great platform that helps exploring the existing R packages. The R Forge was a similar project that was essentially superseded by R Universe and GitHub. Other package infrastructure include the Bioconductor, specific for the biostatistics world.</p>
+<p>Many packages exist in groups or curated collections, being related to a specific topic, created by the same authors, and/or following a specific philosophy/syntax. Some of the most noteworthy are:</p>
+<ul>
+<li>The ‘more official’ R developers: r-lib, rstudio, posit-dev</li>
+<li>rOpenSci is a project about open and reproducible research, and vet/peer review packages</li>
+<li>The famous tidyverse, and tidymodels (same philosophy but for modelling)</li>
+<li>The fastverse, a curation of packages that use C/C++, parallelism, and other high-performance techniques</li>
+<li>Other groups more outside my interests, such as Bioconductor, rOpenGov, and others</li>
+</ul>
+</div>
+</div>
+<div class="section level2" id="current-toolset-summary" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Current Toolset (summary)<a aria-label="anchor" class="anchor" href="#current-toolset-summary"><i class="fas fa-link"></i></a>
+</h2>
+<p>In general, prefer to use the established, user-friendly, filosophy-aligned, good-practices packages, mostly done by the oficial r-lib, rstudio/posit, tidyverse &amp; friends groups. When the matter is performance, often regress to base R or fastverse alternatives, even if at the cost of some of these principles.</p>
+<ul>
+<li>
+<strong>Package dev and DevOps:</strong>
+<ul>
+<li>Package dev: Follow the framework described in “R Packages (2e)”, “rOpenSci Packages: Development, Maintenance, and Peer Review”, and in the devtools package. Try to create a dev.R file that reproduces most of the configuration of your package.
+<ul>
+<li>Use renv and rig to control dependencies versions; use desc to manipulate the description file, yaml to manipulate yaml configurations.</li>
+<li>Test and reports wit revdepcheck, covr, spelling, lintr, styler, pak::pkg_deps_tree; pkg statistics with repometrics + pkgstats + codemetar.</li>
+<li>For functions: use checkmate for function argument checking; use inline R roxygen helpers; use lifecycle badges and warnings; use the profiling, CLI, and C/C++ tools described here.</li>
+<li>Use the other suggestions here, specially rlang and vctrs.</li>
+</ul>
+</li>
+<li>DevOps: I personally don’t use any R tool for such, and have no recommendations.</li>
+</ul>
+</li>
+<li>
+<strong>Infrastructure:</strong>
+<ul>
+<li>Projects: <em>here</em> for paths, <em>rig</em> and <em>revn</em> for reproducible instalation, <em>box</em> and <em>conflicted</em> (or a variant that supports box) for package loading. <em>pak</em> for package installing is optional.</li>
+<li>Becnhmarking and profiling: <em>bench</em> for benchmarks, <em>profvis</em> + <em>memtools</em> for profiling, <em>log4r</em> or lgr for logging, <em>lobstr</em> for object details.</li>
+<li>Cross langs: write C/C++ code when useful, prioritizing <em>cleancall</em> and <em>cpp11</em>. Consider using state-of-the-art implementations on other languages via <em>reticulate</em> and friends.</li>
+<li>Others: DX - <em>lintr</em> and <em>styler</em> for code style consistency. An automatic styler like <em>air</em> is optional; CLI - <em>cli</em> for writing pretty CL messages, <em>progress</em> for progress bars; Also consider sessioninfo and rstudioapi.</li>
+</ul>
+</li>
+<li>
+<strong>Paradigms and testing:</strong>
+<ul>
+<li>OOP: focus on <em>S7</em>. Use <em>R6</em> when modify-in-place is needed.</li>
+<li>Tidyverse: use <em>rlang</em> metaprogramming and better general helpers, use <em>vctrs</em> ptypes concept.</li>
+<li>FP: <em>purrr</em>, <em>slider</em> (rolling window maps), and <em>rlist</em> (tidy manipulation of lists); Function operators - <em>memoise</em> for memoisation, <em>withr</em> for pure functions.</li>
+<li>Testing: <em>rlang</em> and <em>cli</em> for better exceptions, <em>checkmate</em> for its menu of tests, <em>typed</em> for type checking, <em>pointblank</em> for data testing (or an alternative that supports pre vs. post analysis), and <em>waldo</em> for comparing objects.</li>
+</ul>
+</li>
+<li>
+<strong>Non-standard computing:</strong>
+<ul>
+<li>Parallelism: parallelly, future, and mirai are good options, not sure which is best, but I’ll focus on mirai. No opinion on batchers (but use autometric).</li>
+<li>GPU: gpuR and gpuRcuda can be useful but are highly unstable; use tensorflow and torch tensors for general tensor operations.</li>
+<li>Async: coro, later, and promises are for different use cases and possibly all useful.</li>
+<li>Generally fast packages: many in the fastverse; in the future I’ll create my own wrapper around those.</li>
+</ul>
+</li>
+<li>
+<strong>Data:</strong>
+<ul>
+<li>Vectors: stringr for strings, forcats for factors, lubridate for date-times, and hms for ‘time-of-day’; bignum, sparsevctrs, bit, blob, fastmap for performance-related formats.</li>
+<li>Reading: readr and friends, vroom; apache arrow; r-dbi universe and dm for databases.</li>
+<li>Manipulation: tidyr and dplyr; fuzzyjoin and powerjoin.</li>
+<li>Faster alternatives: collapse + <strong>fastplyr/timeplyr,</strong> data.table + dtplyr, r-polars + tidypolars, multidplyr; dbplyr and duckdb + duckplyr; sparklyr for spark.</li>
+<li>Non tabular data: meltr, jsonlite, pdftools and tabulapdf. Store as list and manipulate with purrr and rlist.</li>
+</ul>
+</li>
+<li>
+<strong>Tables, plots and documents, and apps:</strong>
+<ul>
+<li>Tables: gt and its extensions</li>
+<li>Document generation: quarto as a better rmarkdown; litedown and pander for conversion to markdown.</li>
+<li>Plots: ggplot2, its extensions, and patchwork for combining plots; ggvis and plotly for interactivity.</li>
+<li>Shiny and JS apps: many many shiny things; many html things htmltools, htmlwidgets, bslib; flexdashboard.</li>
+<li>Web and CLI apps: plumber2/ambiorix/fiery/beakr for some web frameworks; rwasm; requests with httpuv, routr, and reqres; CLI apps with Rapp.</li>
+</ul>
+</li>
+<li>
+<strong>Specific topcis:</strong>
+<ul>
+<li>Traditional statistics: stats, glmnet, lme4/nlme, mgcv, not citing the utility packages like boot and lmtest.</li>
+<li>Learning: tidymodels vs mlr3 frameworks; torch vs tensorflow/keras3; sparklyr, h2o, and cloudml.</li>
+<li>Bayesian: ports with rstan, rjags, R2WinBUGS; mcmc and MCMCpack; brms and greta for swiss knife modelling.</li>
+<li>Time series: some frameworks with tidyverts, tsmodels, modeltime; can also use tidymodels/mlr3 and create learners; I enjoy using standard datasets for time series, custom EDA, and then use model-specific packages, until I create a more comprehensive framework.</li>
+<li>Finance: tidyquant; I don’t know any good one for portfolio optimization and simulation, did it by hand in the past.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level2" id="package-ecosystem" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Package ecosystem<a aria-label="anchor" class="anchor" href="#package-ecosystem"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="general-infrastructure" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> General Infrastructure<a aria-label="anchor" class="anchor" href="#general-infrastructure"><i class="fas fa-link"></i></a>
+</h3>
+<div class="section level4" id="package-development-and-devops" number="9.3.1.1">
+<h4>
+<span class="header-section-number">9.3.1.1</span> Package development and DevOps<a aria-label="anchor" class="anchor" href="#package-development-and-devops"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Package development:</strong></p>
+<ul>
+<li>Mainly, use the devtools framework and the tips from R Packages (2e) and rOpenSci Packages. It includes the essencial, but not all, functionality of: pkgdown, usethis, pkgload, roxygen2, pkgbuild, rcmdcheck, remotes, covr.</li>
+<li>Other meta-helpers: available for name-choosing, desc for the DESCRIPTION file, pkgdepends to visualize and ‘solve’ dependencies, revdepcheck for reverse dependecy checks.</li>
+<li>Other content-helpers: lifecycle for function lifecycle, withr for interacting with the global state and pkgconfig for localized global options, config for environment-specific configuration, downlint and pillar for syntax highlighting and code linking.</li>
+<li>Less useful: roxygen2md, prefixer, and changer to adjust roxygen, namespace prefixes, and package name; repometrics, pkgstats, and codemetar for package metadata sharing and visualization.</li>
+</ul>
+<p><strong>DevOps:</strong></p>
+<ul>
+<li>GitHub Actions: actions, turnstyle, repository-dispatch.</li>
+<li>Git: gert, credentials, whoami.</li>
+<li>GitHub API: gh and gitcreds, ghapps.</li>
+<li>Others: data and model pipelines are described in the relevant sections.</li>
+</ul>
+</div>
+<div class="section level4" id="projects-and-developer-experience" number="9.3.1.2">
+<h4>
+<span class="header-section-number">9.3.1.2</span> Projects and developer experience<a aria-label="anchor" class="anchor" href="#projects-and-developer-experience"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Projects:</strong></p>
+<ul>
+<li>Projects: here for consistent project-based paths, renv for project-isolated package libraries.</li>
+<li>Installation: rig for multiple R installations, pak for installing packages.</li>
+<li>Loading: box for better namespacing and modularity, conflicted to check conflicts (lacks box support).</li>
+</ul>
+<p><strong>Becnhmarking and profiling:</strong></p>
+<ul>
+<li>Benchmark: bench; devoid (for graph-related benchmarking).</li>
+<li>Profiling: profvis (profiling), memtools (memory), lobstr (object details), log4r (logging), boomer (debugging); lgr might be an alternative to log4r with more features and less performance.</li>
+</ul>
+<p><strong>Cross language development:</strong></p>
+<ul>
+<li>Writing C/C++ directly: base::.Call and cleancall (C), cpp11 and rcpp-core (C++).</li>
+<li>Transpilers: compiler for JIT’ing functions; quickr, inline, armacmp, nCompiler for transpiling R into C/C++.</li>
+<li>Calling other languages: rextendr (Rust), reticulate (Python), and others.</li>
+</ul>
+<p><strong>Others:</strong></p>
+<ul>
+<li>DX: lintr, styler; air (in development, from posit).</li>
+<li>Cli: cli for CL messages and errors, progress for progressbars, prettycode for global code highlighting.</li>
+<li>Others: sessioninfo and rstudioapi, diffviewer (view image diffs).</li>
+<li>Learning: learnr, swirlstats, and packages that create animations, courses, homework checkers, etc.</li>
+</ul>
+</div>
+<div class="section level4" id="paradigms-and-testing" number="9.3.1.3">
+<h4>
+<span class="header-section-number">9.3.1.3</span> Paradigms and testing<a aria-label="anchor" class="anchor" href="#paradigms-and-testing"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Paradigms:</strong></p>
+<ul>
+<li>OOP: i’m generally favored to adopt S7 over S3/S4; R6 is still useful when modify-in-place is needed; Helper packages are generics, methods, and sloop (for diagnostics).</li>
+<li>Tidyverse: rlang for the metraprogramming standard, and overall better helpers; vctrs for the ptypes concept and coercion.</li>
+<li>FP and lists: purrr for the FP and list helpers, slider for the rolling window maps, and rlist for tidy-like manipulation of lists.</li>
+<li>FP and operators: memoise for memoisation, withr for pure functions, amogst other useful operators defined in the wild (e.g. purrr::safely).</li>
+<li>Interesting but not used by me: lambda.r (functional prog., nice pattern matching functions); zeallot (unpacking); iterators.</li>
+</ul>
+<p><strong>Testing:</strong></p>
+<ul>
+<li>General: rlang and cli for better exceptions; assertthat and checkmate or chk for menu of tests; charlatan for fake data.</li>
+<li>Development testing: testthat for unit testing; vdiffr and ggcheck for images/ggplots.</li>
+<li>Type checking: typed for runtime type checking framework; vctrs for the ‘ptype checking’ concept.</li>
+<li>Data testing: pointblank. alternatives: validate (has pre vs. post analysis) and assertr</li>
+<li>Comparing objects: waldo for a better base::all.equal.</li>
+<li>Exception handling: base::try, base::tryCath, and base::withCallingHandlers.</li>
+</ul>
+</div>
+<div class="section level4" id="webpccloud-interacting" number="9.3.1.4">
+<h4>
+<span class="header-section-number">9.3.1.4</span> Web/PC/Cloud interacting<a aria-label="anchor" class="anchor" href="#webpccloud-interacting"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Web interacting:</strong></p>
+<ul>
+<li>Requests: focus on httr2, with curl being lower level</li>
+<li>Format: focus on xml2, with xmlparsedata implementing xml as lists; rvest for html</li>
+<li>Scraping and testing: rcrawler, RSelenium, and others; webfakes</li>
+</ul>
+<p><strong>Cloud interacting:</strong></p>
+<ul>
+<li>Consider the universes azure, cloudyr, and paws</li>
+<li>Docker: rocker</li>
+</ul>
+<p><strong>PC interacting:</strong></p>
+<ul>
+<li>Main: fs for file operations, watcher for watching, filelock for creating file locks.</li>
+<li>Telemetry: otelsdk and otel.</li>
+<li>Processes: processx starting, ps for querying, both can manipulate.</li>
+<li>Locating and opening: xopen for opening ‘stuff’, rappdirs for locating log/temp/etc. directories, pingr for locating remotes.</li>
+</ul>
+</div>
+<div class="section level4" id="other-general-tasks" number="9.3.1.5">
+<h4>
+<span class="header-section-number">9.3.1.5</span> Other general tasks<a aria-label="anchor" class="anchor" href="#other-general-tasks"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>LLMs: ellmer for calling APIs, vitals for model evaluation, ragnar for RAG, btw for describing R objects for LLMs, mcptools for MCP servers; RStudio addins gptstudio and gpttools.</li>
+<li>Compression and hashing (in order): zstdlite, digest; Serialization: base and qs for general objects; fst/fread/feathe for dataframes.</li>
+<li>Serialization: base and qs for general objects; fst/fread/feathe for dataframes.</li>
+<li>Secrets/encryption: keyring for secrets and oskeyring for lower level control; encryption with sodium and openssl.</li>
+</ul>
+</div>
+<div class="section level4" id="ignored" number="9.3.1.6">
+<h4>
+<span class="header-section-number">9.3.1.6</span> Ignored<a aria-label="anchor" class="anchor" href="#ignored"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Important and useful, but only needed for lower-level projects: nanonext, ragg, tree-sitter-r, pkgcache, crancache, gtable, decor, tinytex, WebR, RCurl</li>
+<li>Good sources but rarely needed (by me):
+<ul>
+<li>General: systemfonts, textshaping, asciicast, clisymbols, showimage, sloop, hugodown, backports, pipeR, rprojroot, workflowr, gtools, gargle, gmailr</li>
+<li>DX: debugme, ast2ast, pipecleaner, evaluate, datapasta, reprex</li>
+<li>RStudio addins: there are lots of good ones, e.g. esquisse</li>
+</ul>
+</li>
+<li>Good sources but have better alternatives in this post: clock, rematch2, brio, rex, ellipsis, objectable, forge, r2d3, dygraphs, commonmark, pakrat, cliapp, roll, proffer, git2r</li>
+<li>Other implementations of the R language like vapour and fastr. Can be useful, but I generally ignore because of the inheriting stability and longevity issues.</li>
+</ul>
+</div>
+</div>
+<div class="section level3" id="non-standard-computing" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> Non-standard computing<a aria-label="anchor" class="anchor" href="#non-standard-computing"><i class="fas fa-link"></i></a>
+</h3>
+<div class="section level4" id="parallel-computing" number="9.3.2.1">
+<h4>
+<span class="header-section-number">9.3.2.1</span> Parallel computing<a aria-label="anchor" class="anchor" href="#parallel-computing"><i class="fas fa-link"></i></a>
+</h4>
+<p>Parallel computing allows the user to utilize several processing units at the same time. Parallelization can happen at the R level, running arbitrary R code, or at the C level beneath, calling C code that uses parallelism.</p>
+<p>The processing units can be cores in one or more CPUs, or streaming processors in one or more GPUs. Each is built for different types of tasks and have different ways to interact with.</p>
+<p>R-level parallelism can only be run in the CPU, as it envolves starting multiple R processes that get concurrent, generalized access to the CPU. There is no way to initiate ‘multiple concurrent GPU processes’, instead, specific, repetition-based operations can be done via sending specialized code to the GPU API (OpenCL or CUDA).</p>
+<p><strong>R-level parallelism (via CPU):</strong></p>
+<p>Parallel packages in R often define a ‘type of worker’, a ‘type of orchestrator’, and its high level features and syntax. In many cases we can mix and match these. They often have some extension available too. All support local and remote workers.</p>
+<ul>
+<li>Backends (’types of workers’):
+<ul>
+<li>“psock”: based on new long-lived processes, uses TCP/IP Sockets for communication, high setup and communication overhead.</li>
+<li>“fork”: based on new long-lived forked processes, low setup and communication overhead, but only available in unix-based systems.</li>
+<li>“mirai”: also new long-lived processes, but uses NNG/IPC for communication, reducing overhead.</li>
+<li>“future.callr”: new short-lived processes, implies in a new setup cost for each task, but increases task isolation security.</li>
+<li>“sequential”: modern packages allow you to disable the parallel execution and use standard sequential execution.</li>
+<li>Also consider Rmpi and callr for direct MPI/processes APIs.</li>
+</ul>
+</li>
+<li>Orchestrators and syntaxes:
+<ul>
+<li>parallel + parallelly: imlements “psock” and “fork”, supports “mirai”; uses lapply-like syntax; parallelly improves worker setup and quality; is on base R which can be beneficial for very simple tasks</li>
+<li>mirai + crew: implements “mirai”; uses map-like syntax; can use promises and async execution; crew improves complex workers and task manageament; can be better for many low-latency small tasks.</li>
+<li>futureverse: is an universal API, supporting (basically) all the backends and syntaxes; can use promises; the de-facto standard, but note the localized strenghts of the options above.</li>
+<li>Others: foreach has a similar “universal API” approach, but is arguably superseded by future; snow+snowfall+sfCluster is largely included in parallel; purrr 1.1.0 now has mirai support for its maps.</li>
+</ul>
+</li>
+<li>Applications: R-level parallelism is used more often in coarse-grained applications, the main ones being:
+<ul>
+<li>Data: batched data manipulation.</li>
+<li>Modelling: cross-validation, grid search, and ensamble methods; optimization methods.</li>
+<li>Simulation: Monte Carlo simulations, bootstraping.</li>
+<li>The ecosystem for these will be described in their respective sections.</li>
+</ul>
+</li>
+</ul>
+<p>Obs: be careful to not parallel-y call functions that invoke new parallel projects, as these nested calls add much overhead.</p>
+<p><strong>C-level parallelism (via CPU or GPU):</strong></p>
+<p>While arbitrary, coarse-grained tasks could be written in parallel C and run in R, it is not a common thing, and C-level parallelism is also implemented for more specific tasks.</p>
+<ul>
+<li>Backends:
+<ul>
+<li>CPU: write C/C++ code that spawn multiple threads/processes, and/or interact with multithreaded BLAS/LAPACK libraries; one helper is RcppParallel.</li>
+<li>GPU: write C/C++ code that interacts with OpenCL or CUDA; the main wrappers are gpuR and gpuRcuda packages, but are highly unstable</li>
+<li>Both: OpenCL R package, as OpenCL also works for CPU parallelism; using an R version compiled with a BLAS (the C-level matrix engine) variant that uses CPU or GPU parallelism, maybe via flexiblas.</li>
+<li>Matrix-specific: ViennaCL a OpenCL-based matrix library, rkeops a CUDA-based library for row/column wise operations, tensorflow and torch tensors for general tensor operations — these are much more stable that the other GPU related-packages.</li>
+</ul>
+</li>
+<li>Applications: C-level parallelism is used more often in smaller, more specific tasks, the main ones being:
+<ul>
+<li>Data: file I/O; e.g. data.table::fread and vroom, the latter also lazy loading the data.</li>
+<li>Modelling: optimization algorithms.</li>
+<li>Simulation: random number generation. I’ve used rTRNG and dqrng (CPU-based) in the past. There exists clrng (gpuR-based). Note that parallel RNG can have issues, carefully inspect your results.</li>
+<li>And replacements for base functions for vectorized and matrix operations. Such as the ones in the fastverse packages kit, Rfast/Rfast2.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Batch schedulers and other utility:</strong></p>
+<p>Batch schedulers help orchestrating resources and jobs across a whole computing system with several machines, a concept that often interacts with parallelism.</p>
+<ul>
+<li>batchtools (also in futureverse) and clustermq support schedulers like Slurm, SGE, OpenLava, PBS/Torque, LSF, Docker Swarm; rrq implements Redis-based queue</li>
+<li>targets is a Make-like pipeline tool for statistics and data science, and is a high level coordinator.</li>
+<li>See also the model deployment CRAN view.</li>
+</ul>
+<p>More general utilities include: pingr (locate remotes), carrier (loosely execute in remotes), callr (spawn processes), autometric (monitor clusters).</p>
+</div>
+<div class="section level4" id="asynchronous-computing" number="9.3.2.2">
+<h4>
+<span class="header-section-number">9.3.2.2</span> Asynchronous computing<a aria-label="anchor" class="anchor" href="#asynchronous-computing"><i class="fas fa-link"></i></a>
+</h4>
+<p>Asynchrony is about efficiently using resources while waiting on long operations such as I/O requests.</p>
+<ul>
+<li>Backends:
+<ul>
+<li>The main implementation is with the later package which wraps the C event loop.</li>
+<li>Others: Mirai’s NNG, while used for parallelism, has at its core an asynchronous framework designed to manage I/O and task queues with extremely low overhead; rrq’s Redis queue is also asynchronous.</li>
+</ul>
+</li>
+<li>Applications:
+<ul>
+<li>The promises package provides a high-level, standardized API to manage the result of an asynchronous operation, and is extensively used in shiny.</li>
+<li>The coro package enables writing asynchronous code that looks synchronous and sequential (using async/await patterns). It also implements iterators.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level4" id="cross-language-and-generally-fast-packages" number="9.3.2.3">
+<h4>
+<span class="header-section-number">9.3.2.3</span> Cross language and generally fast packages<a aria-label="anchor" class="anchor" href="#cross-language-and-generally-fast-packages"><i class="fas fa-link"></i></a>
+</h4>
+<p>I’ve talked about the fastverse in the introduction. I’ll present some packages for more general operations, but there are several other applications there. They achieve their performance by using lots of C/C++ and optional parallelism (mainly at the C-level).</p>
+<p>In the future, I intent to do a wrapper over the most useful functions with an unified syntax.</p>
+<p><strong>Fast packages:</strong></p>
+<ul>
+<li>General functions: I’ve already cited the parallel enabled kit and Rfast/Rfast2; cheapr also have some options; more focused packages include fastmatch (matching), rrapply (rapply).</li>
+<li>vctrs has its own item, as besides the consistent ptype concept, it also has great-performant combining and converting operations.</li>
+<li>Matrix operations: Matrix expand base matrices to other subroutines including sparse-enable ones, rsparse and sparsevctrs implement sparse matrices and vectors (respectively), and matrixStats implement more vectorized apply’ies.</li>
+<li>Statistics and else: MatrixTests (rowwise t tests), SLmetrics (performance metrics), parallelDist (distances), coop (covariances).</li>
+<li>The RcppCore packages RcppArmadillo, RcppEigen, and RcppNT2 provide wrappers around important C++ libraries to help writing C++ code.</li>
+</ul>
+</div>
+</div>
+<div class="section level3" id="common-tasks" number="9.3.3">
+<h3>
+<span class="header-section-number">9.3.3</span> Common Tasks<a aria-label="anchor" class="anchor" href="#common-tasks"><i class="fas fa-link"></i></a>
+</h3>
+<div class="section level4" id="vectors-and-non-tabular-data" number="9.3.3.1">
+<h4>
+<span class="header-section-number">9.3.3.1</span> Vectors and non-tabular data<a aria-label="anchor" class="anchor" href="#vectors-and-non-tabular-data"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Vector classes and their manipulation:</strong></p>
+<p>Every data object in R is an object, atomic or generic. krlmlr/awesome-vctrs lists lots of existing vector classes, check it out for other applications such as: numbers with uncertainty, time-related classes, units, intervals, geospacial objects, etc.</p>
+<ul>
+<li>Tidyverse: stringr for strings, forcats for factors, lubridate for date-times, and hms for ‘time-of-day’.</li>
+<li>Big/high precision: bignum (big floats and integers), sparsevctrs (ALTREP sparce vectors), bit (big boolean vectors), blob (big raw vectors), utils::hashtab and fastmap (key-value stores).</li>
+<li>Formatting values as strings: base::formatC, scales for labelling function factories, prettyunits for standardized human readable units.</li>
+</ul>
+<p><strong>Non-tabular data:</strong></p>
+<p>In many cases, this type of data can be translated into R lists and be manipulated with the “FP and lists” packages.</p>
+<ul>
+<li>Ragged retangular data: meltr.</li>
+<li>JSON: jsonlite and cereal (serializaton), jsonedit (visualization), jose (security), jsonvalidate (validation).</li>
+<li>PDF: pdftools for PDF parsing, tabulapdf for table extraction; other languages might have better solutions.</li>
+<li>Others: zip, archive, yaml, cachem for caches, image and audio universe; not too studied here; geospatial and networking data in the specific topics section.</li>
+<li>To my knowledge, there isn’t a really big standard in batch/parallel-processing non-tabular data in R, often you just write your own R-level parallel code.</li>
+</ul>
+</div>
+<div class="section level4" id="tabular-data" number="9.3.3.2">
+<h4>
+<span class="header-section-number">9.3.3.2</span> Tabular Data<a aria-label="anchor" class="anchor" href="#tabular-data"><i class="fas fa-link"></i></a>
+</h4>
+<p>I truly think that dplyr and tidyr have one of the most consistent philosophy, syntax, and organization (with the verb-based separation of organizations). I’ve gave classes on dplyr, Python’s pandas and polars, and dplyr is the most intuitive and easy to grasp in its completion, requiring very little memorization of its user. It is also the most used framework in R. Because of that, I suggest sticking to it, and working with the other packages in the tidyverse.</p>
+<p><strong>Data reading:</strong></p>
+<ul>
+<li>Tidyverse: readr and others (haven, etc.) for most formats; data.table::fread and vroom for fast, async reading.</li>
+<li>Apache: arrow formats for language-agnostic colunar format, and working with other apache projects</li>
+<li>Databases: r-dbi universe, awesome list, and the databases CRAN view; others include liteq, pool, duckdb; dm for organizing several relational dataframes/tables.</li>
+</ul>
+<p><strong>Data manipulation:</strong></p>
+<ul>
+<li>Tidyverse: tidyr and dplyr for the main data manipulation; tidyselect to add tidyselect support to other functions; fuzzyjoin and powerjoin for more complex joins than supported by dplyr.</li>
+</ul>
+<p><strong>Alternatives and non-standard computing:</strong></p>
+<p>The user-friendlyness of dplyr can come at a performance cost in some cases. While there are lots of different tabular-data pacakges focused on speed, I’d recommend starting by using their ports to dplyr, which usually are very similar to the package beneath, let you stick to the very well crafted tidyverse API. Each has different strengths and support for dplyr features.</p>
+<ul>
+<li>Backends via alternative C and R code for dplyr:
+<ul>
+<li>collapse + <strong>fastplyr/timeplyr;</strong> data.table + dtplyr often use C/C++ code and C-level parallelism.</li>
+<li>r-polars + tidypolars, similar to above but polars is written in Rust.</li>
+<li>multidplyr for parallelized dplyr code.</li>
+</ul>
+</li>
+<li>Backends via external databases and software:
+<ul>
+<li>dbplyr for general DB connections; duckdb + duckplyr for powering dplyr via DuckDB.</li>
+<li>arrow and sparklyr for apache-based, naturally-distributed computing.</li>
+</ul>
+</li>
+<li>Other frameworks:
+<ul>
+<li>For larger than memory: bigmemory, ff and bigstatsr; non-dplyr arrow/sparklyr code.</li>
+<li>For parallel code: R-level parallel and/or batch-processed code.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level4" id="tables-plots-and-documents" number="9.3.3.3">
+<h4>
+<span class="header-section-number">9.3.3.3</span> Tables, plots and documents<a aria-label="anchor" class="anchor" href="#tables-plots-and-documents"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Tables:</strong> gt seems to be the best, supported by posit, and is available for Python too; it has several extensions including generating tables for the results of statistical models.</p>
+<p><strong>Document generation:</strong></p>
+<ul>
+<li>Quarto seems to be the new standard, with lots of Posit support, while R Markdown is still relevant. The underlying engines are also useful, knitr and pandoc, with whisker being a mustache-based alternative.</li>
+<li>Conversions between document types: litedown, pander, ymlthis.</li>
+<li>Latex equations and code blocks from code: equatiomatic, highr.</li>
+</ul>
+<p><strong>Plot:</strong></p>
+<ul>
+<li>Main: ggplot2 for general plotting; I’ve been considering patchwork as the best package to combine multiple ggplots.</li>
+<li>Interactive: ggvis and plotly are two alternatives, plotly seems more developed, but ggvis lives closer to ggplot2; rgl for 3d graphs; external software-based alternativs include GWalkR (with Tableau), echarts4r (with Echarts JS).</li>
+<li>Rendering specific filetypes: svglite (SVG), marquee (markdown).</li>
+<li>Specific graphs: rayshader and isoband for geometric and elevation data; mathart for math art; circlize for circular plots.</li>
+<li>Ggplot extensions: there are many, some interesting ones are ggstatsplot, ggeffects, gganimate, and esquisse.</li>
+</ul>
+</div>
+<div class="section level4" id="exploratory-tabular-data-analysis" number="9.3.3.4">
+<h4>
+<span class="header-section-number">9.3.3.4</span> Exploratory (tabular) data analysis<a aria-label="anchor" class="anchor" href="#exploratory-tabular-data-analysis"><i class="fas fa-link"></i></a>
+</h4>
+<p>In EDA, and also modelling, the first step is to define what you need to visualize, how you could want to model, the problem in question. This will be different for every problem. Thus, your first worry should not be to find a “does-all-for-you” package, as this can incentivize you to not think enough about a problem.</p>
+<p>In general, not using and EDA package, and approaching every project with a blank slate, writing custom visualizations for it, is a viable decision. Specially because tidyr+dplyr and ggplot are some of the most efficient and easy-to-use tools out there for this kind of interactive use, and is why I use R for data analysis/exploration.</p>
+<p>Still, mindfully using packages, as tools to avoid code repetition, but not guides in the analysis itself, can be good to improve productivity, and I’ll list some of the main ones. A good approach is to create your own package, with the tools that you like to use and are useful for the specific types of problems you deal with.</p>
+<p><strong>Data cleaning:</strong></p>
+<ul>
+<li>Many people like janitor for general cleaning, but I am yet to understand what exactly it builds on top of already existing dplyr tools.</li>
+<li>vtreat seems to provide some good shortcuts for ML-oriented cleaning, like generating numeric columns, dealing with new categories in factors, etc.</li>
+</ul>
+<p><strong>Others:</strong></p>
+<ul>
+<li>skimr seems to be the best package for quick-description of a dataset, i.e. a replacement for base::summary.</li>
+<li>broom is not about cleaning data, but generating clean (tidy) data from model’s outputs, and is a standard in R.</li>
+<li>naniar seems to have good visualizations to understand NA values in your data; the CRAN view might contain other good packages for that.</li>
+</ul>
+<p><strong>General EDA:</strong></p>
+<ul>
+<li>There are many ggplot extensions for several different types of graphs and data.</li>
+<li>Popular packages that aggregate visualizations: DataExplorer, visdat, ggquickeda, SmartEDA, amongts many others.</li>
+<li>Use the R Universe package search to help you find others.</li>
+</ul>
+<p><strong>Other types of data:</strong> time series, spacio-temporal, network data will be talked about in their specific sections.</p>
+</div>
+<div class="section level4" id="application-development" number="9.3.3.5">
+<h4>
+<span class="header-section-number">9.3.3.5</span> Application development<a aria-label="anchor" class="anchor" href="#application-development"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Shiny:</strong></p>
+<ul>
+<li>Main: shiny itself, shiny-server and other publication-related tools, shinytest and shinymeta for testing and app analisys.</li>
+<li>Frameworks: golem, rhino, and leprechaun; these are frameworks to generate entire applications in Shiny, I won’t delve into their differences here.</li>
+<li>Addons: there are many, some interesting ones are shinydashboard, shinychat, shinylive, querychat, bslib, and the RinteRface universe.</li>
+</ul>
+<p><strong>Webdev:</strong></p>
+<ul>
+<li>Frameworks: plumber2 has very intuitive abstractions of R code, rwasm for R via WebAssmbly; other frameworks include ambiorix, fiery, beakr, and ROpenCPU.</li>
+<li>APIs: httpuv for handling HTTP requests, routr for classes to wrap responses/requests, reqres to dispatch requests to R functions.</li>
+<li>HTML/JS: there is a bunch of packages to generate HTML and small widgets from R, and they can be integrated in other contexts (documents, webapps, etc.); these include htmltools, htmlwidgets, flexdashboard, DT, bslib, askpass.</li>
+</ul>
+<p><strong>CLI:</strong> Rapp for command line apps with R.</p>
+</div>
+</div>
+<div class="section level3" id="specific-topics" number="9.3.4">
+<h3>
+<span class="header-section-number">9.3.4</span> Specific Topics<a aria-label="anchor" class="anchor" href="#specific-topics"><i class="fas fa-link"></i></a>
+</h3>
+<p>Tip: to start studying the ecosystem of a topic, and choosing the best package for something, pass the views to an LLM to help guide you.</p>
+<div class="section level4" id="traditional-frequentist-statistics" number="9.3.4.1">
+<h4>
+<span class="header-section-number">9.3.4.1</span> Traditional frequentist statistics<a aria-label="anchor" class="anchor" href="#traditional-frequentist-statistics"><i class="fas fa-link"></i></a>
+</h4>
+<p>There are many packages for many different models. Often two packages provide control over different parts of the model. I’ve researched very little on this topic, and will just list what comes up as most popular in some areas. I recommend Wolfgang’s list for more options.</p>
+<ul>
+<li>Linear models: the R core stats::lm().</li>
+<li>Generalized linear models: stats::glm(); glmnet for GLM with regularization.</li>
+<li>Non-linear least squares: stats::nls().</li>
+<li>Generalized linear mixed models: lme4 and nlme, the former extending the latter, but nlme has some unique functionalities still.</li>
+<li>Generalized non-linear mixed models: mgcv, which uses nlme under the hood for some estimations; gamm4 that uses lme4.</li>
+<li>Others: survival for survival analysis, meta/metafor for meta analisys, for GLM with reg</li>
+<li>Utility: boot (bootstrap), lmtest/multcomp (hypothesis testing), car; amongst many others.</li>
+</ul>
+<p>Lists: <a class="uri" href="https://cran.r-project.org/web/views/MixedModels.html">https://cran.r-project.org/web/views/MixedModels.html</a>, <a class="uri" href="https://cran.r-project.org/web/views/Distributions.html">https://cran.r-project.org/web/views/Distributions.html</a>, <a class="uri" href="https://cran.r-project.org/web/views/ExtremeValue.html">https://cran.r-project.org/web/views/ExtremeValue.html</a>.</p>
+</div>
+<div class="section level4" id="machinestatistical-learning" number="9.3.4.2">
+<h4>
+<span class="header-section-number">9.3.4.2</span> Machine/statistical learning<a aria-label="anchor" class="anchor" href="#machinestatistical-learning"><i class="fas fa-link"></i></a>
+</h4>
+<p>Crossing the (very blurry and not that much necessary) line to machine/statistical learning, I again present some initial ideas. This ecosystem is more populated by big meta-frameworks, differently from the 1-model 1-package reality of the list above. As before, very little research was done on the specific models vendors.</p>
+<ul>
+<li>Frameworks:
+<ul>
+<li>tidymodels: the ‘official’ tidy approach with support from posit; it has a big focus on defining full preprocessing → modelling → diagnosing → tuning pipelines.</li>
+<li>mlr3: a similar framework, praised for having better performance, based on R6 and data.table.</li>
+<li>Both wrap existing packages (modelling backends), unifying their syntax to provide the models; both provide utilities to preprocess, diagnose, hyperparametrize, and run code in parallel/batch; my recommendation is to try both.</li>
+</ul>
+</li>
+<li>Specific models:
+<ul>
+<li>Check the full list of currently supported learners from mlr3, and from tidymodels.</li>
+<li>Deep learning: tensorflow/keras3, torch; in gerenal, torch is more used for prototyping, and tensorflow for production. These are actually full frameworks too.</li>
+<li>Spark’s MLlib via sparkly for distributed ML; h2o for h2o’s distributed ML; Google’s cloudML via cloudml</li>
+<li>All the more traditional models from the traditional statistics list, specially glmnet (regularized general linear models) and mgcv (generalized non-linear mixed models).</li>
+<li>Other traditional packages include ranger for random forest, nnet for neural networks, kernlab for kernel-based methods, rpart for recursive partitioning, xgboost for XGBoost; Also consider DALEX for diagnostics.</li>
+</ul>
+</li>
+<li>Model-serving: aside from the frameworks’ embedded methods, consider the already talked about packages targets and vetiver.</li>
+</ul>
+<p>Useful lists: <a class="uri" href="https://cran.r-project.org/web/views/Cluster.html">https://cran.r-project.org/web/views/Cluster.html</a>, <a class="uri" href="https://cran.r-project.org/web/views/MachineLearning.html">https://cran.r-project.org/web/views/MachineLearning.html</a>, <a class="uri" href="https://cran.r-project.org/web/views/ModelDeployment.html">https://cran.r-project.org/web/views/ModelDeployment.html</a>, <a class="uri" href="https://bookdown.org/fede_gazzelloni/hmsidR/07-packages.html">https://bookdown.org/fede_gazzelloni/hmsidR/07-packages.html</a>.</p>
+</div>
+<div class="section level4" id="causal-inference-and-micro-econometrics" number="9.3.4.3">
+<h4>
+<span class="header-section-number">9.3.4.3</span> Causal inference and (micro-)econometrics<a aria-label="anchor" class="anchor" href="#causal-inference-and-micro-econometrics"><i class="fas fa-link"></i></a>
+</h4>
+<p>Another topic that doesn’t evolves around big</p>
+<ul>
+<li>Packages:
+<ul>
+<li>Some repositories: <a class="uri" href="https://tlverse.r-universe.dev/builds">https://tlverse.r-universe.dev/builds</a>, <a class="uri" href="https://r-causal.r-universe.dev/builds">https://r-causal.r-universe.dev/builds</a>, <a class="uri" href="https://lrberge.r-universe.dev/fixest">https://lrberge.r-universe.dev/fixest</a>, google universe</li>
+<li>panelview</li>
+</ul>
+</li>
+<li>Views: <a class="uri" href="https://cran.r-project.org/web/views/Econometrics.html">https://cran.r-project.org/web/views/Econometrics.html</a>, <a class="uri" href="https://cran.r-project.org/web/views/CausalInference.html">https://cran.r-project.org/web/views/CausalInference.html</a>, <a class="uri" href="https://cran.r-project.org/web/views/Robust.html">https://cran.r-project.org/web/views/Robust.html</a>, <a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#machine-learning">https://github.com/qinwf/awesome-R?tab=readme-ov-file#machine-learning</a>
+</li>
+</ul>
+</div>
+<div class="section level4" id="bayesian-statistics" number="9.3.4.4">
+<h4>
+<span class="header-section-number">9.3.4.4</span> Bayesian statistics<a aria-label="anchor" class="anchor" href="#bayesian-statistics"><i class="fas fa-link"></i></a>
+</h4>
+<p>There are ports for some of the estabilished statistics software out there, like Jags and Stan. Some models can also be run in the statistical learning frameworks.</p>
+<p>Packages:</p>
+<ul>
+<li>Software ports: rstan, rjags, R2WinBUGS.</li>
+<li>MCMC: mcmc, MCMCpack.</li>
+<li>brms seems to be the best high-level swiss-knife modelling package; greta seems good too.</li>
+<li>More for utility: tidybayes, rvar, coda.</li>
+<li>Pipelines: jagstargets, stantargets.</li>
+</ul>
+<p>Lists: <a class="uri" href="https://cran.r-project.org/web/views/Bayesian.html">https://cran.r-project.org/web/views/Bayesian.html</a>, <a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#bayesian">https://github.com/qinwf/awesome-R?tab=readme-ov-file#bayesian</a>.</p>
+</div>
+<div class="section level4" id="time-series" number="9.3.4.5">
+<h4>
+<span class="header-section-number">9.3.4.5</span> Time Series<a aria-label="anchor" class="anchor" href="#time-series"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Strategy: …</li>
+<li>Packages: … <a class="uri" href="https://tsmodels.r-universe.dev/builds">https://tsmodels.r-universe.dev/builds</a>, <a class="uri" href="https://tidyverts.r-universe.dev/builds">https://tidyverts.r-universe.dev/builds</a>, <a class="uri" href="https://r-multiverse.r-universe.dev/prophet">https://r-multiverse.r-universe.dev/prophet</a>, x-13 stuff, xts (the best ts class pkg?)
+<ul>
+<li>tidyverts, prophet</li>
+</ul>
+</li>
+<li>Views: <a class="uri" href="https://cran.r-project.org/web/views/TimeSeries.html">https://cran.r-project.org/web/views/TimeSeries.html</a>
+</li>
+<li><a class="uri" href="https://otexts.com/fpp3/index.html">https://otexts.com/fpp3/index.html</a></li>
+<li><a class="uri" href="https://business-science.github.io/modeltime/">https://business-science.github.io/modeltime/</a></li>
+</ul>
+</div>
+<div class="section level4" id="finance" number="9.3.4.6">
+<h4>
+<span class="header-section-number">9.3.4.6</span> Finance<a aria-label="anchor" class="anchor" href="#finance"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Strategy: we should probably look for the best package to implement portfolio optimization, operations, and backtesting. Else, there is finance data loading, and general finance charting. Quantmod seems the unnoficial standard.</li>
+<li>Packages: tidyquant</li>
+<li>Views: <a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#finance">https://github.com/qinwf/awesome-R?tab=readme-ov-file#finance</a>, <a class="uri" href="https://cran.r-project.org/web/views/Finance.html">https://cran.r-project.org/web/views/Finance.html</a>, <a class="uri" href="https://cran.r-project.org/web/views/ExtremeValue.html">https://cran.r-project.org/web/views/ExtremeValue.html</a>
+</li>
+</ul>
+</div>
+<div class="section level4" id="mathematical-modellingphysics" number="9.3.4.7">
+<h4>
+<span class="header-section-number">9.3.4.7</span> Mathematical modelling/physics<a aria-label="anchor" class="anchor" href="#mathematical-modellingphysics"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Views:
+<ul>
+<li><a class="uri" href="https://cran.r-project.org/web/views/FunctionalData.html">https://cran.r-project.org/web/views/FunctionalData.html</a></li>
+<li><a class="uri" href="https://cran.r-project.org/web/views/NumericalMathematics.html">https://cran.r-project.org/web/views/NumericalMathematics.html</a></li>
+<li><a class="uri" href="https://cran.r-project.org/web/views/DifferentialEquations.html">https://cran.r-project.org/web/views/DifferentialEquations.html</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level4" id="optimization" number="9.3.4.8">
+<h4>
+<span class="header-section-number">9.3.4.8</span> Optimization<a aria-label="anchor" class="anchor" href="#optimization"><i class="fas fa-link"></i></a>
+</h4>
+<p><a class="uri" href="https://cran.r-project.org/web/views/Optimization.html">https://cran.r-project.org/web/views/Optimization.html</a></p>
+<p><a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#optimization">https://github.com/qinwf/awesome-R?tab=readme-ov-file#optimization</a></p>
+<ul>
+<li>Optimization: minqa, ROI, nloptr</li>
+<li><a class="uri" href="https://cran.r-project.org/web/packages/Rsolnp/index.html">https://cran.r-project.org/web/packages/Rsolnp/index.html</a></li>
+<li><a class="uri" href="https://cran.r-project.org/web/packages/optimParallel/index.html">https://cran.r-project.org/web/packages/optimParallel/index.html</a></li>
+<li><a class="uri" href="https://github.com/TillF/ppso/tree/master/R">https://github.com/TillF/ppso/tree/master/R</a></li>
+<li><a class="uri" href="https://github.com/AnotherSamWilson/ParBayesianOptimization">https://github.com/AnotherSamWilson/ParBayesianOptimization</a></li>
+<li><a class="uri" href="https://github.com/ArdiaD/DEoptim/tree/master/src">https://github.com/ArdiaD/DEoptim/tree/master/src</a></li>
+</ul>
+</div>
+<div class="section level4" id="others" number="9.3.4.9">
+<h4>
+<span class="header-section-number">9.3.4.9</span> Others<a aria-label="anchor" class="anchor" href="#others"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Packages:
+<ul>
+<li>Network/graph data: <a class="uri" href="https://statnet.r-universe.dev/builds">https://statnet.r-universe.dev/builds</a>, <a class="uri" href="https://stocnet.r-universe.dev/builds">https://stocnet.r-universe.dev/builds</a>, <a class="uri" href="https://r-multiverse.r-universe.dev/igraph">https://r-multiverse.r-universe.dev/igraph</a>, <a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#network-analysis">https://github.com/qinwf/awesome-R?tab=readme-ov-file#network-analysis</a>, DiagrammeR, <a class="uri" href="https://cran.r-project.org/web/views/GraphicalModels.html">https://cran.r-project.org/web/views/GraphicalModels.html</a>
+</li>
+<li>Spacial data: <a class="uri" href="https://riatelab.r-universe.dev/builds">https://riatelab.r-universe.dev/builds</a>, <a class="uri" href="https://r-spatial.r-universe.dev/builds">https://r-spatial.r-universe.dev/builds</a>, <a class="uri" href="https://stscl.r-universe.dev/builds">https://stscl.r-universe.dev/builds</a>, <a class="uri" href="https://spatstat.r-universe.dev/builds">https://spatstat.r-universe.dev/builds</a>, <a class="uri" href="https://rspatial.r-universe.dev/builds">https://rspatial.r-universe.dev/builds</a>, <a class="uri" href="https://r-tmap.r-universe.dev/tmap">https://r-tmap.r-universe.dev/tmap</a>, <a class="uri" href="https://fastverse.r-universe.dev/terra">https://fastverse.r-universe.dev/terra</a>, sf over sp, mapgl, <a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#spatial">https://github.com/qinwf/awesome-R?tab=readme-ov-file#spatial</a>, <a class="uri" href="https://github.com/fastverse/fastverse?tab=readme-ov-file#spatialhttps://ropensci.org/packages/geospatial/">https://github.com/fastverse/fastverse?tab=readme-ov-file#spatialhttps://ropensci.org/packages/geospatial/</a>, rgee, <a class="uri" href="https://sedona.apache.org/latest/api/rdocs/">https://sedona.apache.org/latest/api/rdocs/</a>
+</li>
+<li>NLP: <a class="uri" href="https://cran.r-project.org/web/views/NaturalLanguageProcessing.html">https://cran.r-project.org/web/views/NaturalLanguageProcessing.html</a>, <a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#natural-language-processing">https://github.com/qinwf/awesome-R?tab=readme-ov-file#natural-language-processing</a>, <a class="uri" href="https://quanteda.r-universe.dev/builds">https://quanteda.r-universe.dev/builds</a>, <a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#natural-language-processing">https://github.com/qinwf/awesome-R?tab=readme-ov-file#natural-language-processing</a>
+</li>
+</ul>
+</li>
+<li>Views:
+<ul>
+<li><a class="uri" href="https://cran.r-project.org/web/views/MetaAnalysis.html">https://cran.r-project.org/web/views/MetaAnalysis.html</a></li>
+<li>
+<a class="uri" href="https://cran.r-project.org/web/views/NetworkAnalysis.html">https://cran.r-project.org/web/views/NetworkAnalysis.html</a>, <a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#network-analysis">https://github.com/qinwf/awesome-R?tab=readme-ov-file#network-analysis</a>
+</li>
+<li>
+<a class="uri" href="https://cran.r-project.org/web/views/Spatial.html">https://cran.r-project.org/web/views/Spatial.html</a>, <a class="uri" href="https://cran.r-project.org/web/views/SpatioTemporal.html">https://cran.r-project.org/web/views/SpatioTemporal.html</a>, <a class="uri" href="https://cran.r-project.org/web/views/Tracking.html">https://cran.r-project.org/web/views/Tracking.html</a>, <a class="uri" href="https://github.com/qinwf/awesome-R?tab=readme-ov-file#spatial">https://github.com/qinwf/awesome-R?tab=readme-ov-file#spatial</a>
+</li>
+<li><a class="uri" href="https://cran.r-project.org/web/views/CompositionalData.html">https://cran.r-project.org/web/views/CompositionalData.html</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="chapter-nav">
+<div class="prev"><a href="intro3.html">Introdução</a></div>
+<div class="next"><a href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></div>
+</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+<nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ecossistema"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li>
+<a class="nav-link" href="#introduction-1"><span class="header-section-number">9.1</span> Introduction</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-endeavor"><span class="header-section-number">9.1.1</span> The endeavor</a></li>
+<li><a class="nav-link" href="#basics-of-the-r-ecosystem"><span class="header-section-number">9.1.2</span> Basics of the R ecosystem</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#current-toolset-summary"><span class="header-section-number">9.2</span> Current Toolset (summary)</a></li>
+<li>
+<a class="nav-link" href="#package-ecosystem"><span class="header-section-number">9.3</span> Package ecosystem</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#general-infrastructure"><span class="header-section-number">9.3.1</span> General Infrastructure</a></li>
+<li><a class="nav-link" href="#non-standard-computing"><span class="header-section-number">9.3.2</span> Non-standard computing</a></li>
+<li><a class="nav-link" href="#common-tasks"><span class="header-section-number">9.3.3</span> Common Tasks</a></li>
+<li><a class="nav-link" href="#specific-topics"><span class="header-section-number">9.3.4</span> Specific Topics</a></li>
+</ul>
+</li>
+</ul>
+<!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+</nav>
+</div>
+</div>
+</div></main> <!-- .container -->
+<footer id="rssite-footer"><p>
+            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
+            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
+        </p>
+</footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<!-- Scripts -->
+<script src="./assets/rsbd_module.js"></script><!-- dynamically load mathjax for compatibility with self-contained --><script>
+        (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = "true";
+        if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:")
+            if (/^https?:/.test(src))
+            src = src.replace(/^https?:/, '');
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+    for (let popover of popovers) {
+        const div = document.createElement('div');
+        div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+        div.innerHTML = popover.getAttribute('data-content');
+    
+        var has_math = div.querySelector("span.math");
+        if (has_math) {
+        document.body.appendChild(div);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+        MathJax.Hub.Queue(function() {
+            popover.setAttribute('data-content', div.innerHTML);
+            document.body.removeChild(div);
+        })
+        }
+    }
+    </script>
+</body>
+</html>

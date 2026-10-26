@@ -9,16 +9,16 @@
 <link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
 <link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
 <meta content="Ricardo Semião e Castro" name="Author"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  7.1 Introdução Referência básica: Advanced R (2e) partes “Functional Programming” + documentação do pacote “purrr”,..." name="description"/>
+<meta content="7.1 Introdução Neste capítulo aula de hoje, aprenderemos construtos de mais alto nível. Haverão três aprendizados principais: O que é, quais são os construtos, e para que usar programação..." name="description"/>
 <meta content="bookdown 0.45 with bs4_book()" name="generator"/>
 <meta content="7 Paradigmas de Programação | R: Fundamentos e Ciência de Dados" property="og:title"/>
 <meta content="book" property="og:type"/>
 <meta content="https://ricardo-semiao.github.io/course-rfcd/paradigms.html" property="og:url"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  7.1 Introdução Referência básica: Advanced R (2e) partes “Functional Programming” + documentação do pacote “purrr”,..." property="og:description"/>
+<meta content="7.1 Introdução Neste capítulo aula de hoje, aprenderemos construtos de mais alto nível. Haverão três aprendizados principais: O que é, quais são os construtos, e para que usar programação..." property="og:description"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="7 Paradigmas de Programação | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
 <meta content="@ricardo_semiao" name="twitter:site"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  7.1 Introdução Referência básica: Advanced R (2e) partes “Functional Programming” + documentação do pacote “purrr”,..." name="twitter:description"/>
+<meta content="7.1 Introdução Neste capítulo aula de hoje, aprenderemos construtos de mais alto nível. Haverão três aprendizados principais: O que é, quais são os construtos, e para que usar programação..." name="twitter:description"/>
 <!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
@@ -150,7 +150,7 @@
 <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Bem Vindo(a)!</a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
-<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li class="book-part">Parte I - Fundamentos</li>
 <li><a class="" href="intro1.html">Introdução</a></li>
 <li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
 <li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
@@ -158,33 +158,14 @@
 <li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
 <li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
 <li><a class="active" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
-<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
 <li><a class="" href="recap1.html">Recapitulando</a></li>
-<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li class="book-part">Parte II - Ciência de dados</li>
 <li><a class="" href="intro2.html">Introdução</a></li>
-<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
-<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
-<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
-<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
-<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
-<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
-<li><a class="" href="recap2.html">Recapitulando</a></li>
-<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
+<li class="book-part">Parte III - Programação Geral</li>
 <li><a class="" href="intro3.html">Introdução</a></li>
-<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
-<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
-<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
-<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
-<li><a class="" href="recap3.html">Recapitulando</a></li>
-<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
-<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
-<li><a class="" href="intro4.html">Introdução</a></li>
-<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
-<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
-<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
-<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li><a class="" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
 <li class="book-part">Apêndice</li>
 <li><a class="" href="dict.html">Dicionário de funções</a></li>
 <li><a class="" href="refs.html">Referências</a></li>
@@ -198,21 +179,19 @@
 <h1>
 <span class="header-section-number">7</span> Paradigmas de Programação<a aria-label="anchor" class="anchor" href="#paradigms"><i class="fas fa-link"></i></a>
 </h1>
-<div class="warn">
-<p>este capítulo está em construção. O que segue abaixo é apenas um rascunho.</p>
-</div>
 <div class="section level2" id="introdução-6" number="7.1">
 <h2>
 <span class="header-section-number">7.1</span> Introdução<a aria-label="anchor" class="anchor" href="#introdu%C3%A7%C3%A3o-6"><i class="fas fa-link"></i></a>
 </h2>
-<p>Referência básica: Advanced R (2e) partes <a href="https://adv-r.hadley.nz/fp.html">“Functional Programming”</a> + <a href="https://purrr.tidyverse.org/">documentação do pacote “purrr”</a>, <a href="https://adv-r.hadley.nz/oo.html">“Object-Oriented Programming”</a>, <a href="https://adv-r.hadley.nz/metaprogramming.html">“Metaptrogramming”</a> + <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Computing-on-the-language">“R Language Definition” capítulo 6</a> e do <a href="https://rlang.r-lib.org/">pacote rlang</a>.</p>
-<p>Na aula de hoje, aprenderemos construtos de mais alto nível. Falaremos do último tijolinho, as expressões. Por fim, faremos uma revisão.</p>
-<p>Haverão três aprendizados principais:</p>
-<p><strong>(i)</strong> O que é, quais são os construtos, e para que usar programação funcional.</p>
-<p><strong>(ii)</strong> O que é, e para que usar programação orientada a objetos.</p>
-<p><strong>(iii)</strong> O que são expressões, e como usá-las para metaprogramação.</p>
+<p>Neste capítulo aula de hoje, aprenderemos construtos de mais alto nível. Haverão três aprendizados principais:</p>
+<ol style="list-style-type: decimal">
+<li>O que é, quais são os construtos, e para que usar programação funcional.</li>
+<li>O que é, e para que usar programação orientada a objetos.</li>
+<li>O que são expressões, e como podemos manipular o próprio código R via metaprogramação.</li>
+</ol>
+<p>Este capítulo está escrito de forma mais enxuta que os capítulos anteriores.</p>
 <p>Para os exemplos:</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/">purrr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rlang.r-lib.org">rlang</a></span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -271,7 +250,7 @@
 </h3>
 <p>Um <em>map</em> recebe uma função e um vetor, e a aplica em cada um dos elementos dele, retornando os resultados em um novo vetor.</p>
 <p>Como foi visto, são similares à loops:</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">f</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="va">out</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">f</span><span class="op">(</span><span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>, <span class="va">...</span><span class="op">)</span></span>
@@ -283,7 +262,7 @@
 <span class="header-section-number">7.3.3</span> Map 2<a aria-label="anchor" class="anchor" href="#map-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Pense sobre o padrão abaixo:</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">f</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="va">out</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">f</span><span class="op">(</span><span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>, <span class="va">y</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>, <span class="va">...</span><span class="op">)</span></span>
@@ -298,7 +277,7 @@
 </h3>
 <p>E se quisermos, para cada elemento de um vetor <code>x</code>, aplicar a função <code>f</code> à esse elemento, e todos os elementos de <code>y</code>?</p>
 <p>Isto é, um loop duplo:</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">f</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
@@ -311,7 +290,7 @@
 <span>  <span class="va">out</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Note que isso é diferente de um <code>map2</code>, isso seria um “map” dentro de outro “map”:</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">x</span>, \<span class="op">(</span><span class="va">xi</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">y</span>, \<span class="op">(</span><span class="va">yi</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu">f</span><span class="op">(</span><span class="va">xi</span>, <span class="va">yi</span><span class="op">)</span></span>
@@ -333,13 +312,13 @@
 </h3>
 <p>E se quisésse-mos fazer um map, dentro de um map, dentro de um map … arbitrárias vezes? A resposta é: não inventa.</p>
 <p>Sério, seria estranho ter essa necessidade, e provavelmente era melhor usar um loop while. Mas só de curiosidade, dá pra escrever um <em>map</em> recursivo, que fixa o primeiro vetor e joga o resto pra dentro de um novo map:</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rmap</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">l</span>, <span class="va">f</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">l</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">l</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">rmap</span><span class="op">(</span><span class="va">l</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>, \<span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="fu">f</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">l</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="va">f</span><span class="op">)</span></span>
-<span>  <span class="op">}</span>  </span>
+<span>  <span class="op">}</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 </div>
 <div class="section level3" id="atalhos" number="7.3.7">
@@ -347,7 +326,7 @@
 <span class="header-section-number">7.3.7</span> Atalhos<a aria-label="anchor" class="anchor" href="#atalhos"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Index map:</strong> muitas vezes estamos interessados em um caso especial de <code>map2</code>, para qual existe o atalho <code><a href="https://purrr.tidyverse.org/reference/imap.html">purrr::imap()</a></code>:</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">map2</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, \<span class="op">(</span><span class="va">xi</span>, <span class="va">name</span><span class="op">)</span> <span class="op">{</span><span class="va">...</span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://purrr.tidyverse.org/reference/imap.html">imap</a></span><span class="op">(</span><span class="va">x</span>, \<span class="op">(</span><span class="va">xi</span>, <span class="va">name</span><span class="op">)</span> <span class="op">{</span><span class="va">...</span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Selecionando elementos:</strong> outro padrão comum é ter uma lista de listas como <code class="sourceCode r"><span class="fu">list</span>(<span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>), <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">3</span>, <span class="at">b =</span> <span class="dv">4</span>))</code> e querer selecionar todos os primeiros elementos de cada sub-lista, ou todos os elementos.</p>
@@ -359,11 +338,11 @@
 </ul>
 <p><strong>Sintaxe lambda:</strong> O purrr permite utilizar fórmulas para definir funções, uma <a href="https://rlang.r-lib.org/reference/as_function.html">sintaxe especial do rlang</a>: <code>\(x, y) x + y</code> é equivalente à <code>~ .x + .y</code>.</p>
 <p><strong>Argumentos fixos:</strong> <code><a href="https://purrr.tidyverse.org/reference/map.html">map()</a></code> pode receber argumentos extras, via <code>...</code>, passados para a função <em>mapper</em>. Mas, a recomendação é sempre criar uma função anônima:</p>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mean</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Piping:</strong> as funções do purr também funcionam muito bem com piping:</p>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.x</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">coef</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -450,19 +429,12 @@
 <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> é interessante para operar com matrizes ou linhas de um dataframe.</li>
 </ul>
 </div>
-<div class="section level3" id="quando-usar-um-map" number="7.3.10">
+<div class="section level3" id="reduce" number="7.3.10">
 <h3>
-<span class="header-section-number">7.3.10</span> Quando Usar um Map?<a aria-label="anchor" class="anchor" href="#quando-usar-um-map"><i class="fas fa-link"></i></a>
-</h3>
-<p>Lembre-se a escolha entre cada tipo de loop – que inclui maps – é baseada no nível de flexibilidade quista.</p>
-<p>O principal ponto de maps é que suas iterações são independentes! Se você quer atualizar uma variável em todas as iterações, deveria estar usando um loop.</p>
-</div>
-<div class="section level3" id="reduce" number="7.3.11">
-<h3>
-<span class="header-section-number">7.3.11</span> Reduce<a aria-label="anchor" class="anchor" href="#reduce"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3.10</span> Reduce<a aria-label="anchor" class="anchor" href="#reduce"><i class="fas fa-link"></i></a>
 </h3>
 <p>A operação reduce, implementada em <code><a href="https://purrr.tidyverse.org/reference/reduce.html">purrr::reduce()</a></code>, recebe um vetor de tamaho <span class="math inline">\(n\)</span> e retorna um escalar, aplicando uma operação repetidamente:</p>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="va">f</span><span class="op">)</span></span>
 <span><span class="fu">f</span><span class="op">(</span><span class="fu">f</span><span class="op">(</span><span class="fu">f</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img height="100%" src="assets/img/reduce1.svg" width="30%"/></div>
@@ -473,17 +445,17 @@
 <li>Às vezes, é melhor criar uma nova função.</li>
 </ul>
 </div>
-<div class="section level3" id="reduce-início-customizado" number="7.3.12">
+<div class="section level3" id="reduce-início-customizado" number="7.3.11">
 <h3>
-<span class="header-section-number">7.3.12</span> Reduce: Início Customizado<a aria-label="anchor" class="anchor" href="#reduce-in%C3%ADcio-customizado"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3.11</span> Reduce: Início Customizado<a aria-label="anchor" class="anchor" href="#reduce-in%C3%ADcio-customizado"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce()</a></code> aceita um argumento <code>.init</code>, que é o valor inicial da operação. Se não for fornecido, o primeiro elemento de <code>x</code> é usado.</p>
 <p>Normalmente, queremos um elemento “identidade” da operação que estamos fazendo – <span class="math inline">\(0\)</span> é a identidade da soma, <span class="math inline">\(1\)</span> é a identidade da multiplicação, etc.</p>
 <div class="inline-figure"><img height="100%" src="assets/img/reduce1_init.svg" width="30%"/></div>
 </div>
-<div class="section level3" id="reduce-2" number="7.3.13">
+<div class="section level3" id="reduce-2" number="7.3.12">
 <h3>
-<span class="header-section-number">7.3.13</span> Reduce 2<a aria-label="anchor" class="anchor" href="#reduce-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3.12</span> Reduce 2<a aria-label="anchor" class="anchor" href="#reduce-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Não quero perder muito tempo com isso, mas também temos a versão “2” de reduce:</p>
 <div class="columns">
@@ -497,18 +469,18 @@
 </div>
 </div>
 </div>
-<div class="section level3" id="reduce-outros" number="7.3.14">
+<div class="section level3" id="reduce-outros" number="7.3.13">
 <h3>
-<span class="header-section-number">7.3.14</span> Reduce: Outros<a aria-label="anchor" class="anchor" href="#reduce-outros"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3.13</span> Reduce: Outros<a aria-label="anchor" class="anchor" href="#reduce-outros"><i class="fas fa-link"></i></a>
 </h3>
 <p>Também poderíamos estar interessados em criar um “reduce p”, “reduce^2”, etc.</p>
 <p>Tamém temos <code><a href="https://purrr.tidyverse.org/reference/accumulate.html">purrr::accumulate()</a></code>, que é como <code><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce()</a></code>, mas retorna um vetor do mesmo tamanho de <code>x</code>, com os resultados intermediários.</p>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="va">`+`</span><span class="op">)</span> <span class="co">#&gt; 1  3  6 10</span></span></code></pre></div>
 </div>
-<div class="section level3" id="predicate-functionals" number="7.3.15">
+<div class="section level3" id="predicate-functionals" number="7.3.14">
 <h3>
-<span class="header-section-number">7.3.15</span> Predicate Functionals<a aria-label="anchor" class="anchor" href="#predicate-functionals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3.14</span> Predicate Functionals<a aria-label="anchor" class="anchor" href="#predicate-functionals"><i class="fas fa-link"></i></a>
 </h3>
 <p>Temos alguns funcionais relacionados à testes lógicos:</p>
 <ul>
@@ -524,9 +496,9 @@
 <p>E <code><a href="https://purrr.tidyverse.org/reference/keep.html">keep()</a></code> e <code><a href="https://purrr.tidyverse.org/reference/keep.html">discard()</a></code>, que mantém ou descartam os elementos que satisfazem <code>.p</code>.</p>
 <p><code>map</code> e <code>modify</code> têm variantes que também aceitam funções de predicado, transformando apenas os elementos que passam uma condição, ou que estão em uma localidade específica: <code><a href="https://purrr.tidyverse.org/reference/map_if.html">map_if()</a></code> e <code>map_at</code>.</p>
 </div>
-<div class="section level3" id="outros" number="7.3.16">
+<div class="section level3" id="outros" number="7.3.15">
 <h3>
-<span class="header-section-number">7.3.16</span> Outros<a aria-label="anchor" class="anchor" href="#outros"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3.15</span> Outros<a aria-label="anchor" class="anchor" href="#outros"><i class="fas fa-link"></i></a>
 </h3>
 <p>Vocês talvez não perceberam, mas esta foi a primeira aula sobre o tidyverse! Vocês aprenderam o básico do pacote purrr.</p>
 <p>Ele é muito grande, e existem muitas ourtas variações de <code>map</code> e predicates para facilitar sua vida. Foquem que aprender map antes de ir para <a href="https://purrr.tidyverse.org/reference/index.html">o resto</a>.</p>
@@ -550,7 +522,7 @@
 <span class="header-section-number">7.4.1</span> Function Factories<a aria-label="anchor" class="anchor" href="#function-factories"><i class="fas fa-link"></i></a>
 </h3>
 <p>Uma <em>function factory</em> é uma função que faz funções.</p>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">power1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">exp</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">^</span> <span class="va">exp</span></span>
 <span><span class="op">}</span></span>
@@ -564,32 +536,27 @@
 <span class="header-section-number">7.4.2</span> Function Factories’ Envs<a aria-label="anchor" class="anchor" href="#function-factories-envs"><i class="fas fa-link"></i></a>
 </h3>
 <p>Porque funciona? Onde <code>square</code> vai procurar <code>exp</code>?</p>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">square</span> <span class="co">#&gt; function(x) x ^ exp</span></span></code></pre></div>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/environment.html">environment</a></span><span class="op">(</span><span class="va">square</span><span class="op">)</span> <span class="co">#&gt; &lt;environment: 0x0000017235c2c3b0&gt;</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/environment.html">environment</a></span><span class="op">(</span><span class="va">cube</span><span class="op">)</span> <span class="co">#&gt; &lt;environment: 0x0000017235150760&gt;</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/environment.html">environment</a></span><span class="op">(</span><span class="va">square</span><span class="op">)</span><span class="op">$</span><span class="va">exp</span> <span class="co">#&gt; 2</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/environment.html">environment</a></span><span class="op">(</span><span class="va">cube</span><span class="op">)</span><span class="op">$</span><span class="va">exp</span> <span class="co">#&gt; 3</span></span></code></pre></div>
 <p>Cuidado com:</p>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
 <span><span class="va">square</span> <span class="op">&lt;-</span> <span class="fu">power1</span><span class="op">(</span><span class="va">e</span><span class="op">)</span></span>
 <span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
 <span><span class="fu">square</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="co">#&gt; 8</span></span></code></pre></div>
 <p>Porque <code>x</code> é lazily evaluated. Por isso, é bom forcar sua avaliação antes de criar a função, com <code class="sourceCode r"><span class="fu">force</span>(x)</code>:</p>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">power1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">exp</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/force.html">force</a></span><span class="op">(</span><span class="va">exp</span><span class="op">)</span></span>
 <span>  <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">^</span> <span class="va">exp</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-</div>
-<div class="section level3" id="function-factories-envs-1" number="7.4.3">
-<h3>
-<span class="header-section-number">7.4.3</span> Function Factories’ Envs<a aria-label="anchor" class="anchor" href="#function-factories-envs-1"><i class="fas fa-link"></i></a>
-</h3>
 <p>Adicionalmente, podemos criar funções “manufaturadas” que alterem seu ambiente de encapsulação – que é único.</p>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">power1_count</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">exp</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/force.html">force</a></span><span class="op">(</span><span class="va">exp</span><span class="op">)</span></span>
 <span>  <span class="va">i</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
@@ -611,7 +578,7 @@
 </h3>
 <p>Uma <em>function operator</em> é uma função que recebe uma ou mais funções como input e retorna uma função como output.</p>
 <p>Por exemplo, usar <code><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time()</a></code> para transformar uma função em uma função que também retorna seu tempo de execução.</p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">timeit</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">f</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">start</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -644,7 +611,7 @@ timeit <- function(f) {
 <li>Safely é uma função que captura erros, ao invés de parar a execução do programa.</li>
 </ul>
 <p>Safely está no purr porque é útil para <code>map</code> e amigos:</p>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">5</span><span class="op">:</span><span class="fl">8</span>, <span class="st">"erro"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://purrr.tidyverse.org/reference/safely.html">safely</a></span><span class="op">(</span><span class="va">sum</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 3</span></span>
@@ -685,24 +652,18 @@ timeit <- function(f) {
 <li>S4, que é o S3 mas de uma maneira mais formal e complicada.</li>
 <li>RC, que é um sistema de OOP mais tradicional.</li>
 <li>R6, que é o RC mas <a href="https://adv-r.hadley.nz/r6.html#why-r6">melhor</a>.</li>
-<li>Entre outros como R.oo e proto.</li>
+<li>S7, uma tentativa moderna e oficial de unificar o S3 e S4, mas ainda não ganhou tração.</li>
+<li>Entre outros como R.oo e proto, menos utilizados atualmente.</li>
 </ul>
-</div>
-<div class="section level3" id="sistemas-de-oop-no-r-1" number="7.6.3">
-<h3>
-<span class="header-section-number">7.6.3</span> Sistemas de OOP no R<a aria-label="anchor" class="anchor" href="#sistemas-de-oop-no-r-1"><i class="fas fa-link"></i></a>
-</h3>
 <p>S3 é importante de aprender porque é muito utilizado, inclusive no R base. Os outros são mais raros. Do Advanced R:</p>
 <blockquote>
-<p>S4 is a rigorous system that forces you to think carefully about program design. It’s particularly well-suited for building large systems that evolve over time and will receive contributions from many programmers.</p>
-</blockquote>
-<blockquote>
-<p>R6 provides a standardised way to escape R’s copy-on-modify semantics. This is particularly important if you want to model objects that exist independently of R.</p>
+<p>S4 is a rigorous system that forces you to think carefully about program design. It’s particularly well-suited for building large systems that evolve over time and will receive contributions from many programmers.
+R6 provides a standardised way to escape R’s copy-on-modify semantics. This is particularly important if you want to model objects that exist independently of R.</p>
 </blockquote>
 </div>
-<div class="section level3" id="quando-usar-oop" number="7.6.4">
+<div class="section level3" id="quando-usar-oop" number="7.6.3">
 <h3>
-<span class="header-section-number">7.6.4</span> Quando Usar OOP<a aria-label="anchor" class="anchor" href="#quando-usar-oop"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.6.3</span> Quando Usar OOP<a aria-label="anchor" class="anchor" href="#quando-usar-oop"><i class="fas fa-link"></i></a>
 </h3>
 <p>O sistema S3 faz parte integral do R, e você utilizará ele para:</p>
 <ul>
@@ -720,16 +681,11 @@ timeit <- function(f) {
 <h2>
 <span class="header-section-number">7.7</span> Expressões<a aria-label="anchor" class="anchor" href="#express%C3%B5es"><i class="fas fa-link"></i></a>
 </h2>
-<div class="section level3" id="definição-2" number="7.7.1">
-<h3>
-<span class="header-section-number">7.7.1</span> Definição<a aria-label="anchor" class="anchor" href="#defini%C3%A7%C3%A3o-2"><i class="fas fa-link"></i></a>
-</h3>
 <p>Vocês viram sobre o <em>estilo</em> de resolução de problemas que coloca objetos no centro, funções no centro, e em breve, verão o estilo que coloca <em>expressões</em> no centro.</p>
 <p>Mas antes, vamos estudar esse tipo de objeto.</p>
-</div>
-<div class="section level3" id="tipos-de-expressões" number="7.7.2">
+<div class="section level3" id="tipos-de-expressões" number="7.7.1">
 <h3>
-<span class="header-section-number">7.7.2</span> Tipos de Expressões<a aria-label="anchor" class="anchor" href="#tipos-de-express%C3%B5es"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.7.1</span> Tipos de Expressões<a aria-label="anchor" class="anchor" href="#tipos-de-express%C3%B5es"><i class="fas fa-link"></i></a>
 </h3>
 <p>Vocês viram que expressões são “código congelado”.</p>
 <p>Uma expressão tem <em>tipo</em> <em>expression</em>, mas existem “subtipos” a despeito da sua natureza/objetivo:</p>
@@ -745,9 +701,9 @@ timeit <- function(f) {
 <li>Uma call tem uma estrutura específica, é como uma lista com: o nome da função, e cada argumentos (nomeados ou não). Conseguiremos alterar cada componente.</li>
 </ul>
 </div>
-<div class="section level3" id="tipos-baseados-em-expressões" number="7.7.3">
+<div class="section level3" id="tipos-baseados-em-expressões" number="7.7.2">
 <h3>
-<span class="header-section-number">7.7.3</span> Tipos Baseados em Expressões<a aria-label="anchor" class="anchor" href="#tipos-baseados-em-express%C3%B5es"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.7.2</span> Tipos Baseados em Expressões<a aria-label="anchor" class="anchor" href="#tipos-baseados-em-express%C3%B5es"><i class="fas fa-link"></i></a>
 </h3>
 <p>Uma expressão pode ser “detalhada”, unida com outros objetos para se tornar alguns dos objetos:</p>
 <ul>
@@ -758,27 +714,27 @@ timeit <- function(f) {
 </ul>
 <p>Obs: quosure e formulas não são tipos de verdade. Quosures são construídos em cima de promises, e formulas em cima de calls.</p>
 </div>
-<div class="section level3" id="ast" number="7.7.4">
+<div class="section level3" id="ast" number="7.7.3">
 <h3>
-<span class="header-section-number">7.7.4</span> AST<a aria-label="anchor" class="anchor" href="#ast"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.7.3</span> AST<a aria-label="anchor" class="anchor" href="#ast"><i class="fas fa-link"></i></a>
 </h3>
 <p>Por último, vou apresentar como visualizamos expressões – e por consequência, scripts: as abstract syntax trees.</p>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/ast.html">ast</a></span><span class="op">(</span><span class="fu">f1</span><span class="op">(</span><span class="fu">f2</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span>, <span class="fu">f3</span><span class="op">(</span><span class="fl">1</span>, <span class="fu">f4</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; █─f1 </span></span>
-<span><span class="co">#&gt; ├─█─f2 </span></span>
-<span><span class="co">#&gt; │ ├─a </span></span>
-<span><span class="co">#&gt; │ └─b </span></span>
-<span><span class="co">#&gt; └─█─f3 </span></span>
-<span><span class="co">#&gt;   ├─1 </span></span>
-<span><span class="co">#&gt;   └─█─f4 </span></span>
+<span><span class="co">#&gt; █─f1</span></span>
+<span><span class="co">#&gt; ├─█─f2</span></span>
+<span><span class="co">#&gt; │ ├─a</span></span>
+<span><span class="co">#&gt; │ └─b</span></span>
+<span><span class="co">#&gt; └─█─f3</span></span>
+<span><span class="co">#&gt;   ├─1</span></span>
+<span><span class="co">#&gt;   └─█─f4</span></span>
 <span><span class="co">#&gt;     └─2</span></span></code></pre></div>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/ast.html">ast</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">*</span> <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="co">#&gt; █─`+` </span></span>
-<span><span class="co">#&gt; ├─1 </span></span>
-<span><span class="co">#&gt; └─█─`*` </span></span>
-<span><span class="co">#&gt;   ├─2 </span></span>
+<span><span class="co">#&gt; █─`+`</span></span>
+<span><span class="co">#&gt; ├─1</span></span>
+<span><span class="co">#&gt; └─█─`*`</span></span>
+<span><span class="co">#&gt;   ├─2</span></span>
 <span><span class="co">#&gt;   └─3</span></span></code></pre></div>
 </div>
 </div>
@@ -797,9 +753,9 @@ timeit <- function(f) {
 </blockquote>
 <p>Não gastem seu cérebro de mais, mas não gastem de menos também.</p>
 </div>
-<div class="section level3" id="definição-3" number="7.8.2">
+<div class="section level3" id="definição-2" number="7.8.2">
 <h3>
-<span class="header-section-number">7.8.2</span> Definição<a aria-label="anchor" class="anchor" href="#defini%C3%A7%C3%A3o-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.8.2</span> Definição<a aria-label="anchor" class="anchor" href="#defini%C3%A7%C3%A3o-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Como dito, pode ser entendido como o estilo que coloca <em>expressões</em> no centro.</p>
 <p>Existem três pilares:</p>
@@ -821,7 +777,7 @@ timeit <- function(f) {
 <li>
 <code><a href="https://rdrr.io/r/base/bquote.html">bquote()</a></code> e <code><a href="https://rlang.r-lib.org/reference/expr.html">rlang::expr()</a></code> retornam uma das “sub-expression”.</li>
 </ul>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html">expr</a></span><span class="op">(</span><span class="fl">10</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span> <span class="co">#&gt; 10 + 1</span></span></code></pre></div>
 </div>
 <div class="section level3" id="parsing" number="7.8.4">
@@ -836,7 +792,7 @@ timeit <- function(f) {
 <span class="header-section-number">7.8.5</span> 1. Enriched Quoting<a aria-label="anchor" class="anchor" href="#enriched-quoting"><i class="fas fa-link"></i></a>
 </h3>
 <p>E se o código que quero congelar veio de um argumento de uma função?</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html">expr</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -871,14 +827,14 @@ timeit <- function(f) {
 <span class="header-section-number">7.9.1</span> 2. Criando e Modificando Calls<a aria-label="anchor" class="anchor" href="#criando-e-modificando-calls"><i class="fas fa-link"></i></a>
 </h3>
 <p>Podemos criar calls com <code><a href="https://rdrr.io/r/base/call.html">call()</a></code> e <code><a href="https://rlang.r-lib.org/reference/call2.html">rlang::call2()</a></code>:</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rlang.r-lib.org/reference/call2.html">call2</a></span><span class="op">(</span><span class="st">"f"</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; f(1, 2, 3)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/call2.html">call2</a></span><span class="op">(</span><span class="st">"+"</span>, <span class="fl">1</span>, <span class="fu"><a href="https://rlang.r-lib.org/reference/call2.html">call2</a></span><span class="op">(</span><span class="st">"*"</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 1 + 2 * 3</span></span></code></pre></div>
 <p>E se eu quiser alterar um componente específico de uma call? Com <code>[[</code> ou <code><a href="https://rlang.r-lib.org/reference/call_modify.html">rlang::call_modify()</a></code>:</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/call2.html">call2</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">na.rm</span> <span class="op">&lt;-</span> <span class="cn">FALSE</span></span>
 <span><span class="va">x</span> <span class="co">#&gt; mean(c(1, 2, NA), na.rm = FALSE)</span></span>
@@ -890,7 +846,7 @@ timeit <- function(f) {
 <span class="header-section-number">7.9.2</span> 2. Criando e Modificando Expressions<a aria-label="anchor" class="anchor" href="#criando-e-modificando-expressions"><i class="fas fa-link"></i></a>
 </h3>
 <p>Podemos seletivamente “unquote” e “quote” partes de código, usando o operador do rlang <code>!!</code>:</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">xx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html">expr</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="va">x</span><span class="op">)</span></span>
 <span><span class="va">yy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html">expr</a></span><span class="op">(</span><span class="va">y</span> <span class="op">+</span> <span class="va">y</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html">expr</a></span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="va">xx</span> <span class="op">/</span> <span class="op">!</span><span class="op">!</span><span class="va">yy</span><span class="op">)</span> <span class="co">#&gt; (x + x)/(y + y)</span></span></code></pre></div>
@@ -898,7 +854,7 @@ timeit <- function(f) {
 <blockquote>
 <p><code>!!</code> is a one-to-one replacement. <code>!!!</code> (called “unquote-splice”, and pronounced bang-bang-bang) is a one-to-many replacement. It takes a list of expressions and inserts them at the location of the <code>!!!</code></p>
 </blockquote>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">xs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html">exprs</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">x</span>, <span class="va">x</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html">expr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="op">!</span><span class="va">xs</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; sum(x, x, x)</span></span></code></pre></div>
 </div>
@@ -924,7 +880,7 @@ timeit <- function(f) {
 <strong>Data mask:</strong> avaliar expressões no contexto de um dataframe – tratando as colunas como variáveis.</li>
 <li>Alterar a definição de operadores temporariamente.</li>
 </ul>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/eval.html">eval</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html">expr</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span><span class="op">)</span>, envir <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/env.html">env</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="co">#&gt; 11</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/eval.html">eval</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html">expr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span>, envir <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span> <span class="co">#&gt; 20.09062</span></span>
@@ -947,13 +903,13 @@ timeit <- function(f) {
 <span class="header-section-number">7.10.3</span> 3. Outros Pontos<a aria-label="anchor" class="anchor" href="#outros-pontos"><i class="fas fa-link"></i></a>
 </h3>
 <p>É muito comum usar <code>!!!</code> em conjunto com <code>...</code>, similar à <code>**</code> do python:</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mtcars</span><span class="op">)</span></span>
 <span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="op">!</span><span class="va">dfs</span><span class="op">)</span></span></code></pre></div>
 <p>E para fazer algo como o abaixo, precisamos de uma syntaxe especial para o R não brigar com a gente:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="paradigms.html#cb85-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">sym</span>(column1)</span>
-<span id="cb85-2"><a href="paradigms.html#cb85-2" tabindex="-1"></a><span class="fu">tibble</span>(<span class="sc">!!</span><span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="co">#&gt; erro</span></span>
-<span id="cb85-3"><a href="paradigms.html#cb85-3" tabindex="-1"></a><span class="fu">tibble</span>(<span class="sc">!!</span><span class="at">a :=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="paradigms.html#cb87-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">sym</span>(column1)</span>
+<span id="cb87-2"><a href="paradigms.html#cb87-2" tabindex="-1"></a><span class="fu">tibble</span>(<span class="sc">!!</span><span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="co">#&gt; erro</span></span>
+<span id="cb87-3"><a href="paradigms.html#cb87-3" tabindex="-1"></a><span class="fu">tibble</span>(<span class="sc">!!</span><span class="at">a :=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
 <p>Para suportar ambos esses comportamentos, funções precisam colocar <code>...</code> em <code><a href="https://rlang.r-lib.org/reference/list2.html">list2()</a></code>, aí dizemos que suportam “tidy dots”.</p>
 </div>
 <div class="section level3" id="estudo-de-caso" number="7.10.4">
@@ -962,25 +918,20 @@ timeit <- function(f) {
 </h3>
 <p>Como usar isso para resolver problemas?</p>
 <p>Vamos criar uma função a la <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter()</a></code>, como <code class="sourceCode r"><span class="fu">filter2</span>(mtcars, cyl <span class="sc">==</span> <span class="dv">4</span>)</code>.</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">filter2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">condition</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">keep</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/eval_tidy.html">eval_tidy</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/enquo.html">enquo</a></span><span class="op">(</span><span class="va">condition</span><span class="op">)</span>, <span class="va">data</span><span class="op">)</span></span>
 <span>  <span class="va">data</span><span class="op">[</span><span class="va">keep</span>, <span class="op">]</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-</div>
-<div class="section level3" id="estudo-de-caso-1" number="7.10.5">
-<h3>
-<span class="header-section-number">7.10.5</span> Estudo de Caso<a aria-label="anchor" class="anchor" href="#estudo-de-caso-1"><i class="fas fa-link"></i></a>
-</h3>
 <p>Como usar isso para resolver problemas?</p>
 <p>Vamos criar um wrapper de <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate()</a></code>, que pegue uma coluna e eleve ao quadrado.</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mutate_squared</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">col</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">col</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html">ensym</a></span><span class="op">(</span><span class="va">col</span><span class="op">)</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">data</span>, <span class="op">!</span><span class="op">!</span><span class="va">col</span> <span class="op">:=</span> <span class="op">!</span><span class="op">!</span><span class="va">col</span> <span class="op">^</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Acontece que esse é um padrão muito comum, e temos um atalho:</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mutate_squared</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">col</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">data</span>, <span class="op">{</span><span class="op">{</span><span class="va">col</span><span class="op">}</span><span class="op">}</span> <span class="op">:=</span> <span class="op">{</span><span class="op">{</span><span class="va">col</span><span class="op">}</span><span class="op">}</span> <span class="op">^</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
@@ -990,28 +941,16 @@ timeit <- function(f) {
 <div class="section level2 unlisted unnumbered" id="complemento-5">
 <h2>Complemento<a aria-label="anchor" class="anchor" href="#complemento-5"><i class="fas fa-link"></i></a>
 </h2>
-<div class="section level3 unnumbered" id="recapitulando-5">
-<h3>Recapitulando<a aria-label="anchor" class="anchor" href="#recapitulando-5"><i class="fas fa-link"></i></a>
-</h3>
-<p>[a fazer]</p>
-<hr class="single-hrule"/>
-</div>
-<div class="section level3 unnumbered" id="dicionário-de-funções-5">
-<h3>Dicionário de Funções<a aria-label="anchor" class="anchor" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-5"><i class="fas fa-link"></i></a>
-</h3>
-<p>[a fazer]</p>
-<hr class="single-hrule"/>
-</div>
 <div class="section level3 unnumbered" id="referências-5">
 <h3>Referências<a aria-label="anchor" class="anchor" href="#refer%C3%AAncias-5"><i class="fas fa-link"></i></a>
 </h3>
-<p>[a fazer]</p>
+<p>Referência básica: Advanced R (2e) partes <a href="https://adv-r.hadley.nz/fp.html">“Functional Programming”</a> + <a href="https://purrr.tidyverse.org/">documentação do pacote “purrr”</a>, <a href="https://adv-r.hadley.nz/oo.html">“Object-Oriented Programming”</a>, <a href="https://adv-r.hadley.nz/metaprogramming.html">“Metaptrogramming”</a> + <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Computing-on-the-language">“R Language Definition” capítulo 6</a> e do <a href="https://rlang.r-lib.org/">pacote rlang</a>.</p>
 </div>
 </div>
 </div>
 <div class="chapter-nav">
 <div class="prev"><a href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></div>
-<div class="next"><a href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></div>
+<div class="next"><a href="recap1.html">Recapitulando</a></div>
 </div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
 <nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
 <ul class="nav navbar-nav">
@@ -1031,20 +970,18 @@ timeit <- function(f) {
 <li><a class="nav-link" href="#atalhos"><span class="header-section-number">7.3.7</span> Atalhos</a></li>
 <li><a class="nav-link" href="#escolhendo-o-output"><span class="header-section-number">7.3.8</span> Escolhendo o Output</a></li>
 <li><a class="nav-link" href="#e-amigos"><span class="header-section-number">7.3.9</span> E Amigos</a></li>
-<li><a class="nav-link" href="#quando-usar-um-map"><span class="header-section-number">7.3.10</span> Quando Usar um Map?</a></li>
-<li><a class="nav-link" href="#reduce"><span class="header-section-number">7.3.11</span> Reduce</a></li>
-<li><a class="nav-link" href="#reduce-in%C3%ADcio-customizado"><span class="header-section-number">7.3.12</span> Reduce: Início Customizado</a></li>
-<li><a class="nav-link" href="#reduce-2"><span class="header-section-number">7.3.13</span> Reduce 2</a></li>
-<li><a class="nav-link" href="#reduce-outros"><span class="header-section-number">7.3.14</span> Reduce: Outros</a></li>
-<li><a class="nav-link" href="#predicate-functionals"><span class="header-section-number">7.3.15</span> Predicate Functionals</a></li>
-<li><a class="nav-link" href="#outros"><span class="header-section-number">7.3.16</span> Outros</a></li>
+<li><a class="nav-link" href="#reduce"><span class="header-section-number">7.3.10</span> Reduce</a></li>
+<li><a class="nav-link" href="#reduce-in%C3%ADcio-customizado"><span class="header-section-number">7.3.11</span> Reduce: Início Customizado</a></li>
+<li><a class="nav-link" href="#reduce-2"><span class="header-section-number">7.3.12</span> Reduce 2</a></li>
+<li><a class="nav-link" href="#reduce-outros"><span class="header-section-number">7.3.13</span> Reduce: Outros</a></li>
+<li><a class="nav-link" href="#predicate-functionals"><span class="header-section-number">7.3.14</span> Predicate Functionals</a></li>
+<li><a class="nav-link" href="#outros"><span class="header-section-number">7.3.15</span> Outros</a></li>
 </ul>
 </li>
 <li>
 <a class="nav-link" href="#pf-function-factories"><span class="header-section-number">7.4</span> PF: Function Factories</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#function-factories"><span class="header-section-number">7.4.1</span> Function Factories</a></li>
 <li><a class="nav-link" href="#function-factories-envs"><span class="header-section-number">7.4.2</span> Function Factories’ Envs</a></li>
-<li><a class="nav-link" href="#function-factories-envs-1"><span class="header-section-number">7.4.3</span> Function Factories’ Envs</a></li>
 </ul>
 </li>
 <li>
@@ -1054,22 +991,20 @@ timeit <- function(f) {
 <a class="nav-link" href="#oop"><span class="header-section-number">7.6</span> OOP</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#defini%C3%A7%C3%A3o-1"><span class="header-section-number">7.6.1</span> Definição</a></li>
 <li><a class="nav-link" href="#sistemas-de-oop-no-r"><span class="header-section-number">7.6.2</span> Sistemas de OOP no R</a></li>
-<li><a class="nav-link" href="#sistemas-de-oop-no-r-1"><span class="header-section-number">7.6.3</span> Sistemas de OOP no R</a></li>
-<li><a class="nav-link" href="#quando-usar-oop"><span class="header-section-number">7.6.4</span> Quando Usar OOP</a></li>
+<li><a class="nav-link" href="#quando-usar-oop"><span class="header-section-number">7.6.3</span> Quando Usar OOP</a></li>
 </ul>
 </li>
 <li>
 <a class="nav-link" href="#express%C3%B5es"><span class="header-section-number">7.7</span> Expressões</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#defini%C3%A7%C3%A3o-2"><span class="header-section-number">7.7.1</span> Definição</a></li>
-<li><a class="nav-link" href="#tipos-de-express%C3%B5es"><span class="header-section-number">7.7.2</span> Tipos de Expressões</a></li>
-<li><a class="nav-link" href="#tipos-baseados-em-express%C3%B5es"><span class="header-section-number">7.7.3</span> Tipos Baseados em Expressões</a></li>
-<li><a class="nav-link" href="#ast"><span class="header-section-number">7.7.4</span> AST</a></li>
+<li><a class="nav-link" href="#tipos-de-express%C3%B5es"><span class="header-section-number">7.7.1</span> Tipos de Expressões</a></li>
+<li><a class="nav-link" href="#tipos-baseados-em-express%C3%B5es"><span class="header-section-number">7.7.2</span> Tipos Baseados em Expressões</a></li>
+<li><a class="nav-link" href="#ast"><span class="header-section-number">7.7.3</span> AST</a></li>
 </ul>
 </li>
 <li>
 <a class="nav-link" href="#metaprograma%C3%A7%C3%A3o-capturando"><span class="header-section-number">7.8</span> Metaprogramação: Capturando</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#disclaimer"><span class="header-section-number">7.8.1</span> Disclaimer</a></li>
-<li><a class="nav-link" href="#defini%C3%A7%C3%A3o-3"><span class="header-section-number">7.8.2</span> Definição</a></li>
+<li><a class="nav-link" href="#defini%C3%A7%C3%A3o-2"><span class="header-section-number">7.8.2</span> Definição</a></li>
 <li><a class="nav-link" href="#quoting"><span class="header-section-number">7.8.3</span> 1. Quoting</a></li>
 <li><a class="nav-link" href="#parsing"><span class="header-section-number">7.8.4</span> 1. Parsing</a></li>
 <li><a class="nav-link" href="#enriched-quoting"><span class="header-section-number">7.8.5</span> 1. Enriched Quoting</a></li>
@@ -1090,15 +1025,10 @@ timeit <- function(f) {
 <li><a class="nav-link" href="#tidy-evaluation"><span class="header-section-number">7.10.2</span> 3. Tidy Evaluation</a></li>
 <li><a class="nav-link" href="#outros-pontos"><span class="header-section-number">7.10.3</span> 3. Outros Pontos</a></li>
 <li><a class="nav-link" href="#estudo-de-caso"><span class="header-section-number">7.10.4</span> Estudo de Caso</a></li>
-<li><a class="nav-link" href="#estudo-de-caso-1"><span class="header-section-number">7.10.5</span> Estudo de Caso</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#complemento-5">Complemento</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#recapitulando-5">Recapitulando</a></li>
-<li><a class="nav-link" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-5">Dicionário de Funções</a></li>
-<li><a class="nav-link" href="#refer%C3%AAncias-5">Referências</a></li>
-</ul>
+<a class="nav-link" href="#complemento-5">Complemento</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#refer%C3%AAncias-5">Referências</a></li></ul>
 </li>
 </ul>
 <!--<div class="book-extra">

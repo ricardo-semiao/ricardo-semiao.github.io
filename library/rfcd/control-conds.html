@@ -9,16 +9,16 @@
 <link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
 <link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
 <meta content="Ricardo Semião e Castro" name="Author"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.   5.1 Introdução   5.2 Choices  5.2.1 If &amp; else   5.2.2 And and e or or   5.2.3 Switch   5.3 Loops  5.3.1 Loops For  ..." name="description"/>
+<meta content="5.1 Introdução Control flow é o termo usado para descrever as ferramentas que alteram a ordem de execução de um dado código. Nesse capítulo, brevemente apresentarei-as. Este capítulo está escrito..." name="description"/>
 <meta content="bookdown 0.45 with bs4_book()" name="generator"/>
 <meta content="5 Control Flow e Condições | R: Fundamentos e Ciência de Dados" property="og:title"/>
 <meta content="book" property="og:type"/>
 <meta content="https://ricardo-semiao.github.io/course-rfcd/control-conds.html" property="og:url"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.   5.1 Introdução   5.2 Choices  5.2.1 If &amp; else   5.2.2 And and e or or   5.2.3 Switch   5.3 Loops  5.3.1 Loops For  ..." property="og:description"/>
+<meta content="5.1 Introdução Control flow é o termo usado para descrever as ferramentas que alteram a ordem de execução de um dado código. Nesse capítulo, brevemente apresentarei-as. Este capítulo está escrito..." property="og:description"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="5 Control Flow e Condições | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
 <meta content="@ricardo_semiao" name="twitter:site"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.   5.1 Introdução   5.2 Choices  5.2.1 If &amp; else   5.2.2 And and e or or   5.2.3 Switch   5.3 Loops  5.3.1 Loops For  ..." name="twitter:description"/>
+<meta content="5.1 Introdução Control flow é o termo usado para descrever as ferramentas que alteram a ordem de execução de um dado código. Nesse capítulo, brevemente apresentarei-as. Este capítulo está escrito..." name="twitter:description"/>
 <!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
@@ -150,7 +150,7 @@
 <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Bem Vindo(a)!</a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
-<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li class="book-part">Parte I - Fundamentos</li>
 <li><a class="" href="intro1.html">Introdução</a></li>
 <li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
 <li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
@@ -158,33 +158,14 @@
 <li><a class="active" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
 <li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
 <li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
-<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
 <li><a class="" href="recap1.html">Recapitulando</a></li>
-<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li class="book-part">Parte II - Ciência de dados</li>
 <li><a class="" href="intro2.html">Introdução</a></li>
-<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
-<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
-<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
-<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
-<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
-<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
-<li><a class="" href="recap2.html">Recapitulando</a></li>
-<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
+<li class="book-part">Parte III - Programação Geral</li>
 <li><a class="" href="intro3.html">Introdução</a></li>
-<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
-<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
-<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
-<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
-<li><a class="" href="recap3.html">Recapitulando</a></li>
-<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
-<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
-<li><a class="" href="intro4.html">Introdução</a></li>
-<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
-<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
-<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
-<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li><a class="" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
 <li class="book-part">Apêndice</li>
 <li><a class="" href="dict.html">Dicionário de funções</a></li>
 <li><a class="" href="refs.html">Referências</a></li>
@@ -198,302 +179,534 @@
 <h1>
 <span class="header-section-number">5</span> Control Flow e Condições<a aria-label="anchor" class="anchor" href="#control-conds"><i class="fas fa-link"></i></a>
 </h1>
-<div class="warn">
-<p>este capítulo está em construção. O que segue abaixo é apenas um rascunho.</p>
-</div>
-<!-- colocar 0 na tabela de erros (sss é, não contar como um método).
-a brisa da dimensão -->
 <div class="section level2" id="introdução-4" number="5.1">
 <h2>
 <span class="header-section-number">5.1</span> Introdução<a aria-label="anchor" class="anchor" href="#introdu%C3%A7%C3%A3o-4"><i class="fas fa-link"></i></a>
 </h2>
+<p>Control flow é o termo usado para descrever as ferramentas que alteram a ordem de execução de um dado código. Nesse capítulo, brevemente apresentarei-as. Este capítulo está escrito de forma mais enxuta que os capítulos anteriores.</p>
 </div>
-<div class="section level2" id="choices" number="5.2">
+<div class="section level2" id="escolhas" number="5.2">
 <h2>
-<span class="header-section-number">5.2</span> Choices<a aria-label="anchor" class="anchor" href="#choices"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2</span> Escolhas<a aria-label="anchor" class="anchor" href="#escolhas"><i class="fas fa-link"></i></a>
 </h2>
-<div class="section level3" id="if-else" number="5.2.1">
+<p>Primeiro, temos as ferramentas que permitem escolher entre diferentes caminhos de execução, dependendo de condições.</p>
+<div class="section level3" id="if-e-else" number="5.2.1">
 <h3>
-<span class="header-section-number">5.2.1</span> If &amp; else<a aria-label="anchor" class="anchor" href="#if-else"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2.1</span> If e Else<a aria-label="anchor" class="anchor" href="#if-e-else"><i class="fas fa-link"></i></a>
 </h3>
+<p>No R, podemos criar uma expressão que apenas é avaliada se uma certa condição for verdade. Se não for, podemos complementar com expressões auxiliares.</p>
+<p>Pegando o exemplo do “Advanced R”, a nota A/B/C/D pode ser calculada com base em uma nota numérica <code>x</code> da seguinte forma:</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">90</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="st">"A"</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">80</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="st">"B"</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">50</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="st">"C"</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="st">"D"</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Algumas características gerais:</p>
+<ul>
+<li>A condição deve ser <code>TRUE</code> ou <code>FALSE</code>, nunca um vetor lógico com mais de um elemento, nem <code>NA</code>. Os operadores <code>&amp;&amp;</code> e <code>||</code> são úteis para garantir um escalar, assim como <code><a href="https://rdrr.io/r/base/Logic.html">isTRUE()</a></code> e <code><a href="https://rdrr.io/r/base/Logic.html">isFALSE()</a></code>.</li>
+<li>Existe uma versão enxuta, que cabe em uma linha e sem <code>{</code>: <code class="sourceCode r"><span class="cf">if</span> (cond) expr</code>.</li>
+<li>Como tudo que executa uma ação no R, <code>if</code> é uma função, e retorna um valor<a class="footnote-ref" data-content='&lt;p&gt;Veremos que ele de fato pode ser escrito como funções: &lt;code class="sourceCode r"&gt;&lt;span class="st"&gt;`&lt;/span&gt;&lt;span class="at"&gt;if(cond, true_value, false_value)&lt;/span&gt;&lt;span class="st"&gt;`&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>49</sup></a>. Se não houver nenhum <code>else</code>, retorna <code>NULL</code> se a condição não for satisfeita. Exemplo: <code class="sourceCode r">x <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="cn">TRUE</span>) <span class="dv">1</span> <span class="cf">else</span> <span class="dv">2</span></code>.</li>
+</ul>
 </div>
-<div class="section level3" id="and-and-e-or-or-1" number="5.2.2">
+<div class="section level3" id="if-e-else-vetorizado" number="5.2.2">
 <h3>
-<span class="header-section-number">5.2.2</span> And and e or or<a aria-label="anchor" class="anchor" href="#and-and-e-or-or-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2.2</span> If e Else Vetorizado<a aria-label="anchor" class="anchor" href="#if-e-else-vetorizado"><i class="fas fa-link"></i></a>
 </h3>
+<p>A função <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> funciona para um vetor de condições, diferentemente de <code>if</code>, que exigia um único valor booleano. Para cada elemento, ela checa a condição, e avalia uma ou outra expressão, salvando os resultados em um vetor.</p>
+<div class="ex">
+<p>O que o código abaixo vai retornar?</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">5</span>, <span class="cn">NA</span>, <span class="va">x</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3" id="switch-1" number="5.2.3">
+<p>Outra opção é <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">dplyr::case_when()</a></code>, que permite vários pares condição-resultado:</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
+<span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>  <span class="va">k</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">35</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">~</span> <span class="st">"fizz buzz"</span>,</span>
+<span>  <span class="va">k</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">5</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">~</span> <span class="st">"fizz"</span>,</span>
+<span>  <span class="va">k</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">7</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">~</span> <span class="st">"buzz"</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">~</span> <span class="st">"???"</span>,</span>
+<span>  <span class="cn">TRUE</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">k</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "1"    "2"    "3"    "4"    "fizz" "6"    "buzz" "8"    "9"    "fizz"</span></span></code></pre></div>
+<div class="warn">
+<p><code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> é inconsistente quando os valores de retorno tem diferentes tipos. Prefira utilizar <code><a href="https://rdrr.io/pkg/funs/man/if_else.html">funs::if_else()</a></code>.</p>
+</div>
+</div>
+<div class="section level3" id="and-and-e-or-or" number="5.2.3">
 <h3>
-<span class="header-section-number">5.2.3</span> Switch<a aria-label="anchor" class="anchor" href="#switch-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2.3</span> And And e Or Or<a aria-label="anchor" class="anchor" href="#and-and-e-or-or"><i class="fas fa-link"></i></a>
 </h3>
+<p>Existem os operadores “and and” <code>&amp;&amp;</code> e “or or” <code>||</code> que garantem sempre um único valor booleano (dão erros com vetores longos), além de serem “short circuit”.</p>
+<div class="ex">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="cn">TRUE</span></span>
+<span><span class="co">#&gt; erro por usar vetor longo</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; FALSE pois para no `FALSE`</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">&amp;</span> <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="op">)</span> <span class="co">#gera erro,</span></span>
+<span><span class="co">#&gt; erro, pois não para no `FALSE`</span></span></code></pre></div>
+</div>
+<p>Por isso, use <code>&amp;&amp;</code> e <code>||</code> em <code>if</code>, <code>&amp;</code> e <code>|</code> em <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>.</p>
+</div>
+<div class="section level3" id="switch" number="5.2.4">
+<h3>
+<span class="header-section-number">5.2.4</span> Switch<a aria-label="anchor" class="anchor" href="#switch"><i class="fas fa-link"></i></a>
+</h3>
+<p>Existe uma maneira mais simples de escrever uma expressão <code>if</code> de “escolha de opções”, com a função <code><a href="https://rdrr.io/r/base/switch.html">switch()</a></code>:</p>
+<div class="ex">
+<div class="columns">
+<div class="column" style="width:47.5%;">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="st">"a"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="st">"option 1"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="st">"b"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="st">"option 2"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="st">"c"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="st">"option 3"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"`x` inválido"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+<div class="column" style="width:5%;">
+</div>
+<div class="column" style="width:47.5%;">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/switch.html">switch</a></span><span class="op">(</span><span class="va">x</span>,</span>
+<span>  a <span class="op">=</span> <span class="st">"option 1"</span>,</span>
+<span>  b <span class="op">=</span> <span class="st">"option 2"</span>,</span>
+<span>  c <span class="op">=</span> <span class="st">"option 3"</span>,</span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"`x` inválido"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level2" id="loops" number="5.3">
+</div>
+</div>
+<div class="section level3" id="match" number="5.2.5">
+<h3>
+<span class="header-section-number">5.2.5</span> Match<a aria-label="anchor" class="anchor" href="#match"><i class="fas fa-link"></i></a>
+</h3>
+<p>De maneira mais geral do que switch, que associava um resultado para cada valor de uma string <code>x</code>, podemos associar um resultado para cada ‘padrão’ que um <code>x</code> de qualquer tipo possa assumir.</p>
+<p>As funções <code><a href="https://rdrr.io/pkg/predicater/man/match_hash.html">predicater::match_hash()</a></code> e <code><a href="https://rdrr.io/pkg/predicater/man/match_hash.html">predicater::match_id()</a></code> fazem exatamente isso.</p>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">match_hash</span><span class="op">(</span><span class="fl">1.42</span>, <span class="co"># x de qualquer tipo</span></span>
+<span>    <span class="fl">1.42</span> <span class="op">~</span> <span class="fu">base</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>,</span>
+<span>    <span class="st">"oi"</span> <span class="op">~</span> <span class="op">-</span><span class="cn">Inf</span></span>
+<span><span class="op">)</span> <span class="co">#&gt; base::sum</span></span></code></pre></div>
+</div>
+<div class="section level3" id="infix-operator" number="5.2.6">
+<h3>
+<span class="header-section-number">5.2.6</span> Infix Operator<a aria-label="anchor" class="anchor" href="#infix-operator"><i class="fas fa-link"></i></a>
+</h3>
+<p>Muitas vezes, queremos substituir o valor de uma variável caso ela seja <code>NULL</code>. Muitas vezes, funções usam isso para definir argumentos padrão.</p>
+<p>Para isso, temos o infix operator:</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">k</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span><span class="va">k</span> <span class="op">&lt;-</span> <span class="va">k</span> <span class="op"><a href="https://rdrr.io/r/base/Control.html">%||%</a></span> <span class="fl">10</span></span></code></pre></div>
+<p>Também temos o oposto em <code><a href="https://rlang.r-lib.org/reference/op-null-continuation.html">rlang::`%&amp;&amp;%`</a></code>, que retorna um valor para o caso de x não ser <code>NULL</code>.</p>
+</div>
+</div>
+<div class="section level2" id="repetições" number="5.3">
 <h2>
-<span class="header-section-number">5.3</span> Loops<a aria-label="anchor" class="anchor" href="#loops"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3</span> Repetições<a aria-label="anchor" class="anchor" href="#repeti%C3%A7%C3%B5es"><i class="fas fa-link"></i></a>
 </h2>
-<div class="section level3" id="loops-for-1" number="5.3.1">
+<p><em>Loops</em> são utilizados para rodar um mesmo código várias vezes, possivelmente variando os inputs que ele recebe.</p>
+<div class="section level3" id="repeat-e-break" number="5.3.1">
 <h3>
-<span class="header-section-number">5.3.1</span> Loops For<a aria-label="anchor" class="anchor" href="#loops-for-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1</span> Repeat e <code>break</code><a aria-label="anchor" class="anchor" href="#repeat-e-break"><i class="fas fa-link"></i></a>
 </h3>
+<p>O loop mais simples é o <code>repeat</code>, que repete uma ação pra sempre até encontrar uma <em>keyword</em> especial: <code><a href="https://rdrr.io/r/base/Control.html">break</a></code>:</p>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">repeat</span> <span class="op">{</span></span>
+<span>    <span class="va">expr</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">condition</span><span class="op">)</span> <span class="kw">break</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 </div>
-<div class="section level3" id="outros-loops-1" number="5.3.2">
+<div class="section level3" id="while" number="5.3.2">
 <h3>
-<span class="header-section-number">5.3.2</span> Outros loops<a aria-label="anchor" class="anchor" href="#outros-loops-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.2</span> While<a aria-label="anchor" class="anchor" href="#while"><i class="fas fa-link"></i></a>
 </h3>
+<p>O loop <code>while</code> é similar, mas repete a ação enquanto uma condição for verdadeira:</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">while</span> <span class="op">(</span><span class="va">condition</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">expr</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Um loop <code class="sourceCode r"><span class="cf">while</span> (<span class="cn">TRUE</span>) ...</code> é equivalente a um <code>repeat</code>.</p>
+</div>
+<div class="section level3" id="for-e-next" number="5.3.3">
+<h3>
+<span class="header-section-number">5.3.3</span> For e <code>next</code><a aria-label="anchor" class="anchor" href="#for-e-next"><i class="fas fa-link"></i></a>
+</h3>
+<p>O loop <code>for</code> repete um código para cada elemento de uma coleção:</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">item</span> <span class="kw">in</span> <span class="va">vector</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">expr</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Esse loop cria a variável <code>item</code>, cujo valor vai sendo atualizado a cada iteração, e fica armazenada no ambiente global. Normalmente, <code>expr</code> é uma expressão que depende do valor de <code>item</code>.</p>
+<p>As três opções de loop podem ‘pular’ uma iteração com a keyword <code><a href="https://rdrr.io/r/base/Control.html">next</a></code>.</p>
+<div class="ex">
+<p>Como será a ordem do loop abaixo?</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op">&lt;</span> <span class="fl">3</span><span class="op">)</span> <span class="kw">next</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op">&gt;=</span> <span class="fl">5</span><span class="op">)</span> <span class="kw">break</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level2" id="condições-1" number="5.4">
+<div class="section level3" id="map" number="5.3.4">
+<h3>
+<span class="header-section-number">5.3.4</span> Map<a aria-label="anchor" class="anchor" href="#map"><i class="fas fa-link"></i></a>
+</h3>
+<p>O map é uma versão mais restritiva de <code>for</code>, onde <code>expr</code> é uma função que recebe <code>item</code> como argumento, e retorna um valor. O map retorna um vetor com os valores retornados por cada chamada de <code>expr</code>. A função <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> our <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code>, chamada como <code class="sourceCode r"><span class="fu">lapply</span>(vector, expr)</code>, executa algo como:</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vector</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">out</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">expr</span><span class="op">(</span><span class="va">vector</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>O map sempre executa todas as iterações, não permitindo <code><a href="https://rdrr.io/r/base/Control.html">break</a></code> ou <code><a href="https://rdrr.io/r/base/Control.html">next</a></code>. Além disso, todas as iterações geram um valor para o vetor de saída, o que não precisa acontecer nos outros loops.</p>
+<p>As funções de map no R oferecem opções de como simplificar seu resultado. <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> sempre retorna uma lista, <code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code> permite que você defina o tipo de saída. O pacote purrr oferece funções mais consistentes como <code>map()</code> e <code>map_dbl()</code>. Mais sobre maps será discutido no capítulo de programação funcional.</p>
+</div>
+<div class="section level3" id="operações-vetorizadas" number="5.3.5">
+<h3>
+<span class="header-section-number">5.3.5</span> Operações vetorizadas<a aria-label="anchor" class="anchor" href="#opera%C3%A7%C3%B5es-vetorizadas"><i class="fas fa-link"></i></a>
+</h3>
+<p>O R é uma lingua vetorizada, use operações vetorizadas no lugar de loops:</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;</span> <span class="fl">0</span>, <span class="op">-</span><span class="va">x</span>, <span class="va">x</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="kw">else</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+<div class="section level3" id="comparando-os-loops" number="5.3.6">
+<h3>
+<span class="header-section-number">5.3.6</span> Comparando os loops<a aria-label="anchor" class="anchor" href="#comparando-os-loops"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para entender as diferenças entre os loops, e quando usar cada um, pense-os como opções mais flexíveis ou mais restritivas. A tabela abaixo descreve se os loops permitem loops infinitos, <code><a href="https://rdrr.io/r/base/Control.html">next</a></code> e <code><a href="https://rdrr.io/r/base/Control.html">break</a></code>, se cada iteração necessariamente gera um resultado, e se ele consegue afetar o ambiente global:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="20%"/>
+<col width="20%"/>
+<col width="20%"/>
+<col width="20%"/>
+<col width="20%"/>
+</colgroup>
+<thead><tr class="header">
+<th>Loop</th>
+<th>Finito</th>
+<th>
+<code><a href="https://rdrr.io/r/base/Control.html">next</a></code> e <code><a href="https://rdrr.io/r/base/Control.html">break</a></code>
+</th>
+<th>omitir resultados</th>
+<th>Afetar o ambiente global</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<code>repeat</code> / <code>while (TRUE)</code>
+</td>
+<td>via <code><a href="https://rdrr.io/r/base/Control.html">break</a></code>
+</td>
+<td>sim</td>
+<td>sim</td>
+<td>sim</td>
+</tr>
+<tr class="even">
+<td><code>while</code></td>
+<td>via <code><a href="https://rdrr.io/r/base/Control.html">break</a></code> ou condição</td>
+<td>sim</td>
+<td>sim</td>
+<td>sim</td>
+</tr>
+<tr class="odd">
+<td><code>for</code></td>
+<td>sempre</td>
+<td>sim</td>
+<td>sim</td>
+<td>sim</td>
+</tr>
+<tr class="even">
+<td>map</td>
+<td>sempre</td>
+<td>não</td>
+<td>não</td>
+<td>via <code>&lt;&lt;-</code> ou <code><a href="https://rdrr.io/r/base/assign.html">assign()</a></code>
+</td>
+</tr>
+<tr class="odd">
+<td>operação vetorizada</td>
+<td>sempre</td>
+<td>não</td>
+<td>não</td>
+<td>depende</td>
+</tr>
+</tbody>
+</table></div>
+<div class="result">
+<p>Considere a máxima de que, quando não se precisa de flexibilidade, a opção mais restritiva/especializada deixa a intenção do código mais clara, abre mais portas para otimizações, e menos brechas para erros. Veja se é possível usar uma operação vetorizada, se não, considere um map, se não, considere um <code>for</code>, e assim por diante.</p>
+</div>
+<p>Dicas gerais:</p>
+<ul>
+<li>Ao usar um loop para criar uma variável, crie o “contêiner” de antemão, pois é bem mais rápido:</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>; <span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">i</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>; <span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">i</span></span></code></pre></div>
+<ul>
+<li>Prefira usar <code class="sourceCode r"><span class="fu">seq_along</span>(x)</code> no lugar de <code class="sourceCode r"><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)</code>.</li>
+<li>Cuidado que loops costuma remover atributos. Use <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> e acesse os itens você mesmo:</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2020-01-01"</span>, <span class="st">"2010-01-01"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2" id="condições" number="5.4">
 <h2>
-<span class="header-section-number">5.4</span> Condições<a aria-label="anchor" class="anchor" href="#condi%C3%A7%C3%B5es-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.4</span> Condições<a aria-label="anchor" class="anchor" href="#condi%C3%A7%C3%B5es"><i class="fas fa-link"></i></a>
 </h2>
+<p>O sistema de condições serve para funções indicarem ao usuário alguma informação, como a existência de erros.</p>
+<p>Existem três tipos de informação:</p>
+<ul>
+<li>Erros: muito severos, indicam que nem foi possível terminar a execução da função</li>
+<li>Avisos: médiamente severos, indicam alga provávelmente errado, mas que não impediu a execução.</li>
+<li>Mensagens: pouco severos, normalmente indicam que a função realizou alguma correção para o usuário.</li>
+</ul>
+<div class="section level3" id="signaling" number="5.4.1">
+<h3>
+<span class="header-section-number">5.4.1</span> Signaling<a aria-label="anchor" class="anchor" href="#signaling"><i class="fas fa-link"></i></a>
+</h3>
+<p>Autores de funções devem aprender quando e como indicar cada tipo de condição. Se tiver curiosidade, veja a seção <a href="https://adv-r.hadley.nz/conditions.html#signalling-conditions">8.2 do AdvR</a>.</p>
+<p>Dentro da função, chamadas à <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code>, ou <code><a href="https://rdrr.io/r/base/message.html">message()</a></code> criam a condição. <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>, inclusive, para a execução da função. Também existe <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::abort()</a></code>, <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::warn()</a></code>, <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::inform()</a></code>.</p>
+<div class="ex">
+<p>Considere as função de teste do pacote <a href="https://github.com/ricardo-semiao/mtsdesc/">mtsdesc</a>.</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">test</span><span class="op">$</span><span class="va">category</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">arg</span>, <span class="va">options</span>, <span class="va">env</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">arg_name</span> <span class="op">&lt;-</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html">ensym</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="va">arg</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">options</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">cli_abort</span><span class="op">(</span></span>
+<span>      <span class="st">"{.var {arg_name}} must contain only {.or {options}}"</span>,</span>
+<span>      call <span class="op">=</span> <span class="va">env</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">test</span><span class="op">$</span><span class="va">unused</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">arg</span>, <span class="va">x</span>, <span class="va">class</span>, <span class="va">env</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">arg_name</span> <span class="op">&lt;-</span> <span class="fu">ensym</span><span class="op">(</span><span class="va">arg</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">==</span> <span class="va">class</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">cli_inform</span><span class="op">(</span></span>
+<span>      <span class="st">"{.val {arg_name}} is unused if `x` is of class {class}."</span>,</span>
+<span>      call <span class="op">=</span> <span class="va">env</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3" id="ignoring" number="5.4.2">
+<h3>
+<span class="header-section-number">5.4.2</span> Ignoring<a aria-label="anchor" class="anchor" href="#ignoring"><i class="fas fa-link"></i></a>
+</h3>
+<p>No R, podemos ignorar condições:</p>
+<ul>
+<li>Ignore erros com <code><a href="https://rdrr.io/r/base/try.html">try()</a></code>.</li>
+<li>Ignore avisos com <code><a href="https://rdrr.io/r/base/warning.html">suppressWarnings()</a></code>.</li>
+<li>Ignore mensagens com <code><a href="https://rdrr.io/r/base/message.html">suppressMessages()</a></code>.</li>
+</ul>
+<div class="ex">
+<p>Considere o padrão abaixo.</p>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/try.html">try</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">call_que_pode_dar_errado</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3" id="handling" number="5.4.3">
+<h3>
+<span class="header-section-number">5.4.3</span> Handling<a aria-label="anchor" class="anchor" href="#handling"><i class="fas fa-link"></i></a>
+</h3>
+<p>Podemos lidar com condições usando <code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> e <code><a href="https://rdrr.io/r/base/conditions.html">withCallingHandlers()</a></code>, que especificam funções para se executar no caso de cada tipo de condição:</p>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/conditions.html">tryCatch</a></span><span class="op">(</span></span>
+<span>  error <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">cnd</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="co"># código a ser executado quando ocorrer um erro</span></span>
+<span>  <span class="op">}</span>,</span>
+<span>  warning <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">cnd</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="co"># código a ser executado quando um aviso for sinalizado</span></span>
+<span>  <span class="op">}</span>,</span>
+<span>  message <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">cnd</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="co"># código a ser executado quando uma mensagem for sinalizada</span></span>
+<span>  <span class="op">}</span>,</span>
+<span>  <span class="va">call_rodada_com_handlers</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>Qual a diferença das duas?</p>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> define <em>exiting handlers</em>, após a condição aparecer, a função handler relevante é ativada, e seu valor é retornado para onde <code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> foi chamado.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/conditions.html">withCallingHandlers()</a></code> define <em>calling handlers</em>, após a condição, a função handler relevante é ativada, e seu valor é retornado para onde a call que gerou a condição estava.</li>
+</ul>
+<p>Isto é, uma sai da call, outra não. A primeira é mais intuitiva para erros, a segunda para avisos ou mensagens.</p>
+<!-- TODO: falar de restarts -->
 <hr class="double-hrule"/>
+</div>
 </div>
 <div class="section level2 unlisted unnumbered" id="complemento-3">
 <h2>Complemento<a aria-label="anchor" class="anchor" href="#complemento-3"><i class="fas fa-link"></i></a>
 </h2>
-<div class="section level3 unnumbered" id="recapitulando-3">
-<h3>Recapitulando<a aria-label="anchor" class="anchor" href="#recapitulando-3"><i class="fas fa-link"></i></a>
-</h3>
-<hr class="single-hrule"/>
-</div>
 <div class="section level3 unnumbered" id="dicionário-de-funções-3">
 <h3>Dicionário de Funções<a aria-label="anchor" class="anchor" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-3"><i class="fas fa-link"></i></a>
 </h3>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:left;">
+Categoria
+</th>
+<th style="text-align:left;">
+Função
+</th>
+<th style="text-align:left;">
+Descrição
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+control flow
+</td>
+<td style="text-align:left;">
+<code>if</code>, <code><a href="https://rdrr.io/r/base/switch.html">switch()</a></code>, <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>, <code>%||%</code>
+</td>
+<td style="text-align:left;">
+<a href="https://search.r-project.org/R/refmans/base/html/Control.html">if else</a>, ifelse vetorizado, e infix operator
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+control flow
+</td>
+<td style="text-align:left;">
+<code>for</code>, <code>while</code>, <code>repeat</code>
+</td>
+<td style="text-align:left;">
+<a href="https://search.r-project.org/R/refmans/base/html/Control.html">loops</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+control flow
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/Control.html">break</a></code>, <code><a href="https://rdrr.io/r/base/Control.html">next</a></code>
+</td>
+<td style="text-align:left;">
+<a href="https://search.r-project.org/R/refmans/base/html/Control.html">keywords</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+operadores
+</td>
+<td style="text-align:left;">
+<code>&amp;&amp;</code>, <code>||</code>
+</td>
+<td style="text-align:left;">
+<a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html">lógica</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+outros
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, <code><a href="https://rdrr.io/r/base/seq.html">seq.int()</a></code>, <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code>, <code><a href="https://rdrr.io/r/base/seq.html">seq_len()</a></code>
+</td>
+<td style="text-align:left;">
+geração de sequências
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+maps
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>, <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code>, <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code>
+</td>
+<td style="text-align:left;">
+maps
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+maps
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code>, <code><a href="https://rdrr.io/r/base/lapply.html">replicate()</a></code>, <code><a href="https://rdrr.io/r/base/funprog.html">Map()</a></code>
+</td>
+<td style="text-align:left;">
+maps (variações)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conditions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code>, <code><a href="https://rdrr.io/r/base/message.html">message()</a></code>
+</td>
+<td style="text-align:left;">
+signaling conditions
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conditions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::abort()</a></code>, <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::warn()</a></code>, <code><a href="https://rlang.r-lib.org/reference/abort.html">rlang::inform()</a></code>
+</td>
+<td style="text-align:left;">
+signaling conditions (rlang)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conditions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/try.html">try()</a></code>, <code>supressWarnings()</code>, <code>supressErrors()</code>
+</td>
+<td style="text-align:left;">
+ignoring conditions
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conditions
+</td>
+<td style="text-align:left;">
+<code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code>, <code>withCallingHandlers</code>
+</td>
+<td style="text-align:left;">
+handling conditions
+</td>
+</tr>
+</tbody>
+</table></div>
 <hr class="single-hrule"/>
 </div>
 <div class="section level3 unnumbered" id="referências-3">
 <h3>Referências<a aria-label="anchor" class="anchor" href="#refer%C3%AAncias-3"><i class="fas fa-link"></i></a>
 </h3>
-<hr class="single-hrule"/>
-</div>
-<div class="section level3 unnumbered" id="exercícios-2">
-<h3>Exercícios<a aria-label="anchor" class="anchor" href="#exerc%C3%ADcios-2"><i class="fas fa-link"></i></a>
-</h3>
-<!--
-## Introdução
-
-As ferramentas de control flow são aquelas que alteram a ordem de execução de um dado código\medskip
-
-No R, temos dois grupos principais:
-
-- _Choices_, com `if`, `else`, `switch()`, e `ifelse()`
-- _Loops_, com `repeat`, `while`, e `for`
-
-## Choices
-
-### If & else
-Podemos criar uma expressão que apenas é avaliada se uma certa condição for verdade. Se não for, podemos complementar com expressões auxiliares:
-
-
-``` r
-x <- 60
-if (x > 90) {
-  "A"
-} else if (x > 80) {
-  "B"
-} else if (x > 50) {
-  "C"
-} else {
-  "F"
-}
-```
-
-
-Características gerais:
-
-- Podemos escrever essas expressões em uma linha, sem "\{"
-- Podemos utilizá-las para assinalar valores: `x <- if (TRUE) 1 else 2`{.r}
-  - Se não houver nenhum `else`, `if` retorna um `NULL`{.r}
-
-::: {.example}
-O que o código abaixo vai retornar? Obs: `paste()` une as strings
-\vspace{-1em}
-
-``` r
-num <- runif(1) #sorteia um número entre 0 e 1
-paste("o número escolhido foi", num,
-      if (num > 0.5) "e ele é maior que 0.5")
-```
-\vspace{-1em}
-:::
-
-
-A função `ifelse()` funciona para um vetor de condições, diferentemente de `if`, que exigia um único valor booleano\medskip
-
-Para cada elemento, ela checa a condição, e avalia uma ou outra expressão, salvando os resultados em um vetor
-
-::: {.example}
-O que o código abaixo vai retornar?
-\vspace{-1em}
-
-``` r
-x <- 1:10
-ifelse(x > 5, NA, x)
-```
-\vspace{-1em}
-:::
-
-
-### And and e or or
-Existem os operadores "and and" `&&` e "or or" `||` que garantem sempre um único valor booleano (dão erros com vetores longos), além de serem "short circuit":
-
-
-``` r
-c(FALSE, TRUE) && TRUE
-#> erro por usar vetor longo
-
-c(FALSE) && stop()
-#> FALSE pois para no `FALSE`
-
-c(FALSE) & stop() #gera erro,
-#> erro, pois não para no `FALSE`
-```
-
-Por isso, use `&&` e `||` em `if`, e `&` e `|` em `ifelse()`
-
-
-### Switch
-Existe uma maneira mais simples de escrever uma expressão `if` de "escolha de opções", com a função `switch()`:
-
-:::::::::::::: {.columns}
-::: {.column width="47.5%"}
-
-``` r
-if (x == "a") {
-    "option 1"
-  } else if (x == "b") {
-    "option 2" 
-  } else if (x == "c") {
-    "option 3"
-  } else {
-    stop("`x` inválido")
-}
-```
-:::
-::: {.column width="5%"}
-:::
-::: {.column width="47.5%"}
-
-``` r
-switch(x,
-    a = "option 1",
-    b = "option 2",
-    c = "option 3",
-    stop("`x` inválido")
-)
-```
-:::
-::::::::::::::
-
-
-## Loops
-
-### Loops For
-Loops for são usados para iterar em elementos de um vetor:
-
-
-``` r
-for (item in vector) expr
-```
-
-`item` é literalmente um objeto, cujo valor vai sendo atualizado a cada iteração, e fica _armazenado no ambiente global_\footnote[frame]{Cuidado, isso substitui um valor pre-existente de mesmo nome}\medskip
-
-
-\framesubtitle{Keywords}
-A keyword `next` pula para a próxima iteração, e `break` termina o loop
-
-::: {.example}
-Como será a ordem do loop abaixo?
-\vspace{-1em}
-
-``` r
-for (i in 1:10) {
-  if (i < 3) next
-  print(i)
-  if (i >= 5) break
-}
-```
-\vspace{-1em}
-:::
-
-
-Dicas gerais:
-
-- Ao usar um loop para criar uma variável, crie o "contêiner" de antemão, pois é bem mais rápido:
-
-
-``` r
-x <- NULL; for(i in 1:5) x <- c(x, i)
-x <- NULL; for(i in 1:5) x[[i]] <- i
-```
-
-- Prefira usar `seq_along(x)`{.r} no lugar de `1:length(x)`{.r}
-- Cuidado que loops costuma remover atributos. Use `seq_along()` e acesse os itens você mesmo
-
-``` r
-x <- as.Date(c("2020-01-01", "2010-01-01"))
-for (i in x) print(i)
-```
-
-
-### Outros loops
-Se você não tem um vetor de opções de antemão, não sabe sobre quais valores quer iterar, você pode:
-
-- Usar um loop `while (condition) {...}`{.r}, que repete uma ação enquanto uma condição valer
-- Ou, ainda mais flexível, `repeat(...)`{.r}, que repete uma ação para sempre até encontrar um `break`
-
-É uma boa prática usar a opção menos flexível possível, para dar menos brechas para erros. Prefira usar o `for`, ou `apply` e `purrr::map` (tratadas no futuro)
-
-
-## Condições
-
-Seção sobre condições.
-
-
-
-<div class="double-hrule"></div>
-
-## Complemento {.unlisted .unnumbered}
-
-### Recapitulando {-}
-
-\framesubtitle{Control flow}
-Por fim, estudamos as ferramentas de control flow:
-
-- _Choices_, com `if`, `else`, `switch()`, e `ifelse()`
-- _Loops_, com `repeat`, `while`, e `for`
-
-Aprendemos alguns conhecimentos específicos de `if`, operadores com `&&`, e observações específicas do loop for
-
-
-\framesubtitle{Funções aprendidas}
-- Subsetting: `[`, `[[`, `$` (argumento _drop_)
-  - `purrr::pluck()` e `purrr::chuck()`
-  - Aplicações com `match()`, `sample()`, `setdiff()`, `which()`
-- Control flow:
-  - Choices: `if`, `else`, `ifelse()` e `switch()`
-    - Operadores `&&` e `||`
-  - Loops: `repeat`, `while`, e `for`
-    - Função `seq_along()`
-  - Keywords: `next`, `break`
-  
-
-
----
-
-### Exercícios {-}
-
-
----
-
-### Dicionário de Funções {-}
-
-
----
-
-### Referências {-}
--->
+<p>Referência básica: Advanced R (2e) <a href="https://adv-r.hadley.nz/control-flow.html">cap. 5</a>.</p>
 </div>
 </div>
 </div>
@@ -506,25 +719,36 @@ Aprendemos alguns conhecimentos específicos de `if`, operadores com `&&`, e obs
 <li><a class="nav-link" href="#control-conds"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
 <li><a class="nav-link" href="#introdu%C3%A7%C3%A3o-4"><span class="header-section-number">5.1</span> Introdução</a></li>
 <li>
-<a class="nav-link" href="#choices"><span class="header-section-number">5.2</span> Choices</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#if-else"><span class="header-section-number">5.2.1</span> If &amp; else</a></li>
-<li><a class="nav-link" href="#and-and-e-or-or-1"><span class="header-section-number">5.2.2</span> And and e or or</a></li>
-<li><a class="nav-link" href="#switch-1"><span class="header-section-number">5.2.3</span> Switch</a></li>
+<a class="nav-link" href="#escolhas"><span class="header-section-number">5.2</span> Escolhas</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#if-e-else"><span class="header-section-number">5.2.1</span> If e Else</a></li>
+<li><a class="nav-link" href="#if-e-else-vetorizado"><span class="header-section-number">5.2.2</span> If e Else Vetorizado</a></li>
+<li><a class="nav-link" href="#and-and-e-or-or"><span class="header-section-number">5.2.3</span> And And e Or Or</a></li>
+<li><a class="nav-link" href="#switch"><span class="header-section-number">5.2.4</span> Switch</a></li>
+<li><a class="nav-link" href="#match"><span class="header-section-number">5.2.5</span> Match</a></li>
+<li><a class="nav-link" href="#infix-operator"><span class="header-section-number">5.2.6</span> Infix Operator</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#loops"><span class="header-section-number">5.3</span> Loops</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#loops-for-1"><span class="header-section-number">5.3.1</span> Loops For</a></li>
-<li><a class="nav-link" href="#outros-loops-1"><span class="header-section-number">5.3.2</span> Outros loops</a></li>
+<a class="nav-link" href="#repeti%C3%A7%C3%B5es"><span class="header-section-number">5.3</span> Repetições</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#repeat-e-break"><span class="header-section-number">5.3.1</span> Repeat e break</a></li>
+<li><a class="nav-link" href="#while"><span class="header-section-number">5.3.2</span> While</a></li>
+<li><a class="nav-link" href="#for-e-next"><span class="header-section-number">5.3.3</span> For e next</a></li>
+<li><a class="nav-link" href="#map"><span class="header-section-number">5.3.4</span> Map</a></li>
+<li><a class="nav-link" href="#opera%C3%A7%C3%B5es-vetorizadas"><span class="header-section-number">5.3.5</span> Operações vetorizadas</a></li>
+<li><a class="nav-link" href="#comparando-os-loops"><span class="header-section-number">5.3.6</span> Comparando os loops</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#condi%C3%A7%C3%B5es-1"><span class="header-section-number">5.4</span> Condições</a></li>
+<li>
+<a class="nav-link" href="#condi%C3%A7%C3%B5es"><span class="header-section-number">5.4</span> Condições</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#signaling"><span class="header-section-number">5.4.1</span> Signaling</a></li>
+<li><a class="nav-link" href="#ignoring"><span class="header-section-number">5.4.2</span> Ignoring</a></li>
+<li><a class="nav-link" href="#handling"><span class="header-section-number">5.4.3</span> Handling</a></li>
+</ul>
+</li>
 <li>
 <a class="nav-link" href="#complemento-3">Complemento</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#recapitulando-3">Recapitulando</a></li>
 <li><a class="nav-link" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-3">Dicionário de Funções</a></li>
 <li><a class="nav-link" href="#refer%C3%AAncias-3">Referências</a></li>
-<li><a class="nav-link" href="#exerc%C3%ADcios-2">Exercícios</a></li>
 </ul>
 </li>
 </ul>

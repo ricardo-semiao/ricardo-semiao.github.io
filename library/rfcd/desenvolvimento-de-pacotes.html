@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!-- Meta --><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>10 Desenvolvimento de pacotes | R: Fundamentos e Ciência de Dados</title>
+<link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+<meta content="Este capítulo foi inicialmente escrito por mim em inglês, como um post de blog. No futuro, o traduzirei.  10.1 Introdução Esse capítulo é uma versão em html de meu script de desenvolvimento de..." name="description"/>
+<meta content="bookdown 0.45 with bs4_book()" name="generator"/>
+<meta content="10 Desenvolvimento de pacotes | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="book" property="og:type"/>
+<meta content="https://ricardo-semiao.github.io/course-rfcd/desenvolvimento-de-pacotes.html" property="og:url"/>
+<meta content="Este capítulo foi inicialmente escrito por mim em inglês, como um post de blog. No futuro, o traduzirei.  10.1 Introdução Esse capítulo é uma versão em html de meu script de desenvolvimento de..." property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="10 Desenvolvimento de pacotes | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="@ricardo_semiao" name="twitter:site"/>
+<meta content="Este capítulo foi inicialmente escrito por mim em inglês, como um post de blog. No futuro, o traduzirei.  10.1 Introdução Esse capítulo é uma versão em html de meu script de desenvolvimento de..." name="twitter:description"/>
+<!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"/>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"/>
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet"/>
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet"/>
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet"/>
+<script src="libs/selectize-0.12.0/selectize.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"/>
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><script crossorigin="anonymous" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script><script crossorigin="anonymous" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js"></script><script crossorigin="anonymous" src="https://kit.fontawesome.com/6ecbd6c532.js"></script><script crossorigin="anonymous" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js"></script><script crossorigin="anonymous" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script><!-- CSS --><style type="text/css">
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    </style>
+<style type="text/css">
+        /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+        div.csl-bib-body { }
+        div.csl-entry {
+            clear: both;
+                    margin-bottom: 0em;
+                }
+        .hanging div.csl-entry {
+            margin-left:2em;
+            text-indent:-2em;
+        }
+        div.csl-left-margin {
+            min-width:2em;
+            float:left;
+        }
+        div.csl-right-inline {
+            margin-left:2em;
+            padding-left:1em;
+        }
+        div.csl-indent {
+            margin-left: 2em;
+        }
+    </style>
+<style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+            font-display: swap;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+        }
+    </style>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/global.css" rel="stylesheet"/>
+<link href="./assets/rsbd_module.css" rel="stylesheet"/>
+<!-- Analytics --><script async="" data-goatcounter="https://ricardo-semiao.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="rssite-external" data-spy="scroll" data-target="#toc">
+<!-- @@site-icons@@ -->
+<header id="rssite-header">
+<nav aria-label="Main site navigation">
+<ul>
+<li class="nav-li"><a href="/">Home</a></li>
+<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+<ul id="menu-personal">
+<li class="nav-li"><a href="/cv">CV</a></li>
+<li class="nav-li"><a href="/gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-projects" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+<ul id="menu-projects">
+<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
+<li class="nav-li"><a href="/tools/hfpca">hfpca</a></li>
+<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
+<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+<div class="row">
+<header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div class="d-flex align-items-start justify-content-between">
+<h1>
+<a href="index.html" title="">R: Fundamentos e Ciência de Dados</a>
+</h1>
+<button aria-controls="main-nav" aria-expanded="true" class="btn btn-outline-primary d-lg-none ml-2 mt-1" data-target="#main-nav" data-toggle="collapse" type="button">
+<i class="fas fa-bars"></i>
+<span class="sr-only">Show table of contents</span>
+</button>
+</div>
+<div class="collapse-lg" id="main-nav">
+<form role="search">
+<input aria-label="Search" class="form-control" id="search" placeholder="Buscar" type="search"/>
+</form>
+<nav aria-label="Table of contents"><h2>Índice</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
+<li class="book-part">Parte I - Fundamentos</li>
+<li><a class="" href="intro1.html">Introdução</a></li>
+<li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
+<li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
+<li><a class="" href="subset.html"><span class="header-section-number">4</span> Subsetting</a></li>
+<li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
+<li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
+<li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
+<li><a class="" href="recap1.html">Recapitulando</a></li>
+<li class="book-part">Parte II - Ciência de dados</li>
+<li><a class="" href="intro2.html">Introdução</a></li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
+<li class="book-part">Parte III - Programação Geral</li>
+<li><a class="" href="intro3.html">Introdução</a></li>
+<li><a class="" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="active" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
+<li class="book-part">Apêndice</li>
+<li><a class="" href="dict.html">Dicionário de funções</a></li>
+<li><a class="" href="refs.html">Referências</a></li>
+</ul>
+<!--<div class="book-extra">
+              <p><a id="book-repo" href="#">Ver código do livro <i class="fab fa-github"></i></a></li></p>
+            </div>-->
+</nav>
+</div>
+</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1" id="desenvolvimento-de-pacotes" number="10">
+<h1>
+<span class="header-section-number">10</span> Desenvolvimento de pacotes<a aria-label="anchor" class="anchor" href="#desenvolvimento-de-pacotes"><i class="fas fa-link"></i></a>
+</h1>
+<div class="warn">
+<p>Este capítulo foi inicialmente escrito por mim em inglês, como um post de blog. No futuro, o traduzirei.</p>
+</div>
+<div class="section level2" id="introdução-8" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Introdução<a aria-label="anchor" class="anchor" href="#introdu%C3%A7%C3%A3o-8"><i class="fas fa-link"></i></a>
+</h2>
+<p>Esse capítulo é uma versão em html de meu script de desenvolvimento de pactotes. Não é altamente explicativo, mas apresenta as funções e o flow de desenvolvimento que utilizo.</p>
+<p>This script provides an organization of the several utility functions for developing R packages provided by devtools and friends.</p>
+<p>It conditions the usage of best practices as recommended by the devtools family of packages and the books “R Packages (2e)” by Hadley Wickham and “rOpenSci Packages: Development, Maintenance, and Peer Review” by the rOpenSci software review editorial team.</p>
+<p>The script is organized from end to beggining:</p>
+<ol style="list-style-type: decimal">
+<li>Set the package up (basically run once per package).</li>
+<li>update DESCRIPTION, dependencies, version, and releases.</li>
+<li>rebuilding and testing the package.</li>
+<li>creating new files and a blank canvas for informal debugging. Not shown here.</li>
+<li>Appendix:
+<ul>
+<li>Function documentation.</li>
+<li>Other tips for package development, including packages you should use.</li>
+<li>Utility functions used in the script.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section level2" id="setup" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Setup<a aria-label="anchor" class="anchor" href="#setup"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="name-and-creation" number="10.2.1">
+<h3>
+<span class="header-section-number">10.2.1</span> Name and Creation<a aria-label="anchor" class="anchor" href="#name-and-creation"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">available</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/available/man/available.html">available</a></span><span class="op">(</span><span class="st">"predicater"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span><span class="op">(</span><span class="st">"../predicater"</span>, check_name <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co"># Also consider `create_tidy_package()`, but I prefer to set up manually</span></span></code></pre></div>
+</div>
+<div class="section level3" id="version-control" number="10.2.2">
+<h3>
+<span class="header-section-number">10.2.2</span> Version Control<a aria-label="anchor" class="anchor" href="#version-control"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_git.html">use_git</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Or manually via `git init`</span></span>
+<span><span class="co"># Setup github manually or via `use_github()`</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_links.html">use_github_links</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Adds links to DESCRIPTION</span></span>
+<span><span class="co"># Be wary about sensitive data, consider using `git_vaccinate()`</span></span>
+<span><span class="co"># Consider using the git/github helpers usethis::pr_* and the ones at</span></span>
+<span><span class="co"># (https://usethis.r-lib.org/reference/index.html#git-and-github)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="documentation" number="10.2.3">
+<h3>
+<span class="header-section-number">10.2.3</span> Documentation<a aria-label="anchor" class="anchor" href="#documentation"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/licenses.html">use_mit_license</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Consider other licenses</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_readme_rmd.html">use_readme_rmd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_news_md.html">use_news_md</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package_doc.html">use_package_doc</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Then, populate this file with package-level docs</span></span>
+<span><span class="co"># If you have a logo, conisder `use_logo()`</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/badges.html">use_lifecycle_badge</a></span><span class="op">(</span><span class="st">"experimental"</span><span class="op">)</span></span>
+<span><span class="co"># If your package is released in some repository, consider using the other</span></span>
+<span><span class="co"># badge functions</span></span></code></pre></div>
+</div>
+<div class="section level3" id="other-infrastructure" number="10.2.4">
+<h3>
+<span class="header-section-number">10.2.4</span> Other Infrastructure<a aria-label="anchor" class="anchor" href="#other-infrastructure"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_spell_check.html">use_spell_check</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_revdep.html">use_revdep</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_lifecycle.html">use_lifecycle</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_testthat.html">use_testthat</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_pkgdown.html">use_pkgdown</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/install.html">install</a></span><span class="op">(</span><span class="st">"ricardo-semiao/ricardo-semiao:themes/rspkgdown"</span><span class="op">)</span></span>
+<span><span class="co"># Consider the content-related helpers:</span></span>
+<span><span class="co"># `use_cpp11()`, `use_c()` and friends, `use_make()`</span></span>
+<span><span class="co"># `use_pipe()`, `use_tibble()`</span></span></code></pre></div>
+</div>
+<div class="section level3" id="renv" number="10.2.5">
+<h3>
+<span class="header-section-number">10.2.5</span> renv<a aria-label="anchor" class="anchor" href="#renv"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/init.html">init</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="va"><a href="https://rstudio.github.io/renv/reference/settings.html">settings</a></span><span class="op">$</span><span class="fu">external.libraries</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="va"><a href="https://rstudio.github.io/renv/reference/settings.html">settings</a></span><span class="op">$</span><span class="fu">snapshot.type</span><span class="op">(</span><span class="st">"explicit"</span><span class="op">)</span></span>
+<span><span class="va">package.dependency.fields</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Imports"</span>, <span class="st">"Depends"</span>, <span class="st">"LinkingTo"</span><span class="op">)</span> <span class="co">#, "Suggests"</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/install.html">install</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"languageserver"</span>, <span class="st">"httpgd"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="cicd" number="10.2.6">
+<h3>
+<span class="header-section-number">10.2.6</span> CI/CD<a aria-label="anchor" class="anchor" href="#cicd"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_coverage.html">use_coverage</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span><span class="op">(</span><span class="st">"check-standard"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span><span class="op">(</span><span class="st">"test-coverage"</span><span class="op">)</span></span>
+<span><span class="co"># Consider the {air} for styling with `use_air()`. I prefer to do it manually</span></span>
+<span><span class="co"># If you want to use pkgdown with the standard Github pages scheme, consider</span></span>
+<span><span class="co"># using `use_pkgdown_github_pages()`</span></span></code></pre></div>
+</div>
+<div class="section level3" id="others-1" number="10.2.7">
+<h3>
+<span class="header-section-number">10.2.7</span> Others<a aria-label="anchor" class="anchor" href="#others-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># - Helpers to set configurations options at</span></span>
+<span><span class="co"># (https://usethis.r-lib.org/reference/index.html#configuration)</span></span>
+<span><span class="co"># - Packages to switch practices: roxygen2md, prefixer, changer</span></span>
+<span><span class="co"># - Add a tutorial via `use_tutorial()`</span></span>
+<span><span class="co"># - If your package becomes big enough, consider adding a MAINTENANCE.md,</span></span>
+<span><span class="co"># a code of conduct (`use_code_of_conduct()`), a contributing guide</span></span>
+<span><span class="co"># (`use_tidy_contributing()`), and a citation file</span></span>
+<span><span class="co"># - Add a `use_cran_comments()` before submitting to CRAN</span></span>
+<span><span class="co"># - Add a cheatsheet</span></span>
+<span></span>
+<span><span class="co"># Initial commit:</span></span>
+<span><span class="co"># At the end, check if no file is being committed/builded when it should not:</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_build_ignore.html">use_build_ignore</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"personal/"</span>, <span class="st">"predicater.code-workspace/"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2" id="update-description-packages-version-and-releases" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Update Description, Packages, Version, and Releases<a aria-label="anchor" class="anchor" href="#update-description-packages-version-and-releases"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="versioning-and-realeases" number="10.3.1">
+<h3>
+<span class="header-section-number">10.3.1</span> Versioning and Realeases<a aria-label="anchor" class="anchor" href="#versioning-and-realeases"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Versioning:</span></span>
+<span><span class="va">desc</span> <span class="op">&lt;-</span> <span class="fu">desc</span><span class="fu">::</span><span class="va"><a href="https://desc.r-lib.org/reference/description.html">description</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">get_version</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">set_version</span><span class="op">(</span><span class="va">version</span><span class="op">)</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">bump_version</span><span class="op">(</span>which <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"patch"</span>, <span class="st">"minor"</span>, <span class="st">"major"</span>, <span class="st">"dev"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Releases:</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/submit_cran.html">submit_cran</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Also consider `release()`</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_release.html">use_github_release</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="package-imports" number="10.3.2">
+<h3>
+<span class="header-section-number">10.3.2</span> Package imports<a aria-label="anchor" class="anchor" href="#package-imports"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">deps</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span> <span class="co"># Annotate dependencies here</span></span>
+<span>  <span class="op">~</span><span class="va">Type</span>, <span class="op">~</span><span class="va">Package</span>, <span class="op">~</span><span class="va">MinVersion</span>,</span>
+<span>  <span class="st">"Depends"</span>, <span class="st">"R"</span>, <span class="st">"4.3"</span>,</span>
+<span>  <span class="st">"Imports"</span>, <span class="st">"rlang"</span>, <span class="cn">NA</span>, <span class="co"># Full import</span></span>
+<span></span>
+<span>  <span class="st">"Imports"</span>, <span class="st">"vctrs"</span>, <span class="cn">NA</span>,</span>
+<span>  <span class="st">"Imports"</span>, <span class="st">"cli"</span>, <span class="cn">NA</span>,</span>
+<span>  <span class="st">"Imports"</span>, <span class="st">"glue"</span>, <span class="cn">NA</span>,</span>
+<span>  <span class="st">"Imports"</span>, <span class="st">"methods"</span>, <span class="cn">NA</span>,</span>
+<span></span>
+<span>  <span class="st">"Suggests"</span>, <span class="st">"utils"</span>, <span class="cn">NA</span></span>
+<span></span>
+<span>  <span class="co"># Others included in commands i.e. thestthat</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co"># purrr::walk(c("rlang", "purrr"), library, character.only = TRUE)</span></span>
+<span><span class="co"># cli_abort &lt;- cli::cli_abort; cli_warn &lt;- cli::cli_warn</span></span>
+<span><span class="co"># cli_inform &lt;- cli::cli_inform; glue &lt;- glue::glue</span></span>
+<span></span>
+<span><span class="co"># Check the complexity of possible dependencies:</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_deps_tree.html">pkg_deps_tree</a></span><span class="op">(</span><span class="st">"pkg_you_are_thinking_to_use"</span><span class="op">)</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_deps_explain.html">pkg_deps_explain</a></span><span class="op">(</span><span class="st">"pkg1"</span>, <span class="st">"pkg2"</span><span class="op">)</span></span>
+<span><span class="fu">itdepends</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/itdepends/man/dep_weight.html">dep_weight</a></span><span class="op">(</span></span>
+<span><span class="fu"><a href="https://generics.r-lib.org/reference/setops.html">setdiff</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">deps</span>, <span class="va">Type</span> <span class="op">==</span> <span class="st">"Imports"</span><span class="op">)</span><span class="op">$</span><span class="va">Package</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"utils"</span>, <span class="st">"methods"</span>, <span class="st">"compiler"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Dependencies:</span></span>
+<span><span class="fu">use_packages</span><span class="op">(</span><span class="va">deps</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_import_from.html">use_import_from</a></span><span class="op">(</span><span class="st">"glue"</span>, <span class="st">"glue"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_import_from.html">use_import_from</a></span><span class="op">(</span><span class="st">"cli"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cli_abort"</span>, <span class="st">"cli_warn"</span>, <span class="st">"cli_inform"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#usethis::use_import_from("vctrs", c("vec_c"))</span></span>
+<span></span>
+<span><span class="co"># Installation via renv:</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/status.html">status</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/snapshot.html">snapshot</a></span><span class="op">(</span>packages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">deps</span>, <span class="va">Type</span> <span class="op">==</span> <span class="st">"Imports"</span><span class="op">)</span><span class="op">$</span><span class="va">Package</span><span class="op">)</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/update.html">update</a></span><span class="op">(</span></span>
+<span>packages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">deps</span>, <span class="va">Type</span> <span class="op">==</span> <span class="st">"Imports"</span><span class="op">)</span><span class="op">$</span><span class="va">Package</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://generics.r-lib.org/reference/setops.html">setdiff</a></span><span class="op">(</span><span class="st">"methods"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/restore.html">restore</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/dependencies.html">dependencies</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">Package</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Consider adding standalone files via `use_standalone()`, `use_github_file()`</span></span></code></pre></div>
+</div>
+<div class="section level3" id="description-file" number="10.3.3">
+<h3>
+<span class="header-section-number">10.3.3</span> DESCRIPTION file<a aria-label="anchor" class="anchor" href="#description-file"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">desc</span> <span class="op">&lt;-</span> <span class="fu">desc</span><span class="fu">::</span><span class="va"><a href="https://desc.r-lib.org/reference/description.html">description</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Main fields:</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">set</span><span class="op">(</span><span class="st">"Title"</span>,</span>
+<span><span class="st">"Modern and consistent validation for R"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">set</span><span class="op">(</span><span class="st">"Description"</span>, <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span><span class="st">"Validation of R objects with more consistency and flexibility than base \\</span></span>
+<span><span class="st">'is' functions, having predictable and well documented behavior. \\</span></span>
+<span><span class="st">Provides simple 'is'/'are'/'has' predicates, and complex assertions for \\</span></span>
+<span><span class="st">common input validation needs. Includes improved object comparison, \\</span></span>
+<span><span class="st">prototypes, if-else chains, and pattern matching."</span></span>
+<span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">set_authors</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/person.html">person</a></span><span class="op">(</span></span>
+<span>    <span class="st">"Ricardo"</span>, <span class="st">"Semião"</span>, role <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"aut"</span>, <span class="st">"cre"</span><span class="op">)</span>,</span>
+<span>    email <span class="op">=</span> <span class="st">"ricardo.semiao@outlook.com"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Consider adding `comment = c(ORCID = "...")`</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">add_urls</span><span class="op">(</span><span class="st">"URL"</span>, <span class="st">"https://example.com"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Mathjax, if required:</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"mathjaxr"</span>, type <span class="op">=</span> <span class="st">"Imports"</span><span class="op">)</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">set</span><span class="op">(</span><span class="st">"RdMacros"</span>, <span class="st">"mathjaxr"</span><span class="op">)</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">set</span><span class="op">(</span><span class="st">"BuildManual"</span>, <span class="st">"TRUE"</span><span class="op">)</span></span>
+<span><span class="co"># Finally, add `@importFrom mathjaxr preview_rd` somewhere</span></span>
+<span></span>
+<span><span class="co"># Consider other fields (https://r-pkgs.org/description.html#other-fields)</span></span>
+<span></span>
+<span><span class="co"># Writing: (maybe commit before)</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">normalize</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">desc</span><span class="op">$</span><span class="fu">write</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2" id="rebuilding-and-testing" number="10.4">
+<h2>
+<span class="header-section-number">10.4</span> Rebuilding and Testing<a aria-label="anchor" class="anchor" href="#rebuilding-and-testing"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="load-and-document" number="10.4.1">
+<h3>
+<span class="header-section-number">10.4.1</span> Load and Document<a aria-label="anchor" class="anchor" href="#load-and-document"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/document.html">document</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/load_all.html">load_all</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Or maybe `reload()`</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_rmd.html">build_readme</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_vignettes.html">build_vignettes</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Uninstall with `clean_vignettes()`</span></span></code></pre></div>
+</div>
+<div class="section level3" id="essencial-tests" number="10.4.2">
+<h3>
+<span class="header-section-number">10.4.2</span> Essencial Tests<a aria-label="anchor" class="anchor" href="#essencial-tests"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/set_max_fails.html">set_max_fails</a></span><span class="op">(</span><span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/check_man.html">check_man</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html">test</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># filter = "conditions"</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/run_examples.html">run_examples</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/check.html">check</a></span><span class="op">(</span>check_dir <span class="op">=</span> <span class="st">"personal/"</span>, args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"--no-tests"</span><span class="op">)</span><span class="op">)</span> <span class="co"># "--no-examples"</span></span>
+<span><span class="fu">revdepcheck</span><span class="fu">::</span><span class="fu"><a href="https://revdepcheck.r-lib.org/reference/revdep_check.html">revdep_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="installing-and-building-sitemanual" number="10.4.3">
+<h3>
+<span class="header-section-number">10.4.3</span> Installing and Building Site/Manual<a aria-label="anchor" class="anchor" href="#installing-and-building-sitemanual"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/install.html">install</a></span><span class="op">(</span>upgrade <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># Unistall with `uninstall()`</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build.html">build</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"personal/"</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build.html">build</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"personal/"</span>, binary <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build_manual.html">build_manual</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"personal"</span><span class="op">)</span></span>
+<span><span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgdown.r-lib.org/reference/clean.html">clean_site</a></span><span class="op">(</span>force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgdown.r-lib.org/reference/build_site.html">build_site</a></span><span class="op">(</span>preview <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="additional-checks" number="10.4.4">
+<h3>
+<span class="header-section-number">10.4.4</span> Additional Checks<a aria-label="anchor" class="anchor" href="#additional-checks"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Coverage, spelling, and linting:</span></span>
+<span><span class="va">report_coverage</span> <span class="op">&lt;-</span> <span class="fu">covr</span><span class="fu">::</span><span class="fu"><a href="http://covr.r-lib.org/reference/package_coverage.html">package_coverage</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span></span>
+<span><span class="fu">covr</span><span class="fu">::</span><span class="fu"><a href="http://covr.r-lib.org/reference/report.html">report</a></span><span class="op">(</span><span class="va">coverage_report</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">report_spell</span> <span class="op">&lt;-</span> <span class="fu">spelling</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/spelling//reference/spell_check_package.html">spell_check_package</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span></span>
+<span><span class="va">report_spell</span></span>
+<span><span class="fu">spelling</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/spelling//reference/wordlist.html">update_wordlist</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">report_lint</span> <span class="op">&lt;-</span> <span class="fu">lintr</span><span class="fu">::</span><span class="fu"><a href="https://lintr.r-lib.org/reference/lint.html">lint_package</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">report_lint</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">summarize_reports</span><span class="op">(</span><span class="va">report_lint</span>, <span class="va">report_spell</span>, <span class="va">report_lint</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Override style - warning commit before using!</span></span>
+<span><span class="va">retport_style</span> <span class="op">&lt;-</span> <span class="fu">styler</span><span class="fu">::</span><span class="fu"><a href="https://styler.r-lib.org/reference/style_pkg.html">style_pkg</a></span><span class="op">(</span></span>
+<span>scope <span class="op">=</span> <span class="st">"line_breaks"</span>,</span>
+<span>style <span class="op">=</span> <span class="fu">styler</span><span class="fu">::</span><span class="va"><a href="https://styler.r-lib.org/reference/tidyverse_style.html">tidyverse_style</a></span>,</span>
+<span>strict <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">retport_style</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Development environment report, and others:</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/dev_sitrep.html">dev_sitrep</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/missing_s3.html">missing_s3</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_deps_tree.html">pkg_deps_tree</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3" id="package-metadata" number="10.4.5">
+<h3>
+<span class="header-section-number">10.4.5</span> Package Metadata<a aria-label="anchor" class="anchor" href="#package-metadata"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="va">repo_data</span> <span class="op">&lt;-</span> <span class="fu">repometrics</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/repometrics/reference/repometrics_data.html">repometrics_data</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">pkg_data</span> <span class="op">&lt;-</span> <span class="fu">pkgstats</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/pkgstats/reference/pkgstats.html">pkgstats</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">pkg_data</span><span class="op">$</span><span class="va">loc</span> <span class="op">|&gt;</span></span>
+<span>    <span class="va">_</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dir"</span>, <span class="st">"nfiles"</span>, <span class="st">"nlines"</span>, <span class="st">"ncode"</span>, <span class="st">"ndoc"</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">dir</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"tests/testthat"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="op">(</span>\<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>dir <span class="op">=</span> <span class="st">"Total"</span>, <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu">codemetar</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/codemetar/reference/write_codemeta.html">write_codemeta</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"personal/codemeta.json"</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2" id="appendix-function-documentation" number="10.5">
+<h2>
+<span class="header-section-number">10.5</span> Appendix: Function documentation<a aria-label="anchor" class="anchor" href="#appendix-function-documentation"><i class="fas fa-link"></i></a>
+</h2>
+<p>In general:</p>
+<ul>
+<li>Be concise and clear</li>
+<li>If the prompt includes more than one function, write a documentation for both in the same topic. Add the first function’s arguments first, then the unique ones of the second function, and so on</li>
+</ul>
+<p>Create the sections:</p>
+<ul>
+<li>Title: in sentence case, omit the <code>@title</code> tag</li>
+<li>Description: add the <code>@description</code> tag. Use markdown lists when useful, specially in topics with more than one function</li>
+<li>Parameters: add type hints as described below. If <code>...</code> are sent to a function, cite it
+<ul>
+<li>For inherited arguments, prefer to add a simple, not-too-specific description, with a type hint, and cite the function. Use <code>@inheritParams</code> when the function is in the same package</li>
+</ul>
+</li>
+<li>Return: use the <code>@returns</code> tag. Add a description of what is returned</li>
+<li>
+<code>@export</code> by default, <code>@noRd</code> if the function is internal, or otherwise if specified</li>
+<li>Add an empty line between sections. Don’t add other sections, unless specifically requested</li>
+</ul>
+<div class="section level3" id="type-hints" number="10.5.1">
+<h3>
+<span class="header-section-number">10.5.1</span> Type hints<a aria-label="anchor" class="anchor" href="#type-hints"><i class="fas fa-link"></i></a>
+</h3>
+<p>General rules:</p>
+<ul>
+<li><p>Add to <code>@param</code> and <code>@value</code> tags, in the form of <code>\[`ptype1` | `ptype2`]</code>. Note the trailing <code>\</code></p></li>
+<li>
+<p>A ptype is a representation of an object basic metadata: typeof, class, and length/dimensions. There are four options:</p>
+<ol style="list-style-type: decimal">
+<li>Prefer to use an expression that returns a prototype (see examples below), often a function call</li>
+<li>For specific classes, without simple prototype expressions, use <code>&lt;class_name&gt;</code>
+</li>
+<li>A literal value, e.g. <code>\[`"option1"` | `"option2"` | NULL]</code>, <code>\[`TRUE` | `FALSE` | `NULL`]</code>
+</li>
+<li>A reference to a topic e.g. <code>[`rlang::args_data_masking`]</code> to describe that <code>...</code> will be data masking dots. Note the lack of <code>\</code> in this case</li>
+</ol>
+</li>
+<li>
+<p>General guidelines:</p>
+<ul>
+<li>Use the most specific ptype possible</li>
+<li>Avoid exceeding 30 characters, adding more details as the first thing in the description instead</li>
+</ul>
+</li>
+</ul>
+<p>Specific rules:</p>
+<ul>
+<li>For multiple arguments:
+<ul>
+<li>For <code>...</code>: add <code>[`dynamic-dots`][rlang::dyn-dots]</code> if the dots are passed to <code>list2(...)</code> (or a function that does it); <code>\[`ptype` each]</code> if all the dots have the same ptype; or no type hint otherwise</li>
+<li>For <code>@param arg1, arg2</code> or <code>@returns</code> with more than one function in the same topic, use <code>\[`ptype1()`,  `ptype2`]</code>
+</li>
+<li>If some argument have the same ptype as another argument <code>arg</code>, use <code>\[`=arg]</code>.</li>
+</ul>
+</li>
+<li>Variations:
+<ul>
+<li>Lists or env with elements all of the same ptype can use <code>\[`list[ptype]`]</code>
+</li>
+<li>Use <code>|</code> for union types, and <code>&amp;</code> for intersection types. Shorthands:</li>
+<li>
+<code>atomic()</code> meaning the sum ptype of any atomic type</li>
+<li>
+<code>any</code> meaning any R object</li>
+<li>
+<code><a href="https://rdrr.io/r/base/numeric.html">numeric()</a></code> meaning double or integer</li>
+<li>
+<code><a href="https://rdrr.io/r/base/vector.html">vector()</a></code> meaning list, atomic, or expression vectors</li>
+</ul>
+</li>
+<li>Examples:
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/base/integer.html">integer()</a></code>, <code>integer(2)</code>
+</li>
+<li>
+<code><a href="https://rdrr.io/r/base/list.html">list()</a></code>, <code>vector("list", 10)</code>, <code>list(a = , b = )</code>
+</li>
+<li>
+<code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code>, <code>matrix(, 3, 4)</code>, <code>matrix(character(), x, x+1)</code> (relating to the value of the argument <code>x</code>)</li>
+<li>
+<code>\(x, y){}</code>, or <code>\(){}</code> for any argument signature</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level3" id="formatting" number="10.5.2">
+<h3>
+<span class="header-section-number">10.5.2</span> Formatting<a aria-label="anchor" class="anchor" href="#formatting"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Use roxygen2 with markdown support: wrap code in backticks; math in dollar signs; <code>[pkg::fun()]</code> to cite existing functions, etc.</li>
+<li>Title in Sentence case</li>
+<li>Never remove whole lines, not even empty ones</li>
+<li>List: use <code>-</code>, and do not add an empty line before the list block</li>
+<li>In examples, denote the result of an code by <code>expr #&gt; result</code> (or with a line break for long results)</li>
+<li>Line wraps and breaks:
+<ul>
+<li>Always indent with one space before a line’s text <code>#'</code>, but not for empty lines (e.g. between sections)</li>
+<li>Always wrap lines at 80 characters</li>
+<li>For inline tags, e.g. <code>@param</code>, add two additional spaces after a line wrap, e.g. <code>#'</code>; for multiline tags e.g. <code>@examples</code>, don’t</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section level2" id="appendix-other-tips" number="10.6">
+<h2>
+<span class="header-section-number">10.6</span> Appendix: Other Tips<a aria-label="anchor" class="anchor" href="#appendix-other-tips"><i class="fas fa-link"></i></a>
+</h2>
+<p>Other package-related tips:</p>
+<ul>
+<li>Use renv (<a class="uri" href="https://rstudio.github.io/renv/articles/packages.html">https://rstudio.github.io/renv/articles/packages.html</a>) and maybe also {rig}.</li>
+<li>In the README, refer to {pak} or {remotes} for installation instructions, not {devtools}.</li>
+<li>Consider using the {config} package to manage environment-specific configurations, e.g. different settings for development and production. (<a class="uri" href="https://rstudio.github.io/config/articles/config.html">https://rstudio.github.io/config/articles/config.html</a>).</li>
+<li>To think about dependencies, start by defining which packages are very essencial and you could not reproduce their functionality. Then, their dependencies (and their dependencies, and so on) are also packages that you can’t avoid depending on, and thus its to also use as direct dependencies. See more on (<a class="uri" href="https://r-pkgs.org/description.html#sec-description-imports-suggests-minium-version">https://r-pkgs.org/description.html#sec-description-imports-suggests-minium-version</a>)</li>
+</ul>
+<p>Other function-related tips:</p>
+<ul>
+<li>Creating custom checkers to reduce code repetition and improve consistency. Consider using {checkmate} for this.</li>
+<li>Use documentation helpers that run via inline roxygen code, to reduce code repetition and improve consistency.</li>
+<li>Add lifecycle badges to your functions. No need to repeat experimental if your whole package is experimental. Also use <code>deprecate_warn()</code> and friends (<a class="uri" href="https://lifecycle.r-lib.org/articles/communicate.html">https://lifecycle.r-lib.org/articles/communicate.html</a>).</li>
+<li>Use benchmarks and profiling: {bench}, {profvis}, {memtools}, {lobstr}, {log4r}, and {boomer}.</li>
+<li>Use {cli} for nice command-line outputs, and {progressbar}. Use {pillar} and {downlint} for syntax highlighting and linking.</li>
+<li>Try to add C/C++ code in performance-critical sections, preferably via {cleancall} and {cpp11}.</li>
+</ul>
+<p>Opinionated paradigms:</p>
+<ul>
+<li>Use the {rlang} frameworks for metaprogramming, type-checking, and other high-quality utilities.</li>
+<li>Use {vctrs} for ptypes concept and coercion.</li>
+<li>Consider using S7 for OOP, or R6 if you need modify-in-place (often for performance).</li>
+<li>Use {purrr}, {slider}, and {rlist} for functional programming.</li>
+<li>For proeminent classes’ manipulation, consider {stringr}, {forcats}, {lubridate}, {hms} from the tidyverse; consider {bignum}, {sparsevctrs}, {bit}, {blob}, and {fastmap} for more complex objects.</li>
+<li>For data wrangling, consider {dplyr} + {tidyr}, but also more efficient alternatives like {data.table} or {collapse}, {r-polars}, {duckdb}, {sparklyr} {multidplyr}, note that all of them have transpilers from dplyr code.</li>
+</ul>
+<p>Templates for <code>.onLoad()</code> and <code>.onAttach()</code>:</p>
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">.onAttach</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">libname</span>, <span class="va">pkgname</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/message.html">packageStartupMessage</a></span><span class="op">(</span><span class="st">"Welcome to my package"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">.onLoad</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">libname</span>, <span class="va">pkgname</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/on_load.html">run_on_load</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Then use <code><a href="https://rlang.r-lib.org/reference/on_load.html">rlang::on_load()</a></code> to register functions to be run at load time. Also consider creating a <code>.onDetach</code> function.</p>
+</div>
+<div class="section level2" id="appendix-utility-functions" number="10.7">
+<h2>
+<span class="header-section-number">10.7</span> Appendix: Utility Functions<a aria-label="anchor" class="anchor" href="#appendix-utility-functions"><i class="fas fa-link"></i></a>
+</h2>
+<p>Function to update package dependencies to minimum major version available <code>pkgs</code> should be a data.frame. The third column can have the value “latest_major” to set the minimum version to the latest major version</p>
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">use_packages</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">deps</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/pmap.html">pwalk</a></span><span class="op">(</span><span class="va">deps</span>, \<span class="op">(</span><span class="va">Type</span>, <span class="va">Package</span>, <span class="va">MinVersion</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">MinVersion</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="va">MinVersion</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">MinVersion</span> <span class="op">==</span> <span class="st">"latest_major"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="va">MinVersion</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span></span>
+<span>        <span class="st">"([0-9]+)\\.[0-9]+\\.[0-9]+"</span>, <span class="st">"\\1.0.0"</span>, <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="va">Package</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span></span>
+<span>    <span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="va">Package</span>, type <span class="op">=</span> <span class="va">Type</span>, min_version <span class="op">=</span> <span class="va">MinVersion</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Function to summarize linting, coverage, and spelling reports into a single table and save it as a CSV file:</p>
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">summarize_reports</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">res_lint</span>, <span class="va">res_covr</span>, <span class="va">res_spell</span>, <span class="va">path</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="co"># Relevant files:</span></span>
+<span>  <span class="va">filenames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    man <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="st">"man"</span><span class="op">)</span>,</span>
+<span>    R <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="st">"R"</span><span class="op">)</span>,</span>
+<span>    vignettes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="st">"vignettes"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"README.Rmd"</span>, <span class="st">"NEWS.md"</span>, <span class="st">"DESCRIPTION"</span><span class="op">)</span> <span class="co"># Also consider LICENSE.md, LICENSE</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Filter</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">_</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/fileutils.html">file_ext</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"Rd"</span>, <span class="st">"Rmd"</span>, <span class="st">"qmd"</span>, <span class="st">"md"</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">folders</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">filenames</span><span class="op">)</span>, <span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">filenames</span><span class="op">)</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">filenames</span> <span class="op">&lt;-</span> <span class="va">filenames</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, FUN <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">filenames</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">folders</span>, <span class="st">"/"</span>, <span class="va">filenames</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># Lint, coverage, and spelling:</span></span>
+<span>  <span class="va">lint_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">res_lint</span><span class="op">)</span></span>
+<span>  <span class="va">lint_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span></span>
+<span>    <span class="va">lint_data</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>filenames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Total"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">lint_data</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>, <span class="fl">2</span>, <span class="va">sum</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">covr_data</span> <span class="op">&lt;-</span> <span class="fu">covr</span><span class="fu">::</span><span class="fu"><a href="http://covr.r-lib.org/reference/coverage_to_list.html">coverage_to_list</a></span><span class="op">(</span><span class="va">res_covr</span><span class="op">)</span></span>
+<span>  <span class="va">covr_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>    file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">covr_data</span><span class="op">$</span><span class="va">filecoverage</span><span class="op">)</span>, <span class="st">"Total"</span><span class="op">)</span>,</span>
+<span>    coverage <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">covr_data</span><span class="op">$</span><span class="va">filecoverage</span>, <span class="va">covr_data</span><span class="op">$</span><span class="va">totalcoverage</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"filenames"</span>, <span class="st">"coverage"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">spell_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">res_spell</span><span class="op">$</span><span class="va">found</span>, FUN <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split_fixed</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">":"</span>, <span class="fl">2</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>levels <span class="op">=</span> <span class="va">filenames</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">sum</span><span class="op">)</span></span>
+<span>  <span class="va">spell_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>    filenames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">filenames</span><span class="op">)</span>, <span class="st">"Total"</span><span class="op">)</span>,</span>
+<span>    spell <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">spell_data</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">spell_data</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># Merging all:</span></span>
+<span>  <span class="va">report</span> <span class="op">&lt;-</span> <span class="va">lint_data</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">covr_data</span>, all <span class="op">=</span> <span class="cn">TRUE</span>, by <span class="op">=</span> <span class="st">"filenames"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">spell_data</span>, all <span class="op">=</span> <span class="cn">TRUE</span>, by <span class="op">=</span> <span class="st">"filenames"</span><span class="op">)</span></span>
+<span>  <span class="va">report</span> <span class="op">&lt;-</span> <span class="va">report</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/match.html">match</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">filenames</span><span class="op">)</span>, <span class="st">"Total"</span><span class="op">)</span>, <span class="va">report</span><span class="op">$</span><span class="va">filenames</span><span class="op">)</span>, <span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">`rownames&lt;-`</span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Diagnostics report: (saved at"</span>, <span class="va">path</span>, <span class="st">")"</span><span class="op">)</span></span>
+<span>  <span class="va">report</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="fl">2</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="st">""</span>, <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"lccccc"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">report</span>, <span class="va">path</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span><span class="va">report</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+</div>
+<div class="chapter-nav">
+<div class="prev"><a href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></div>
+<div class="next"><a href="dict.html">Dicionário de funções</a></div>
+</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+<nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#desenvolvimento-de-pacotes"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
+<li><a class="nav-link" href="#introdu%C3%A7%C3%A3o-8"><span class="header-section-number">10.1</span> Introdução</a></li>
+<li>
+<a class="nav-link" href="#setup"><span class="header-section-number">10.2</span> Setup</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#name-and-creation"><span class="header-section-number">10.2.1</span> Name and Creation</a></li>
+<li><a class="nav-link" href="#version-control"><span class="header-section-number">10.2.2</span> Version Control</a></li>
+<li><a class="nav-link" href="#documentation"><span class="header-section-number">10.2.3</span> Documentation</a></li>
+<li><a class="nav-link" href="#other-infrastructure"><span class="header-section-number">10.2.4</span> Other Infrastructure</a></li>
+<li><a class="nav-link" href="#renv"><span class="header-section-number">10.2.5</span> renv</a></li>
+<li><a class="nav-link" href="#cicd"><span class="header-section-number">10.2.6</span> CI/CD</a></li>
+<li><a class="nav-link" href="#others-1"><span class="header-section-number">10.2.7</span> Others</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#update-description-packages-version-and-releases"><span class="header-section-number">10.3</span> Update Description, Packages, Version, and Releases</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#versioning-and-realeases"><span class="header-section-number">10.3.1</span> Versioning and Realeases</a></li>
+<li><a class="nav-link" href="#package-imports"><span class="header-section-number">10.3.2</span> Package imports</a></li>
+<li><a class="nav-link" href="#description-file"><span class="header-section-number">10.3.3</span> DESCRIPTION file</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#rebuilding-and-testing"><span class="header-section-number">10.4</span> Rebuilding and Testing</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#load-and-document"><span class="header-section-number">10.4.1</span> Load and Document</a></li>
+<li><a class="nav-link" href="#essencial-tests"><span class="header-section-number">10.4.2</span> Essencial Tests</a></li>
+<li><a class="nav-link" href="#installing-and-building-sitemanual"><span class="header-section-number">10.4.3</span> Installing and Building Site/Manual</a></li>
+<li><a class="nav-link" href="#additional-checks"><span class="header-section-number">10.4.4</span> Additional Checks</a></li>
+<li><a class="nav-link" href="#package-metadata"><span class="header-section-number">10.4.5</span> Package Metadata</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#appendix-function-documentation"><span class="header-section-number">10.5</span> Appendix: Function documentation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#type-hints"><span class="header-section-number">10.5.1</span> Type hints</a></li>
+<li><a class="nav-link" href="#formatting"><span class="header-section-number">10.5.2</span> Formatting</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#appendix-other-tips"><span class="header-section-number">10.6</span> Appendix: Other Tips</a></li>
+<li><a class="nav-link" href="#appendix-utility-functions"><span class="header-section-number">10.7</span> Appendix: Utility Functions</a></li>
+</ul>
+<!--<div class="book-extra">
+            <ul class="list-unstyled">
+              <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>
+              <li><a id="book-edit" href="#" style="display: none">Edite o código <i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>-->
+</nav>
+</div>
+</div>
+</div></main> <!-- .container -->
+<footer id="rssite-footer"><p>
+            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
+            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
+        </p>
+</footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
+<span>↑</span> Back to top
+    </button><script src="/assets/global.js"></script>
+<!-- Scripts -->
+<script src="./assets/rsbd_module.js"></script><!-- dynamically load mathjax for compatibility with self-contained --><script>
+        (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        var src = "true";
+        if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+        if (location.protocol !== "file:")
+            if (/^https?:/.test(src))
+            src = src.replace(/^https?:/, '');
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+    for (let popover of popovers) {
+        const div = document.createElement('div');
+        div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+        div.innerHTML = popover.getAttribute('data-content');
+    
+        var has_math = div.querySelector("span.math");
+        if (has_math) {
+        document.body.appendChild(div);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+        MathJax.Hub.Queue(function() {
+            popover.setAttribute('data-content', div.innerHTML);
+            document.body.removeChild(div);
+        })
+        }
+    }
+    </script>
+</body>
+</html>

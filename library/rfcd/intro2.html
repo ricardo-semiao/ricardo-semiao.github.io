@@ -9,16 +9,16 @@
 <link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
 <link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
 <meta content="Ricardo Semião e Castro" name="Author"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho. Bem vindo à segunda parte deste livro. Aqui, foco em ensinar o Tidyverse. O Tidyverse é um conjunto de pacotes para o R,..." name="description"/>
+<meta content="Nesta parte, descreverei o que é ciência de dados, e como utilizar o R para processar, explorar, e modelar dados. A referência geral é o livro R4DS, e os pacotes do tidyverse. Esta parte está..." name="description"/>
 <meta content="bookdown 0.45 with bs4_book()" name="generator"/>
 <meta content="Introdução | R: Fundamentos e Ciência de Dados" property="og:title"/>
 <meta content="book" property="og:type"/>
 <meta content="https://ricardo-semiao.github.io/course-rfcd/intro2.html" property="og:url"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho. Bem vindo à segunda parte deste livro. Aqui, foco em ensinar o Tidyverse. O Tidyverse é um conjunto de pacotes para o R,..." property="og:description"/>
+<meta content="Nesta parte, descreverei o que é ciência de dados, e como utilizar o R para processar, explorar, e modelar dados. A referência geral é o livro R4DS, e os pacotes do tidyverse. Esta parte está..." property="og:description"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="Introdução | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
 <meta content="@ricardo_semiao" name="twitter:site"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho. Bem vindo à segunda parte deste livro. Aqui, foco em ensinar o Tidyverse. O Tidyverse é um conjunto de pacotes para o R,..." name="twitter:description"/>
+<meta content="Nesta parte, descreverei o que é ciência de dados, e como utilizar o R para processar, explorar, e modelar dados. A referência geral é o livro R4DS, e os pacotes do tidyverse. Esta parte está..." name="twitter:description"/>
 <!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
@@ -150,7 +150,7 @@
 <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Bem Vindo(a)!</a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
-<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li class="book-part">Parte I - Fundamentos</li>
 <li><a class="" href="intro1.html">Introdução</a></li>
 <li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
 <li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
@@ -158,33 +158,14 @@
 <li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
 <li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
 <li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
-<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
 <li><a class="" href="recap1.html">Recapitulando</a></li>
-<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li class="book-part">Parte II - Ciência de dados</li>
 <li><a class="active" href="intro2.html">Introdução</a></li>
-<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
-<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
-<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
-<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
-<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
-<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
-<li><a class="" href="recap2.html">Recapitulando</a></li>
-<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
+<li class="book-part">Parte III - Programação Geral</li>
 <li><a class="" href="intro3.html">Introdução</a></li>
-<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
-<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
-<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
-<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
-<li><a class="" href="recap3.html">Recapitulando</a></li>
-<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
-<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
-<li><a class="" href="intro4.html">Introdução</a></li>
-<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
-<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
-<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
-<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li><a class="" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
 <li class="book-part">Apêndice</li>
 <li><a class="" href="dict.html">Dicionário de funções</a></li>
 <li><a class="" href="refs.html">Referências</a></li>
@@ -197,29 +178,141 @@
 </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1 unnumbered" id="intro2">
 <h1>Introdução<a aria-label="anchor" class="anchor" href="#intro2"><i class="fas fa-link"></i></a>
 </h1>
-<div class="warn">
-<p>este capítulo está em construção. O que segue abaixo é apenas um rascunho.</p>
-</div>
-<p>Bem vindo à segunda parte deste livro. Aqui, foco em ensinar o Tidyverse. O Tidyverse é um conjunto de pacotes para o R, que seguem uma mesma filosofia e sintaxe, e disponibilizam ferramentas poderosas para a maior parte das tarefas essencias em projetos no R.</p>
-<p>Começo explicando essa filosfia e sintaxe, pois é a intuição trazida por elas que fazem esse universo ser tão simples de aprender. A seguir, ensino cada um dos pacotes base:</p>
+<p>Nesta parte, descreverei o que é ciência de dados, e como utilizar o R para processar, explorar, e modelar dados. A referência geral é o livro <a href="https://r4ds.hadley.nz/">R4DS</a>, e os <a href="https://www.tidyverse.org/">pacotes do tidyverse</a>.</p>
+<p>Esta parte está dividida em:</p>
 <ul>
-<li>Capítulo <a href="philosophy.html#philosophy">9</a>: descrevo os fundamentos e etapas de um projeto de ciência de dados. Também adianto como importar diferentes tipos de arquivos para o R usando o pacote “readr”.</li>
-<li>Capítulo <a href="stringr-forcats.html#stringr-forcats">10</a>: apresento as ferramentas de manipulação de strings em “stringr”, e factors em “forcats”.</li>
-<li>Capítulo <a href="tidyr-dplyr.html#tidyr-dplyr">11</a>: descrevo os fundamentos e operações da manipulação de dados com os pacotes “dplyr” e “tidyr”.</li>
-<li>Capítulo <a href="ggplot.html#ggplot">12</a>: descrevo os fundamentos da visualização de dados com o pacote “ggplot2”.</li>
-<li>Capítulo <a href="purrr.html#purrr">13</a>: falo sobre as aplicações da programação funcional com o pacote “purrr”.</li>
-<li>Capítulo <a href="time-series.html#time-series">14</a>: falo sobre manipulação de datas e séries de tempo com pacotes adicionais, como “lubridate”, e [pacote a definir].</li>
-<li>Capítulo <a href="others2.html#others2">15</a>: falo sobre outros pacotes adicionais, como o framework “tidymodels”.</li>
-<li>
-<a href="/recap2.html">Recapitulado</a>: seção para retomar os conteúdos aprendidos.</li>
+<li>Esta introdução à ciência de dados.</li>
+<li>Capítulo <a href="tidyr-dplyr.html#tidyr-dplyr">8</a>: Manipulação de dados tabulares (<em>tidy</em>).</li>
+<li>Manipulação de séries de tempo e dados não tabulares.</li>
+<li>Visualização e modelagem de dados.</li>
 </ul>
+<p>Por enquanto, apenas os dois pontos existem.</p>
+<div class="section level2" id="ciência-de-dados" number="7.11">
+<h2>
+<span class="header-section-number">7.11</span> Ciência de Dados<a aria-label="anchor" class="anchor" href="#ci%C3%AAncia-de-dados"><i class="fas fa-link"></i></a>
+</h2>
+<p>Agora, irei descrever os fundamentos e etapas de um projeto de ciência de dados.</p>
+<p>Haverão três aprendizados principais:</p>
+<ol style="list-style-type: decimal">
+<li>O que é data science, e os princípios do tidyverse.</li>
+<li>Quais são as operações de importing, tidying, e transforming que temos interesse.</li>
+<li>Como essas operações são implementadas nos pacotes do tidyverse.</li>
+</ol>
+<p>Para os exemplos:</p>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></span></code></pre></div>
+<p>A Ciência de Dados é um campo gigante, que nasceu via uma demanda de expandir a estatística para vias de:</p>
+<ul>
+<li>“learn from data”.</li>
+<li>“more emphasis on data preparation and presentation rather than statistical modeling”.</li>
+<li>“emphasis on prediction rather than inference”.</li>
+</ul>
+<p>Atualmente, o termo não é super bem definido, e o campo tem muita intersecção com outras disciplinas.</p>
+<div class="section level3" id="as-etapas-de-um-projeto" number="7.11.1">
+<h3>
+<span class="header-section-number">7.11.1</span> As Etapas de um Projeto<a aria-label="anchor" class="anchor" href="#as-etapas-de-um-projeto"><i class="fas fa-link"></i></a>
+</h3>
+<p>Mais interessante que ficar tentando definir a disciplina, vamos entendê-la na prática. Um projeto comum, no geral, se parece como abaixo:</p>
+<div class="inline-figure"><img height="200" src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png"/></div>
+</div>
+<div class="section level3" id="etapas-importing" number="7.11.2">
+<h3>
+<span class="header-section-number">7.11.2</span> Etapas: Importing<a aria-label="anchor" class="anchor" href="#etapas-importing"><i class="fas fa-link"></i></a>
+</h3>
+<p>A primeira etapa é a importação. Alguns comentários:</p>
+<ul>
+<li>Os dados podem vir de várias fontes, como arquivos locais, bancos de dados, APIs (application programming interface), ou de sites (via web scrapping).</li>
+<li>Os dados podem estar em vários formatos como CSV, Excel, JSON, entre outros. É interessante ter um conhecimento básico de como cada um funciona.</li>
+<li>Cada tipo de fonte tem uma maneira diferente de se interagir, e cada formato exige sua própria função.</li>
+</ul>
+</div>
+<div class="section level3" id="etapas-tidy" number="7.11.3">
+<h3>
+<span class="header-section-number">7.11.3</span> Etapas: Tidy<a aria-label="anchor" class="anchor" href="#etapas-tidy"><i class="fas fa-link"></i></a>
+</h3>
+<p>A próxima etapa é arrumar, <em>tidy</em>, os dados. Vamos falar sobre isso com mais detalhe, mas existe uma noção bem específica do que são dados arrumados, <em>tidy data</em>.</p>
+<p>As três próximas etapas existem dentro de um ciclo.</p>
+</div>
+<div class="section level3" id="etapas-transform" number="7.11.4">
+<h3>
+<span class="header-section-number">7.11.4</span> Etapas: Transform<a aria-label="anchor" class="anchor" href="#etapas-transform"><i class="fas fa-link"></i></a>
+</h3>
+<p>Mesmo com dados já arrumados, ainda temos o interesse de transformá-los, para conseguir obter insights novos da mesma base de dados.</p>
+<p>Visualizar e modelar os dados trará novos insights e novas demandas, de modo que estamos constantemente transformando os dados para criar novas visualizações e modelagens.</p>
+<p><em>Import</em>, <em>tidy</em> e <em>transform</em> juntos são chamados de <em>data wrangling</em>.</p>
+</div>
+<div class="section level3" id="etapas-visualize" number="7.11.5">
+<h3>
+<span class="header-section-number">7.11.5</span> Etapas: Visualize<a aria-label="anchor" class="anchor" href="#etapas-visualize"><i class="fas fa-link"></i></a>
+</h3>
+<p>Aqui, serei preguiçoso, o texto do Hadley Wickham é muito bom:</p>
+<blockquote>
+<p>Visualisation is a fundamentally human activity. A good visualisation will show you things that you did not expect, or raise new questions about the data. A good visualisation might also hint that you’re asking the wrong question, or you need to collect different data. Visualisations can surprise you, but don’t scale particularly well because they require a human to interpret them.</p>
+</blockquote>
+</div>
+<div class="section level3" id="etapas-model" number="7.11.6">
+<h3>
+<span class="header-section-number">7.11.6</span> Etapas: Model<a aria-label="anchor" class="anchor" href="#etapas-model"><i class="fas fa-link"></i></a>
+</h3>
+<p>Um modelo é, em termos simplificados e a depender do contexto, um conjunto de hipóteses sobre o mundo – sobre o processo gerador dos dados –, acrescido com um método matemático e computacional de estimar esse processo.</p>
+<blockquote>
+<p>Models are a fundamentally mathematical or computational tool, so they generally scale well. (…) But every model makes assumptions, and by its very nature a model cannot question its own assumptions. That means a model cannot fundamentally surprise you.</p>
+</blockquote>
+</div>
+<div class="section level3" id="etapas-comunication" number="7.11.7">
+<h3>
+<span class="header-section-number">7.11.7</span> Etapas: Comunication<a aria-label="anchor" class="anchor" href="#etapas-comunication"><i class="fas fa-link"></i></a>
+</h3>
+<p>O último passo é comunicação. As linguagens de programação provém ferramentas para expor seus resultados. O próprio RMarkdown onde esta aula foi escrita é um exemplo disso. Mas existem muitas outras ferramentas mais avançadas para criar reports, livros, páginas na web, aplicativos, etc.</p>
+</div>
+<div class="section level3" id="programming" number="7.11.8">
+<h3>
+<span class="header-section-number">7.11.8</span> Programming<a aria-label="anchor" class="anchor" href="#programming"><i class="fas fa-link"></i></a>
+</h3>
+<blockquote>
+<p>Surrounding all these tools is programming. Programming is a cross-cutting tool that you use in every part of the project. You don’t need to be an expert programmer to be a data scientist, but learning more about programming pays off because becoming a better programmer allows you to automate common tasks, and solve new problems with greater ease.</p>
+</blockquote>
+</div>
+<div class="section level3" id="tidyverse" number="7.11.9">
+<h3>
+<span class="header-section-number">7.11.9</span> Tidyverse<a aria-label="anchor" class="anchor" href="#tidyverse"><i class="fas fa-link"></i></a>
+</h3>
+<blockquote>
+<p>The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.</p>
+</blockquote>
+<p>There are four basic principles to a tidy API:</p>
+<ol style="list-style-type: decimal">
+<li>Reuse existing data structures.</li>
+<li>Compose simple functions with the pipe.</li>
+<li>Embrace functional programming.</li>
+<li>Design for humans.</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="chapter-nav">
 <div class="prev"><a href="recap1.html">Recapitulando</a></div>
-<div class="next"><a href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></div>
+<div class="next"><a href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></div>
 </div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
 <nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
-<ul class="nav navbar-nav"><li><a class="nav-link" href="#intro2">Introdução</a></li></ul>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#intro2">Introdução</a></li>
+<li>
+<a class="nav-link" href="#ci%C3%AAncia-de-dados"><span class="header-section-number">7.11</span> Ciência de Dados</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#as-etapas-de-um-projeto"><span class="header-section-number">7.11.1</span> As Etapas de um Projeto</a></li>
+<li><a class="nav-link" href="#etapas-importing"><span class="header-section-number">7.11.2</span> Etapas: Importing</a></li>
+<li><a class="nav-link" href="#etapas-tidy"><span class="header-section-number">7.11.3</span> Etapas: Tidy</a></li>
+<li><a class="nav-link" href="#etapas-transform"><span class="header-section-number">7.11.4</span> Etapas: Transform</a></li>
+<li><a class="nav-link" href="#etapas-visualize"><span class="header-section-number">7.11.5</span> Etapas: Visualize</a></li>
+<li><a class="nav-link" href="#etapas-model"><span class="header-section-number">7.11.6</span> Etapas: Model</a></li>
+<li><a class="nav-link" href="#etapas-comunication"><span class="header-section-number">7.11.7</span> Etapas: Comunication</a></li>
+<li><a class="nav-link" href="#programming"><span class="header-section-number">7.11.8</span> Programming</a></li>
+<li><a class="nav-link" href="#tidyverse"><span class="header-section-number">7.11.9</span> Tidyverse</a></li>
+</ul>
+</li>
+</ul>
 <!--<div class="book-extra">
             <ul class="list-unstyled">
               <li><a id="book-source" href="#">Ver código <i class="fab fa-github"></i></a></li>

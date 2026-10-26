@@ -150,7 +150,7 @@
 <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Bem Vindo(a)!</a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
-<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li class="book-part">Parte I - Fundamentos</li>
 <li><a class="" href="intro1.html">Introdução</a></li>
 <li><a class="active" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
 <li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
@@ -158,33 +158,14 @@
 <li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
 <li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
 <li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
-<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
 <li><a class="" href="recap1.html">Recapitulando</a></li>
-<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li class="book-part">Parte II - Ciência de dados</li>
 <li><a class="" href="intro2.html">Introdução</a></li>
-<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
-<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
-<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
-<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
-<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
-<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
-<li><a class="" href="recap2.html">Recapitulando</a></li>
-<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
+<li class="book-part">Parte III - Programação Geral</li>
 <li><a class="" href="intro3.html">Introdução</a></li>
-<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
-<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
-<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
-<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
-<li><a class="" href="recap3.html">Recapitulando</a></li>
-<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
-<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
-<li><a class="" href="intro4.html">Introdução</a></li>
-<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
-<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
-<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
-<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li><a class="" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
 <li class="book-part">Apêndice</li>
 <li><a class="" href="dict.html">Dicionário de funções</a></li>
 <li><a class="" href="refs.html">Referências</a></li>
@@ -227,7 +208,7 @@
 <ul>
 <li>
 <strong>valores</strong> (<strong>dados</strong>), que podem carregar também <strong>atributos</strong> (<strong>metadados</strong>).</li>
-<li>Cada <strong>valor</strong> tem um <strong>tipo</strong>/<strong>type</strong><a class="footnote-ref" data-content="&lt;p&gt;Não se preocupe, aprenderemos mais sobre valores e atributos no próximo capítulo. Quando a palavra “tipo” for usada com este significado, estará em itálico.&lt;/p&gt;" data-toggle="popover" tabindex="0"><sup>36</sup></a>.</li>
+<li>Cada <strong>valor</strong> tem um <strong>tipo</strong>/<strong>type</strong><a class="footnote-ref" data-content="&lt;p&gt;Não se preocupe, aprenderemos mais sobre valores e atributos no próximo capítulo. Quando a palavra “tipo” for usada com este significado, estará em itálico.&lt;/p&gt;" data-toggle="popover" tabindex="0"><sup>34</sup></a>.</li>
 <li>Podem ser associados à um nome/<strong>symbol</strong>. O conjunto nome-objeto é chamado de <strong>variável</strong>. Mas também podem ser escritos “por extenso”, como <code class="sourceCode r"><span class="dv">1</span></code> ou <code class="sourceCode r"><span class="st">"Hello World!"</span></code>.</li>
 </ul>
 </div>
@@ -363,7 +344,7 @@
 </div>
 <p>Ao rodar algo como <code class="sourceCode r">x <span class="ot">&lt;-</span> <span class="dv">1</span></code>, o objeto <code>1</code> é salvo na memória do computador, e associado ao nome <code>x</code>. Como dito anteriormente, a variável é o conjunto objeto-nome.</p>
 <p>O diagrama abaixo, inspirado no presente em Advanced R<!--[@advr]-->, ilustra esse processo. Note que o objeto existe na memória do computador, em uma localidade específica, e o nome é apenas uma referência à ele.</p>
-<p>O objeto pode ser pensado como a localidade na memória em si, ou o que reside nela. Portanto, no diagrama, o objeto tem uma etiqueta, com o seu endereço de memória<a class="footnote-ref" data-content="&lt;p&gt;O endereço de memória real é longo e muda constantemente, na verdade, a etiqueta é um identificador que pode ser visto com a função &lt;code&gt;lobstr::obj_addr()&lt;/code&gt;.&lt;/p&gt;" data-toggle="popover" tabindex="0"><sup>37</sup></a>.</p>
+<p>O objeto pode ser pensado como a localidade na memória em si, ou o que reside nela. Portanto, no diagrama, o objeto tem uma etiqueta, com o seu endereço de memória<a class="footnote-ref" data-content="&lt;p&gt;O endereço de memória real é longo e muda constantemente, na verdade, a etiqueta é um identificador que pode ser visto com a função &lt;code&gt;lobstr::obj_addr()&lt;/code&gt;.&lt;/p&gt;" data-toggle="popover" tabindex="0"><sup>35</sup></a>.</p>
 <div class="inline-figure"><img height="70%" src="assets/img/bind1.svg"/></div>
 </div>
 <div class="section level3" id="copy-on-modify" number="2.2.2">
@@ -406,7 +387,7 @@
 <div class="result">
 <p><strong>Copy-on-modify</strong><br/></p>
 <p>No R, um mesmo objeto pode ter ser referenciado a mais de um nome, gerando várias variáveis. Modificar alguma delas não modifica o objeto diretamente, mas copia-o em um novo local na memória, para abrigar o objeto modificado. Isso é, os objetos são copiados-após-mudanças.</p>
-<p>Existem duas exceções: objetos com apenas uma referência/um nome, e <em>ambientes</em><a class="footnote-ref" data-content='&lt;p&gt;Tratados no capítulo &lt;a href="funs-envs.html#funs-envs"&gt;6&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>38</sup></a>. Esses são alterados “na hora”/“no lugar”, ou <em>modify-in-place</em>.</p>
+<p>Existem duas exceções: objetos com apenas uma referência/um nome, e <em>ambientes</em><a class="footnote-ref" data-content='&lt;p&gt;Tratados no capítulo &lt;a href="funs-envs.html#funs-envs"&gt;6&lt;/a&gt;.&lt;/p&gt;' data-toggle="popover" tabindex="0"><sup>36</sup></a>. Esses são alterados “na hora”/“no lugar”, ou <em>modify-in-place</em>.</p>
 </div>
 <p>A melhor maneira de ver quando um objeto é copiado é olhando empiricamente. Veja a função <code><a href="https://rdrr.io/r/base/tracemem.html">tracemem()</a></code> na <a href="https://adv-r.hadley.nz/names-values.html#tracemem">seção 2.3.1</a> do Advanced R.</p>
 </div>
@@ -726,18 +707,12 @@ Você verá que isso é um tema comum: o R tenta facilitar muitas tarefas, fazen
 <ul>
 <li>
 <code>()</code> são analisados primeiro, porque tem precedência (estão acima na tabela).
-<ul>
-<li>Como é da direita pra esquerda, primeiro <code class="sourceCode r">(<span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>)</code> vira <code>3</code>, e depois, <code class="sourceCode r">(<span class="dv">3</span><span class="sc">+</span><span class="dv">6</span>)</code> vira <code>9</code>.</li>
-</ul>
-</li>
+é da direita pra esquerda, primeiro <code class="sourceCode r">(<span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>)</code> vira <code>3</code>, e depois, <code class="sourceCode r">(<span class="dv">3</span><span class="sc">+</span><span class="dv">6</span>)</code> vira <code>9</code>.</li>
 <li>
 <code>^</code> é analisado a seguir, logo, <code class="sourceCode r"><span class="dv">5</span><span class="sc">^</span><span class="dv">4</span></code> vira <code>625</code>.</li>
 <li>
 <code>/</code> é analisado a seguir.
-<ul>
-<li>Como é da esquerda pra direita, primeiro <code class="sourceCode r"><span class="dv">9</span><span class="sc">/</span><span class="dv">3</span></code> vira <code>3</code>, e depois <code class="sourceCode r"><span class="dv">3</span><span class="sc">/</span><span class="dv">625</span></code> vira <code>0.0048</code>.</li>
-</ul>
-</li>
+é da esquerda pra direita, primeiro <code class="sourceCode r"><span class="dv">9</span><span class="sc">/</span><span class="dv">3</span></code> vira <code>3</code>, e depois <code class="sourceCode r"><span class="dv">3</span><span class="sc">/</span><span class="dv">625</span></code> vira <code>0.0048</code>.</li>
 </ul>
 </div>
 <div class="extra">
@@ -763,11 +738,8 @@ Você verá que isso é um tema comum: o R tenta facilitar muitas tarefas, fazen
 <li>Vimos como imputar cada token.</li>
 </ul>
 </li>
-<li>As declarações são combinações de tokens.
-<ul>
-<li>Costumam ser delimitadas por quebras de linha.</li>
-</ul>
-</li>
+<li>As declarações são combinações de tokens.</li>
+<li>C er delimitadas por quebras de linha.</li>
 <li>Declarações podem ser organizadas em parágrafos vias chaves.</li>
 <li>Scripts são sequências de declarações.</li>
 </ul>
@@ -776,7 +748,7 @@ Você verá que isso é um tema comum: o R tenta facilitar muitas tarefas, fazen
 <li>Uma <strong>expressão</strong> é uma declaração ainda não avaliada.</li>
 <li>Uma <strong>função</strong> é uma expressão, que depende de variáveis, associada à um nome.
 <ul>
-<li>Funções podem ser entendidas como “parágrafos nomeáveis”.</li>
+<li>Devedem ser entendidas como “parágrafos nomeáveis”.</li>
 </ul>
 </li>
 </ul>

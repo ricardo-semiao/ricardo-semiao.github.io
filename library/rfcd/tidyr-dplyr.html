@@ -5,20 +5,20 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!-- Meta --><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>11 tidyr e dplyr | R: Fundamentos e Ciência de Dados</title>
+<title>8 Dados Tidy | R: Fundamentos e Ciência de Dados</title>
 <link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
 <link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
 <meta content="Ricardo Semião e Castro" name="Author"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  11.1 Introdução Neste capítulo, descreverei os fundamentos e operações da manipulação de dados. Falo como aplicá-las..." name="description"/>
+<meta content="8.1 Introdução Neste capítulo, descreverei como é o formato de dados chamado tidy (arrumado), e quais são os fundamentos e operações da manipulação de dados. Falo como aplicá-las usando os pacotes..." name="description"/>
 <meta content="bookdown 0.45 with bs4_book()" name="generator"/>
-<meta content="11 tidyr e dplyr | R: Fundamentos e Ciência de Dados" property="og:title"/>
+<meta content="8 Dados Tidy | R: Fundamentos e Ciência de Dados" property="og:title"/>
 <meta content="book" property="og:type"/>
 <meta content="https://ricardo-semiao.github.io/course-rfcd/tidyr-dplyr.html" property="og:url"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  11.1 Introdução Neste capítulo, descreverei os fundamentos e operações da manipulação de dados. Falo como aplicá-las..." property="og:description"/>
+<meta content="8.1 Introdução Neste capítulo, descreverei como é o formato de dados chamado tidy (arrumado), e quais são os fundamentos e operações da manipulação de dados. Falo como aplicá-las usando os pacotes..." property="og:description"/>
 <meta content="summary" name="twitter:card"/>
-<meta content="11 tidyr e dplyr | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
+<meta content="8 Dados Tidy | R: Fundamentos e Ciência de Dados" name="twitter:title"/>
 <meta content="@ricardo_semiao" name="twitter:site"/>
-<meta content="este capítulo está em construção. O que segue abaixo é apenas um rascunho.  11.1 Introdução Neste capítulo, descreverei os fundamentos e operações da manipulação de dados. Falo como aplicá-las..." name="twitter:description"/>
+<meta content="8.1 Introdução Neste capítulo, descreverei como é o formato de dados chamado tidy (arrumado), e quais são os fundamentos e operações da manipulação de dados. Falo como aplicá-las usando os pacotes..." name="twitter:description"/>
 <!-- JS --><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet"/>
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet"/>
@@ -150,7 +150,7 @@
 <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Bem Vindo(a)!</a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
-<li class="book-part">Parte I - Fundamentos: R Base</li>
+<li class="book-part">Parte I - Fundamentos</li>
 <li><a class="" href="intro1.html">Introdução</a></li>
 <li><a class="" href="syntax-vars.html"><span class="header-section-number">2</span> Sintaxe e Variáveis</a></li>
 <li><a class="" href="data-attrs.html"><span class="header-section-number">3</span> Tipos de Valores e Atributos</a></li>
@@ -158,33 +158,14 @@
 <li><a class="" href="control-conds.html"><span class="header-section-number">5</span> Control Flow e Condições</a></li>
 <li><a class="" href="funs-envs.html"><span class="header-section-number">6</span> Funções e Ambientes</a></li>
 <li><a class="" href="paradigms.html"><span class="header-section-number">7</span> Paradigmas de Programação</a></li>
-<li><a class="" href="others1.html"><span class="header-section-number">8</span> Outros Tópicos</a></li>
 <li><a class="" href="recap1.html">Recapitulando</a></li>
-<li class="book-part">Parte II - Fundamentos: Tidyverse</li>
+<li class="book-part">Parte II - Ciência de dados</li>
 <li><a class="" href="intro2.html">Introdução</a></li>
-<li><a class="" href="philosophy.html"><span class="header-section-number">9</span> Filosofia, readr, tibble</a></li>
-<li><a class="" href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></li>
-<li><a class="active" href="tidyr-dplyr.html"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
-<li><a class="" href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></li>
-<li><a class="" href="purrr.html"><span class="header-section-number">13</span> purrr</a></li>
-<li><a class="" href="time-series.html"><span class="header-section-number">14</span> Datas e Séries de Tempo</a></li>
-<li><a class="" href="others2.html"><span class="header-section-number">15</span> Outros</a></li>
-<li><a class="" href="recap2.html">Recapitulando</a></li>
-<li class="book-part">Parte III - Ciência de Dados: Processar</li>
+<li><a class="active" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
+<li class="book-part">Parte III - Programação Geral</li>
 <li><a class="" href="intro3.html">Introdução</a></li>
-<li><a class="" href="ds.html"><span class="header-section-number">16</span> Ciência de Dados</a></li>
-<li><a class="" href="import-tidy.html"><span class="header-section-number">17</span> Importar e Arrumar</a></li>
-<li><a class="" href="manipulate.html"><span class="header-section-number">18</span> Manipular</a></li>
-<li><a class="" href="unite.html"><span class="header-section-number">19</span> Unir</a></li>
-<li><a class="" href="recap3.html">Recapitulando</a></li>
-<li><a class="" href="visualize.html"><span class="header-section-number">20</span> Visualizar</a></li>
-<li class="book-part">Parte IV - Ciência de Dados: Explorar</li>
-<li><a class="" href="intro4.html">Introdução</a></li>
-<li><a class="" href="stats-prob.html"><span class="header-section-number">21</span> Probabilidade e Estatística</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">22</span> Regressão</a></li>
-<li><a class="" href="ml.html"><span class="header-section-number">23</span> Aprendizado de Máquina</a></li>
-<li><a class="" href="others4.html"><span class="header-section-number">24</span> Outras Aplicações</a></li>
-<li><a class="" href="recap4.html">Recapitulando</a></li>
+<li><a class="" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
 <li class="book-part">Apêndice</li>
 <li><a class="" href="dict.html">Dicionário de funções</a></li>
 <li><a class="" href="refs.html">Referências</a></li>
@@ -194,53 +175,118 @@
             </div>-->
 </nav>
 </div>
-</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1" id="tidyr-dplyr" number="11">
+</header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div class="section level1" id="tidyr-dplyr" number="8">
 <h1>
-<span class="header-section-number">11</span> tidyr e dplyr<a aria-label="anchor" class="anchor" href="#tidyr-dplyr"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8</span> Dados Tidy<a aria-label="anchor" class="anchor" href="#tidyr-dplyr"><i class="fas fa-link"></i></a>
 </h1>
-<div class="warn">
-<p>este capítulo está em construção. O que segue abaixo é apenas um rascunho.</p>
-</div>
-<div class="section level2" id="introdução-10" number="11.1">
+<div class="section level2" id="introdução-7" number="8.1">
 <h2>
-<span class="header-section-number">11.1</span> Introdução<a aria-label="anchor" class="anchor" href="#introdu%C3%A7%C3%A3o-10"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.1</span> Introdução<a aria-label="anchor" class="anchor" href="#introdu%C3%A7%C3%A3o-7"><i class="fas fa-link"></i></a>
 </h2>
-<p>Neste capítulo, descreverei os fundamentos e operações da manipulação de dados. Falo como aplicá-las usando os pacotes “dplyr” e “tidyr”.</p>
+<p>Neste capítulo, descreverei como é o formato de dados chamado <em>tidy</em> (arrumado), e quais são os fundamentos e operações da manipulação de dados. Falo como aplicá-las usando os pacotes “dplyr” e “tidyr”.</p>
 </div>
-<div class="section level2" id="importing-e-wrangling" number="11.2">
+<div class="section level2" id="importing" number="8.2">
 <h2>
-<span class="header-section-number">11.2</span> Importing e Wrangling<a aria-label="anchor" class="anchor" href="#importing-e-wrangling"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.2</span> Importing<a aria-label="anchor" class="anchor" href="#importing"><i class="fas fa-link"></i></a>
 </h2>
-<div class="section level3" id="importing" number="11.2.1">
-<h3>
-<span class="header-section-number">11.2.1</span> Importing<a aria-label="anchor" class="anchor" href="#importing"><i class="fas fa-link"></i></a>
-</h3>
-<p>Não tem muito erro, tem que saber como são os formatos de arquivo que existem. Veja o <a href="https://github.com/gvcode/trainee/blob/main/exercises/ex3-python-3.ipynb">ex 5 da lista 4</a> do trainee.</p>
-<p>Cada arquivo, a depender do seu tipo, tem configurações diferentes. Ex: um arquivo CSV pode ser separado por <code>,</code> ou <code>;</code>, qual a planilha quista de um <code>.xlsx</code>. Esse tipo de configuração precisa ser passada para a função que lê o arquivo.</p>
+<p>Não tem muito erro, tem que saber como são os formatos de arquivo que existem. Cada arquivo, a depender do seu tipo, tem configurações diferentes. Ex: um arquivo CSV pode ser separado por <code>,</code> ou <code>;</code>, qual a planilha quista de um <code>.xlsx</code>. Esse tipo de configuração precisa ser passada para a função que lê o arquivo.</p>
 <p>Também podemos estar interessados em:</p>
 <ul>
 <li>Pular linhas e colunas.</li>
 <li>Definir tipos das colunas.</li>
 <li>Especificar o que define strings (ex <code>'</code> ou <code>"</code>), comentários (ex <code>#</code>), e valores <code>NA</code>.</li>
 </ul>
-</div>
-<div class="section level3" id="tidy-data" number="11.2.2">
+<div class="section level3" id="readr" number="8.2.1">
 <h3>
-<span class="header-section-number">11.2.2</span> Tidy Data<a aria-label="anchor" class="anchor" href="#tidy-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.2.1</span> readr<a aria-label="anchor" class="anchor" href="#readr"><i class="fas fa-link"></i></a>
+</h3>
+<p>O readr existe “to provide a fast and friendly way to read rectangular data from delimited files”.</p>
+<p>O tidyverse também tem <a href="https://www.tidyverse.org/packages/#import">pacotes secundários</a> para outros tipos de dados (<code>.xlsx</code>, <code>.json</code>, …), recomendo também estudar o readxl no mínimo. Muitos deles usam argumentos similares.</p>
+<p>Veja:</p>
+<ul>
+<li>O <a href="https://readr.tidyverse.org/articles/readr.html">tutorial</a>.</li>
+<li>A <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-import.pdf">cheatsheet</a>.</li>
+</ul>
+<p>Leia a documentação de:</p>
+<ul>
+<li>
+<a href="https://readr.tidyverse.org/reference/read_delim.html"><code>read_delim()</code></a>.</li>
+<li>
+<a href="https://readr.tidyverse.org/reference/read_fwf.html"><code>read_fwf()</code></a>.</li>
+<li>
+<a href="https://readr.tidyverse.org/reference/read_table.html"><code>read_table()</code></a>.</li>
+</ul>
+</div>
+<div class="section level3" id="argumentos-importantes" number="8.2.2">
+<h3>
+<span class="header-section-number">8.2.2</span> Argumentos Importantes<a aria-label="anchor" class="anchor" href="#argumentos-importantes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Lembre-se de quais operações queremos poder fazer.</p>
+<p>Podemos escolher o que selecionar: <code>skip</code>, <code>n_max</code>, <code>col_select</code>, <code>skip_empty_rows</code>.</p>
+<p>Também é importante o “como” selecionar (parse):</p>
+<ul>
+<li>
+<code>col_types</code>. Veja mais no artigo <a href="https://readr.tidyverse.org/articles/column-types.html">Column types</a>.</li>
+<li>
+<code>locale</code>. Veja mais no artigo <a href="https://readr.tidyverse.org/articles/locale.html">Locale</a>.</li>
+<li>
+<code>name_repair</code>.</li>
+<li>
+<code>quote</code>, <code>comment</code>, <code>na</code>.</li>
+<li>
+<code>trim_ws</code>.</li>
+</ul>
+<p>Exemplo 1:</p>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span></span>
+<span><span class="st">"a,b,c,d</span></span>
+<span><span class="st">1,2,'A',na</span></span>
+<span><span class="st">3,4,'B',4</span></span>
+<span><span class="st">fonte:IBGE,,,"</span></span>
+<span></span>
+<span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 4</span></span>
+<span><span class="co">#&gt;   a              b c     d</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;</span></span>
+<span><span class="co">#&gt; 1 1              2 'A'   na</span></span>
+<span><span class="co">#&gt; 2 3              4 'B'   4</span></span>
+<span><span class="co">#&gt; 3 fonte:IBGE    NA NA    NA</span></span></code></pre></div>
+<p>Exemplo 2:</p>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span></span>
+<span><span class="st">"a,b,c,d</span></span>
+<span><span class="st">1,2,'A',na</span></span>
+<span><span class="st">3,4,'B',4</span></span>
+<span><span class="st">fonte:IBGE,,,"</span></span>
+<span></span>
+<span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>,</span>
+<span>    col_types <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>c <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/parse_factor.html">col_factor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>, <span class="co">#"nnfn"</span></span>
+<span>    col_select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">b</span><span class="op">:</span><span class="va">d</span><span class="op">)</span>,</span>
+<span>    n_max <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>    quote <span class="op">=</span> <span class="st">"'"</span>, na <span class="op">=</span> <span class="st">"na"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span><span class="co">#&gt;       b c         d</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1     2 A        NA</span></span>
+<span><span class="co">#&gt; 2     4 B         4</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2" id="wrangling" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> Wrangling<a aria-label="anchor" class="anchor" href="#wrangling"><i class="fas fa-link"></i></a>
+</h2>
+<div class="section level3" id="tidy-data" number="8.3.1">
+<h3>
+<span class="header-section-number">8.3.1</span> Tidy Data<a aria-label="anchor" class="anchor" href="#tidy-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>Antes de falar sobre <em>tidying</em>, vamos falar sobre o que é um <em>dataset tidy</em>.</p>
-<p>Veja a <a href="https://github.com/gvcode/trainee/blob/main/aula4-cd-manipulacao.ipynb">aula 4 do trainee</a>.</p>
 <p>Para ciência de dados, será útil utilizar uma organização específica, chamada de “tidy dataset”. Três regras a definem:</p>
 <ul>
 <li>Cada variável deve ter sua própria coluna.</li>
 <li>Cada observação deve ter sua própria linha.</li>
 <li>Cada valor deve ter sua própria célula.</li>
 </ul>
-</div>
-<div class="section level3" id="tidy-data-1" number="11.2.3">
-<h3>
-<span class="header-section-number">11.2.3</span> Tidy Data<a aria-label="anchor" class="anchor" href="#tidy-data-1"><i class="fas fa-link"></i></a>
-</h3>
 <div class="inline-figure"><img height="200" src="https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png"/></div>
 <p>Quais os benefícios?</p>
 <ul>
@@ -248,52 +294,92 @@
 <li>A arrumação tidy é intuitiva, e é utilizada de maneira muito natural nas ferramentas, muitaz vezes vetorizadas, de visualização e modelagem.</li>
 </ul>
 </div>
-<div class="section level3" id="tidying" number="11.2.4">
+<div class="section level3" id="tidying" number="8.3.2">
 <h3>
-<span class="header-section-number">11.2.4</span> Tidying<a aria-label="anchor" class="anchor" href="#tidying"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.3.2</span> Tidying<a aria-label="anchor" class="anchor" href="#tidying"><i class="fas fa-link"></i></a>
 </h3>
+<p>O processo de arrumar dados é o seguinte:</p>
 <ol style="list-style-type: decimal">
 <li>Agora que já entendemos o que é tidy data, podemos adquirir a habilidade de olhar para um dataset e, sabendo onde queremos chegar, elencar quais são as alterações a serem feitas.</li>
 <li>Após elencar quais alterações devem ser feitas, é simples fazer a ponte de quais <em>manipulações de dados você quer fazer</em> – “subset linhas” e “separar colunas”.</li>
 <li>Por fim, só falta relembrar como é o código que aplica essa manipulação. Essa é a parte mais simples! É só voltar na aula passada, pesquisar na internet, <em>ver no chat</em>, ou perguntar para o seu amigo preferido!</li>
 </ol>
+<p>Vamos tratar de um exemplo, que mostram como um dataset “não tidy” pode ser transformado em tidy. Começamos com:</p>
+<div class="inline-figure"><img src="assets/img/data_dirty.png"/></div>
+<p>Vamos, sem ordem específica, elencar alterações para fazer.</p>
+<p>Começe sempre definindo o que é uma observação. No nosso caso uma observação é definida pelo “nome” (Luana, Ricardo, etc.). Depois, faça as perguntas: “Cada coluna é uma variável? Cada linha é uma observação? Cada célula é um valor”. Se não, o que fazer?</p>
+<div class="section level4" id="cada-linha-é-uma-observação" number="8.3.2.1">
+<h4>
+<span class="header-section-number">8.3.2.1</span> Cada linha é uma observação?<a aria-label="anchor" class="anchor" href="#cada-linha-%C3%A9-uma-observa%C3%A7%C3%A3o"><i class="fas fa-link"></i></a>
+</h4>
+<p>Primeiro, por exemplo, podemos notar que a primeira linha é um cabeçalho, não uma observação:</p>
+<div class="inline-figure"><img src="assets/img/data_header.png"/></div>
+<p>Depois, outras linhas são títulos de grupos de observações, também podem ser removidas. Se a informação do título for importante, poderíamos criar uma coluna para ela.</p>
+<div class="inline-figure"><img src="assets/img/data_groups.png"/></div>
 </div>
-<div class="section level3" id="tidying-básico" number="11.2.5">
-<h3>
-<span class="header-section-number">11.2.5</span> Tidying: Básico<a aria-label="anchor" class="anchor" href="#tidying-b%C3%A1sico"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure"><img src="assets/img/dirty_dataset.png"/></div>
+<div class="section level4" id="cada-coluna-é-uma-variável" number="8.3.2.2">
+<h4>
+<span class="header-section-number">8.3.2.2</span> Cada coluna é uma variável?<a aria-label="anchor" class="anchor" href="#cada-coluna-%C3%A9-uma-vari%C3%A1vel"><i class="fas fa-link"></i></a>
+</h4>
+<p>A seguir, existe uma coluna meramente estética, que não é uma variável, e deve ser removida.</p>
+<div class="inline-figure"><img src="assets/img/data_culumn.png"/></div>
+<p>A primeira coluna pode ser considerada uma variável ‘inútil’, e ser removida:</p>
+<div class="inline-figure"><img src="assets/img/data_index.png"/></div>
 </div>
-<div class="section level3" id="tidying-nas" number="11.2.6">
-<h3>
-<span class="header-section-number">11.2.6</span> Tidying: NAs<a aria-label="anchor" class="anchor" href="#tidying-nas"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure"><img src="assets/img/na.png"/></div>
+<div class="section level4" id="cada-célula-é-um-valor" number="8.3.2.3">
+<h4>
+<span class="header-section-number">8.3.2.3</span> Cada célula é um valor?<a aria-label="anchor" class="anchor" href="#cada-c%C3%A9lula-%C3%A9-um-valor"><i class="fas fa-link"></i></a>
+</h4>
+<p>Note que há dois valores faltantes na última coluna, células que não são valores. Devemos trocálos pelos valor <code>NA</code>.</p>
+<div class="inline-figure"><img src="assets/img/data_na.png"/></div>
+<p>Tratar valores NA é um tema importante. Muitas vezes, as visualizações e modelagens a serem feitas com os dados não aceitam valores NA.</p>
+<p>Podemos ‘chutar’ o valor, seguindo algum algorítmo, por exemplo, chutando a média:</p>
+<div class="inline-figure"><img src="assets/img/data_na_0.png"/></div>
+<p>Por melhor que seja o algorítmo, note que sempre é um chute, que sempre incorre em um erro estatístico, podendo trazer viés para as próximas etapas. Muitas vezes, é mais adequado remover a observação, mas note que isso também pode desbalancear a amostra:</p>
+<div class="inline-figure"><img src="assets/img/data_na_rm.png"/></div>
+<p>Com datasets mais ricos, as vezes podemos criar um modelo que preveja os valores faltantes com base no resto das variáveis:</p>
+<div class="inline-figure"><img src="assets/img/data_na_cross.png"/></div>
+<p>Com dados temporais, podemos usar a dinâmica temporal para prevê-los:</p>
+<div class="inline-figure"><img src="assets/img/data_na_ts.png"/></div>
+<p>Porém, o primeiro passo sempre é buscar algum conhecimento institucional que ajude a entender o porque existem valores NA, e se algum deles na verdade pode ser substituido com certeza:</p>
+<div class="inline-figure"><img src="assets/img/data_na_know.png"/></div>
 </div>
-<div class="section level3" id="tidying-pivot" number="11.2.7">
-<h3>
-<span class="header-section-number">11.2.7</span> Tidying: Pivot<a aria-label="anchor" class="anchor" href="#tidying-pivot"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure"><img src="assets/img/longer.png"/></div>
+<div class="section level4" id="pivoting" number="8.3.2.4">
+<h4>
+<span class="header-section-number">8.3.2.4</span> Pivoting<a aria-label="anchor" class="anchor" href="#pivoting"><i class="fas fa-link"></i></a>
+</h4>
+<p>O exemplo acima foi simples, mas as vezes, é necessário realizar uma transformação mais complexa, que altera a forma do dataset. Elas são apresentadas aqui.</p>
+<p>As vezes, uma coluna contem mais de uma variável ‘coladas’:</p>
+<div class="inline-figure"><img src="assets/img/data_separate.png"/></div>
+<p>Outras vezes, uma observação está espalhada por mais de uma linha, e precisamos juntar essas linhas em uma só, ou pivotar a tabela para um formato mais largo:</p>
+<div class="inline-figure"><img src="assets\img\data_wider.png"/></div>
+<p>A operação inversa ocorre quando uma variável está espalhada por mais de uma coluna, e precisamos pivotar a tabela para um formato mais longo:</p>
+<div class="inline-figure"><img src="data_longer.png"/></div>
+<p>Essas duas operações estão intimamente ligadas à definição de uma observação. No formato longo, uma observação é a combinação de <em>country</em>, <em>year</em>, e <em>type</em>; no formato largo, <em>country</em> e <em>year</em> apenas.</p>
 </div>
-<div class="section level3" id="tidying-pivot-1" number="11.2.8">
-<h3>
-<span class="header-section-number">11.2.8</span> Tidying: Pivot<a aria-label="anchor" class="anchor" href="#tidying-pivot-1"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure"><img src="assets/img/wider.png"/></div>
-</div>
-<div class="section level3" id="tidying-merge" number="11.2.9">
-<h3>
-<span class="header-section-number">11.2.9</span> Tidying: Merge<a aria-label="anchor" class="anchor" href="#tidying-merge"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure"><img src="assets/img/merge.png"/></div>
-</div>
-<div class="section level3" id="tidying-receita" number="11.2.10">
-<h3>
-<span class="header-section-number">11.2.10</span> Tidying: Receita<a aria-label="anchor" class="anchor" href="#tidying-receita"><i class="fas fa-link"></i></a>
-</h3>
-<p>Qual foi a receitinha de bolo que aprendemos? (hmm bolo 😋). Recebemos um dataset, e:</p>
+<div class="section level4" id="merging" number="8.3.2.5">
+<h4>
+<span class="header-section-number">8.3.2.5</span> Merging<a aria-label="anchor" class="anchor" href="#merging"><i class="fas fa-link"></i></a>
+</h4>
+<p>Por fim, as vezes precisamos unir datasets em um só. Por exemplo:</p>
+<div class="inline-figure"><img src="assets/img/data_merge1.png"/></div>
+<div class="inline-figure"><img src="assets/img/data_merge2.png"/></div>
+<p>Existem vários tipos de merge/join:</p>
+<div class="inline-figure"><img src="assets/img/data_merge3.png"/></div>
+<p>Os principais são:</p>
 <ul>
+<li>Left join: mantém todas as observações do dataset da esquerda, preenchendo com NA quando não existe no dataset da direita.</li>
+<li>Inner join: mantém apenas as observações que existem em ambos os datasets.</li>
+<li>Outer join: mantém todas as observações, preenchendo com NA quando não existe.</li>
+</ul>
+</div>
+<div class="section level4" id="a-receita" number="8.3.2.6">
+<h4>
+<span class="header-section-number">8.3.2.6</span> A Receita<a aria-label="anchor" class="anchor" href="#a-receita"><i class="fas fa-link"></i></a>
+</h4>
+<p>Qual foi a receitinha de bolo que aprendemos? (hmm bolo 😋). Recebemos um dataset, e:</p>
+<ol style="list-style-type: decimal">
+<li>Definimos o que é uma observação.</li>
 <li>Arrumar os dados para o formato data frame.
 <ul>
 <li>Todas as colunas são homogêneas?
@@ -308,13 +394,6 @@
 </li>
 </ul>
 </li>
-</ul>
-</div>
-<div class="section level3" id="tidying-receita-1" number="11.2.11">
-<h3>
-<span class="header-section-number">11.2.11</span> Tidying: Receita<a aria-label="anchor" class="anchor" href="#tidying-receita-1"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
 <li>Arrumar os dados para o formato tidy.
 <ul>
 <li>Toda coluna é uma variável?
@@ -331,25 +410,19 @@
 </li>
 </ul>
 </li>
-</ul>
-</div>
-<div class="section level3" id="tidying-receita-2" number="11.2.12">
-<h3>
-<span class="header-section-number">11.2.12</span> Tidying: Receita<a aria-label="anchor" class="anchor" href="#tidying-receita-2"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>Dados NA.
+<li>Lidamos com dados NA.
 <ul>
 <li>Transformar dados “ruins” em NA.</li>
 <li>Lidar com dados NA.</li>
 </ul>
 </li>
 <li>Tenho mais de um dataset? Deixá-los tidy e então realizaram algum merge.</li>
-</ul>
+</ol>
 </div>
-<div class="section level3" id="transforming" number="11.2.13">
+</div>
+<div class="section level3" id="transforming" number="8.3.3">
 <h3>
-<span class="header-section-number">11.2.13</span> Transforming<a aria-label="anchor" class="anchor" href="#transforming"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.3.3</span> Transforming<a aria-label="anchor" class="anchor" href="#transforming"><i class="fas fa-link"></i></a>
 </h3>
 <p>Após arrumarmos um dataset, ainda aplicaremos transformações com base nas demandas da fase de visualização e modelagem.</p>
 <ul>
@@ -360,13 +433,6 @@
 <li>Filtrar observações.</li>
 </ul>
 </li>
-</ul>
-</div>
-<div class="section level3" id="transforming-1" number="11.2.14">
-<h3>
-<span class="header-section-number">11.2.14</span> Transforming<a aria-label="anchor" class="anchor" href="#transforming-1"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
 <li>Transformar/criar colunas:
 <ul>
 <li>Alterar a unidade de uma variável.</li>
@@ -381,11 +447,12 @@
 </ul>
 </div>
 </div>
-<div class="section level2" id="tidyr" number="11.3">
+<div class="section level2" id="tidyr" number="8.4">
 <h2>
-<span class="header-section-number">11.3</span> tidyr<a aria-label="anchor" class="anchor" href="#tidyr"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.4</span> tidyr<a aria-label="anchor" class="anchor" href="#tidyr"><i class="fas fa-link"></i></a>
 </h2>
-<p>O tidyr existe “to help you create tidy data”.</p>
+<p>Agora, estudaremos como essas operações são implementadas nos pacotes do tidyverse. Na minha opinião, o principal ponto positivo desses pacotes é o quão intuitivamente conseguimos agrupar suas funções nas caixinhas das operações descritas acima, e quão fáceis elas são de utilizar. É muito simples elencar a lista de transformações necessárias, e pedir para uma IA mapeá-las em funções do tidyr e dplyr.</p>
+<p>Começaremos com o tidyr, que existe “to help you create tidy data”.</p>
 <p>Veja:</p>
 <ul>
 <li>O <a href="https://tidyr.tidyverse.org/articles/tidy-data.html">tutorial</a>.</li>
@@ -398,28 +465,28 @@
 <li>NA handling (+ complete)</li>
 <li>Outros: lists to dataframes (<a href="https://tidyr.tidyverse.org/articles/rectangle.html">unnest</a>)</li>
 </ul>
-<div class="section level3" id="separate" number="11.3.1">
+<div class="section level3" id="separate" number="8.4.1">
 <h3>
-<span class="header-section-number">11.3.1</span> Separate<a aria-label="anchor" class="anchor" href="#separate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.4.1</span> Separate<a aria-label="anchor" class="anchor" href="#separate"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"m-123"</span>, <span class="st">"f-455"</span>, <span class="st">"f-123"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_wider_delim.html">separate_wider_delim</a></span><span class="op">(</span><span class="va">x</span>, delim <span class="op">=</span> <span class="st">"-"</span>, names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gender"</span>, <span class="st">"unit"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_wider_delim.html">separate_wider_position</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>gender <span class="op">=</span> <span class="fl">1</span>, <span class="fl">1</span>, unit <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_wider_delim.html">separate_wider_regex</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>gender <span class="op">=</span> <span class="st">"."</span>, <span class="st">"."</span>, unit <span class="op">=</span> <span class="st">"\\d+"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 3 × 3</span></span>
-<span><span class="co">#&gt;      id gender unit </span></span>
+<span><span class="co">#&gt;      id gender unit</span></span>
 <span><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;</span></span>
-<span><span class="co">#&gt; 1     1 m      123  </span></span>
-<span><span class="co">#&gt; 2     2 f      455  </span></span>
+<span><span class="co">#&gt; 1     1 m      123</span></span>
+<span><span class="co">#&gt; 2     2 f      455</span></span>
 <span><span class="co">#&gt; 3     3 f      123</span></span></code></pre></div>
 </div>
-<div class="section level3" id="na-handling-1" number="11.3.2">
+<div class="section level3" id="na-handling" number="8.4.2">
 <h3>
-<span class="header-section-number">11.3.2</span> NA Handling 1<a aria-label="anchor" class="anchor" href="#na-handling-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.4.2</span> NA Handling<a aria-label="anchor" class="anchor" href="#na-handling"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="cn">NA</span>, <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
@@ -444,13 +511,8 @@
 <span><span class="co">#&gt; 1     1 a</span></span>
 <span><span class="co">#&gt; 2     2 a</span></span>
 <span><span class="co">#&gt; 3     2 b</span></span></code></pre></div>
-</div>
-<div class="section level3" id="na-handling-2" number="11.3.3">
-<h3>
-<span class="header-section-number">11.3.3</span> NA Handling 2<a aria-label="anchor" class="anchor" href="#na-handling-2"><i class="fas fa-link"></i></a>
-</h3>
 <p>Complete: explicitar valores faltantes</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/complete.html">complete</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 9 × 2</span></span>
 <span><span class="co">#&gt;       x y</span></span>
@@ -465,17 +527,16 @@
 <span><span class="co">#&gt; 8    NA b</span></span>
 <span><span class="co">#&gt; 9    NA NA</span></span></code></pre></div>
 </div>
-<div class="section level3" id="reshape" number="11.3.4">
+<div class="section level3" id="reshape" number="8.4.3">
 <h3>
-<span class="header-section-number">11.3.4</span> Reshape<a aria-label="anchor" class="anchor" href="#reshape"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.4.3</span> Reshape<a aria-label="anchor" class="anchor" href="#reshape"><i class="fas fa-link"></i></a>
 </h3>
 <p>Veja o artigo <a href="https://tidyr.tidyverse.org/articles/pivot.html">Pivoting</a>.</p>
-<p>Exemplos no R.</p>
 </div>
 </div>
-<div class="section level2" id="dplyr" number="11.4">
+<div class="section level2" id="dplyr" number="8.5">
 <h2>
-<span class="header-section-number">11.4</span> dplyr<a aria-label="anchor" class="anchor" href="#dplyr"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5</span> dplyr<a aria-label="anchor" class="anchor" href="#dplyr"><i class="fas fa-link"></i></a>
 </h2>
 <p>O dplyr é “a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges”.</p>
 <p>Veja:</p>
@@ -493,47 +554,47 @@
 <li>Summarize</li>
 <li>E tudo isso com groups</li>
 </ul>
-<div class="section level3" id="subset---linhas" number="11.4.1">
+<div class="section level3" id="subset---linhas" number="8.5.1">
 <h3>
-<span class="header-section-number">11.4.1</span> Subset - Linhas<a aria-label="anchor" class="anchor" href="#subset---linhas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.1</span> Subset - Linhas<a aria-label="anchor" class="anchor" href="#subset---linhas"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>:</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mass</span> <span class="op">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mass</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Casos especiais:</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">mass</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">mass</span>, .keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3" id="subset---colunas" number="11.4.2">
+<div class="section level3" id="subset---colunas" number="8.5.2">
 <h3>
-<span class="header-section-number">11.4.2</span> Subset - Colunas<a aria-label="anchor" class="anchor" href="#subset---colunas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.2</span> Subset - Colunas<a aria-label="anchor" class="anchor" href="#subset---colunas"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>:</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">homeworld</span>, <span class="va">height</span>, <span class="va">mass</span><span class="op">)</span></span></code></pre></div>
 <p>Permite usar vários <em>selection helpers</em>:</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">name</span><span class="op">:</span><span class="va">mass</span><span class="op">)</span></span>
 <span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">name</span><span class="op">:</span><span class="va">mass</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Petal"</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"Width"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3" id="operate" number="11.4.3">
+<div class="section level3" id="operate" number="8.5.3">
 <h3>
-<span class="header-section-number">11.4.3</span> Operate<a aria-label="anchor" class="anchor" href="#operate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.3</span> Operate<a aria-label="anchor" class="anchor" href="#operate"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>:</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
 <span>    mass2 <span class="op">=</span> <span class="va">mass</span> <span class="op">*</span> <span class="fl">2</span>,</span>
 <span>    mass2_squared <span class="op">=</span> <span class="va">mass2</span> <span class="op">^</span> <span class="fl">2</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><code>rows_*()</code>:</p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, b <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, c <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="fl">0</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rows.html">rows_insert</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">4</span>, b <span class="op">=</span> <span class="st">"z"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 4 × 3</span></span>
@@ -542,167 +603,129 @@
 <span><span class="co">#&gt; 1     1 a       0.5</span></span>
 <span><span class="co">#&gt; 2     2 b       1.5</span></span>
 <span><span class="co">#&gt; 3     3 NA      2.5</span></span>
-<span><span class="co">#&gt; 4     4 z      NA </span></span></code></pre></div>
+<span><span class="co">#&gt; 4     4 z      NA</span></span></code></pre></div>
 </div>
-<div class="section level3" id="reorder-1" number="11.4.4">
+<div class="section level3" id="reorder" number="8.5.4">
 <h3>
-<span class="header-section-number">11.4.4</span> Reorder<a aria-label="anchor" class="anchor" href="#reorder-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.4</span> Reorder<a aria-label="anchor" class="anchor" href="#reorder"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>:</p>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">by_cyl</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">wt</span><span class="op">)</span></span>
 <span><span class="va">by_cyl</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">wt</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> funciona! Mas também temos <code><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate()</a></code>:</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">vs</span><span class="op">:</span><span class="va">gear</span>, .before <span class="op">=</span> <span class="va">cyl</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3" id="rename" number="11.4.5">
+<div class="section level3" id="rename" number="8.5.5">
 <h3>
-<span class="header-section-number">11.4.5</span> Rename<a aria-label="anchor" class="anchor" href="#rename"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.5</span> Rename<a aria-label="anchor" class="anchor" href="#rename"><i class="fas fa-link"></i></a>
 </h3>
 <p>A filosofia do tidyverse é não utilizar rownames (“metadata is data”). Portanto, temos funções para renomear colunas, <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> e <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename_with()</a></code>:</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">iris</span>, petal_length <span class="op">=</span> <span class="va">Petal.Length</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename_with</a></span><span class="op">(</span><span class="va">iris</span>, <span class="va">toupper</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3" id="summarize" number="11.4.6">
+<div class="section level3" id="summarize" number="8.5.6">
 <h3>
-<span class="header-section-number">11.4.6</span> Summarize<a aria-label="anchor" class="anchor" href="#summarize"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.6</span> Summarize<a aria-label="anchor" class="anchor" href="#summarize"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>, resumir toda a informação em uma linha:</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">disp</span><span class="op">)</span>, n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;       mean  n</span></span>
 <span><span class="co">#&gt; 1 230.7219 32</span></span></code></pre></div>
 <p><code><a href="https://dplyr.tidyverse.org/reference/reframe.html">reframe()</a></code> mais raro, mais de uma linha de resumo:</p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reframe.html">reframe</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">disp</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span>, n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;      mean  n</span></span>
 <span><span class="co">#&gt; 1 120.825 32</span></span>
 <span><span class="co">#&gt; 2 326.000 32</span></span></code></pre></div>
 </div>
-<div class="section level3" id="combine-1" number="11.4.7">
+<div class="section level3" id="combine" number="8.5.7">
 <h3>
-<span class="header-section-number">11.4.7</span> Combine<a aria-label="anchor" class="anchor" href="#combine-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.7</span> Combine<a aria-label="anchor" class="anchor" href="#combine"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code> une as colunas de dois dataframes com as “mesmas” linhas. <code>rbind</code> une as linhas de dois dataframes com as “mesmas” colunas.</p>
 <p><code><a href="https://dplyr.tidyverse.org/reference/bind_cols.html">bind_cols()</a></code> e <code><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows()</a></code> são as versões do dplyr, e unem qualquer quantidade de dataframes.</p>
 <p>E se as linhas não forem as mesmas? Precisamos de um merge/join: <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join()</a></code>.</p>
 </div>
-<div class="section level3" id="across" number="11.4.8">
+<div class="section level3" id="across" number="8.5.8">
 <h3>
-<span class="header-section-number">11.4.8</span> Across<a aria-label="anchor" class="anchor" href="#across"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.8</span> Across<a aria-label="anchor" class="anchor" href="#across"><i class="fas fa-link"></i></a>
 </h3>
 <p>Como visto em <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, temos uma série de <em>tidyverse <a href="https://dplyr.tidyverse.org/reference/select.html">selection helpers</a></em> que podem ser utilizados para selecionar colunas.</p>
 <p>Esses mesmos seletores podem ser utilizados em outros verbos, via <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code>:</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">if_all</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">:</span><span class="va">cyl</span>, <span class="op">~</span> <span class="va">.x</span> <span class="op">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">100</span><span class="op">)</span>, <span class="op">~</span> <span class="va">.x</span> <span class="op">-</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3" id="groups" number="11.4.9">
+<div class="section level3" id="groups" number="8.5.9">
 <h3>
-<span class="header-section-number">11.4.9</span> Groups<a aria-label="anchor" class="anchor" href="#groups"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.9</span> Groups<a aria-label="anchor" class="anchor" href="#groups"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/split.html">split</a></span><span class="op">(</span><span class="va">.</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu">purrr</span><span class="fu">:::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map_dfr.html">map_dfr</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">.x</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span>, disp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span><span class="op">$</span><span class="va">disp</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">disp</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Um grupo pra cada linha: <code><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise()</a></code>.</p>
 </div>
-<div class="section level3" id="eval_tidy" number="11.4.10">
+<div class="section level3" id="eval_tidy" number="8.5.10">
 <h3>
-<span class="header-section-number">11.4.10</span> eval_tidy<a aria-label="anchor" class="anchor" href="#eval_tidy"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.10</span> eval_tidy<a aria-label="anchor" class="anchor" href="#eval_tidy"><i class="fas fa-link"></i></a>
 </h3>
 <p>Lembre de <code>with</code> e <code><a href="https://rlang.r-lib.org/reference/eval_tidy.html">rlang::eval_tidy</a></code>:</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">cyl</span> <span class="op">+</span> <span class="va">disp</span><span class="op">)</span></span></code></pre></div>
-<hr class="double-hrule"/>
-</div>
-</div>
-<div class="section level2 unlisted unnumbered" id="complemento-9">
-<h2>Complemento<a aria-label="anchor" class="anchor" href="#complemento-9"><i class="fas fa-link"></i></a>
-</h2>
-<div class="section level3 unnumbered" id="recapitulando-9">
-<h3>Recapitulando<a aria-label="anchor" class="anchor" href="#recapitulando-9"><i class="fas fa-link"></i></a>
-</h3>
-<hr class="single-hrule"/>
-</div>
-<div class="section level3 unnumbered" id="dicionário-de-funções-10">
-<h3>Dicionário de Funções<a aria-label="anchor" class="anchor" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-10"><i class="fas fa-link"></i></a>
-</h3>
-<hr class="single-hrule"/>
-</div>
-<div class="section level3 unnumbered" id="referências-9">
-<h3>Referências<a aria-label="anchor" class="anchor" href="#refer%C3%AAncias-9"><i class="fas fa-link"></i></a>
-</h3>
-<hr class="single-hrule"/>
-</div>
-<div class="section level3 unnumbered" id="exercícios-6">
-<h3>Exercícios<a aria-label="anchor" class="anchor" href="#exerc%C3%ADcios-6"><i class="fas fa-link"></i></a>
-</h3>
 </div>
 </div>
 </div>
 <div class="chapter-nav">
-<div class="prev"><a href="stringr-forcats.html"><span class="header-section-number">10</span> stringr e forcats</a></div>
-<div class="next"><a href="ggplot.html"><span class="header-section-number">12</span> ggplot2</a></div>
+<div class="prev"><a href="intro2.html">Introdução</a></div>
+<div class="next"><a href="intro3.html">Introdução</a></div>
 </div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
 <nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
 <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tidyr-dplyr"><span class="header-section-number">11</span> tidyr e dplyr</a></li>
-<li><a class="nav-link" href="#introdu%C3%A7%C3%A3o-10"><span class="header-section-number">11.1</span> Introdução</a></li>
+<li><a class="nav-link" href="#tidyr-dplyr"><span class="header-section-number">8</span> Dados Tidy</a></li>
+<li><a class="nav-link" href="#introdu%C3%A7%C3%A3o-7"><span class="header-section-number">8.1</span> Introdução</a></li>
 <li>
-<a class="nav-link" href="#importing-e-wrangling"><span class="header-section-number">11.2</span> Importing e Wrangling</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#importing"><span class="header-section-number">11.2.1</span> Importing</a></li>
-<li><a class="nav-link" href="#tidy-data"><span class="header-section-number">11.2.2</span> Tidy Data</a></li>
-<li><a class="nav-link" href="#tidy-data-1"><span class="header-section-number">11.2.3</span> Tidy Data</a></li>
-<li><a class="nav-link" href="#tidying"><span class="header-section-number">11.2.4</span> Tidying</a></li>
-<li><a class="nav-link" href="#tidying-b%C3%A1sico"><span class="header-section-number">11.2.5</span> Tidying: Básico</a></li>
-<li><a class="nav-link" href="#tidying-nas"><span class="header-section-number">11.2.6</span> Tidying: NAs</a></li>
-<li><a class="nav-link" href="#tidying-pivot"><span class="header-section-number">11.2.7</span> Tidying: Pivot</a></li>
-<li><a class="nav-link" href="#tidying-pivot-1"><span class="header-section-number">11.2.8</span> Tidying: Pivot</a></li>
-<li><a class="nav-link" href="#tidying-merge"><span class="header-section-number">11.2.9</span> Tidying: Merge</a></li>
-<li><a class="nav-link" href="#tidying-receita"><span class="header-section-number">11.2.10</span> Tidying: Receita</a></li>
-<li><a class="nav-link" href="#tidying-receita-1"><span class="header-section-number">11.2.11</span> Tidying: Receita</a></li>
-<li><a class="nav-link" href="#tidying-receita-2"><span class="header-section-number">11.2.12</span> Tidying: Receita</a></li>
-<li><a class="nav-link" href="#transforming"><span class="header-section-number">11.2.13</span> Transforming</a></li>
-<li><a class="nav-link" href="#transforming-1"><span class="header-section-number">11.2.14</span> Transforming</a></li>
+<a class="nav-link" href="#importing"><span class="header-section-number">8.2</span> Importing</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#readr"><span class="header-section-number">8.2.1</span> readr</a></li>
+<li><a class="nav-link" href="#argumentos-importantes"><span class="header-section-number">8.2.2</span> Argumentos Importantes</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#tidyr"><span class="header-section-number">11.3</span> tidyr</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#separate"><span class="header-section-number">11.3.1</span> Separate</a></li>
-<li><a class="nav-link" href="#na-handling-1"><span class="header-section-number">11.3.2</span> NA Handling 1</a></li>
-<li><a class="nav-link" href="#na-handling-2"><span class="header-section-number">11.3.3</span> NA Handling 2</a></li>
-<li><a class="nav-link" href="#reshape"><span class="header-section-number">11.3.4</span> Reshape</a></li>
+<a class="nav-link" href="#wrangling"><span class="header-section-number">8.3</span> Wrangling</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#tidy-data"><span class="header-section-number">8.3.1</span> Tidy Data</a></li>
+<li><a class="nav-link" href="#tidying"><span class="header-section-number">8.3.2</span> Tidying</a></li>
+<li><a class="nav-link" href="#transforming"><span class="header-section-number">8.3.3</span> Transforming</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#dplyr"><span class="header-section-number">11.4</span> dplyr</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#subset---linhas"><span class="header-section-number">11.4.1</span> Subset - Linhas</a></li>
-<li><a class="nav-link" href="#subset---colunas"><span class="header-section-number">11.4.2</span> Subset - Colunas</a></li>
-<li><a class="nav-link" href="#operate"><span class="header-section-number">11.4.3</span> Operate</a></li>
-<li><a class="nav-link" href="#reorder-1"><span class="header-section-number">11.4.4</span> Reorder</a></li>
-<li><a class="nav-link" href="#rename"><span class="header-section-number">11.4.5</span> Rename</a></li>
-<li><a class="nav-link" href="#summarize"><span class="header-section-number">11.4.6</span> Summarize</a></li>
-<li><a class="nav-link" href="#combine-1"><span class="header-section-number">11.4.7</span> Combine</a></li>
-<li><a class="nav-link" href="#across"><span class="header-section-number">11.4.8</span> Across</a></li>
-<li><a class="nav-link" href="#groups"><span class="header-section-number">11.4.9</span> Groups</a></li>
-<li><a class="nav-link" href="#eval_tidy"><span class="header-section-number">11.4.10</span> eval_tidy</a></li>
+<a class="nav-link" href="#tidyr"><span class="header-section-number">8.4</span> tidyr</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#separate"><span class="header-section-number">8.4.1</span> Separate</a></li>
+<li><a class="nav-link" href="#na-handling"><span class="header-section-number">8.4.2</span> NA Handling</a></li>
+<li><a class="nav-link" href="#reshape"><span class="header-section-number">8.4.3</span> Reshape</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#complemento-9">Complemento</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#recapitulando-9">Recapitulando</a></li>
-<li><a class="nav-link" href="#dicion%C3%A1rio-de-fun%C3%A7%C3%B5es-10">Dicionário de Funções</a></li>
-<li><a class="nav-link" href="#refer%C3%AAncias-9">Referências</a></li>
-<li><a class="nav-link" href="#exerc%C3%ADcios-6">Exercícios</a></li>
+<a class="nav-link" href="#dplyr"><span class="header-section-number">8.5</span> dplyr</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#subset---linhas"><span class="header-section-number">8.5.1</span> Subset - Linhas</a></li>
+<li><a class="nav-link" href="#subset---colunas"><span class="header-section-number">8.5.2</span> Subset - Colunas</a></li>
+<li><a class="nav-link" href="#operate"><span class="header-section-number">8.5.3</span> Operate</a></li>
+<li><a class="nav-link" href="#reorder"><span class="header-section-number">8.5.4</span> Reorder</a></li>
+<li><a class="nav-link" href="#rename"><span class="header-section-number">8.5.5</span> Rename</a></li>
+<li><a class="nav-link" href="#summarize"><span class="header-section-number">8.5.6</span> Summarize</a></li>
+<li><a class="nav-link" href="#combine"><span class="header-section-number">8.5.7</span> Combine</a></li>
+<li><a class="nav-link" href="#across"><span class="header-section-number">8.5.8</span> Across</a></li>
+<li><a class="nav-link" href="#groups"><span class="header-section-number">8.5.9</span> Groups</a></li>
+<li><a class="nav-link" href="#eval_tidy"><span class="header-section-number">8.5.10</span> eval_tidy</a></li>
 </ul>
 </li>
 </ul>
