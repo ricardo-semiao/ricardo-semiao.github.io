@@ -76,6 +76,18 @@ gallery:
     assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 
 # External projects:
+predicater:
+  source: _site/tools/predicater
+  target: _site/tools/predicater
+  steps:
+    fetch_external_data: predicater
+    inject_project: rspkgdown
+    assets_remove: pkg/bookdown
+hfpca:
+  source: _site/tools/hfpca
+  target: _site/tools/hfpca
+  steps:
+    fetch_external_data: hfpca
 rfcd:
   source: _site/library/rfcd
   target: _site/library/rfcd

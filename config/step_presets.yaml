@@ -46,6 +46,24 @@ fetch_external_data:
     target: _site/library/rfcd
     update_required: true
     use_remote: false
+  predicater:
+    remote:
+      repo: ricardo-semiao/predicater
+      branch: main
+      folder: docs
+    local: PATH_LOCAL_PREDICATER
+    target: _site/tools/predicater
+    update_required: true
+    use_remote: false
+  hfpca:
+    remote:
+      repo: ricardo-semiao/hfpca
+      branch: main
+      folder: docs
+    local: PATH_LOCAL_HFPCA
+    target: _site/tools/hfpca
+    update_required: true
+    use_remote: false
   phyopt:
     remote:
       repo: ricardo-semiao/phyopt
@@ -62,7 +80,16 @@ fetch_external_data:
       folder: docs
     local: PATH_LOCAL_MTSDESC
     target: _site/tools/mtsdesc
-    update_required: true
+    update_required: false
+    use_remote: false
+  morphdown:
+    remote:
+      repo: ricardo-semiao/morphdown
+      branch: main
+      folder: docs
+    local: PATH_LOCAL_MORPHDOWN
+    target: _site/tools/morphdown
+    update_required: false
     use_remote: false
 
 build_sitemap:

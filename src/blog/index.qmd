@@ -1,7 +1,7 @@
 ---
 title: "Blog"
 
-pagetitle: "Ricardo Semião | Blog"
+pagetitle: "Blog | Ricardo Semião"
 description-meta: "Ricardo Semião's personal blog, about programming and personal projects."
 author-meta: "Ricardo Semião e Castro"
 

@@ -2,7 +2,7 @@
 
 % Basic packages --------------------
 
-\usepackage[a4paper, top = 1.5cm, bottom = 1.5cm, left = 1.5cm, right = 1.5cm]{geometry}
+\usepackage[a4paper, top = 0.9cm, bottom = 0cm, left = 1.25cm, right = 1.25cm]{geometry}
 \usepackage{tabularx}
 \usepackage{setspace}
 \usepackage{hyperref}
@@ -134,14 +134,43 @@
 \begin{center}
   \colorbox{orange}{%
     \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
-      \vspace{2.5em}% add vertical padding above
+      \vspace{1.5em}% add vertical padding above
       \centering\LARGE\textcolor{black}{\bfseries{\montserrat Ricardo Semião e Castro}}%
-      \vspace{1.75em}% add vertical padding below
+      \vspace{1em}% add vertical padding below
     }%
   }%
 \end{center}
 
 \hspace{-0.5cm}
+\begin{minipage}[t]{0.55\linewidth}
+    \cvsection{Experience}
+    \timeline{1.3em}{0.095}{0.05}{14}
+    \begin{itemize}
+        \job{Research Consultant}{ADB Sindical (syndicate of diplomats)}{08/2024 - ongoing}
+        {Research on the diplomatic career path and its barriers. Creation of a predictive calculator for individual's careers (\href{https://atualizamre.com.br/calculadora/}{atualizamre.com.br/calculadora}). Data scrapping, reorganization, and validation from different media sources.}
+        \job{Research Assistant}{NYU-Abu Dhabi \& FGV-EESP}{06/2026 - 09/2026}
+        {The empirical implementation of "Predictive Conditional Alphas" Corradi et. al (2013). Processing of high-frequency stock databases, implementation of custom high-frequency and nonparametric alpha/beta estimators, and creation of a fully documented replication package.}
+        \job{Research Assistant}{FGV-EESP \& Ripple}{10/2022 - 04/2023}
+        {Development of a \href{https://github.com/mevaldt/diversified_crypto}{R-Shiny application} for crypto portfolio optimization and analysis.}
+        \job{Econometrics I Teaching Assistant}{FGV-EESP}{02/2022 - 06/2023}
+        {Conducted exercises, theoretical classes, and R teaching sessions.}
+        \job{Vice President, HR Director}{GVCode (data science league at FGV)}{06/2020 - 12/2023}
+        {Coordinated all league activities, created and conducted selection processes and trainee programs. Data science projects.}
+        \jobsimple{Private Tutor in Statistics, R, and Python}
+        {Private lessons for college students. Active in StackOverflow: 260 answers in over 125 tags, peaked at top 5\% in the R community.}
+    \end{itemize}
+    %
+    \cvsection{Projects}
+    \begin{itemize}
+        \item Code packages: \href{https://ricardo-semiao.github.io/tools/predicater/}{predicater} - modern validation of R objects; \href{https://ricardo-semiao.github.io/tools/hfpca/}{hfpca} - PCA for high frequency data; \href{https://ricardo-semiao.github.io/tools/phyopt/}{phyopt} - numerical optimization with population-based hybrid algorithms.
+        \item Educational material about R (\href{https://ricardo-semiao.github.io/library/rfcd/}{RFCD}), with classes being given at GV's teaching assistantship and GVCode.
+        \item Thesis: \href{https://github.com/ricardo-semiao/article-regime-id-performance}{Masters thesis} - performance analysis of regime-switching models via Monte Carlo simulations; \href{https://github.com/ricardo-semiao/article-covid-svardiff}{Graduation thesis} - SVAR models applied to epidemiology.
+        \item My \href{https://ricardo-semiao.github.io/}{personal website} built with bare HTML/SCSS/JS, and  python scripts to orchestrate components and the blog.
+    \end{itemize}
+    %
+\end{minipage}\hfill%
+%
+%
 \begin{minipage}[t]{0.42\linewidth}
     \cvsection{Contact}%
     \begin{itemize}[label={}]
@@ -153,10 +182,16 @@
     \cvsection{Skills}
     \begin{itemize}
         \item \textbf{Languages:} Fluent English (CAE)
-        \item \textbf{Programming:} R, Python\vspace{0.4em}\par
-        \hspace{0.5em}Familiar with: JavaScript, Julia, Stata
+        \item \textbf{Programming:} R, Python; {\footnotesize{JS, Julia, Stata}}
         \item \textbf{Document:} LaTeX, Web, Quarto, Office
-        \item \textbf{Tools:} Git/GitHub, SQL, Docker
+        \item \textbf{Tools:} Git/GitHub, SQL; {\footnotesize{Docker}}
+    \end{itemize}
+    %
+    \cvsection{Education}
+    \timeline{1.3em}{0.095}{0.1}{1}
+    \begin{itemize}
+        \education{Bachelor's Degree in Economics}{FGV-EESP}{2019 - 2023}
+        \education{Master's Degree in Economics}{FGV-EESP}{2024 - 2026}
     \end{itemize}
     %
     \cvsection{Awards}
@@ -172,42 +207,7 @@
         \item Volunteer teacher in the EESP Ensina Project (2022 - 2023). Taught economics to high school students.
         \item Member of the Scout Movement (2010 - 2021). Developed socio-environmental activities.
     \end{itemize}
-\end{minipage}\hfill%
-%
-%
-\begin{minipage}[t]{0.55\linewidth}
-    \cvsection{Education}
-    \timeline{1.3em}{0.095}{0.1}{0.5}
-    \begin{itemize}
-        \education{Bachelor's Degree in Economics}{FGV-EESP}{2019 - 2023}
-        \education{Master's Degree in Economics}{FGV-EESP}{2024 - ongoing}
-    \end{itemize}
     %
-    \cvsection{Experience}
-    \timeline{1.3em}{0.095}{0.05}{11}
-    \begin{itemize}
-        \job{Researcher}{ADB Sindical (syndicate of diplomats)}
-        {08/2024 - ongoing}
-        {Research on the diplomatic career path and its barriers. Creation of a predictive calculator for individual's careers (\href{https://atualizamre.com.br/calculadora/}{atualizamre.com.br/calculadora}). Data scrapping, reorganization, and validation from different media sources.}
-        \job{Research Assistant}{FGV-EESP \& Ripple}{10/2022 - 04/2023}
-        {Development of a \href{https://github.com/mevaldt/diversified_crypto}{R-Shiny application} for crypto portfolio optimization and analysis.}
-        \job{Econometrics I Teaching Assistant}{FGV-EESP}{02/2022 - 06/2023}
-        {Conducted exercises, theoretical classes, and R teaching sessions.}
-        \job{Vice President, HR Director}{GVCode (data science
-        league at FGV)}{06/2020 - 12/2023}
-        {Coordinated all league activities, created and conducted selection processes and trainee programs. Data science projects.}
-        \jobsimple{Private Tutor in Statistics, R, and Python}
-        {Private lessons for college students. Active in StackOverflow: 260 answers in over 125 tags, peaked at top 5\% in the R community.}
-    \end{itemize}
-    %
-    \cvsection{Projects}
-    \begin{itemize}
-        \item Code packages: \href{https://ricardo-semiao.github.io/tools/mtsdesc/}{mtsdesc} for multivariate time series visualization and testing; \href{https://ricardo-semiao.github.io/tools/phyopt/}{phyopt} for numerical optimization with population-based hybrid algorithms.
-        \item Educational material about R (\href{https://ricardo-semiao.github.io/library/rfcd/}{RFCD}), with classes being given at GV's teaching assistantship and GVCode.
-        \item Thesis: \href{https://github.com/ricardo-semiao/article-covid-svardiff}{Graduation thesis}
-        on SVAR models applied to epidemiology; \href{https://github.com/ricardo-semiao/article-regime-id-performance}{Masters thesis} on performance analysis of regime-switching models via Monte Carlo simulations.
-        \item My \href{https://ricardo-semiao.github.io/}{personal website} built with bare HTML/SCSS/JS, and  python scripts to orchestrate components and the blog.
-    \end{itemize}
 \end{minipage}
 
 

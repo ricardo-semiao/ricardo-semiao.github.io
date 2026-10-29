@@ -2,7 +2,7 @@
 
 % Basic packages --------------------
 
-\usepackage[a4paper, top = 1.5cm, bottom = 1.5cm, left = 1.5cm, right = 1.5cm]{geometry}
+\usepackage[a4paper, top = 0.9cm, bottom = 0cm, left = 1.25cm, right = 1.25cm]{geometry}
 \usepackage{tabularx}
 \usepackage{setspace}
 \usepackage{hyperref}
@@ -87,7 +87,7 @@
 
 % Education item:
 \newcommand{\education}[3]{%
-    \item \noindent\textbf{#1} - \small\textit{#2} (\textit{#3})%
+    \item \noindent\textbf{#1} - {\small\textit{#2} (\textit{#3})}%
 }
 
 % Job item:
@@ -134,14 +134,45 @@
 \begin{center}
   \colorbox{orange}{%
     \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
-      \vspace{2.5em}% add vertical padding above
+      \vspace{1.5em}% add vertical padding above
       \centering\LARGE\textcolor{black}{\bfseries{\montserrat Ricardo Semião e Castro}}%
-      \vspace{1.75em}% add vertical padding below
+      \vspace{1em}% add vertical padding below
     }%
   }%
 \end{center}
 
 \hspace{-0.5cm}
+\begin{minipage}[t]{0.55\linewidth}
+    \cvsection{Experiência}
+    \timeline{1.3em}{0.095}{0.05}{14}
+    \begin{itemize}
+        \job{Consultor de pesquisa}{ADB Sindical (sindicato dos diplomatas)}
+        {08/2024 - atual}
+        {Pesquisa sobre a carreira diplomática e suas barreiras. Criação de uma calculadora preditiva para carreiras individuais (\href{https://atualizamre.com.br/calculadora/}{atualizamre.com.br/calculadora}). Coleta, reorganização e validação de dados de diferentes fontes de mídia.}
+        \job{Assistente de Pesquisa}{NYU-Abu Dhabi \& FGV-EESP}{06/2026 - 09/2026}
+        {Implementação empírica de "Predictive Conditional Alphas" de Corradi et al. (2013). Processamento de dados de ações de alta frequência, implementação de estimadores personalizados não paramétricos para alfa/beta, e criação de um pacote de replicação totalmente documentado.}
+        \job{Assistente de Pesquisa}{FGV-EESP \& Ripple}{10/2022 - 04/2023}
+        {Desenvolvimento de uma \href{https://github.com/mevaldt/diversified_crypto}{aplicação R-Shiny} para otimização e análise de portfólio de criptomoedas.}
+        \job{Monitor de Econometria I}{FGV-EESP}{02/2022 - 06/2023}
+        {Condução de exercícios, aulas teóricas e sessões de ensino de R.}
+        \job{Vice-presidente, Diretor de RH}{GVCode (liga de ciência de dados
+        da FGV)}{06/2020 - 12/2023}
+        {Coordenação da atividade da liga, criação e condução de processos seletivos e programas de trainee. Projetos em ciência de dados.}
+        \jobsimple{Professor particular de Estatística, R e Python}
+        {Aulas particulares para universitários. Ativo no StackOverflow: 260 respostas em mais de 125 tags, top 5\% na comunidade R.}
+    \end{itemize}
+    %
+    \cvsection{Projetos}
+    \begin{itemize}
+        \item Pacotes de código: \href{https://ricardo-semiao.github.io/tools/predicater/}{predicater} - validação moderna de objetos R; \href{https://ricardo-semiao.github.io/tools/hfpca/}{hfpca} - PCA para dados em alta frequência; \href{https://ricardo-semiao.github.io/tools/phyopt/}{phyopt} - otimização numérica com algoritmos híbridos populacionais.
+        \item Material educacional sobre R (\href{https://ricardo-semiao.github.io/library/rfcd/}{RFCD}), com aulas ministradas na monitoria da GV e na GVCode.
+        \item Teses: \href{https://github.com/ricardo-semiao/article-regime-id-performance}{Tese de mestrado} - análise do desempenho de modelos com mudança de regime via simulações de Monte Carlo; \href{https://github.com/ricardo-semiao/article-covid-svardiff}{Tese de graduação} - modelos SVAR aplicados à epidemiologia.
+        \item Meu \href{https://ricardo-semiao.github.io/}{site pessoal} construído Python para orquestrar componentes e o blog.
+    \end{itemize}
+    %
+\end{minipage}\hfill%
+%
+%
 \begin{minipage}[t]{0.42\linewidth}
     \cvsection{Contato}%
     \begin{itemize}[label={}]
@@ -153,10 +184,16 @@
     \cvsection{Competências}
     \begin{itemize}
         \item \textbf{Idiomas:} Inglês fluente (CAE)
-        \item \textbf{Programação:} R, Python\vspace{0.4em}\par
-        \hspace{0.5em}Familiaridade: JavaScript, Julia, Stata
+        \item \textbf{Programação:} R, Python; {\footnotesize{JS, Julia, Stata}}
         \item \textbf{Documentos:} LaTeX, Web, Quarto, Office
-        \item \textbf{Ferramentas:} Git/GitHub, SQL, Docker
+        \item \textbf{Ferramentas:} Git/GitHub, SQL; {\footnotesize{Docker}}
+    \end{itemize}
+    %
+    \cvsection{Educação}
+    \timeline{1.3em}{0.095}{0.1}{1}
+    \begin{itemize}
+        \education{Bacharelado em Economia}{FGV-EESP}{2019 - 2023}
+        \education{Mestrado em Economia}{FGV-EESP}{2024 - 2026}
     \end{itemize}
     %
     \cvsection{Prêmios}
@@ -172,42 +209,7 @@
         \item Professor voluntário no projeto EESP Ensina (2022 - 2023). Ensino de economia para estudantes do ensino médio.
         \item Membro do Movimento Escoteiro (2010 - 2021). Desenvolvimento de atividades socioambientais.
     \end{itemize}
-\end{minipage}\hfill%
-%
-%
-\begin{minipage}[t]{0.55\linewidth}
-    \cvsection{Formação}
-    \timeline{1.3em}{0.095}{0.1}{0.5}
-    \begin{itemize}
-        \education{Bacharelado em Economia}{FGV-EESP}{2019 - 2023}
-        \education{Mestrado em Economia}{FGV-EESP}{2024 - atual}
-    \end{itemize}
     %
-    \cvsection{Experiência}
-    \timeline{1.3em}{0.095}{0.05}{11}
-    \begin{itemize}
-        \job{Pesquisador}{ADB Sindical (sindicato de diplomatas)}
-        {08/2024 - atual}
-        {Pesquisa sobre a carreira diplomática e suas barreiras. Criação de uma calculadora preditiva para carreiras individuais (\href{https://atualizamre.com.br/calculadora/}{atualizamre.com.br/calculadora}). Coleta, reorganização e validação de dados de diferentes fontes de mídia.}
-        \job{Assistente de Pesquisa}{FGV-EESP \& Ripple}{10/2022 - 04/2023}
-        {Desenvolvimento de uma \href{https://github.com/mevaldt/diversified_crypto}{aplicação R-Shiny} para otimização e análise de portfólio de criptomoedas.}
-        \job{Monitor de Econometria I}{FGV-EESP}{02/2022 - 06/2023}
-        {Condução de exercícios, aulas teóricas e sessões de ensino de R.}
-        \job{Vice-presidente, Diretor de RH}{GVCode (liga de ciência de dados
-        da FGV)}{06/2020 - 12/2023}
-        {Coordenação da atividade da liga, criação e condução de processos seletivos e programas de trainee. Projetos em ciência de dados.}
-        \jobsimple{Professor particular de Estatística, R e Python}
-        {Aulas particulares para universitários. Ativo no StackOverflow: 260 respostas em mais de 125 tags, top 5\% na comunidade R.}
-    \end{itemize}
-    %
-    \cvsection{Projetos}
-    \begin{itemize}
-        \item Pacotes de código: \href{https://ricardo-semiao.github.io/tools/mtsdesc/}{mtsdesc} para visualização e testes de séries temporais multivariadas; \href{https://ricardo-semiao.github.io/tools/phyopt/}{phyopt} para otimização numérica com algoritmos híbridos populacionais.
-        \item Material educacional sobre R (\href{https://ricardo-semiao.github.io/library/rfcd/}{RFCD}), com aulas ministradas na monitoria da GV e na GVCode.
-        \item Teses: \href{https://github.com/ricardo-semiao/article-covid-svardiff}{Tese de graduação}
-        sobre modelos SVAR aplicados à epidemiologia; \href{https://github.com/ricardo-semiao/article-regime-id-performance}{Tese de mestrado} sobre análise do desempenho de modelos com mudança de regime via simulações de Monte Carlo.
-        \item Meu \href{https://ricardo-semiao.github.io/}{site pessoal} construído com HTML/SCSS/JS puro, e scripts Python para orquestrar componentes e o blog.
-    \end{itemize}
 \end{minipage}
 
 

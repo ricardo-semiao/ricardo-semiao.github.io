@@ -219,11 +219,12 @@ body {
     margin: 0; // Just for robustness
     min-width: var(--body-min-width);
 
-    p {
+    div {
         width: var(--main-width);
         margin: auto;
-        text-align: right;
         color: var(--darkgray);
+        display: flex;
+        justify-content: space-between
     }
 
     a {

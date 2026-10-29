@@ -88,7 +88,8 @@ def assets_compile(args: dict[str, Any], jobs: dict[str, dict[str, Any]]) -> Non
 
             run(
                 "sass", str(scss_file), str(target),
-                "--no-source-map", "--load-path=src"
+                "--no-source-map", "--load-path=src",
+                shell = True
             )
 
     elif (args["type"] == "latex"):

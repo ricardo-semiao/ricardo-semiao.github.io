@@ -3,7 +3,7 @@
 
 # File operations:
 from pathlib import Path
-from os import chdir
+from os import chdir, environ
 from shutil import copytree, copy2, rmtree, which
 from stat import S_IWRITE
 
@@ -71,8 +71,9 @@ def check_external_deps(pyproject_path: Path = Path("pyproject.toml")) -> None:
         version = Version(dep_fields["version"])
 
         version_true_raw = srun(
-            [program, "--version"],
-            capture_output = True, text = True, check = True
+            f"{program} --version",
+            capture_output = True, text = True, check = True,
+            shell = True
         ).stdout.strip()
         
         version_match = re.search(r"((?:\d+)\.(?:\w+)\.?(?:\w+)?)", str(version_true_raw))
