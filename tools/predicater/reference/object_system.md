@@ -1,18 +1,18 @@
 # Type checks - Determine object-oriented system of object
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 R has many object-oriented systems, including S3, S4, RC, R6, R.oo, S7,
 proto, and ggproto. This function determines to which of these an object
-belongs, extending the test done by
-[`sloop::otype()`](https://sloop.r-lib.org/reference/otype.html).
+belongs, extending the test done by `sloop::otype()`.
 
 If `x` fails [`is.object()`](https://rdrr.io/r/base/is.object.html), the
 function returns `"base"`. `x` matches `"S3"` if it is an object but
@@ -99,8 +99,7 @@ is_system(xs4, "S4") #> TRUE
 
 R has many object-oriented systems, including S3, S4, RC, R6, R.oo, S7,
 proto, and ggproto. This function determines to which of these an object
-belongs, extending the test done by
-[`sloop::otype()`](https://sloop.r-lib.org/reference/otype.html).
+belongs, extending the test done by `sloop::otype()`.
 
 If `x` fails [`is.object()`](https://rdrr.io/r/base/is.object.html), the
 function returns `"base"`. `x` matches `"S3"` if it is an object but

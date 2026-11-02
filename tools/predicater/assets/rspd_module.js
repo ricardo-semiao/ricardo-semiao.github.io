@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Show/hide package navbar, update content width accordingly
     const sn = document.querySelector('#show-navbar');
-	const nav = document.querySelector('#rspkgdown-main nav.navbar');
-    const content = document.querySelector("#rspkgdown-main > div.container");
+	const nav = document.querySelector('#rssite-main.rssite-rspkgdown nav.navbar');
+    const content = document.querySelector("#rssite-main.rssite-rspkgdown > div.container");
 	let isClicked = true; // Navbar starts shown
 
 	sn.addEventListener("click", () => {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const scrollDownBuffer = 5;
     const scrollUpBuffer = 100; // Large buffer in pkgdown
     const btt = document.getElementById("back-to-top");
-    const main_height = document.querySelector("#rspkgdown-main").offsetHeight;
+    const main_height = document.querySelector("#rssite-main.rssite-rspkgdown").offsetHeight;
 
     window.document.addEventListener("scroll", function () {
         const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;

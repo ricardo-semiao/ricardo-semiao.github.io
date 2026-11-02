@@ -1,13 +1,14 @@
 # Type checks - Functions
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 There are three types ([`typeof()`](https://rdrr.io/r/base/typeof.html))
 of functions in R: `"closure"` (standard functions), or

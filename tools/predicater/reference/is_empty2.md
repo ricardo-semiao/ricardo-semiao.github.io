@@ -1,17 +1,18 @@
 # Metadata checks - Check if a collection is empty
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Is a collection object (see
-[`is_collection()`](predicates-collections.md)) empty, i.e. has zero
-length? Similar to
+[`is_collection()`](reference/predicates-collections.md)) empty, i.e.
+has zero length? Similar to
 [`rlang::is_empty()`](https://rlang.r-lib.org/reference/is_empty.html),
 but yields an error for non-collections, including `NULL` by default.
 
@@ -67,8 +68,8 @@ is_empty2(NULL, null = TRUE) #> TRUE
 ## On this page
 
 Is a collection object (see
-[`is_collection()`](predicates-collections.md)) empty, i.e. has zero
-length? Similar to
+[`is_collection()`](reference/predicates-collections.md)) empty, i.e.
+has zero length? Similar to
 [`rlang::is_empty()`](https://rlang.r-lib.org/reference/is_empty.html),
 but yields an error for non-collections, including `NULL` by default.
 

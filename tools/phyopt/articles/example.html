@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
-<title>phyopt | Ricardo Semião</title>
+<title>phyopt: Using the Phy Algorithm | Ricardo Semião</title>
 <!-- mathjax math --><script crossorigin="anonymous" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><script>
   window.MathJax = {
     chtml: {
@@ -22,38 +22,38 @@
 <!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 400;
-            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+            src: url("/assets/fonts/montserrat-v31-latin-regular.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 700;
-            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+            src: url("/assets/fonts/montserrat-v31-latin-700.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: normal;
             font-weight: 400;
-            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-regular.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: italic;
             font-weight: 400;
-            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-italic.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: normal;
             font-weight: 700;
-            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-700.woff2") format("woff2");
         }
     </style>
 <link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
@@ -76,30 +76,40 @@
 <nav aria-label="Main site navigation">
 <ul>
 <li class="nav-li"><a href="/">Home</a></li>
-<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
 <li class="nav-drop">
 <button aria-controls="menu-projects" aria-expanded="false">
 <svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
                     </button>
 <ul id="menu-personal">
+<li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
 <li class="nav-li"><a href="/cv">CV</a></li>
 <li class="nav-li"><a href="/gallery">Gallery</a></li>
 </ul>
 </li>
 <li class="nav-drop">
-<button aria-controls="menu-projects" aria-expanded="false">
+<button aria-controls="menu-library" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-library"></use></svg>Library
+                    </button>
+<ul id="menu-library">
+<li class="nav-li"><a href="/library/rfcd"><svg><use href="/assets/img/icons.svg#icon-book"></use></svg>RFCD</a></li>
+<li class="nav-li"><a href="/library/regime-id-performance"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Masters</a></li>
+<li class="nav-li"><a href="/library/covid-svardiff"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Graduation</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-tools" aria-expanded="false">
 <svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
                     </button>
-<ul id="menu-projects">
-<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
-<li class="nav-li"><a href="/tools/hfpca">hfpca</a></li>
-<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
-<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<ul id="menu-tools">
+<li class="nav-li"><a href="/tools/predicater"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>predicater</a></li>
+<li class="nav-li"><a href="/tools/hfpca"><svg><use href="/assets/img/icons.svg#icon-python"></use></svg>hfpca</a></li>
+<li class="nav-li"><a href="/tools/phyopt"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>phyopt</a></li>
 </ul>
 </li>
 </ul>
 </nav>
-</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+</header><main class="rssite-rspkgdown" id="rssite-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" id="pkgdown-navbar"><div class="container">
 <a class="navbar-brand me-2" href="../index.html">phyopt</a>
 <small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
 <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
@@ -161,6 +171,7 @@ $$
 <div class="cell">
 <pre><code><span><span class="co">#&gt; Loading required package: purrr</span></span>
 <span><span class="co">#&gt; Loading required package: rlang</span></span>
+<span><span class="co">#&gt; Warning: package 'rlang' was built under R version 4.5.3</span></span>
 <span><span class="co">#&gt;</span></span>
 <span><span class="co">#&gt; Attaching package: 'rlang'</span></span>
 <span><span class="co">#&gt; The following objects are masked from 'package:purrr':</span></span>
@@ -214,16 +225,16 @@ $$
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">initializer</span><span class="op">(</span><span class="va">xtil_dom</span>, <span class="va">gtil</span><span class="op">)</span></span>
 <span><span class="co">#&gt;           [,1]</span></span>
-<span><span class="co">#&gt;  [1,] 4.305030</span></span>
-<span><span class="co">#&gt;  [2,] 8.700652</span></span>
-<span><span class="co">#&gt;  [3,] 6.810187</span></span>
-<span><span class="co">#&gt;  [4,] 6.839513</span></span>
-<span><span class="co">#&gt;  [5,] 7.679364</span></span>
-<span><span class="co">#&gt;  [6,] 9.896784</span></span>
-<span><span class="co">#&gt;  [7,] 4.310066</span></span>
-<span><span class="co">#&gt;  [8,] 5.705723</span></span>
-<span><span class="co">#&gt;  [9,] 8.288507</span></span>
-<span><span class="co">#&gt; [10,] 5.874657</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1,] 5.613198</span></span>
+<span><span class="co">#&gt;  [2,] 4.450349</span></span>
+<span><span class="co">#&gt;  [3,] 8.706895</span></span>
+<span><span class="co">#&gt;  [4,] 9.468421</span></span>
+<span><span class="co">#&gt;  [5,] 8.423991</span></span>
+<span><span class="co">#&gt;  [6,] 2.786569</span></span>
+<span><span class="co">#&gt;  [7,] 9.268595</span></span>
+<span><span class="co">#&gt;  [8,] 4.912210</span></span>
+<span><span class="co">#&gt;  [9,] 5.621529</span></span>
+<span><span class="co">#&gt; [10,] 9.888181</span></span></code></pre></div>
 </div>
 </section><section class="level2"><h3 id="optimizer">Optimizer<a aria-label="anchor" class="anchor" href="#optimizer"></a>
 </h3>
@@ -299,8 +310,8 @@ $$
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">results</span><span class="op">[[</span><span class="va">t</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 'data.frame':    10 obs. of  4 variables:</span></span>
 <span><span class="co">#&gt;  $ x   : 'AsIs' num [1:10, 1] 2.05e-06 2.05e-06 2.05e-06 2.05e-06 2.05e-06 ...</span></span>
-<span><span class="co">#&gt;  $ xtil: 'AsIs' num [1:10, 1] 2.28 9.74 3.68 3.84 4.51 ...</span></span>
-<span><span class="co">#&gt;  $ f   : num  5.19 94.85 13.56 14.72 20.3 ...</span></span>
+<span><span class="co">#&gt;  $ xtil: 'AsIs' num [1:10, 1] 5.96 7.56 5.16 4.88 8.23 ...</span></span>
+<span><span class="co">#&gt;  $ f   : num  35.5 57.1 26.7 23.8 67.7 ...</span></span>
 <span><span class="co">#&gt;  $ i   : logi  NA NA NA NA NA NA ...</span></span></code></pre></div>
 </div>
 <p>Note the matrices columns. In this case is hard to differentiate because they are 1-column matrices, but this will accommodate any dimension <span class="math inline">\(m\)</span> and <span class="math inline">\(\tilde{m}\)</span>.</p>
@@ -308,17 +319,17 @@ $$
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">results</span><span class="op">[[</span><span class="va">t</span><span class="op">]</span><span class="op">]</span></span>
-<span><span class="co">#&gt;               x     xtil         f  i</span></span>
-<span><span class="co">#&gt; 1  2.053031e-06 2.277651  5.187693 NA</span></span>
-<span><span class="co">#&gt; 2  2.053031e-06 9.738999 94.848101 NA</span></span>
-<span><span class="co">#&gt; 3  2.053031e-06 3.682554 13.561204 NA</span></span>
-<span><span class="co">#&gt; 4  2.053031e-06 3.836336 14.717475 NA</span></span>
-<span><span class="co">#&gt; 5  2.053031e-06 4.505252 20.297293 NA</span></span>
-<span><span class="co">#&gt; 6  2.053031e-06 5.338789 28.502670 NA</span></span>
-<span><span class="co">#&gt; 7  2.053031e-06 4.455299 19.849685 NA</span></span>
-<span><span class="co">#&gt; 8  2.053031e-06 4.395750 19.322614 NA</span></span>
-<span><span class="co">#&gt; 9  2.053031e-06 4.749405 22.556850 NA</span></span>
-<span><span class="co">#&gt; 10 2.053031e-06 6.331674 40.090094 NA</span></span></code></pre></div>
+<span><span class="co">#&gt;               x     xtil        f  i</span></span>
+<span><span class="co">#&gt; 1  2.053031e-06 5.961557 35.54017 NA</span></span>
+<span><span class="co">#&gt; 2  2.053031e-06 7.559349 57.14375 NA</span></span>
+<span><span class="co">#&gt; 3  2.053031e-06 5.162884 26.65537 NA</span></span>
+<span><span class="co">#&gt; 4  2.053031e-06 4.878170 23.79654 NA</span></span>
+<span><span class="co">#&gt; 5  2.053031e-06 8.229735 67.72854 NA</span></span>
+<span><span class="co">#&gt; 6  2.053031e-06 9.626020 92.66026 NA</span></span>
+<span><span class="co">#&gt; 7  2.053031e-06 5.630956 31.70767 NA</span></span>
+<span><span class="co">#&gt; 8  2.053031e-06 5.412486 29.29501 NA</span></span>
+<span><span class="co">#&gt; 9  2.053031e-06 9.043188 81.77924 NA</span></span>
+<span><span class="co">#&gt; 10 2.053031e-06 6.926956 47.98272 NA</span></span></code></pre></div>
 </div>
 </section><section class="level2"><h3 id="updater">Updater<a aria-label="anchor" class="anchor" href="#updater"></a>
 </h3>
@@ -352,16 +363,16 @@ $$
 <div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">updater</span><span class="op">(</span>xtil_dom <span class="op">=</span> <span class="va">xtil_dom</span>, gtil <span class="op">=</span> <span class="va">gtil</span>, r_t <span class="op">=</span> <span class="va">results</span><span class="op">[[</span><span class="va">t</span><span class="op">]</span><span class="op">]</span>, t <span class="op">=</span> <span class="va">t</span><span class="op">)</span></span>
 <span><span class="co">#&gt;           [,1]</span></span>
-<span><span class="co">#&gt;  [1,] 3.540543</span></span>
-<span><span class="co">#&gt;  [2,] 4.391573</span></span>
-<span><span class="co">#&gt;  [3,] 3.247544</span></span>
-<span><span class="co">#&gt;  [4,] 4.376917</span></span>
-<span><span class="co">#&gt;  [5,] 3.020130</span></span>
-<span><span class="co">#&gt;  [6,] 3.885588</span></span>
-<span><span class="co">#&gt;  [7,] 5.331307</span></span>
-<span><span class="co">#&gt;  [8,] 3.441450</span></span>
-<span><span class="co">#&gt;  [9,] 3.019013</span></span>
-<span><span class="co">#&gt; [10,] 3.568209</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1,] 6.334473</span></span>
+<span><span class="co">#&gt;  [2,] 5.910651</span></span>
+<span><span class="co">#&gt;  [3,] 5.352407</span></span>
+<span><span class="co">#&gt;  [4,] 5.426557</span></span>
+<span><span class="co">#&gt;  [5,] 5.369671</span></span>
+<span><span class="co">#&gt;  [6,] 5.195149</span></span>
+<span><span class="co">#&gt;  [7,] 6.181316</span></span>
+<span><span class="co">#&gt;  [8,] 6.088540</span></span>
+<span><span class="co">#&gt;  [9,] 5.910147</span></span>
+<span><span class="co">#&gt; [10,] 6.439545</span></span></code></pre></div>
 </div>
 </section><section class="level2"><h3 id="the-optimize_phy-aggregation">The <code>optimize_phy()</code> Aggregation<a aria-label="anchor" class="anchor" href="#the-optimize_phy-aggregation"></a>
 </h3>
@@ -429,26 +440,26 @@ $$
 <span>  <span class="va">stopper</span>, <span class="va">logger</span>,</span>
 <span>  check_op <span class="op">=</span> <span class="fl">0</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 1 -- mean(f): 32.1783</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 2 -- mean(f): 18.294</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 3 -- mean(f): 10.182</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 4 -- mean(f): 5.9014</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 5 -- mean(f): 5.8962</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 6 -- mean(f): 5.155</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 7 -- mean(f): 4.9935</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 8 -- mean(f): 4.927</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 9 -- mean(f): 4.8196</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 10 -- mean(f): 4.9571</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 11 -- mean(f): 5.0388</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 12 -- mean(f): 4.9031</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 13 -- mean(f): 4.7685</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 14 -- mean(f): 4.9591</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 15 -- mean(f): 4.6509</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 16 -- mean(f): 4.8104</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 17 -- mean(f): 4.8561</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 18 -- mean(f): 4.7375</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 19 -- mean(f): 4.8198</span></span>
-<span><span class="co">#&gt; → =&gt; Iter: 20 -- mean(f): 4.5971</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 1 -- mean(f): 34.4725</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 2 -- mean(f): 20.8482</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 3 -- mean(f): 14.8514</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 4 -- mean(f): 9.5993</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 5 -- mean(f): 7.8561</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 6 -- mean(f): 7.7457</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 7 -- mean(f): 6.976</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 8 -- mean(f): 5.7897</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 9 -- mean(f): 5.3385</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 10 -- mean(f): 4.8611</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 11 -- mean(f): 4.7193</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 12 -- mean(f): 4.802</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 13 -- mean(f): 4.4467</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 14 -- mean(f): 4.7341</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 15 -- mean(f): 4.7508</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 16 -- mean(f): 4.631</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 17 -- mean(f): 4.7921</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 18 -- mean(f): 4.7045</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 19 -- mean(f): 4.7779</span></span>
+<span><span class="co">#&gt; → =&gt; Iter: 20 -- mean(f): 4.6682</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ✔ Finished after 20 iterations. Stopping criteria(s) were:</span></span>
 <span><span class="co">#&gt; • max_iter: t ~ .m &gt;= 20</span></span></code></pre></div>
@@ -471,13 +482,13 @@ $$
 <span><span class="co">#&gt; [1] 20</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $time_init</span></span>
-<span><span class="co">#&gt; Time difference of 0.04998708 secs</span></span>
+<span><span class="co">#&gt; Time difference of 0.031955 secs</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $time_loop</span></span>
-<span><span class="co">#&gt; Time difference of 2.879376 secs</span></span>
+<span><span class="co">#&gt; Time difference of 1.076787 secs</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $time_total</span></span>
-<span><span class="co">#&gt; Time difference of 2.929367 secs</span></span></code></pre></div>
+<span><span class="co">#&gt; Time difference of 1.108746 secs</span></span></code></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="downlit sourceCode r">
@@ -490,7 +501,7 @@ $$
 <code class="sourceCode R"><span><span class="va">r_t</span> <span class="op">&lt;-</span> <span class="va">optima</span><span class="op">$</span><span class="va">results</span><span class="op">[[</span><span class="fl">20</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="va">r_t</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">r_t</span><span class="op">$</span><span class="va">f</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;              x     xtil        f  i</span></span>
-<span><span class="co">#&gt; 7 2.053031e-06 2.254657 5.083478 NA</span></span></code></pre></div>
+<span><span class="co">#&gt; 2 2.053031e-06 2.334174 5.448368 NA</span></span></code></pre></div>
 </div>
 <p>We can see that we got very close to the global minimum <span class="math inline">\((0, 2)\)</span>. The efficacy is only due to the number of iters and the user code.</p>
 </section></section><script id="quarto-html-after-body" type="application/javascript">
@@ -598,12 +609,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav></aside>
 </div>
 </div>
-</main></main><footer id="rssite-footer"><p>
-            Package made with <a href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</main><footer id="rssite-footer"><div>
+<p>Site made with <a href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a></p>
+</div>
 </footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
 <button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
 <span>↑</span> Back to top
     </button><script src="/assets/global.js"></script>
-<script src="assets/rspd_module.js"></script>
+<script src="../assets/rspd_module.js"></script>
 </body>
 </html>

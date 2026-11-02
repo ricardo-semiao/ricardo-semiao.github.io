@@ -9,7 +9,7 @@ body {
   flex-direction: column;
 }
 
-#rspkgdown-main {
+#rssite-main.rssite-rspkgdown {
   display: flex;
   flex-grow: 1;
   flex-direction: row;
@@ -78,15 +78,15 @@ nav.navbar div.container small.nav-text {
 }
 
 /* General margins and paddings */
-#rspkgdown-main .page-header {
+#rssite-main.rssite-rspkgdown .page-header {
   min-height: 0;
 }
 
-#rspkgdown-main h2 {
+#rssite-main.rssite-rspkgdown h2 {
   margin-top: 2rem;
 }
 
-#rspkgdown-main > div.container {
+#rssite-main.rssite-rspkgdown > div.container {
   margin-bottom: 1.5rem;
 }
 
@@ -163,7 +163,7 @@ nav.navbar div.container small.nav-text {
   #navbar, #navbar > ul {
     width: calc(150px - 2rem);
   }
-  #rspkgdown-main > div.container {
+  #rssite-main.rssite-rspkgdown > div.container {
     max-width: calc(100% - 150px);
   }
   #show-navbar {

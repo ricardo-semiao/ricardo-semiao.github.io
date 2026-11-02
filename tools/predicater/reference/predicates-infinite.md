@@ -1,13 +1,14 @@
 # Type checks - Inf and NaN
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Check if an object is `Inf`, `-Inf`, `NaN`, or none of them, flexibly
 dealing with `NA` values.

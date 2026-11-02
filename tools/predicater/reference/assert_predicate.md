@@ -1,13 +1,14 @@
 # Validation - Throw error from custom predicate
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 This function evaluates a custom predicate function on an object and
 aborts with a custom message if the check fails. It is useful for

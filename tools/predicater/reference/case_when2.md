@@ -1,19 +1,19 @@
 # Compare - Vectorized nested if-else
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
-This function allows you to vectorise multiple
-[`if_else()`](https://dplyr.tidyverse.org/reference/if_else.html)
-statements. Each case is evaluated sequentially and the first match for
-each element determines the corresponding value in the output vector. If
-no cases match, the `.default` is used as a final "else" statment.
+This function allows you to vectorise multiple `if_else()` statements.
+Each case is evaluated sequentially and the first match for each element
+determines the corresponding value in the output vector. If no cases
+match, the `.default` is used as a final "else" statment.
 
 `case_when()` is an R equivalent of the SQL "searched" `CASE WHEN`
 statement.
@@ -77,7 +77,7 @@ in `...` and the same type as the common type of the RHS inputs in
 
 ## See also
 
-[`case_match()`](https://dplyr.tidyverse.org/reference/case_match.html)
+`case_match()`
 
 ## Examples
 
@@ -96,11 +96,10 @@ case_when2(
 
 ## On this page
 
-This function allows you to vectorise multiple
-[`if_else()`](https://dplyr.tidyverse.org/reference/if_else.html)
-statements. Each case is evaluated sequentially and the first match for
-each element determines the corresponding value in the output vector. If
-no cases match, the `.default` is used as a final "else" statment.
+This function allows you to vectorise multiple `if_else()` statements.
+Each case is evaluated sequentially and the first match for each element
+determines the corresponding value in the output vector. If no cases
+match, the `.default` is used as a final "else" statment.
 
 `case_when()` is an R equivalent of the SQL "searched" `CASE WHEN`
 statement.
@@ -164,7 +163,7 @@ in `...` and the same type as the common type of the RHS inputs in
 
 ## See also
 
-[`case_match()`](https://dplyr.tidyverse.org/reference/case_match.html)
+`case_match()`
 
 ## Examples
 

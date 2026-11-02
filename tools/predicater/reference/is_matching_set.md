@@ -1,13 +1,14 @@
 # Data checks - Check if object is in (and/or not in) a set
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 This function checks if an object is in a set of values, and optionally
 if it is not in another set of values. It can check if all, any, or only

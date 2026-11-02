@@ -1,13 +1,14 @@
 # Reduce binary predicate over a list
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 This function applies a binary predicate function `.f` over a list `.l`,
 checking if the result is `TRUE` for any or all ordered pairs within

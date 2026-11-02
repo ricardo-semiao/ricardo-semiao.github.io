@@ -1,20 +1,21 @@
 # Validation - Numeric vectors
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Test if an object is a numeric vector:
 
 - `test_integer(x, mode = "strict")` tests for integer vectors.
 
 - `test_integer(x, mode = *)` tests for integer-like vectors via
-  [`is_integer_like()`](is_integer_like.md), with "bounded" or
+  [`is_integer_like()`](reference/is_integer_like.md), with "bounded" or
   "unbounded" mode.
 
 - `test_double(x, mode = "double")` tests for double vectors.
@@ -142,7 +143,7 @@ assert_complex(
 
   - \[`"strict"` \| `"bounded"` \| `"unbounded"`\] For `*_integer()`:
     the `mode` argument to pass to
-    [`is_integer_like()`](is_integer_like.md).
+    [`is_integer_like()`](reference/is_integer_like.md).
 
   - \[`"double"` \| `"numeric"`\] For `*_double()`: `"double"` to accept
     only [`double()`](https://rdrr.io/r/base/double.html) vectors, or
@@ -224,7 +225,7 @@ assert_complex(
 - mode_tol:
 
   \[`double(1)`\] The `tol` argument to pass to
-  [`is_integer_like()`](is_integer_like.md).
+  [`is_integer_like()`](reference/is_integer_like.md).
 
 - tests_re, tests_im, tests_mod, tests_arg:
 
@@ -381,7 +382,7 @@ Test if an object is a numeric vector:
 - `test_integer(x, mode = "strict")` tests for integer vectors.
 
 - `test_integer(x, mode = *)` tests for integer-like vectors via
-  [`is_integer_like()`](is_integer_like.md), with "bounded" or
+  [`is_integer_like()`](reference/is_integer_like.md), with "bounded" or
   "unbounded" mode.
 
 - `test_double(x, mode = "double")` tests for double vectors.
@@ -509,7 +510,7 @@ assert_complex(
 
   - \[`"strict"` \| `"bounded"` \| `"unbounded"`\] For `*_integer()`:
     the `mode` argument to pass to
-    [`is_integer_like()`](is_integer_like.md).
+    [`is_integer_like()`](reference/is_integer_like.md).
 
   - \[`"double"` \| `"numeric"`\] For `*_double()`: `"double"` to accept
     only [`double()`](https://rdrr.io/r/base/double.html) vectors, or
@@ -591,7 +592,7 @@ assert_complex(
 - mode_tol:
 
   \[`double(1)`\] The `tol` argument to pass to
-  [`is_integer_like()`](is_integer_like.md).
+  [`is_integer_like()`](reference/is_integer_like.md).
 
 - tests_re, tests_im, tests_mod, tests_arg:
 

@@ -1,13 +1,14 @@
 # Type checks - Atomic vectors
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Check if an object is of a specific atomic type
 ([`typeof()`](https://rdrr.io/r/base/typeof.html)). The test is
@@ -62,8 +63,8 @@ is_numeric(x, n = NULL)
 
   \[`TRUE` \| `FALSE` \| `NULL`\] Whether all values of the vector are
   not `NA`, `NaN`, `Inf`, or `-Inf`. Set to `NULL` to not test.
-  [`is_finite()`](predicates-infinite.md) is designed to allow more
-  flexibility to this test.
+  [`is_finite()`](reference/predicates-infinite.md) is designed to allow
+  more flexibility to this test.
 
 ## Value
 
@@ -124,8 +125,8 @@ is_numeric(x, n = NULL)
 
   \[`TRUE` \| `FALSE` \| `NULL`\] Whether all values of the vector are
   not `NA`, `NaN`, `Inf`, or `-Inf`. Set to `NULL` to not test.
-  [`is_finite()`](predicates-infinite.md) is designed to allow more
-  flexibility to this test.
+  [`is_finite()`](reference/predicates-infinite.md) is designed to allow
+  more flexibility to this test.
 
 ## Value
 

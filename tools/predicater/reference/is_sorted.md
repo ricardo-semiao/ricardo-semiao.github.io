@@ -1,13 +1,14 @@
 # Data checks - Check if object is ordered
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 This function is a wrapper around
 [`is.unsorted()`](https://rdrr.io/r/base/is.unsorted.html) to check if a

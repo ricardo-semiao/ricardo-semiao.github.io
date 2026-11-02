@@ -1,13 +1,14 @@
 # Check if user accepted a package installation
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 This function returns `TRUE` if `pkg` is already installed, and prompt
 the user to install it otherwise. If the user accepts, returns `TRUE`,

@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const scrollDownBuffer = 5;
     const scrollUpBuffer = 150; // Large buffer in bookdown
     const btt = document.getElementById("back-to-top");
-    const main_height = document.querySelector("#rsbookdown-main").offsetHeight;
+    const main_height = document.querySelector("#rssite-main.rssite-rsbookdown").offsetHeight;
 
     window.document.addEventListener("scroll", function () {
         const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;

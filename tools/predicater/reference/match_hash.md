@@ -1,13 +1,14 @@
 # Compare - Pattern matching
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Pattern matching functions to return a value based on a case of `x`.
 Similar to [`switch()`](https://rdrr.io/r/base/switch.html) but allows
@@ -18,7 +19,7 @@ the LHS being the case and the RHS being the return value.
   compare with `x`.
 
 - For `match_ptype`, cases are prototypes to check if `x`
-  [`is_ptype()`](is_ptype.md).
+  [`is_ptype()`](reference/is_ptype.md).
 
 - For `match_when`, cases are any predicate expression, that matches
   when it evaluates to `TRUE`.
@@ -66,13 +67,13 @@ match_when(x, ..., nomatch = NULL)
   \[`character(1)`, [`list()`](https://rdrr.io/r/base/list.html)\] For
   `match_id`: which 'identical' function to use, `"identical"` for
   [`identical()`](https://rdrr.io/r/base/identical.html) or
-  `"identical2"` for [`identical2()`](identical2.md); and a list of
-  arguments to pass to it.
+  `"identical2"` for [`identical2()`](reference/identical2.md); and a
+  list of arguments to pass to it.
 
 - args_ptype:
 
   \[[`list()`](https://rdrr.io/r/base/list.html)\] For `match_ptype`. A
-  list of arguments to pass to [`is_ptype()`](is_ptype.md).
+  list of arguments to pass to [`is_ptype()`](reference/is_ptype.md).
 
 ## Value
 
@@ -119,7 +120,7 @@ the LHS being the case and the RHS being the return value.
   compare with `x`.
 
 - For `match_ptype`, cases are prototypes to check if `x`
-  [`is_ptype()`](is_ptype.md).
+  [`is_ptype()`](reference/is_ptype.md).
 
 - For `match_when`, cases are any predicate expression, that matches
   when it evaluates to `TRUE`.
@@ -167,13 +168,13 @@ match_when(x, ..., nomatch = NULL)
   \[`character(1)`, [`list()`](https://rdrr.io/r/base/list.html)\] For
   `match_id`: which 'identical' function to use, `"identical"` for
   [`identical()`](https://rdrr.io/r/base/identical.html) or
-  `"identical2"` for [`identical2()`](identical2.md); and a list of
-  arguments to pass to it.
+  `"identical2"` for [`identical2()`](reference/identical2.md); and a
+  list of arguments to pass to it.
 
 - args_ptype:
 
   \[[`list()`](https://rdrr.io/r/base/list.html)\] For `match_ptype`. A
-  list of arguments to pass to [`is_ptype()`](is_ptype.md).
+  list of arguments to pass to [`is_ptype()`](reference/is_ptype.md).
 
 ## Value
 

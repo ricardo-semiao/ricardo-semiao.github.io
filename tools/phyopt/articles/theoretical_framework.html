@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
-<title>phyopt | Ricardo Semião</title>
+<title>phyopt: Theoretical Framework | Ricardo Semião</title>
 <!-- mathjax math --><script crossorigin="anonymous" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><script>
   window.MathJax = {
     chtml: {
@@ -22,38 +22,38 @@
 <!-- pkgdown --><script src="../pkgdown.js"></script><!-- Personal style and social: --><style>
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 400;
-            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+            src: url("/assets/fonts/montserrat-v31-latin-regular.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 700;
-            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+            src: url("/assets/fonts/montserrat-v31-latin-700.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: normal;
             font-weight: 400;
-            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-regular.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: italic;
             font-weight: 400;
-            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-italic.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: normal;
             font-weight: 700;
-            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-700.woff2") format("woff2");
         }
     </style>
 <link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
@@ -76,30 +76,40 @@
 <nav aria-label="Main site navigation">
 <ul>
 <li class="nav-li"><a href="/">Home</a></li>
-<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
 <li class="nav-drop">
 <button aria-controls="menu-projects" aria-expanded="false">
 <svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
                     </button>
 <ul id="menu-personal">
+<li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
 <li class="nav-li"><a href="/cv">CV</a></li>
 <li class="nav-li"><a href="/gallery">Gallery</a></li>
 </ul>
 </li>
 <li class="nav-drop">
-<button aria-controls="menu-projects" aria-expanded="false">
+<button aria-controls="menu-library" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-library"></use></svg>Library
+                    </button>
+<ul id="menu-library">
+<li class="nav-li"><a href="/library/rfcd"><svg><use href="/assets/img/icons.svg#icon-book"></use></svg>RFCD</a></li>
+<li class="nav-li"><a href="/library/regime-id-performance"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Masters</a></li>
+<li class="nav-li"><a href="/library/covid-svardiff"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Graduation</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-tools" aria-expanded="false">
 <svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
                     </button>
-<ul id="menu-projects">
-<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
-<li class="nav-li"><a href="/tools/hfpca">hfpca</a></li>
-<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
-<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<ul id="menu-tools">
+<li class="nav-li"><a href="/tools/predicater"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>predicater</a></li>
+<li class="nav-li"><a href="/tools/hfpca"><svg><use href="/assets/img/icons.svg#icon-python"></use></svg>hfpca</a></li>
+<li class="nav-li"><a href="/tools/phyopt"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>phyopt</a></li>
 </ul>
 </li>
 </ul>
 </nav>
-</header><main class="rssite-rspkgdown" id="rssite-main"><main id="rspkgdown-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light"><div class="container">
+</header><main class="rssite-rspkgdown" id="rssite-main"><nav aria-label="Site navigation" class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" id="pkgdown-navbar"><div class="container">
 <a class="navbar-brand me-2" href="../index.html">phyopt</a>
 <small class="nav-text text-muted me-auto" data-bs-placement="bottom" data-bs-toggle="tooltip" title="">0.0.0.9000</small>
 <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
@@ -411,12 +421,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav></aside>
 </div>
 </div>
-</main></main><footer id="rssite-footer"><p>
-            Package made with <a href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a> theme.</p>
+</main><footer id="rssite-footer"><div>
+<p>Site made with <a href="https://pkgdown.r-lib.org/">pkgdown</a><span class="footer-div"></span><a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rspkgdown">rspkgdown</a></p>
+</div>
 </footer><button aria-controls="pkgdown-navbar" aria-hidden="true" aria-label="Show package navbar" id="show-navbar"></button>
 <button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
 <span>↑</span> Back to top
     </button><script src="/assets/global.js"></script>
-<script src="assets/rspd_module.js"></script>
+<script src="../assets/rspd_module.js"></script>
 </body>
 </html>

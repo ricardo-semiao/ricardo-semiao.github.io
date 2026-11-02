@@ -1,13 +1,14 @@
 # Attribute checks - Check for and filter attributes from object
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Functions to test for and filter attributes from an object. Attributes
 can be selected by abbreviation in `abbr`, by name in `exact` or

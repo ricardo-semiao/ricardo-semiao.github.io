@@ -1,13 +1,14 @@
 # Compare - Exact equality with more flexibility
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Similar to [`identical()`](https://rdrr.io/r/base/identical.html) but
 with more flexibility on how to handle data and attributes.
@@ -21,9 +22,9 @@ with more flexibility on how to handle data and attributes.
   differ.
 
 To see if multiple objects are identical, wrap them in a list and use
-[`reduce_predicate()`](reduce_predicate.md). To vectorize over two
-lists, checking that each pair of elements between them are identical,
-use `Map(identical2, x, y)` (see
+[`reduce_predicate()`](reference/reduce_predicate.md). To vectorize over
+two lists, checking that each pair of elements between them are
+identical, use `Map(identical2, x, y)` (see
 [`Map()`](https://rdrr.io/r/base/funprog.html)).
 
 ## Usage
@@ -87,8 +88,8 @@ identical_flag(x, y, ..., fun = "identical2", .is_attrs = FALSE)
 - ignore_attrs:
 
   \[[`list()`](https://rdrr.io/r/base/list.html)\] Arguments to pass to
-  [`attrs_rmv()`](attributes-filter.md) to remove attributes from `x`
-  and `y`
+  [`attrs_rmv()`](reference/attributes-filter.md) to remove attributes
+  from `x` and `y`
 
 - ...:
 
@@ -195,9 +196,9 @@ with more flexibility on how to handle data and attributes.
   differ.
 
 To see if multiple objects are identical, wrap them in a list and use
-[`reduce_predicate()`](reduce_predicate.md). To vectorize over two
-lists, checking that each pair of elements between them are identical,
-use `Map(identical2, x, y)` (see
+[`reduce_predicate()`](reference/reduce_predicate.md). To vectorize over
+two lists, checking that each pair of elements between them are
+identical, use `Map(identical2, x, y)` (see
 [`Map()`](https://rdrr.io/r/base/funprog.html)).
 
 ## Usage
@@ -261,8 +262,8 @@ identical_flag(x, y, ..., fun = "identical2", .is_attrs = FALSE)
 - ignore_attrs:
 
   \[[`list()`](https://rdrr.io/r/base/list.html)\] Arguments to pass to
-  [`attrs_rmv()`](attributes-filter.md) to remove attributes from `x`
-  and `y`
+  [`attrs_rmv()`](reference/attributes-filter.md) to remove attributes
+  from `x` and `y`
 
 - ...:
 

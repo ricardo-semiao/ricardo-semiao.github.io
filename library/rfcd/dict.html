@@ -5,7 +5,7 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!-- Meta --><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dicionário de funções | R: Fundamentos e Ciência de Dados</title>
+<title>RFCD: Dicionário de funções | Ricardo Semião</title>
 <link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
 <link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
 <meta content="Ricardo Semião e Castro" name="Author"/>
@@ -58,38 +58,38 @@
 <style>
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 400;
-            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+            src: url("/assets/fonts/montserrat-v31-latin-regular.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 700;
-            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+            src: url("/assets/fonts/montserrat-v31-latin-700.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: normal;
             font-weight: 400;
-            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-regular.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: italic;
             font-weight: 400;
-            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-italic.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: normal;
             font-weight: 700;
-            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-700.woff2") format("woff2");
         }
     </style>
 <link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
@@ -107,30 +107,40 @@
 <nav aria-label="Main site navigation">
 <ul>
 <li class="nav-li"><a href="/">Home</a></li>
-<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
 <li class="nav-drop">
 <button aria-controls="menu-projects" aria-expanded="false">
 <svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
                     </button>
 <ul id="menu-personal">
+<li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
 <li class="nav-li"><a href="/cv">CV</a></li>
 <li class="nav-li"><a href="/gallery">Gallery</a></li>
 </ul>
 </li>
 <li class="nav-drop">
-<button aria-controls="menu-projects" aria-expanded="false">
+<button aria-controls="menu-library" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-library"></use></svg>Library
+                    </button>
+<ul id="menu-library">
+<li class="nav-li"><a href="/library/rfcd"><svg><use href="/assets/img/icons.svg#icon-book"></use></svg>RFCD</a></li>
+<li class="nav-li"><a href="/library/regime-id-performance"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Masters</a></li>
+<li class="nav-li"><a href="/library/covid-svardiff"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Graduation</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-tools" aria-expanded="false">
 <svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
                     </button>
-<ul id="menu-projects">
-<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
-<li class="nav-li"><a href="/tools/hfpca">hfpca</a></li>
-<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
-<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<ul id="menu-tools">
+<li class="nav-li"><a href="/tools/predicater"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>predicater</a></li>
+<li class="nav-li"><a href="/tools/hfpca"><svg><use href="/assets/img/icons.svg#icon-python"></use></svg>hfpca</a></li>
+<li class="nav-li"><a href="/tools/phyopt"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>phyopt</a></li>
 </ul>
 </li>
 </ul>
 </nav>
-</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid">
 <div class="row">
 <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 <div class="d-flex align-items-start justify-content-between">
@@ -148,7 +158,8 @@
 </form>
 <nav aria-label="Table of contents"><h2>Índice</h2>
 <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="" href="index.html">R: Fundamentos e Ciência de Dados
+          </a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
 <li class="book-part">Parte I - Fundamentos</li>
 <li><a class="" href="intro1.html">Introdução</a></li>
@@ -164,7 +175,7 @@
 <li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
 <li class="book-part">Parte III - Programação Geral</li>
 <li><a class="" href="intro3.html">Introdução</a></li>
-<li><a class="" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="" href="ecosystem.html"><span class="header-section-number">9</span> Ecossistema</a></li>
 <li><a class="" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
 <li class="book-part">Apêndice</li>
 <li><a class="active" href="dict.html">Dicionário de funções</a></li>
@@ -182,10 +193,7 @@
 <div class="datatables html-widget html-fill-item" id="htmlwidget-e7813b577bd2eb9a4fa6" style="width:100%;height:auto;"></div>
 <script data-for="htmlwidget-e7813b577bd2eb9a4fa6" type="application/json">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>2<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>3<\/p>","<p>4<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>5<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>","<p>6<\/p>"],["<p>operadores<\/p>","<p>operadores<\/p>","<p>operadores<\/p>","<p>operadores<\/p>","<p>operadores<\/p>","<p>variáveis<\/p>","<p>variáveis<\/p>","<p>ajuda<\/p>","<p>objetos<\/p>","<p>objetos<\/p>","<p>objetos<\/p>","<p>atributos<\/p>","<p>atributos<\/p>","<p>attrs - name<\/p>","<p>attrs - name<\/p>","<p>attrs - dim<\/p>","<p>attrs - dim<\/p>","<p>attrs - class<\/p>","<p>attrs - class<\/p>","<p>attrs - class<\/p>","<p>attrs - class<\/p>","<p>outros<\/p>","<p>vetores<\/p>","<p>vetores<\/p>","<p>vetores<\/p>","<p>subset<\/p>","<p>control flow<\/p>","<p>control flow<\/p>","<p>control flow<\/p>","<p>operadores<\/p>","<p>outros<\/p>","<p>maps<\/p>","<p>maps<\/p>","<p>conditions<\/p>","<p>conditions<\/p>","<p>conditions<\/p>","<p>conditions<\/p>","<p>functions<\/p>","<p>functions<\/p>","<p>operadores<\/p>","<p>outros<\/p>","<p>functions<\/p>","<p>ambientes<\/p>","<p>ambientes<\/p>","<p>generics<\/p>","<p>generics<\/p>","<p>generics<\/p>","<p>ambientes<\/p>"],["<p><code>+<\/code>, <code>-<\/code>,  <code>*<\/code>, <code>/<\/code>, <code>\\^<\/code>, <code>%%<\/code>, <code>%/%<\/code><\/p>","<p><code>==<\/code>, <code>!=<\/code>, <code>&lt;<\/code>, <code>&gt;<\/code>, <code>&gt;=<\/code>, <code>&lt;=<\/code><\/p>","<p><code>!<\/code>, <code>&amp;<\/code>, <code>│<\/code><\/p>","<p><code>{<\/code>, <code>(<\/code><\/p>","<p><code>&lt;-<\/code>, <code>-&gt;<\/code>, <code>=<\/code>,<\/p>","<p><code>assign()<\/code>, <code>remove()<\/code>, <code>rm()<\/code><\/p>","<p><code>make.names()<\/code><\/p>","<p><code>help()<\/code>, <code>vignette()<\/code>, <code>?<\/code><\/p>","<p><code>is.*()<\/code>, <code>rlang::is_*()<\/code>, <code>as.*()<\/code>, <code>rlang::as_*()<\/code><\/p>","<p><code>typeof()<\/code><\/p>","<p><code>length()<\/code><\/p>","<p><code>structure()<\/code>, <code>str()<\/code><\/p>","<p><code>atributes()<\/code>, <code>attr()<\/code><\/p>","<p><code>names()<\/code>, <code>colnames()<\/code>, <code>rownames()<\/code>, <code>dimnames()<\/code><\/p>","<p><code>setNames()<\/code>, <code>purrr::set_names()<\/code>, <code>unname()<\/code><\/p>","<p><code>dim()<\/code>, <code>nrow()<\/code>, <code>ncol()<\/code><\/p>","<p><code>t()<\/code>, <code>aperm()<\/code><\/p>","<p><code>class()<\/code>, <code>unclass()<\/code><\/p>","<p><code>matrix()<\/code>, <code>array()<\/code><\/p>","<p><code>factor()<\/code>, <code>ordered()<\/code><\/p>","<p><code>data.frame()<\/code>, <code>tibble()<\/code><\/p>","<p><code>I()<\/code><\/p>","<p><code>c()<\/code>, <code>list()<\/code><\/p>","<p><code>cbind()<\/code>, <code>rbind()<\/code>, <code>abind::abind()<\/code><\/p>","<p><code>unlist()<\/code>, <code>purrr::list_c()<\/code>, <code>purrr::list_flatten()<\/code><\/p>","<p><code>[<\/code>, <code>[[<\/code>, <code>$<\/code><\/p>","<p><code>if<\/code>, <code>switch()<\/code>, <code>ifelse()<\/code>, <code>%||%<\/code><\/p>","<p><code>for<\/code>, <code>while<\/code>, <code>repeat<\/code><\/p>","<p><code>break<\/code>, <code>next<\/code><\/p>","<p><code>&amp;&amp;<\/code>, <code>||<\/code><\/p>","<p><code>seq()<\/code>, <code>seq.int()<\/code>, <code>seq_along()<\/code>, <code>seq_len()<\/code><\/p>","<p><code>lapply()<\/code>, <code>apply()<\/code>, <code>purrr::map()<\/code><\/p>","<p><code>sapply()<\/code>, <code>replicate()<\/code>, <code>Map()<\/code><\/p>","<p><code>stop()<\/code>, <code>warning()<\/code>, <code>message()<\/code><\/p>","<p><code>rlang::abort()<\/code>, <code>rlang::warn()<\/code>, <code>rlang::inform()<\/code><\/p>","<p><code>try()<\/code>, <code>supressWarnings()<\/code>, <code>supressErrors()<\/code><\/p>","<p><code>tryCatch()<\/code>, <code>withCallingHandlers<\/code><\/p>","<p><code>function()<\/code>, <code>formals()<\/code>, <code>body()<\/code>, <code>environment()<\/code><\/p>","<p><code>return()<\/code>, <code>invisible()<\/code>, <code>on.exit()<\/code><\/p>","<p><code>|&gt;<\/code>, <code>magrittr::`%&gt;%`<\/code><\/p>","<p><code>do.call()<\/code><\/p>","<p><code>library()<\/code>, <code>install.packages()<\/code><\/p>","<p><code>rlang::env()<\/code>, <code>rlang::new_environment()<\/code>, <code>rlang::env_print()<\/code><\/p>","<p><code>&lt;&lt;-<\/code>, <code>assign()<\/code><\/p>","<p><code>UseMethod()<\/code>, <code>NextMethod()<\/code>, <code>sloop::s3_dispatch()<\/code><\/p>","<p><code>sloop::s3_methods_generic()<\/code>, <code>sloop::s3_methods_class()<\/code><\/p>","<p><code>sloop::s3_get_method()<\/code><\/p>","<p><code>rlang::env_parent()<\/code>, <code>rlang::current_env()<\/code>, <code>rlang::caller_env()<\/code><\/p>"],["<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Arithmetic.html\">aritimétrica<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Comparison.html\">comparação<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html\">lógica<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Paren.html\">organização de expressões<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html\">definição de variáveis<\/a><\/p>","<p>definição e remoção de variáveis<\/p>","<p>criar nomes sintáticos<\/p>","<p>ajuda sobre funções e pacotes<\/p>","<p>testes e conversões de tipos<\/p>","<p>tipo de um objeto<\/p>","<p>tamanho de um objeto<\/p>","<p>criar e ver a estrutura de um objeto<\/p>","<p>atributos de um objeto<\/p>","<p>nomes por dimensão<\/p>","<p>criar nomes<\/p>","<p>dimensões<\/p>","<p>transpor dimensões<\/p>","<p>criar e remover classes<\/p>","<p>criaração de objetos S3<\/p>","<p>criaração de objetos S4<\/p>","<p>criaração de objetos S5<\/p>","<p>tratar expressões “as is” em data.frame e formulas<\/p>","<p>criar e combinar vetores<\/p>","<p>combinar vetores por dimensão<\/p>","<p>manipular hierarquia de listas<\/p>","<p><a href=\"https://search.r-project.org/R/refmans/base/html/Extract.html\">extração de elementos<\/a><\/p>","<p><a href=\"https://search.r-project.org/R/refmans/base/html/Control.html\">if else<\/a>, ifelse vetorizado, e infix operator<\/p>","<p><a href=\"https://search.r-project.org/R/refmans/base/html/Control.html\">loops<\/a><\/p>","<p><a href=\"https://search.r-project.org/R/refmans/base/html/Control.html\">keywords<\/a><\/p>","<p><a href=\"https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html\">lógica<\/a><\/p>","<p>geração de sequências<\/p>","<p>maps<\/p>","<p>maps (variações)<\/p>","<p>signaling conditions<\/p>","<p>signaling conditions (rlang)<\/p>","<p>ignoring conditions<\/p>","<p>handling conditions<\/p>","<p>function creation and components<\/p>","<p>function results<\/p>","<p>pipes<\/p>","<p>calling functions<\/p>","<p>installing and loading packages<\/p>","<p>creating and printing environments<\/p>","<p>assignment with envrironments<\/p>","<p>method dispatch<\/p>","<p>finding methods<\/p>","<p>finding source code of method<\/p>","<p>finding environments from context<\/p>"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Capítulo<\/th>\n      <th>Categoria<\/th>\n      <th>Função<\/th>\n      <th>Descrição<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paginate":false,"columnDefs":[{"width":"100px","targets":0},{"name":"Capítulo","targets":0},{"name":"Categoria","targets":1},{"name":"Função","targets":2},{"name":"Descrição","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div class="chapter-nav">
-<div class="prev"><a href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></div>
-<div class="next"><a href="refs.html">Referências</a></div>
-</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+</main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
 <nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
 <ul class="nav navbar-nav"><li><a class="nav-link" href="#dict">Dicionário de funções</a></li></ul>
 <!--<div class="book-extra">
@@ -197,11 +205,16 @@
 </nav>
 </div>
 </div>
-</div></main> <!-- .container -->
-<footer id="rssite-footer"><p>
-            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
-            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
-        </p>
+</div> <!-- .container -->
+<div class="chapter-nav">
+<div class="prev"><a href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></div>
+<div class="next"><a href="refs.html">Referências</a></div>
+</div></main><footer id="rssite-footer"><div>
+<p>
+<a href="#" onclick="openBugReportEmail(); return false;"><svg><use href="/assets/img/icons.svg#icon-bug"></use></svg> Report bug</a>
+</p>
+<p>Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.</p>
+</div>
 </footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
 <span>↑</span> Back to top
     </button><script src="/assets/global.js"></script>

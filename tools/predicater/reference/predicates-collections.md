@@ -1,20 +1,21 @@
 # Type checks - Collection types
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 In R, there are several types
 ([`typeof()`](https://rdrr.io/r/base/typeof.html)) that can "store
 elements":
 
 - The atomic vector types (see
-  [predicates-atomic](predicates-atomic.md)).
+  [predicates-atomic](reference/predicates-atomic.md)).
 
 - `"list"`: the generic vector type (can store elements of any type).
   Tested by
@@ -27,7 +28,7 @@ elements":
   values. Tested by `is_environment2()`.
 
 - `"expression"`: a vector of unevaluated R code objects. Tested by
-  [`is_expression2()`](predicates-language.md).
+  [`is_expression2()`](reference/predicates-language.md).
 
 See the 'Details' section for what behavior you can expect from these
 types.
@@ -155,7 +156,7 @@ In R, there are several types
 elements":
 
 - The atomic vector types (see
-  [predicates-atomic](predicates-atomic.md)).
+  [predicates-atomic](reference/predicates-atomic.md)).
 
 - `"list"`: the generic vector type (can store elements of any type).
   Tested by
@@ -168,7 +169,7 @@ elements":
   values. Tested by `is_environment2()`.
 
 - `"expression"`: a vector of unevaluated R code objects. Tested by
-  [`is_expression2()`](predicates-language.md).
+  [`is_expression2()`](reference/predicates-language.md).
 
 See the 'Details' section for what behavior you can expect from these
 types.

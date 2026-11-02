@@ -1,17 +1,19 @@
 # Validation - Object-related attributes
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Test if an input is an 'object' (see
-[predicates-objects](predicates-objects.md)), and fits a specific
-Object-Oriented (OO) system (see [`object_system()`](object_system.md)).
+[predicates-objects](reference/predicates-objects.md)), and fits a
+specific Object-Oriented (OO) system (see
+[`object_system()`](reference/object_system.md)).
 
 `test_object()` is the predicate test, while `assert_object()` validates
 its input, aborting if it fails the test.
@@ -53,8 +55,8 @@ assert_object(
 - oo_system:
 
   \[`character(1)` \| `NULL`\] Expected Object-Oriented system name,
-  passed to [`object_system()`](object_system.md). Set to `NULL` to not
-  test.
+  passed to [`object_system()`](reference/object_system.md). Set to
+  `NULL` to not test.
 
 - s4_bit:
 
@@ -64,7 +66,7 @@ assert_object(
 - tests_class:
 
   \[`list`\] A list of additional class tests passed directly to
-  [`test_class()`](test_class.md).
+  [`test_class()`](reference/test_class.md).
 
 - sentinels:
 
@@ -194,8 +196,9 @@ try(do.call(assert_object, c(list(x), args, short_circuit = FALSE))) #> Error
 ## On this page
 
 Test if an input is an 'object' (see
-[predicates-objects](predicates-objects.md)), and fits a specific
-Object-Oriented (OO) system (see [`object_system()`](object_system.md)).
+[predicates-objects](reference/predicates-objects.md)), and fits a
+specific Object-Oriented (OO) system (see
+[`object_system()`](reference/object_system.md)).
 
 `test_object()` is the predicate test, while `assert_object()` validates
 its input, aborting if it fails the test.
@@ -237,8 +240,8 @@ assert_object(
 - oo_system:
 
   \[`character(1)` \| `NULL`\] Expected Object-Oriented system name,
-  passed to [`object_system()`](object_system.md). Set to `NULL` to not
-  test.
+  passed to [`object_system()`](reference/object_system.md). Set to
+  `NULL` to not test.
 
 - s4_bit:
 
@@ -248,7 +251,7 @@ assert_object(
 - tests_class:
 
   \[`list`\] A list of additional class tests passed directly to
-  [`test_class()`](test_class.md).
+  [`test_class()`](reference/test_class.md).
 
 - sentinels:
 

@@ -1,13 +1,14 @@
 # Attribute checks - Check if object allows attributes
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 In R, some objects do not allow attributes to be set on them. This
 function checks whether `attr(x, which) <- value` runs without errors.

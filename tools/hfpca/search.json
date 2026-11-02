@@ -40,7 +40,7 @@
     "href": "package-info.html",
     "title": "Package Info",
     "section": "",
-    "text": "Runtime Dependencies\n\n\n\nPackage\nVersion Constraint\nLast Published\nPyPI\n\n\n\n\nmatplotlib\n&gt;=3.11.2\n2026-09-11\n\n\n\nnumpy\n&gt;=2.5.3\n2026-10-10\n\n\n\nplotnine\n&gt;=0.15.8\n2026-08-14\n\n\n\npolars\n&gt;=1.44.2\n2026-10-06\n\n\n\ntdqm\n&gt;=0.0.1\n2020-08-19\n\n\n\ntypes-tqdm\n&gt;=4.70.0.20260906\n2026-09-06\n\n\n\n\n\n\nSummary\n\nRequires: Python &gt;=3.14\nRuntime Dependencies: 6\nTotal unique dependencies: 6"
+    "text": "Runtime Dependencies\n\n\n\nPackage\nVersion Constraint\nLast Published\nPyPI\n\n\n\n\nmatplotlib\n&gt;=3.11.2\n2026-09-11\n\n\n\nnumpy\n&gt;=2.5.3\n2026-10-10\n\n\n\nplotnine\n&gt;=0.15.8\n2026-08-14\n\n\n\npolars\n&gt;=1.44.2\n2026-10-25\n\n\n\ntdqm\n&gt;=0.0.1\n2020-08-19\n\n\n\ntypes-tqdm\n&gt;=4.70.0.20260906\n2026-09-06\n\n\n\n\n\n\nSummary\n\nRequires: Python &gt;=3.14\nRuntime Dependencies: 6\nTotal unique dependencies: 6"
   },
   {
     "objectID": "index.html",

@@ -8,6 +8,7 @@
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Validation of R objects with more consistency and flexibility than base
 ‘is’ functions, having predictable and well documented behavior.
@@ -35,7 +36,7 @@ predicater has three main parts:
   [`base::switch()`](https://rdrr.io/r/base/switch.html) but for any
   object, not just strings; and self-contained re-exports of
   [`funs::if_else()`](https://rdrr.io/pkg/funs/man/if_else.html) and
-  [`dplyr::case_when()`](https://dplyr.tidyverse.org/reference/case_when.html).
+  `dplyr::case_when()`.
 
 ## Main contributions to the ecosystem
 
@@ -99,7 +100,7 @@ shared across functions, with a focus on flexibility, and a modern
 reporting of errors. Below is an example for validating an integer-like
 object.
 
-[`library`](https://rdrr.io/r/base/library.html)`(``predicater``)`` `` ``# Object to be validated:`` ``x`` ``<-`` `[`c`](https://rdrr.io/r/base/c.html)`(``1.0``, ``2.0``, ``3.0`` ``+`` ``1e-100``, ``4.0``, ``Inf``)`` `` ``# Defining the sub tests:`` ``args`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`` `` mode ``=`` ``"unbounded"``, ``# Equal to round(x), within a tolerance (will pass)`` `` mode_tol ``=`` `[`sqrt`](https://rdrr.io/r/base/MathFun.html)`(``.Machine``$``double.eps``)``,`` `` len ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``1``, ``10``)``, ``# Length must be between 1 and 10 (will pass)`` `` n_dup ``=`` ``0``, ``# No duplicate values allowed (will pass)`` `` n_nan ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``, ``-``2``)``, ``# At most length(x) - 2 NaN values (will pass)`` `` n_na ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``, ``2``, ``3``)``, ``# 0, 2, or 3 NA values (will pass)`` `` n_inf ``=`` \``(``n``, ``l``)`` ``n``/``l`` ``<=`` ``0.5``, ``# n of Inf <= 50% of total (will pass)`` `` range ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``-``5``, ``+``5``)``, ``# Values between -5 and 5 (will fail)`` `` set ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``yes ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``1``)``, no ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``)``)``, ``# Must contain 1, and not 0 (will pass)`` `` sentinels ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"null"``)``, ``# If not a numeric vector, x can be a NULL sentinel`` `` sorted ``=`` ``"desc"``, ``# Must be sorted in descending order (will fail)`` `` custom ``=`` ``NULL`` ``# Any user-given custom function`` ``)`` `` ``rlang``::`[`exec`](https://rlang.r-lib.org/reference/exec.html)`(``test_integer``, ``x``, ``!``!``!``args``)`` ``#> FALSE (not all tests passed)`
+[`library`](https://rdrr.io/r/base/library.html)`(`[`predicater`](https://github.com/ricardo-semiao/predicater)`)`` `` ``# Object to be validated:`` ``x`` ``<-`` `[`c`](https://rdrr.io/r/base/c.html)`(``1.0``, ``2.0``, ``3.0`` ``+`` ``1e-100``, ``4.0``, ``Inf``)`` `` ``# Defining the sub tests:`` ``args`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`` `` mode ``=`` ``"unbounded"``, ``# Equal to round(x), within a tolerance (will pass)`` `` mode_tol ``=`` `[`sqrt`](https://rdrr.io/r/base/MathFun.html)`(``.Machine``$``double.eps``)``,`` `` len ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``1``, ``10``)``, ``# Length must be between 1 and 10 (will pass)`` `` n_dup ``=`` ``0``, ``# No duplicate values allowed (will pass)`` `` n_nan ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``, ``-``2``)``, ``# At most length(x) - 2 NaN values (will pass)`` `` n_na ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``, ``2``, ``3``)``, ``# 0, 2, or 3 NA values (will pass)`` `` n_inf ``=`` \``(``n``, ``l``)`` ``n``/``l`` ``<=`` ``0.5``, ``# n of Inf <= 50% of total (will pass)`` `` range ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``-``5``, ``+``5``)``, ``# Values between -5 and 5 (will fail)`` `` set ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``yes ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``1``)``, no ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``)``)``, ``# Must contain 1, and not 0 (will pass)`` `` sentinels ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"null"``)``, ``# If not a numeric vector, x can be a NULL sentinel`` `` sorted ``=`` ``"desc"``, ``# Must be sorted in descending order (will fail)`` `` custom ``=`` ``NULL`` ``# Any user-given custom function`` ``)`` `` ``rlang``::`[`exec`](https://rlang.r-lib.org/reference/exec.html)`(``test_integer``, ``x``, ``!``!``!``args``)`` ``#> FALSE (not all tests passed)`
 
 Normally one would call `test_integer(x, ...)`, but I defined the
 arguments first for visualization purposes.
@@ -162,7 +163,7 @@ You can install the development version of predicater from
 [GitHub](https://github.com/predicater) with any of the following
 commands:
 
-`# install.packages(c("pak", "renv", "remotes"))`` ``pak``::`[`pak`](https://pak.r-lib.org/reference/pak.html)`(``"ricardo-semiao/predicater"``)`` ``renv``::`[`install`](https://rstudio.github.io/renv/reference/install.html)`(``"ricardo-semiao/predicater"``)`` ``remotes``::`[`install_github`](https://remotes.r-lib.org/reference/install_github.html)`(``"ricardo-semiao/predicater"``)`
+`# install.packages(c("pak", "renv", "remotes"))`` ``pak``::`[`pak`](https://pak.r-lib.org/reference/pak.html)`(``"ricardo-semiao/predicater"``)`` ``renv``::`[`install`](https://rstudio.github.io/renv/reference/install.html)`(``"ricardo-semiao/predicater"``)`` ``remotes``::``install_github``(``"ricardo-semiao/predicater"``)`
 
 ## Development status
 
@@ -187,6 +188,11 @@ all items in the C data header of R objects, as is the case of
 framework that allows the user to store the results of `test_*()`
 functions and branch from and report them in a more flexible way than
 directly raising an error.
+
+## Links
+
+- [Browse source code](https://github.com/ricardo-semiao/predicater/)
+- [Report a bug](https://github.com/ricardo-semiao/predicater/issues)
 
 ## License
 
@@ -237,7 +243,7 @@ predicater has three main parts:
   [`base::switch()`](https://rdrr.io/r/base/switch.html) but for any
   object, not just strings; and self-contained re-exports of
   [`funs::if_else()`](https://rdrr.io/pkg/funs/man/if_else.html) and
-  [`dplyr::case_when()`](https://dplyr.tidyverse.org/reference/case_when.html).
+  `dplyr::case_when()`.
 
 ## Main contributions to the ecosystem
 
@@ -301,7 +307,7 @@ shared across functions, with a focus on flexibility, and a modern
 reporting of errors. Below is an example for validating an integer-like
 object.
 
-[`library`](https://rdrr.io/r/base/library.html)`(``predicater``)`` `` ``# Object to be validated:`` ``x`` ``<-`` `[`c`](https://rdrr.io/r/base/c.html)`(``1.0``, ``2.0``, ``3.0`` ``+`` ``1e-100``, ``4.0``, ``Inf``)`` `` ``# Defining the sub tests:`` ``args`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`` `` mode ``=`` ``"unbounded"``, ``# Equal to round(x), within a tolerance (will pass)`` `` mode_tol ``=`` `[`sqrt`](https://rdrr.io/r/base/MathFun.html)`(``.Machine``$``double.eps``)``,`` `` len ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``1``, ``10``)``, ``# Length must be between 1 and 10 (will pass)`` `` n_dup ``=`` ``0``, ``# No duplicate values allowed (will pass)`` `` n_nan ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``, ``-``2``)``, ``# At most length(x) - 2 NaN values (will pass)`` `` n_na ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``, ``2``, ``3``)``, ``# 0, 2, or 3 NA values (will pass)`` `` n_inf ``=`` \``(``n``, ``l``)`` ``n``/``l`` ``<=`` ``0.5``, ``# n of Inf <= 50% of total (will pass)`` `` range ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``-``5``, ``+``5``)``, ``# Values between -5 and 5 (will fail)`` `` set ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``yes ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``1``)``, no ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``)``)``, ``# Must contain 1, and not 0 (will pass)`` `` sentinels ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"null"``)``, ``# If not a numeric vector, x can be a NULL sentinel`` `` sorted ``=`` ``"desc"``, ``# Must be sorted in descending order (will fail)`` `` custom ``=`` ``NULL`` ``# Any user-given custom function`` ``)`` `` ``rlang``::`[`exec`](https://rlang.r-lib.org/reference/exec.html)`(``test_integer``, ``x``, ``!``!``!``args``)`` ``#> FALSE (not all tests passed)`
+[`library`](https://rdrr.io/r/base/library.html)`(`[`predicater`](https://github.com/ricardo-semiao/predicater)`)`` `` ``# Object to be validated:`` ``x`` ``<-`` `[`c`](https://rdrr.io/r/base/c.html)`(``1.0``, ``2.0``, ``3.0`` ``+`` ``1e-100``, ``4.0``, ``Inf``)`` `` ``# Defining the sub tests:`` ``args`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`` `` mode ``=`` ``"unbounded"``, ``# Equal to round(x), within a tolerance (will pass)`` `` mode_tol ``=`` `[`sqrt`](https://rdrr.io/r/base/MathFun.html)`(``.Machine``$``double.eps``)``,`` `` len ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``1``, ``10``)``, ``# Length must be between 1 and 10 (will pass)`` `` n_dup ``=`` ``0``, ``# No duplicate values allowed (will pass)`` `` n_nan ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``, ``-``2``)``, ``# At most length(x) - 2 NaN values (will pass)`` `` n_na ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``, ``2``, ``3``)``, ``# 0, 2, or 3 NA values (will pass)`` `` n_inf ``=`` \``(``n``, ``l``)`` ``n``/``l`` ``<=`` ``0.5``, ``# n of Inf <= 50% of total (will pass)`` `` range ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``-``5``, ``+``5``)``, ``# Values between -5 and 5 (will fail)`` `` set ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``yes ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``1``)``, no ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``0``)``)``, ``# Must contain 1, and not 0 (will pass)`` `` sentinels ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"null"``)``, ``# If not a numeric vector, x can be a NULL sentinel`` `` sorted ``=`` ``"desc"``, ``# Must be sorted in descending order (will fail)`` `` custom ``=`` ``NULL`` ``# Any user-given custom function`` ``)`` `` ``rlang``::`[`exec`](https://rlang.r-lib.org/reference/exec.html)`(``test_integer``, ``x``, ``!``!``!``args``)`` ``#> FALSE (not all tests passed)`
 
 Normally one would call `test_integer(x, ...)`, but I defined the
 arguments first for visualization purposes.
@@ -364,7 +370,7 @@ You can install the development version of predicater from
 [GitHub](https://github.com/predicater) with any of the following
 commands:
 
-`# install.packages(c("pak", "renv", "remotes"))`` ``pak``::`[`pak`](https://pak.r-lib.org/reference/pak.html)`(``"ricardo-semiao/predicater"``)`` ``renv``::`[`install`](https://rstudio.github.io/renv/reference/install.html)`(``"ricardo-semiao/predicater"``)`` ``remotes``::`[`install_github`](https://remotes.r-lib.org/reference/install_github.html)`(``"ricardo-semiao/predicater"``)`
+`# install.packages(c("pak", "renv", "remotes"))`` ``pak``::`[`pak`](https://pak.r-lib.org/reference/pak.html)`(``"ricardo-semiao/predicater"``)`` ``renv``::`[`install`](https://rstudio.github.io/renv/reference/install.html)`(``"ricardo-semiao/predicater"``)`` ``remotes``::``install_github``(``"ricardo-semiao/predicater"``)`
 
 ## Development status
 

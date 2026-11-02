@@ -6,7 +6,7 @@
     <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-    <title>Ricardo Semião | CV</title>
+    <title>CV | Ricardo Semião</title>
     <meta name="description" content="Ricardo Semião's curriculum vitae.">
     
     <style>
@@ -83,13 +83,16 @@
             <li class="nav-li">
                 <a href="/">Home</a>
             </li>
-            <li class="nav-li">
+            <li class="nav-li nav-extra">
                 <a href="/blog">Blog</a>
             </li>
             <li class="nav-drop">
                 <button aria-controls="menu-projects" aria-expanded="false"><svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
                     </button>
                 <ul id="menu-personal">
+                    <li class="nav-li nav-extra">
+                        <a href="/blog">Blog</a>
+                    </li>
                     <li class="nav-li">
                         <a href="/cv">CV</a>
                     </li>
@@ -99,20 +102,32 @@
                 </ul>
             </li>
             <li class="nav-drop">
-                <button aria-controls="menu-projects" aria-expanded="false"><svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                <button aria-controls="menu-library" aria-expanded="false"><svg><use href="/assets/img/icons.svg#icon-library"></use></svg>Library
                     </button>
-                <ul id="menu-projects">
+                <ul id="menu-library">
                     <li class="nav-li">
-                        <a href="/tools/predicater">predicater</a>
+                        <a href="/library/rfcd"><svg><use href="/assets/img/icons.svg#icon-book"></use></svg>RFCD</a>
                     </li>
                     <li class="nav-li">
-                        <a href="/tools/hfpca">hfpca</a>
+                        <a href="/library/regime-id-performance"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Masters</a>
                     </li>
                     <li class="nav-li">
-                        <a href="/library/rfcd">RFCD</a>
+                        <a href="/library/covid-svardiff"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Graduation</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-drop">
+                <button aria-controls="menu-tools" aria-expanded="false"><svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+                <ul id="menu-tools">
+                    <li class="nav-li">
+                        <a href="/tools/predicater"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>predicater</a>
                     </li>
                     <li class="nav-li">
-                        <a href="/tools/phyopt">phyopt</a>
+                        <a href="/tools/hfpca"><svg><use href="/assets/img/icons.svg#icon-python"></use></svg>hfpca</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="/tools/phyopt"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>phyopt</a>
                     </li>
                 </ul>
             </li>
@@ -223,7 +238,7 @@
                     Thesis: <a href="https://github.com/ricardo-semiao/article-regime-id-performance">Masters thesis</a> - performance analysis of regime-switching models via Monte Carlo simulations; <a href="https://github.com/ricardo-semiao/article-covid-svardiff">Graduation thesis</a> - SVAR models applied to epidemiology.
                 </li>
                 <li>
-                    My <a href="https://ricardo-semiao.github.io/">personal website</a> built with bare html/scss/js, and <a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/tree/main/dev/dev.py">custom python scripts</a> to orchestrate components, masonry optimization, processing external projects' sites and the quarto blog.
+                    My <a href="https://ricardo-semiao.github.io/">personal website</a> built with bare html/scss/js, and <a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io/tree/main/dev/">custom python scripts</a> to orchestrate components, masonry optimization, processing external projects' sites and the quarto blog.
                 </li>
                 <li>
                     See more on <a href="https://github.com/ricardo-semiao">my Github</a>.
@@ -269,9 +284,14 @@
     </main>
 
     <footer id="rssite-footer">
-    <p>
-        <a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><svg><use href="/assets/img/icons.svg#icon-github"></use></svg> View source-code</a>
-    </p>
+    <div>
+        <p>
+            <a href="#" onclick="openBugReportEmail(); return false;"><svg><use href="/assets/img/icons.svg#icon-bug"></use></svg> Report bug</a>
+        </p>
+        <p>
+            <a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><svg><use href="/assets/img/icons.svg#icon-github"></use></svg> View source-code</a>
+        </p>
+    </div>
 </footer>
     <script src="/assets/global.js"></script>
 </body>

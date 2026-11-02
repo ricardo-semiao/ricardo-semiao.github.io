@@ -8,6 +8,7 @@
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 ## Authors
 
@@ -15,12 +16,16 @@
 
 ## Citation
 
+Source:
+[`DESCRIPTION`](https://github.com/ricardo-semiao/predicater/blob/HEAD/DESCRIPTION)
+
 Semião R (2026). *predicater: Modern and consistent validation for R*. R
-package version 0.0.0.9000.
+package version 0.0.0.9000,
+<https://github.com/ricardo-semiao/predicater>.
 
 @Manual{, title = {predicater: Modern and consistent validation for R},
 author = {Ricardo Semião}, year = {2026}, note = {R package version
-0.0.0.9000}, }
+0.0.0.9000}, url = {https://github.com/ricardo-semiao/predicater}, }
 
 ## On this page
 
@@ -30,9 +35,13 @@ author = {Ricardo Semião}, year = {2026}, note = {R package version
 
 ## Citation
 
+Source:
+[`DESCRIPTION`](https://github.com/ricardo-semiao/predicater/blob/HEAD/DESCRIPTION)
+
 Semião R (2026). *predicater: Modern and consistent validation for R*. R
-package version 0.0.0.9000.
+package version 0.0.0.9000,
+<https://github.com/ricardo-semiao/predicater>.
 
 @Manual{, title = {predicater: Modern and consistent validation for R},
 author = {Ricardo Semião}, year = {2026}, note = {R package version
-0.0.0.9000}, }
+0.0.0.9000}, url = {https://github.com/ricardo-semiao/predicater}, }

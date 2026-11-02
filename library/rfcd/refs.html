@@ -5,7 +5,7 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!-- Meta --><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Referências | R: Fundamentos e Ciência de Dados</title>
+<title>RFCD: Referências | Ricardo Semião</title>
 <link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
 <link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
 <meta content="Ricardo Semião e Castro" name="Author"/>
@@ -58,38 +58,38 @@
 <style>
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 400;
-            src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+            src: url("/assets/fonts/montserrat-v31-latin-regular.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Montserrat';
+            font-family: "Montserrat";
             font-style: normal;
             font-weight: 700;
-            src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+            src: url("/assets/fonts/montserrat-v31-latin-700.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: normal;
             font-weight: 400;
-            src: url('/assets/fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-regular.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: italic;
             font-weight: 400;
-            src: url('/assets/fonts/nunito-sans-v19-latin-italic.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-italic.woff2") format("woff2");
         }
         @font-face {
             font-display: swap;
-            font-family: 'Nunito Sans';
+            font-family: "Nunito Sans";
             font-style: normal;
             font-weight: 700;
-            src: url('/assets/fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+            src: url("/assets/fonts/nunito-sans-v19-latin-700.woff2") format("woff2");
         }
     </style>
 <link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
@@ -107,30 +107,40 @@
 <nav aria-label="Main site navigation">
 <ul>
 <li class="nav-li"><a href="/">Home</a></li>
-<li class="nav-li"><a href="/blog">Blog</a></li>
+<li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
 <li class="nav-drop">
 <button aria-controls="menu-projects" aria-expanded="false">
 <svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
                     </button>
 <ul id="menu-personal">
+<li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
 <li class="nav-li"><a href="/cv">CV</a></li>
 <li class="nav-li"><a href="/gallery">Gallery</a></li>
 </ul>
 </li>
 <li class="nav-drop">
-<button aria-controls="menu-projects" aria-expanded="false">
+<button aria-controls="menu-library" aria-expanded="false">
+<svg><use href="/assets/img/icons.svg#icon-library"></use></svg>Library
+                    </button>
+<ul id="menu-library">
+<li class="nav-li"><a href="/library/rfcd"><svg><use href="/assets/img/icons.svg#icon-book"></use></svg>RFCD</a></li>
+<li class="nav-li"><a href="/library/regime-id-performance"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Masters</a></li>
+<li class="nav-li"><a href="/library/covid-svardiff"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Graduation</a></li>
+</ul>
+</li>
+<li class="nav-drop">
+<button aria-controls="menu-tools" aria-expanded="false">
 <svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
                     </button>
-<ul id="menu-projects">
-<li class="nav-li"><a href="/tools/predicater">predicater</a></li>
-<li class="nav-li"><a href="/tools/hfpca">hfpca</a></li>
-<li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
-<li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+<ul id="menu-tools">
+<li class="nav-li"><a href="/tools/predicater"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>predicater</a></li>
+<li class="nav-li"><a href="/tools/hfpca"><svg><use href="/assets/img/icons.svg#icon-python"></use></svg>hfpca</a></li>
+<li class="nav-li"><a href="/tools/phyopt"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>phyopt</a></li>
 </ul>
 </li>
 </ul>
 </nav>
-</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid" id="rsbookdown-main">
+</header><main class="rssite-rsbookdown" id="rssite-main"><div class="container-fluid">
 <div class="row">
 <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 <div class="d-flex align-items-start justify-content-between">
@@ -148,7 +158,8 @@
 </form>
 <nav aria-label="Table of contents"><h2>Índice</h2>
 <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Bem Vindo(a)!</a></li>
+<li><a class="" href="index.html">R: Fundamentos e Ciência de Dados
+          </a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introdução</a></li>
 <li class="book-part">Parte I - Fundamentos</li>
 <li><a class="" href="intro1.html">Introdução</a></li>
@@ -164,7 +175,7 @@
 <li><a class="" href="tidyr-dplyr.html"><span class="header-section-number">8</span> Dados Tidy</a></li>
 <li class="book-part">Parte III - Programação Geral</li>
 <li><a class="" href="intro3.html">Introdução</a></li>
-<li><a class="" href="ecossistema.html"><span class="header-section-number">9</span> Ecossistema</a></li>
+<li><a class="" href="ecosystem.html"><span class="header-section-number">9</span> Ecossistema</a></li>
 <li><a class="" href="desenvolvimento-de-pacotes.html"><span class="header-section-number">10</span> Desenvolvimento de pacotes</a></li>
 <li class="book-part">Apêndice</li>
 <li><a class="" href="dict.html">Dicionário de funções</a></li>
@@ -257,10 +268,7 @@ Rodrigues, Bruno. <em>Modern <span>R</span> with the tidyverse</em>, 2022. <a hr
 </div>
 </div>
 </div>
-<div class="chapter-nav">
-<div class="prev"><a href="dict.html">Dicionário de funções</a></div>
-<div class="empty"></div>
-</div></main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+</main><!-- Sub Nav --><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
 <nav aria-label="On this page" data-toggle="toc" id="toc"><h2>Nesta página</h2>
 <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#refs">Referências</a></li>
@@ -276,11 +284,16 @@ Rodrigues, Bruno. <em>Modern <span>R</span> with the tidyverse</em>, 2022. <a hr
 </nav>
 </div>
 </div>
-</div></main> <!-- .container -->
-<footer id="rssite-footer"><p>
-            Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>
-            tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.
-        </p>
+</div> <!-- .container -->
+<div class="chapter-nav">
+<div class="prev"><a href="dict.html">Dicionário de funções</a></div>
+<div class="empty"></div>
+</div></main><footer id="rssite-footer"><div>
+<p>
+<a href="#" onclick="openBugReportEmail(); return false;"><svg><use href="/assets/img/icons.svg#icon-bug"></use></svg> Report bug</a>
+</p>
+<p>Livro feito com <a href="https://bookdown.org">bookdown</a><span class="footer-div"></span>tema <a href="https://github.com/ricardo-semiao/ricardo-semiao/tree/main/themes/rsbookdown">rsbookdown</a>.</p>
+</div>
 </footer><button aria-hidden="true" id="back-to-top" onclick="window.scrollTo(0, 0); return false;">
 <span>↑</span> Back to top
     </button><script src="/assets/global.js"></script>

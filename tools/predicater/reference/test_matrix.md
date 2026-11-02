@@ -1,13 +1,14 @@
 # Validation - Matrix and array attributes
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Test if an object has matrix/array-related attributes that pass some
 conditions.
@@ -86,11 +87,12 @@ assert_matrix(
 - names_apply:
 
   \[[`list()`](https://rdrr.io/r/base/list.html) \| `NULL`\] A list of
-  arguments passed to [`test_names()`](test_names.md) to test each
-  dimension's names. For separate tests for each dimension, use a list
-  of formulas, with the LHS being the dimension integer index, and the
-  RHS being the list of arguments to [`test_names()`](test_names.md). An
-  empty list() test for the presence of names.
+  arguments passed to [`test_names()`](reference/test_names.md) to test
+  each dimension's names. For separate tests for each dimension, use a
+  list of formulas, with the LHS being the dimension integer index, and
+  the RHS being the list of arguments to
+  [`test_names()`](reference/test_names.md). An empty list() test for
+  the presence of names.
 
 - how:
 
@@ -315,11 +317,12 @@ assert_matrix(
 - names_apply:
 
   \[[`list()`](https://rdrr.io/r/base/list.html) \| `NULL`\] A list of
-  arguments passed to [`test_names()`](test_names.md) to test each
-  dimension's names. For separate tests for each dimension, use a list
-  of formulas, with the LHS being the dimension integer index, and the
-  RHS being the list of arguments to [`test_names()`](test_names.md). An
-  empty list() test for the presence of names.
+  arguments passed to [`test_names()`](reference/test_names.md) to test
+  each dimension's names. For separate tests for each dimension, use a
+  list of formulas, with the LHS being the dimension integer index, and
+  the RHS being the list of arguments to
+  [`test_names()`](reference/test_names.md). An empty list() test for
+  the presence of names.
 
 - how:
 

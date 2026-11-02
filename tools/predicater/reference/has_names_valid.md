@@ -1,13 +1,14 @@
 # Attribute checks - Names
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Test whether `x` has names with greater flexibility than
 [`rlang::is_named()`](https://rlang.r-lib.org/reference/is_named.html),
@@ -71,7 +72,7 @@ its names.
 
 A `non_collection` is an object that is not an atomic vector, list,
 pairlist, expression, or environment. That is, it returns `FALSE` for
-[`is_collection()`](predicates-collections.md).
+[`is_collection()`](reference/predicates-collections.md).
 
 The `how` methods differ only for environments, with "names" returning
 names and "attr" returning NULL.
@@ -179,7 +180,7 @@ its names.
 
 A `non_collection` is an object that is not an atomic vector, list,
 pairlist, expression, or environment. That is, it returns `FALSE` for
-[`is_collection()`](predicates-collections.md).
+[`is_collection()`](reference/predicates-collections.md).
 
 The `how` methods differ only for environments, with "names" returning
 names and "attr" returning NULL.

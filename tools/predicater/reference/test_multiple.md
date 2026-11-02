@@ -1,13 +1,14 @@
 # Validation - Test for one of multiple types
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 This function checks if `x` passes at least one of a set of tests. `x`
 is allowed to be any type
@@ -15,9 +16,9 @@ is allowed to be any type
 to pass the corresponding test for its type.
 
 For example, if `x` is of type `"integer"`, then it is tested with
-[`test_integer()`](tests-numeric.md). Pass a list of arguments to the
-test function via `...`, with the same argument name as the type. E.g.
-`integer = list(len = 2)`.
+[`test_integer()`](reference/tests-numeric.md). Pass a list of arguments
+to the test function via `...`, with the same argument name as the type.
+E.g. `integer = list(len = 2)`.
 
 ## Usage
 
@@ -73,9 +74,9 @@ is allowed to be any type
 to pass the corresponding test for its type.
 
 For example, if `x` is of type `"integer"`, then it is tested with
-[`test_integer()`](tests-numeric.md). Pass a list of arguments to the
-test function via `...`, with the same argument name as the type. E.g.
-`integer = list(len = 2)`.
+[`test_integer()`](reference/tests-numeric.md). Pass a list of arguments
+to the test function via `...`, with the same argument name as the type.
+E.g. `integer = list(len = 2)`.
 
 ## Usage
 

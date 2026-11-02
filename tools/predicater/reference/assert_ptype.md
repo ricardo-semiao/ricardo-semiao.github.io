@@ -1,16 +1,18 @@
 # Validation - If object is of prototype
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
-This function wraps [`is_ptype()`](is_ptype.md) and aborts with a custom
-message if the check fails. It is useful for testing function arguments.
+This function wraps [`is_ptype()`](reference/is_ptype.md) and aborts
+with a custom message if the check fails. It is useful for testing
+function arguments.
 
 ## Usage
 
@@ -31,7 +33,8 @@ assert_ptype(
 - ptype:
 
   \[`any`\] The prototype to check against. See
-  [`is_ptype()`](is_ptype.md) for details on what is a prototype.
+  [`is_ptype()`](reference/is_ptype.md) for details on what is a
+  prototype.
 
 - ...:
 
@@ -40,7 +43,7 @@ assert_ptype(
 - args_ptype:
 
   \[[`list()`](https://rdrr.io/r/base/list.html)\] Additional arguments
-  to pass to [`is_ptype()`](is_ptype.md).
+  to pass to [`is_ptype()`](reference/is_ptype.md).
 
 - msg:
 
@@ -94,8 +97,9 @@ try({
 
 ## On this page
 
-This function wraps [`is_ptype()`](is_ptype.md) and aborts with a custom
-message if the check fails. It is useful for testing function arguments.
+This function wraps [`is_ptype()`](reference/is_ptype.md) and aborts
+with a custom message if the check fails. It is useful for testing
+function arguments.
 
 ## Usage
 
@@ -116,7 +120,8 @@ assert_ptype(
 - ptype:
 
   \[`any`\] The prototype to check against. See
-  [`is_ptype()`](is_ptype.md) for details on what is a prototype.
+  [`is_ptype()`](reference/is_ptype.md) for details on what is a
+  prototype.
 
 - ...:
 
@@ -125,7 +130,7 @@ assert_ptype(
 - args_ptype:
 
   \[[`list()`](https://rdrr.io/r/base/list.html)\] Additional arguments
-  to pass to [`is_ptype()`](is_ptype.md).
+  to pass to [`is_ptype()`](reference/is_ptype.md).
 
 - msg:
 

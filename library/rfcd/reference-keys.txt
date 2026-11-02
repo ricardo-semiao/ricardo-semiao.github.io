@@ -198,7 +198,7 @@ combine
 across
 groups
 eval_tidy
-ecossistema
+ecosystem
 introduction-1
 the-endeavor
 basics-of-the-r-ecosystem

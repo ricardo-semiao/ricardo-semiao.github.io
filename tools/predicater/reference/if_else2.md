@@ -1,13 +1,14 @@
 # Compare - Vectorized if-else
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 `if_else()` returns a vector filled with elements selected from `true`,
 `false`, and (optionally) `na` based on the value of `condition`. It is

@@ -1,13 +1,14 @@
 # Attribute utilities - Getters and setters
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Functions to get and set names, dimnames, and class of an object, while
 requiring values of a specific 'quality'.

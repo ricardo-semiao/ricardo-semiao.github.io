@@ -1,13 +1,14 @@
 # Type checks - Other types
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Test if object is of a specific type
 ([`typeof()`](https://rdrr.io/r/base/typeof.html)). The test is

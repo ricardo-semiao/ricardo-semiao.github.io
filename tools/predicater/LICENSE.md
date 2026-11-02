@@ -8,6 +8,7 @@
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Copyright (c) 2026 predicater authors
 

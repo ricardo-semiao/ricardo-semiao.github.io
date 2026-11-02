@@ -192,6 +192,10 @@ body #rssite-main {
 #rssite-header a {
   text-decoration: none;
 }
+#rssite-header svg {
+  fill: var(--green);
+  color: var(--green);
+}
 #rssite-header nav {
   flex: 0 0 var(--main-width);
 }
@@ -218,11 +222,11 @@ body #rssite-main {
   display: inline-block;
 }
 #rssite-header nav > ul > li:not(:last-child) {
-  margin-right: 2rem;
+  margin-right: 1.25rem;
 }
 @media (max-width: 700px) {
   #rssite-header nav > ul > li:not(:last-child) {
-    margin-right: 1rem;
+    margin-right: 0.75rem;
   }
 }
 #rssite-header .nav-drop {
@@ -248,6 +252,7 @@ body #rssite-main {
 }
 #rssite-header .nav-drop li {
   padding-left: 0.5rem;
+  min-width: max-content;
 }
 #rssite-header .nav-drop li + li {
   margin-top: 0.5rem;
@@ -255,11 +260,22 @@ body #rssite-main {
 #rssite-header .nav-drop a {
   font-size: 1.1rem;
 }
+#rssite-header .nav-drop .nav-li svg {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
 #rssite-header .nav-drop button {
   display: flex;
   padding: 0.25rem 0.5rem;
   color: var(--green);
   cursor: default;
+}
+@media (max-width: 920px) {
+  #rssite-header .nav-drop {
+    padding: 0.125rem;
+  }
 }
 #rssite-header .nav-drop button::after {
   content: "";
@@ -282,10 +298,10 @@ body #rssite-main {
 #rssite-header .nav-drop button[aria-current=page] svg {
   transform: scale(1.2);
   fill: var(--darkgreen);
+  color: var(--darkgreen);
 }
 #rssite-header .nav-drop button svg {
   display: none;
-  fill: var(--green);
 }
 @media (max-width: 920px) {
   #rssite-header .nav-drop button {
@@ -298,7 +314,22 @@ body #rssite-main {
     width: 1em;
   }
 }
+#rssite-header .nav-drop .nav-extra {
+  display: none;
+}
+#rssite-header .nav-drop .nav-extra + .nav-li {
+  margin-top: 0rem;
+}
 @media (max-width: 360px) {
+  #rssite-header nav ul > .nav-extra {
+    display: none;
+  }
+  #rssite-header .nav-drop .nav-extra {
+    display: inline-block;
+  }
+  #rssite-header .nav-extra + .nav-li {
+    margin-top: 0.25rem;
+  }
   #rssite-header .nav-drop button::after {
     content: none;
   }
@@ -316,11 +347,16 @@ body #rssite-main {
   margin: 0;
   min-width: var(--body-min-width);
 }
-#rssite-footer p {
+#rssite-footer div {
   width: var(--main-width);
   margin: auto;
-  text-align: right;
   color: var(--darkgray);
+  display: flex;
+  justify-content: space-between;
+  flex: none;
+}
+#rssite-footer div > *:only-child {
+  margin-left: auto;
 }
 #rssite-footer a {
   color: var(--darkgray);

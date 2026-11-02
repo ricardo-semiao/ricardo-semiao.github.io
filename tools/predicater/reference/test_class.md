@@ -1,13 +1,14 @@
 # Validation - Class attribute
 
-[predicater](../index.md) 0.0.0.9000
+[predicater](index.md) 0.0.0.9000
 
-- [Reference](../reference/index.md)
-- [Changelog](../news/index.md)
+- [Reference](reference/index.md)
+- [Changelog](news/index.md)
 
 &nbsp;
 
 - 
+- [](https://github.com/ricardo-semiao/predicater/)
 
 Test if an object inherits from specific classes or has a valid class
 vector.
@@ -71,7 +72,7 @@ assert_class(
 - tests_char:
 
   \[`list`\] A list of additional character tests passed to
-  [`test_character()`](test_character.md).
+  [`test_character()`](reference/test_character.md).
 
 - how:
 
@@ -269,7 +270,7 @@ assert_class(
 - tests_char:
 
   \[`list`\] A list of additional character tests passed to
-  [`test_character()`](test_character.md).
+  [`test_character()`](reference/test_character.md).
 
 - how:
 
