@@ -75,7 +75,28 @@ gallery:
     assets_compile: {subsource: module, type: "css"}
     assets_move: {subsource: module, exclude: "\\.(scss|html)"}
 
-# External projects:
+# Library:
+rfcd:
+  source: _site/library/rfcd
+  target: _site/library/rfcd
+  steps:
+    fetch_external_data: rfcd
+    inject_project: rsbookdown
+    assets_remove: pkg/bookdown
+covid-svardiff:
+  source: src/covid-svardiff
+  target: _site/library/covid-svardiff
+  steps:
+    inject_template: {}
+    assets_move: {exclude: "\\.(html)"}
+regime-id-performance:
+  source: src/regime-id-performance
+  target: _site/library/regime-id-performance
+  steps:
+    inject_template: {}
+    assets_move: {exclude: "\\.(html)"}
+
+# Tools:
 predicater:
   source: _site/tools/predicater
   target: _site/tools/predicater
@@ -88,13 +109,6 @@ hfpca:
   target: _site/tools/hfpca
   steps:
     fetch_external_data: hfpca
-rfcd:
-  source: _site/library/rfcd
-  target: _site/library/rfcd
-  steps:
-    fetch_external_data: rfcd
-    inject_project: rsbookdown
-    assets_remove: pkg/bookdown
 phyopt:
   source: _site/tools/phyopt
   target: _site/tools/phyopt

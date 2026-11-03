@@ -204,7 +204,7 @@ def get_lastmod(path: Path) -> str:
     if not path.is_file():
         raise Exception(f"Path {path} is not a file.")
     
-    lastmod = None
+    lastmod_dt = None
 
     # External projects:
     for parent in path.parents:
@@ -212,44 +212,48 @@ def get_lastmod(path: Path) -> str:
             config_path = Path(parent, config_file)
             if config_path.is_file():
                 with open(config_path, "r", encoding="utf-8") as file:
-                    lastmod = yaml_load(file)["last_built"]
+                    raw_val = yaml_load(file).get("last_built")
+                    if raw_val:
+                        # Parse whatever format external config provides into a datetime object
+                        lastmod_dt = datetime.fromisoformat(str(raw_val).replace("Z", "+00:00"))
     
-    if lastmod:
-        return lastmod
+    if not lastmod_dt:
+        # Blog:
+        parts = path.parts
+        if "blog" in parts and "index.html" not in parts:
+            post_file = Path("src", *parts[1:-1], path.stem + ".qmd")
+            lastmod_str = str(get_frontmatter(post_file)["date-modified"])
+            try:
+                # Handle formats like "Day Month Year" or standard strings
+                day, month, year = lastmod_str.split(" ")
+                lastmod_dt = datetime(int(year), int(month), int(day)).astimezone()
+            except Exception:
+                # Fallback parser if frontmatter format varies
+                lastmod_dt = datetime.fromisoformat(lastmod_str.replace("Z", "+00:00"))
 
-    # Blog:
-    parts =  path.parts
+    if not lastmod_dt:
+        # Local projects (Git log):
+        src_dir = {
+            Path("/index.html"): Path("src/index"),
+            Path("/cv/index.html"): Path("src/cv"),
+            Path("/blog/index.html"): Path("src/blog")
+        }.get(path)
 
-    if "blog" in parts and "index.html" not in parts:
-        post_file = Path("src", *parts[1:-1], path.stem + ".qmd")
-        lastmod_str = str(get_frontmatter(post_file)["date-modified"])
-        day, month, year = lastmod_str.split(" ")
-        lastmod = f"{year}-{month.zfill(2)}-{day.zfill(2)}"
+        if src_dir:
+            run_out = run(
+                "git", "log", "-1", "--format='%aI'", f"-- {src_dir}",
+                capture_output = True, text = True
+            )
+            git_date = run_out.stdout.strip().strip("'")
+            if git_date:
+                lastmod_dt = datetime.fromisoformat(git_date)
 
-    if lastmod:
-        return lastmod
+    # Fallback - current time if nothing else matched:
+    if not lastmod_dt:
+        lastmod_dt = datetime.now().astimezone()
 
-    # Local projects:
-    src_dir = {
-        Path("/index.html"): Path("src/index"),
-        Path("/cv/index.html"): Path("src/cv"),
-        Path("/blog/index.html"): Path("src/blog")
-    }.get(path)
-
-    if src_dir:
-        run_out = run(
-            "git", "log", "-1", "--format='%aI'", f"-- {src_dir}",
-            capture_output = True, text = True
-        )
-        lastmod = run_out.stdout.strip() # Todo: format to iso
-
-    if lastmod:
-        return lastmod
-    
-    # Fallbadck - current time:
-    lastmod = datetime.now().astimezone().isoformat(timespec="seconds").replace("+00:00", "Z")
-
-    return lastmod
+    # Standardize output format: YYYY-MM-DDTHH:MM:SS±HH:MM (Standard W3C / ISO 8601)
+    return lastmod_dt.isoformat(timespec="seconds")
 
 
 

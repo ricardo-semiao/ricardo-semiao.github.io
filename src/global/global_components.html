@@ -64,25 +64,35 @@
         <nav aria-label="Main site navigation">
             <ul>
                 <li class="nav-li"><a href="/">Home</a></li>
-                <li class="nav-li"><a href="/blog">Blog</a></li>
+                <li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
                 <li class="nav-drop">
                     <button aria-controls="menu-projects" aria-expanded="false">
                         <svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
                     </button>
                     <ul id="menu-personal">
+                        <li class="nav-li nav-extra"><a href="/blog">Blog</a></li>
                         <li class="nav-li"><a href="/cv">CV</a></li>
                         <li class="nav-li"><a href="/gallery">Gallery</a></li>
                     </ul>
                 </li>
                 <li class="nav-drop">
-                    <button aria-controls="menu-projects" aria-expanded="false">
+                    <button aria-controls="menu-library" aria-expanded="false">
+                        <svg><use href="/assets/img/icons.svg#icon-library"></use></svg>Library
+                    </button>
+                    <ul id="menu-library">
+                        <li class="nav-li"><a href="/library/rfcd"><svg><use href="/assets/img/icons.svg#icon-book"></use></svg>RFCD</a></li>
+                        <li class="nav-li"><a href="/library/regime-id-performance"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Masters</a></li>
+                        <li class="nav-li"><a href="/library/covid-svardiff"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Graduation</a></li>
+                    </ul>
+                </li>
+                <li class="nav-drop">
+                    <button aria-controls="menu-tools" aria-expanded="false">
                         <svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
                     </button>
-                    <ul id="menu-projects">
-                        <li class="nav-li"><a href="/tools/predicater">predicater</a></li>
-                        <li class="nav-li"><a href="/tools/hfpca">hfpca</a></li>
-                        <li class="nav-li"><a href="/library/rfcd">RFCD</a></li>
-                        <li class="nav-li"><a href="/tools/phyopt">phyopt</a></li>
+                    <ul id="menu-tools">
+                        <li class="nav-li"><a href="/tools/predicater"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>predicater</a></li>
+                        <li class="nav-li"><a href="/tools/hfpca"><svg><use href="/assets/img/icons.svg#icon-python"></use></svg>hfpca</a></li>
+                        <li class="nav-li"><a href="/tools/phyopt"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>phyopt</a></li>
                     </ul>
                 </li>
             </ul>

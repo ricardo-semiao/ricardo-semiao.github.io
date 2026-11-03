@@ -6,7 +6,7 @@
 inject_project:
   rsbookdown:
     components: {
-      rsbookdown-site-main: {position: "wrap", selector: "#rsbookdown-main"},
+      #rsbookdown-site-main: {position: "wrap", selector: "#rsbookdown-main"},
       site-header: {position: "before", selector: "#rssite-main"},
       site-scripts: {position: "after", selector: "#back-to-top"},
       rssite-external: {position: "addclass", selector: "body"}
@@ -14,7 +14,7 @@ inject_project:
   rspkgdown:
     components: {
       #rspkgdown-meta: {position: "append", selector: "head"},
-      rspkgdown-site-main: {position: "wrap", selector: "#rspkgdown-main"},
+      #rspkgdown-site-main: {position: "wrap", selector: "#rspkgdown-main"},
       site-header: {position: "before", selector: "#rssite-main"},
       site-scripts: {position: "after", selector: "#back-to-top"},
       rssite-external: {position: "addclass", selector: "body"}
@@ -80,7 +80,7 @@ fetch_external_data:
       folder: docs
     local: PATH_LOCAL_MTSDESC
     target: _site/tools/mtsdesc
-    update_required: false
+    update_required: true
     use_remote: false
   morphdown:
     remote:
@@ -89,13 +89,13 @@ fetch_external_data:
       folder: docs
     local: PATH_LOCAL_MORPHDOWN
     target: _site/tools/morphdown
-    update_required: false
+    update_required: true
     use_remote: false
 
 build_sitemap:
   sitemap: {
     root_url: "https://ricardo-semiao.github.io",
-    exclude: "(404|LICENSE.*|authors)\\.html",
+    exclude: "(404|LICENSE.*|authors|google.{16})\\.html",
     sep_external: false,
     external: [library/rfcd, tools/phyopt, tools/mtsdesc],
     priority: {

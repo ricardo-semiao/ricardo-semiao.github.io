@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    @@site-charset-viewport@@
+
+    <title>semiao-covid-svardiff | Ricardo Semião</title>
+    <!-- TODO: <meta name="description" content=""> -->
+
+    @@site-style@@
+
+    @@site-social@@
+    <meta property="og:image" content="/index/profile_picture.jpg">
+    <!-- TODO: context -->
+
+    <script data-goatcounter="https://ricardo-semiao.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    
+    <style>
+        #pdf {
+            width: max(var(--main-width), 85%);
+        }
+        #pdf iframe {
+            height: 95dvh;
+            width: 100%;
+        }
+        ul {
+            list-style-position: inside;
+        }
+    </style>
+</head>
+
+
+<body class="rssite-local">
+    @@site-header@@
+
+    <main id="rssite-main">
+        <div id="titlecard">
+            <h1>Efeito Agregado das Vacinas do COVID-19 no Brasil, uma metodologia SVAR</h1>
+        </div>
+
+        <section>
+            Here you can view the portuguese PDF for my graduation thesis
+            <p>This is the thesis for my 2023 Bachelors' in Economics for FGV-EESP. See:</p>
+            <ul>
+                <li>The <a href="https://github.com/ricardo-semiao/article-covid-svardiff">GitHub repo</a> with the code.</li>
+                <li>The PDF below or in <a href="semiao-covid-svardiff.pdf" target="_blank" rel="noopener noreferrer">a dedicated tab</a>.</li>
+            </ul>
+        </section>
+    
+        <section id="pdf">
+            <iframe src="semiao-covid-svardiff.pdf#view=FitH" width="100%" height="800px" style="border: none;">
+                <p>Your browser does not support PDFs. <a href="semiao-covid-svardiff.pdf">Download the PDF</a>.</p>
+            </iframe>
+        </section>
+    </main>
+
+    @@site-footer@@
+    @@site-scripts@@
+</body>
+
+
+</html>

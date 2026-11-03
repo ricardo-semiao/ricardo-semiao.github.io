@@ -76,6 +76,10 @@ body {
     a {
         text-decoration: none; // Just for robustness
     }
+    svg {
+        fill: var(--green);
+        color: var(--green);
+    }
 
     // Header children:
     nav {
@@ -103,9 +107,9 @@ body {
             display: inline-block;
         }
         & > li:not(:last-child) {
-            margin-right: 2rem;
+            margin-right: 1.25rem;
             @media (max-width: $media-width-md) {
-                margin-right: 1rem;
+                margin-right: 0.75rem;
             }   
         }
     }
@@ -135,6 +139,7 @@ body {
 
         li {
             padding-left: 0.5rem;
+            min-width: max-content; // To fit svgs
         }
         li + li {
             margin-top: 0.5rem;
@@ -142,12 +147,22 @@ body {
         a {
             font-size: 1.1rem;
         }
+        .nav-li svg {
+            width: 1rem;
+            height: 1rem;
+            // vertical-align: middle;
+            display: inline-block;
+            margin-right: 0.25rem;
+        }
 
         button {
             display: flex;
             padding: 0.25rem 0.5rem;
             color: var(--green);
             cursor: default; // Could be changed in some external projects
+        }
+        @media (max-width: $media-width-lg) {
+            padding: 0.125rem;
         }
         button::after {
             content: "";
@@ -175,6 +190,7 @@ body {
     .nav-drop button[aria-current="page"] svg {
         transform: scale(1.2);
         fill: var(--darkgreen);
+        color: var(--darkgreen);
     }
 
 
@@ -182,7 +198,6 @@ body {
     .nav-drop button {
         svg {
             display: none; // Hidden by default
-            fill: var(--green);
         }
         @media (max-width: $media-width-lg) {
             color: transparent; // Hide the text
@@ -196,7 +211,24 @@ body {
     }
 
     // Small screens: These should guarantee no wrapping before 16rem
+    .nav-drop .nav-extra { // In large screens, extra items appear as first level
+        display: none;
+    }   
+    .nav-drop .nav-extra + .nav-li {
+        margin-top: 0rem;
+    }
     @media (max-width: $media-width-sm) {
+        // Switch the extra items to the dropdown menu:
+        nav ul > .nav-extra {
+            display: none;
+        }
+        .nav-drop .nav-extra {
+            display: inline-block;
+        }
+        .nav-extra + .nav-li {
+            margin-top: 0.25rem;
+        }
+
         .nav-drop button::after {
             content: none; // Hide the hamburger
         }
@@ -224,7 +256,13 @@ body {
         margin: auto;
         color: var(--darkgray);
         display: flex;
-        justify-content: space-between
+        justify-content: space-between;
+        flex: none; // Reset boostrap flex // CHECK: should go to rspkgdown instead?
+    }
+
+    // If only one child, flush it right:
+    div > *:only-child {
+        margin-left: auto;
     }
 
     a {

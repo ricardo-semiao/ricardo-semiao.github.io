@@ -3,6 +3,7 @@
 
 # File operations:
 from pathlib import Path
+from urllib.parse import urljoin
 from shutil import rmtree
 
 # HTML and XML parsing:
@@ -103,13 +104,19 @@ def build_sitemap_urlset(args: dict[str, Any], sep_external: bool = False) -> ET
             html_pages.append(Path(external_path, "index.html"))
 
     for page in html_pages:
-        url = Path(root_url, page)
-        if url.name == "index.html":
-            url = Path(*url.parts[:-1])
+        # Convert page path to string and clean up if it's an index page
+        page_str = page.as_posix()
+        if page.name == "index.html":
+            # Strip index.html and ensure a trailing slash for directory roots
+            parent_dir = page.parent.as_posix()
+            page_str = "" if parent_dir == "." else parent_dir + "/"
+        
+        # Properly join root URL and page path using urljoin
+        url = urljoin(root_url.rstrip("/") + "/", page_str)
 
         # Build url element
         url_el = ET.SubElement(urlset, "url")
-        ET.SubElement(url_el, "loc").text = str(url.as_posix())
+        ET.SubElement(url_el, "loc").text = url
         ET.SubElement(url_el, "lastmod").text = get_lastmod(Path("_site", page))
 
         # Add optional hints from args with sensible defaults
