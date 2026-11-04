@@ -126,6 +126,16 @@ a:hover, a:active, a:focus {
   text-align: center;
   text-wrap: pretty;
 }
+.rssite-local > #rssite-main #pdf-viewer {
+  width: max(var(--main-width), 85%);
+}
+.rssite-local > #rssite-main #pdf-viewer iframe {
+  height: 95dvh;
+  width: 100%;
+}
+.rssite-local > #rssite-main #pdf-description ul {
+  list-style-position: inside;
+}
 
 body {
   --main-width: min(65%, 80rem);
@@ -258,11 +268,12 @@ body #rssite-main {
   margin-top: 0.5rem;
 }
 #rssite-header .nav-drop a {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 #rssite-header .nav-drop .nav-li svg {
-  width: 1rem;
-  height: 1rem;
+  width: 0.9em;
+  height: 0.9em;
+  vertical-align: bottom;
   display: inline-block;
   margin-right: 0.25rem;
 }
@@ -271,11 +282,6 @@ body #rssite-main {
   padding: 0.25rem 0.5rem;
   color: var(--green);
   cursor: default;
-}
-@media (max-width: 920px) {
-  #rssite-header .nav-drop {
-    padding: 0.125rem;
-  }
 }
 #rssite-header .nav-drop button::after {
   content: "";

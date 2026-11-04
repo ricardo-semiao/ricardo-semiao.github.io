@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <title>Replication: Predictive Conditional Betas | Ricardo Semião</title>
+    <!-- TODO: <meta name="description" content=""> -->
+
+    <style>
+        @font-face {
+            font-display: swap;
+            font-family: "Montserrat";
+            font-style: normal;
+            font-weight: 400;
+            src: url("/assets/fonts/montserrat-v31-latin-regular.woff2") format("woff2");
+        }
+        @font-face {
+            font-display: swap;
+            font-family: "Montserrat";
+            font-style: normal;
+            font-weight: 700;
+            src: url("/assets/fonts/montserrat-v31-latin-700.woff2") format("woff2");
+        }
+        @font-face {
+            font-display: swap;
+            font-family: "Nunito Sans";
+            font-style: normal;
+            font-weight: 400;
+            src: url("/assets/fonts/nunito-sans-v19-latin-regular.woff2") format("woff2");
+        }
+        @font-face {
+            font-display: swap;
+            font-family: "Nunito Sans";
+            font-style: italic;
+            font-weight: 400;
+            src: url("/assets/fonts/nunito-sans-v19-latin-italic.woff2") format("woff2");
+        }
+        @font-face {
+            font-display: swap;
+            font-family: "Nunito Sans";
+            font-style: normal;
+            font-weight: 700;
+            src: url("/assets/fonts/nunito-sans-v19-latin-700.woff2") format("woff2");
+        }
+    </style>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/montserrat-v31-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/nunito-sans-v19-latin-italic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/global.css" rel="stylesheet"/>
+
+    <link href="/assets/img/icon.webp" rel="icon" type="image/png"/>
+<link href="/assets/img/icon.webp" rel="shortcut icon" type="image/png"/>
+<meta content="Ricardo Semião e Castro" name="Author"/>
+    <meta property="og:image" content="/index/profile_picture.jpg">
+    <!-- TODO: context -->
+
+    <script data-goatcounter="https://ricardo-semiao.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+
+
+<body class="rssite-local">
+    <header id="rssite-header">
+    <nav aria-label="Main site navigation">
+        <ul>
+            <li class="nav-li">
+                <a href="/">Home</a>
+            </li>
+            <li class="nav-li nav-extra">
+                <a href="/blog">Blog</a>
+            </li>
+            <li class="nav-drop">
+                <button aria-controls="menu-projects" aria-expanded="false"><svg><use href="/assets/img/icons.svg#icon-user"></use></svg>Personal
+                    </button>
+                <ul id="menu-personal">
+                    <li class="nav-li nav-extra">
+                        <a href="/blog">Blog</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="/cv">CV</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="/gallery">Gallery</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-drop">
+                <button aria-controls="menu-library" aria-expanded="false"><svg><use href="/assets/img/icons.svg#icon-library"></use></svg>Library
+                    </button>
+                <ul id="menu-library">
+                    <li class="nav-li">
+                        <a href="/library/rfcd"><svg><use href="/assets/img/icons.svg#icon-book"></use></svg>RFCD</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="/library/regime-id-performance"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Masters</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="/library/predictive-conditional-alphas"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Corradi et al. 2013</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="/library/covid-svardiff"><svg><use href="/assets/img/icons.svg#icon-paper"></use></svg>Graduation</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-drop">
+                <button aria-controls="menu-tools" aria-expanded="false"><svg><use href="/assets/img/icons.svg#icon-project"></use></svg>Projects
+                    </button>
+                <ul id="menu-tools">
+                    <li class="nav-li">
+                        <a href="/tools/predicater"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>predicater</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="/tools/hfpca"><svg><use href="/assets/img/icons.svg#icon-python"></use></svg>hfpca</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="/tools/phyopt"><svg><use href="/assets/img/icons.svg#icon-r"></use></svg>phyopt</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main id="rssite-main">
+        <div id="titlecard">
+            <h1>Predictive Conditional Betas<br>Corradi et al. 2013</h1>
+        </div>
+
+        <section id="pdf-description">
+            <p>This is the replication report of my research assistantship for the paper "Predictive Conditional Betas" by Corradi et al. 2013. See:</p>
+            <ul>
+                <li>The 2013 version of <a href="https://hdl.handle.net/10438/11330">the paper</a>.</li>
+                <li>The <a href="https://github.com/ricardo-semiao/corradi-predictive-conditional-alphas">GitHub repo</a> with the code.</li>
+                <li>The PDF below or in <a href="replication-corradi-2013.pdf" target="_blank" rel="noopener noreferrer">a dedicated tab</a>.</li>
+            </ul>
+        </section>
+    
+        <section id="pdf-viewer">
+            <iframe src="replication-corradi-2013.pdf" width="100%" height="800px" style="border: none;">
+                <p>Your browser does not support PDFs. <a href="replication-corradi-2013.pdf">Download the PDF</a>.</p>
+            </iframe>
+        </section>
+    </main>
+
+    <footer id="rssite-footer">
+    <div>
+        <p>
+            <a href="#" onclick="openBugReportEmail(); return false;"><svg><use href="/assets/img/icons.svg#icon-bug"></use></svg> Report bug</a>
+        </p>
+        <p>
+            <a href="https://github.com/ricardo-semiao/ricardo-semiao.github.io"><svg><use href="/assets/img/icons.svg#icon-github"></use></svg> View source-code</a>
+        </p>
+    </div>
+</footer>
+    <script src="/assets/global.js"></script>
+</body>
+
+
+</html>
