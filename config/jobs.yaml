@@ -83,6 +83,12 @@ rfcd:
     fetch_external_data: rfcd
     inject_project: rsbookdown
     assets_remove: pkg/bookdown
+predictive-conditional-alphas:
+  source: src/predictive-conditional-alphas
+  target: _site/library/predictive-conditional-alphas
+  steps:
+    inject_template: {}
+    assets_move: {exclude: "\\.(html)"}
 covid-svardiff:
   source: src/covid-svardiff
   target: _site/library/covid-svardiff

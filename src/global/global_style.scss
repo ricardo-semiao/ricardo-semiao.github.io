@@ -174,5 +174,20 @@ a:hover, a:active, a:focus {
         margin: 0 auto;
         text-align: center;
         text-wrap: pretty;
+        @media (max-width: $media-width-sm) {
+            font-size: 1.3rem;
+        }
+    }
+
+    // PDF pages:
+    #pdf-viewer {
+        width: max(var(--main-width), 85%);
+    }
+    #pdf-viewer iframe {
+        height: 95dvh;
+        width: 100%;
+    }
+    #pdf-description ul {
+        list-style-position: inside;
     }
 }

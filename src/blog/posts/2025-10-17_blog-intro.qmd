@@ -68,7 +68,7 @@ Below, one of the best moments as a scout: going up Mount Fuji in the 2015 World
 ![The view from Mount Fuji](../img/fuji.webp){imgfig-alt="The view from Mount Fuji."}
 
 
-## Graduation
+## Bachelor
 
 I liked many subjects in high school; I just wanted to be a teacher in any of them. I ended up starting my undergrad in Economics at FGV-EESP in 2019. I learned to love the formality and rigor of economics and academic knowledge as a whole. I started enjoying studying more (pfft, nerd 🤭).
 
@@ -82,7 +82,7 @@ In 2020, the COVID pandemic hit. But on a good note, I joined GVCode, the data s
 
 Also around 2020, I started learning R, and soon began answering questions on Stack Overflow. All the courses were very applied, and I wanted to dig deeper into how things worked. I started reading some books, curating, translating, and turned that material into my own book: [R: Fundamentos e Ciência de Dados](https://ricardo-semiao.github.io/library/rfcd/). It is still under construction, but I am very proud of it. It is authorial, but inspired by existing literature. It is available in the navbar above. This material was used in teaching assistantships and as a semester-long course for GVCode members.
 
-Further in my graduation, I was also a teaching assistant for Econometrics, and a research assistant for Professor Jéferson Colombo, building an [R Shiny app](https://github.com/mevaldt/diversified_crypto) for crypto portfolio optimization and analysis, with Ripple funding.
+Further in my Bachelor, I was also a teaching assistant for Econometrics, and a research assistant for Professor Jéferson Colombo, building an [R Shiny app](https://github.com/mevaldt/diversified_crypto) for crypto portfolio optimization and analysis, with Ripple funding.
 
 After the pandemic ended, I got to enjoy a little more of university life. Don't tell my FGV compatriots, but I went to the best university games, BIFE from USP, disguised as a philosophy student, and had a blast.
 
